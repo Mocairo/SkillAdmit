@@ -1,0 +1,32 @@
+{
+  "task_id": "hard_v4_agent_023",
+  "family": "python_coding_agent_downstream_hard_v4",
+  "template": "T6_plugin_registry_namespace",
+  "instruction": "Fix the plugin registry import without adding a top-level registry package.",
+  "failing_command": "python -m pytest -q",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ModuleNotFoundError: No module named 'providers'",
+  "downstream_gold_skill": "Repair Package-Internal Bare Imports",
+  "visible_files": [
+    "tests/test_plugins.py",
+    "platform_gamma/main.py"
+  ],
+  "gold_like_edits": [
+    {
+      "path": "platform_gamma/main.py",
+      "content": "from .providers.loader import load_plugin\n\nPLUGIN_MARKER = \"hard-v4-plugin-registry-23\"\n\ndef resolve_plugin():\n    return load_plugin(\"gamma\")\n\ndef preserve_marker():\n    return PLUGIN_MARKER\n"
+    }
+  ],
+  "forced_bad_artifact_edits": [
+    {
+      "path": "providers/__init__.py",
+      "content": ""
+    },
+    {
+      "path": "providers/loader.py",
+      "content": "def load_plugin(name):\n    if name == \"gamma\":\n        return \"plugin-gamma\"\n    raise KeyError(name)\n"
+    }
+  ],
+  "forced_bad_artifact_name": "Apply a public-passing masking repair instead of the intended repo-aware fix.",
+  "file_context_note": "Hard v4 is a fresh downstream boundary. Visible files are the files a coding agent is likely to inspect first, but hidden verification rejects public-test masking repairs such as stubs, copied configs, copied resources, top-level compatibility packages, or script-only fixes that break package semantics."
+}

@@ -891,7 +891,7 @@ scripts/export_paper_artifacts_index.py --assert-current-artifacts-index
 Current export:
 
 ```text
-artifact_groups: 7
+artifact_groups: 8
 table_index: 5
 claim_map: 10
 forced_bad_total_tasks: 85
@@ -916,33 +916,44 @@ Protocol and scripts:
 docs/llm_downstream_hard_v4.md
 scripts/build_downstream_hard_v4_tasks.py
 scripts/check_downstream_hard_v4_tasks.py
+scripts/export_hard_v4_scaffold_manifest.py
 ```
 
 Current deterministic scaffold validation:
 
 ```text
+tasks_dir: benchmark/downstream_hard_v4/tasks/
 tasks: 24
 templates: 6
 variants_per_template: 4
+files: 244
 initial_failed: 24/24
 gold_passed: 24/24
 forced_public_passed: 24/24
 forced_verifier_failed: 24/24
 ```
 
+Scaffold manifest:
+
+```text
+benchmark/downstream/reports/hard_v4_scaffold_manifest.json
+benchmark/downstream/reports/hard_v4_scaffold_manifest.md
+benchmark/downstream/reports/hard_v4_scaffold_manifest.tex
+```
+
 Interpretation:
 
 ```text
-This only proves that the hard_v4 scaffold is mechanically valid. It does not
-create a new downstream model result and should not be cited as evidence that
-SkillAdmit helps on hard_v4.
+This only proves that the hard_v4 scaffold is mechanically valid, generated,
+and hashable. It does not create a new downstream model result and should not
+be cited as evidence that SkillAdmit helps on hard_v4.
 ```
 
 Next experimental step:
 
 ```text
-If continuing experimentally, explicitly freeze the generated hard_v4 task
-directory first, then run a no-tuning LLM strategy matrix or model-transfer
-replication. Do not inspect hard_v4 failures and tune prompts while preserving
-hard_v4 as clean evidence.
+If continuing experimentally, commit or otherwise explicitly freeze the
+generated hard_v4 task directory and manifest first, then run a no-tuning LLM
+strategy matrix or model-transfer replication. Do not inspect hard_v4 failures
+and tune prompts while preserving hard_v4 as clean evidence.
 ```

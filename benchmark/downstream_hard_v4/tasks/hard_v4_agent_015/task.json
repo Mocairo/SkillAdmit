@@ -1,0 +1,29 @@
+{
+  "task_id": "hard_v4_agent_015",
+  "family": "python_coding_agent_downstream_hard_v4",
+  "template": "T4_workspace_config_resolution",
+  "instruction": "Fix config loading without copying config files into the worker directory.",
+  "failing_command": "cd worker_gamma && python job.py",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "FileNotFoundError: config/runtime_gamma.json",
+  "downstream_gold_skill": "Repair CWD-Sensitive File Paths",
+  "visible_files": [
+    "tests/test_job.py",
+    "worker_gamma/settings.py",
+    "worker_gamma/job.py"
+  ],
+  "gold_like_edits": [
+    {
+      "path": "worker_gamma/settings.py",
+      "content": "import json\nfrom pathlib import Path\n\nCONFIG_MARKER = \"hard-v4-workspace-config-15\"\n\ndef load_region():\n    repo_root = Path(__file__).resolve().parents[1]\n    data = json.loads((repo_root / \"config\" / \"runtime_gamma.json\").read_text(encoding=\"utf-8\"))\n    return data[\"region\"]\n\ndef preserve_marker():\n    return CONFIG_MARKER\n"
+    }
+  ],
+  "forced_bad_artifact_edits": [
+    {
+      "path": "worker_gamma/config/runtime_gamma.json",
+      "content": "{\n  \"region\": \"ap-gamma\"\n}\n"
+    }
+  ],
+  "forced_bad_artifact_name": "Apply a public-passing masking repair instead of the intended repo-aware fix.",
+  "file_context_note": "Hard v4 is a fresh downstream boundary. Visible files are the files a coding agent is likely to inspect first, but hidden verification rejects public-test masking repairs such as stubs, copied configs, copied resources, top-level compatibility packages, or script-only fixes that break package semantics."
+}

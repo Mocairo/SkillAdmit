@@ -1,0 +1,29 @@
+{
+  "task_id": "hard_v4_agent_017",
+  "family": "python_coding_agent_downstream_hard_v4",
+  "template": "T5_resource_template_resolution",
+  "instruction": "Fix template loading without copying resources into the command working directory.",
+  "failing_command": "cd notice_alpha && python preview.py Ada",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "FileNotFoundError: resources/templates/notice_alpha.txt",
+  "downstream_gold_skill": "Repair CWD-Sensitive File Paths",
+  "visible_files": [
+    "tests/test_preview.py",
+    "notice_alpha/render.py",
+    "notice_alpha/preview.py"
+  ],
+  "gold_like_edits": [
+    {
+      "path": "notice_alpha/render.py",
+      "content": "from pathlib import Path\n\nTEMPLATE_MARKER = \"hard-v4-resource-template-17\"\n\ndef render_notice(name):\n    repo_root = Path(__file__).resolve().parents[1]\n    template = (repo_root / \"resources\" / \"templates\" / \"notice_alpha.txt\").read_text(encoding=\"utf-8\").strip()\n    return template.replace(\"{name}\", name)\n\ndef preserve_marker():\n    return TEMPLATE_MARKER\n"
+    }
+  ],
+  "forced_bad_artifact_edits": [
+    {
+      "path": "notice_alpha/resources/templates/notice_alpha.txt",
+      "content": "notice-alpha:{name}\n"
+    }
+  ],
+  "forced_bad_artifact_name": "Apply a public-passing masking repair instead of the intended repo-aware fix.",
+  "file_context_note": "Hard v4 is a fresh downstream boundary. Visible files are the files a coding agent is likely to inspect first, but hidden verification rejects public-test masking repairs such as stubs, copied configs, copied resources, top-level compatibility packages, or script-only fixes that break package semantics."
+}

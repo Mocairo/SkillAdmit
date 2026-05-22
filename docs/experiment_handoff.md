@@ -1554,7 +1554,7 @@ PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
 Current index:
 
 ```text
-artifact_groups: 7
+artifact_groups: 8
 table_index: 5
 claim_map: 10
 forced_bad_total_tasks: 85
@@ -1581,34 +1581,40 @@ Scripts:
 ```text
 scripts/build_downstream_hard_v4_tasks.py
 scripts/check_downstream_hard_v4_tasks.py
+scripts/export_hard_v4_scaffold_manifest.py
 ```
 
 Current deterministic scaffold:
 
 ```text
+tasks_dir: benchmark/downstream_hard_v4/tasks/
 24 tasks = 6 templates x 4 variants
+244 files
 initial_failed: 24/24
 gold_passed: 24/24
 forced_public_passed: 24/24
 forced_verifier_failed: 24/24
 ```
 
-This validation was run against a temporary directory:
+Manifest:
 
 ```text
-/tmp/skilladmit_hard_v4_tasks
+benchmark/downstream/reports/hard_v4_scaffold_manifest.json
+benchmark/downstream/reports/hard_v4_scaffold_manifest.md
+benchmark/downstream/reports/hard_v4_scaffold_manifest.tex
 ```
 
-The generated task directory has not been committed yet. This is deliberate:
-hard_v4 should be explicitly frozen before any LLM API run and before its task
-files are treated as paper-facing evidence.
+The generated task directory is now present in the repo workspace and has a
+hashable scaffold manifest. This is still only a freeze-ready scaffold record,
+not LLM downstream evidence.
 
 Boundary:
 
 ```text
 Do not tune hard_v2 or hard_v3 further.
 Do not claim hard_v4 evidence yet.
-Do not run hard_v4 LLM API until the generated task boundary is intentionally frozen.
+Do not run hard_v4 LLM API until this generated task boundary is committed or
+otherwise explicitly frozen.
 ```
 
 ## 19. Rule for Future Work

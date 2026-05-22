@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-22T14:38:56.863715+00:00",
+  "generated_at_utc": "2026-05-22T15:03:52.770846+00:00",
   "purpose": "One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the correct evidence, table, script, and claim boundary for downstream validation writing.",
   "source_inputs": [
     {
@@ -57,6 +57,14 @@
       "sha256": "12fda3af24f4bd40f823c7b57760939c57a22a00b919de2452287d680d2d39c5",
       "size_bytes": 31094,
       "generated_at_utc": "2026-05-22T13:56:02.456157+00:00"
+    },
+    {
+      "name": "hard_v4_scaffold_manifest",
+      "path": "benchmark/downstream/reports/hard_v4_scaffold_manifest.json",
+      "exists": true,
+      "sha256": "1e7d9adb0b9e9dc9d020a4b9ce4e531a6ff17269564262820181597bca703768",
+      "size_bytes": 20700,
+      "generated_at_utc": "2026-05-22T15:03:42.737147+00:00"
     }
   ],
   "key_current_facts": {
@@ -108,14 +116,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "5c363cde7638f50468748a5310e455124fd46ed24feb2ed335b14bab5815c0c1",
-          "size_bytes": 25271
+          "sha256": "5ed98534fd36532beb2d67ea9e2bda9ca66d1f199dea1fc9cba51fd0c7b7a277",
+          "size_bytes": 25641
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "db5e0e32c17680a62cef15f5bc4b154f9e6820933607142ce07a7c7e7d8f9b4d",
-          "size_bytes": 40424
+          "sha256": "c0e1b032d1d6a25d6d2fadac89ba59d0db32815cd2dda8a732210d6ae223e0c2",
+          "size_bytes": 40632
         }
       ],
       "regeneration_commands": [
@@ -164,8 +172,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "5c363cde7638f50468748a5310e455124fd46ed24feb2ed335b14bab5815c0c1",
-          "size_bytes": 25271
+          "sha256": "5ed98534fd36532beb2d67ea9e2bda9ca66d1f199dea1fc9cba51fd0c7b7a277",
+          "size_bytes": 25641
         }
       ],
       "regeneration_commands": [
@@ -216,8 +224,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "5c363cde7638f50468748a5310e455124fd46ed24feb2ed335b14bab5815c0c1",
-          "size_bytes": 25271
+          "sha256": "5ed98534fd36532beb2d67ea9e2bda9ca66d1f199dea1fc9cba51fd0c7b7a277",
+          "size_bytes": 25641
         }
       ],
       "regeneration_commands": [
@@ -268,8 +276,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "5c363cde7638f50468748a5310e455124fd46ed24feb2ed335b14bab5815c0c1",
-          "size_bytes": 25271
+          "sha256": "5ed98534fd36532beb2d67ea9e2bda9ca66d1f199dea1fc9cba51fd0c7b7a277",
+          "size_bytes": 25641
         }
       ],
       "regeneration_commands": [
@@ -374,26 +382,78 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "5c363cde7638f50468748a5310e455124fd46ed24feb2ed335b14bab5815c0c1",
-          "size_bytes": 25271
+          "sha256": "5ed98534fd36532beb2d67ea9e2bda9ca66d1f199dea1fc9cba51fd0c7b7a277",
+          "size_bytes": 25641
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "db5e0e32c17680a62cef15f5bc4b154f9e6820933607142ce07a7c7e7d8f9b4d",
-          "size_bytes": 40424
+          "sha256": "c0e1b032d1d6a25d6d2fadac89ba59d0db32815cd2dda8a732210d6ae223e0c2",
+          "size_bytes": 40632
         },
         {
           "path": "docs/progress_log.md",
           "exists": true,
-          "sha256": "1f75ce4365af79bad4b29fc30940cf71eae3936aa8a334d3950bbae7969143ce",
-          "size_bytes": 84340
+          "sha256": "ce2136b0aabd5f097bc349d7d1cdbed6713812ef1588e79a46054642697088b7",
+          "size_bytes": 85945
         }
       ],
       "support_files": [],
       "regeneration_commands": [],
       "use_in_paper": "Use to recover the current project state and avoid repeating frozen experiments.",
       "do_not_use_for": "Do not cite progress logs as primary empirical evidence when paper-facing tables exist."
+    },
+    {
+      "group_id": "G8_hard_v4_scaffold",
+      "title": "Hard v4 Scaffold",
+      "role": "Freeze-ready future downstream boundary scaffold, not current LLM evidence.",
+      "primary_files": [
+        {
+          "path": "benchmark/downstream/reports/hard_v4_scaffold_manifest.json",
+          "exists": true,
+          "sha256": "1e7d9adb0b9e9dc9d020a4b9ce4e531a6ff17269564262820181597bca703768",
+          "size_bytes": 20700
+        },
+        {
+          "path": "benchmark/downstream/reports/hard_v4_scaffold_manifest.md",
+          "exists": true,
+          "sha256": "02e98f97171e796eb1b1a2c473823a3d6cf96b7cb1f2af65f932367e133da3ef",
+          "size_bytes": 5034
+        },
+        {
+          "path": "benchmark/downstream/reports/hard_v4_scaffold_manifest.tex",
+          "exists": true,
+          "sha256": "8871fc0df34cab6f0ddc82ac62779db489f4f199497ad70b7765ebb057522ed1",
+          "size_bytes": 496
+        }
+      ],
+      "support_files": [
+        {
+          "path": "docs/llm_downstream_hard_v4.md",
+          "exists": true,
+          "sha256": "ed41b445ec26bd98da54f93e3dec11909c74069601ac3c273088f6b3ae2bc7c8",
+          "size_bytes": 6999
+        },
+        {
+          "path": "docs/paper_eval_status.md",
+          "exists": true,
+          "sha256": "5ed98534fd36532beb2d67ea9e2bda9ca66d1f199dea1fc9cba51fd0c7b7a277",
+          "size_bytes": 25641
+        },
+        {
+          "path": "docs/experiment_handoff.md",
+          "exists": true,
+          "sha256": "c0e1b032d1d6a25d6d2fadac89ba59d0db32815cd2dda8a732210d6ae223e0c2",
+          "size_bytes": 40632
+        }
+      ],
+      "regeneration_commands": [
+        "python scripts/build_downstream_hard_v4_tasks.py",
+        "python scripts/check_downstream_hard_v4_tasks.py",
+        "python scripts/export_hard_v4_scaffold_manifest.py --run-checker --assert-current-hard-v4-scaffold"
+      ],
+      "use_in_paper": "Use only to document the future hard_v4 boundary and its no-LLM-evidence status.",
+      "do_not_use_for": "Do not cite as evidence that SkillAdmit helps on hard_v4."
     }
   ],
   "regeneration_order": [
@@ -459,6 +519,24 @@
     },
     {
       "step": 11,
+      "name": "build_hard_v4",
+      "command": "python scripts/build_downstream_hard_v4_tasks.py",
+      "script_exists": true
+    },
+    {
+      "step": 12,
+      "name": "check_hard_v4",
+      "command": "python scripts/check_downstream_hard_v4_tasks.py",
+      "script_exists": true
+    },
+    {
+      "step": 13,
+      "name": "export_hard_v4_scaffold",
+      "command": "python scripts/export_hard_v4_scaffold_manifest.py --run-checker --assert-current-hard-v4-scaffold",
+      "script_exists": true
+    },
+    {
+      "step": 14,
       "name": "export_artifacts_index",
       "command": "python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index",
       "script_exists": true
@@ -643,12 +721,16 @@
       "reason": "Task files define the benchmark and verifiers; do not use inspected failures for prompt tuning while preserving clean evidence."
     },
     {
+      "artifact_pattern": "benchmark/downstream_hard_v4/tasks/*",
+      "reason": "hard_v4 task files define a future boundary; do not tune prompts or strategies from inspected hard_v4 failures."
+    },
+    {
       "artifact_pattern": "docs/progress_log.md",
       "reason": "Progress log is a handoff ledger, not a primary empirical table."
     }
   ],
   "next_experimental_boundary": {
-    "recommended": "hard_v4 or model-transfer replication only after explicitly declaring a fresh evaluation boundary.",
-    "avoid": "Do not tune hard_v2/hard_v3 prompts or strategies from observed failures while still treating them as clean evidence."
+    "recommended": "hard_v4 LLM matrix or model-transfer replication only after explicitly declaring a fresh evaluation boundary.",
+    "avoid": "Do not tune hard_v2/hard_v3/hard_v4 prompts or strategies from observed failures while still treating them as clean evidence."
   }
 }

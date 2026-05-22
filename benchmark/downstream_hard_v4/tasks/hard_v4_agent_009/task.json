@@ -1,0 +1,28 @@
+{
+  "task_id": "hard_v4_agent_009",
+  "family": "python_coding_agent_downstream_hard_v4",
+  "template": "T3_dual_entrypoint_command",
+  "instruction": "Fix the command module so direct script execution and package import both work.",
+  "failing_command": "python cli_alpha/commands/export.py",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ImportError: attempted relative import with no known parent package",
+  "downstream_gold_skill": "Repair Relative Imports for Script Execution",
+  "visible_files": [
+    "tests/test_export_command.py",
+    "cli_alpha/commands/export.py"
+  ],
+  "gold_like_edits": [
+    {
+      "path": "cli_alpha/commands/export.py",
+      "content": "try:\n    from .payload import build_payload\nexcept ImportError:\n    from payload import build_payload\n\nCOMMAND_MARKER = \"hard-v4-dual-entrypoint-9\"\n\ndef command_output():\n    return build_payload()\n\ndef preserve_marker():\n    return COMMAND_MARKER\n\nif __name__ == \"__main__\":\n    print(command_output())\n"
+    }
+  ],
+  "forced_bad_artifact_edits": [
+    {
+      "path": "cli_alpha/commands/export.py",
+      "content": "from payload import build_payload\n\nCOMMAND_MARKER = \"hard-v4-dual-entrypoint-9\"\n\ndef command_output():\n    return build_payload()\n\ndef preserve_marker():\n    return COMMAND_MARKER\n\nif __name__ == \"__main__\":\n    print(command_output())\n"
+    }
+  ],
+  "forced_bad_artifact_name": "Apply a public-passing masking repair instead of the intended repo-aware fix.",
+  "file_context_note": "Hard v4 is a fresh downstream boundary. Visible files are the files a coding agent is likely to inspect first, but hidden verification rejects public-test masking repairs such as stubs, copied configs, copied resources, top-level compatibility packages, or script-only fixes that break package semantics."
+}

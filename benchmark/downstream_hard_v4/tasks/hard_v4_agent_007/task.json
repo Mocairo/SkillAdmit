@@ -1,0 +1,28 @@
+{
+  "task_id": "hard_v4_agent_007",
+  "family": "python_coding_agent_downstream_hard_v4",
+  "template": "T2_src_layout_package_import",
+  "instruction": "Fix the package-local import without adding a top-level compatibility module.",
+  "failing_command": "python -m pytest -q",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ModuleNotFoundError: No module named 'presenters'",
+  "downstream_gold_skill": "Repair Local Module Imports",
+  "visible_files": [
+    "tests/test_service.py",
+    "domain_gamma/service.py"
+  ],
+  "gold_like_edits": [
+    {
+      "path": "domain_gamma/service.py",
+      "content": "from .presenters import present_slug\n\nSERVICE_MARKER = \"hard-v4-src-layout-7\"\n\ndef build_slug(value):\n    return present_slug(value)\n\ndef preserve_marker():\n    return SERVICE_MARKER\n"
+    }
+  ],
+  "forced_bad_artifact_edits": [
+    {
+      "path": "presenters.py",
+      "content": "def present_slug(value):\n    return \"gamma-\" + str(value).lower().replace(\" \", \"-\")\n"
+    }
+  ],
+  "forced_bad_artifact_name": "Apply a public-passing masking repair instead of the intended repo-aware fix.",
+  "file_context_note": "Hard v4 is a fresh downstream boundary. Visible files are the files a coding agent is likely to inspect first, but hidden verification rejects public-test masking repairs such as stubs, copied configs, copied resources, top-level compatibility packages, or script-only fixes that break package semantics."
+}

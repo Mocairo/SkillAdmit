@@ -24,6 +24,7 @@ Inputs:
   benchmark/downstream/reports/downstream_cross_version_synthesis.json
   benchmark/downstream/reports/downstream_paper_eval_section.json
   benchmark/downstream/reports/downstream_claim_defense_matrix.json
+  benchmark/downstream/reports/hard_v4_scaffold_manifest.json
 
 Outputs:
   benchmark/downstream/reports/paper_artifacts_index.json
@@ -61,6 +62,7 @@ INPUTS = {
     "downstream_cross_version_synthesis": REPORT_DIR / "downstream_cross_version_synthesis.json",
     "downstream_paper_eval_section": REPORT_DIR / "downstream_paper_eval_section.json",
     "downstream_claim_defense_matrix": REPORT_DIR / "downstream_claim_defense_matrix.json",
+    "hard_v4_scaffold_manifest": REPORT_DIR / "hard_v4_scaffold_manifest.json",
 }
 
 
@@ -88,6 +90,10 @@ ARTIFACT_PATHS = {
     "claim_defense_json": REPORT_DIR / "downstream_claim_defense_matrix.json",
     "claim_defense_md": REPORT_DIR / "downstream_claim_defense_matrix.md",
     "claim_defense_tex": REPORT_DIR / "downstream_claim_defense_matrix.tex",
+    "hard_v4_scaffold_json": REPORT_DIR / "hard_v4_scaffold_manifest.json",
+    "hard_v4_scaffold_md": REPORT_DIR / "hard_v4_scaffold_manifest.md",
+    "hard_v4_scaffold_tex": REPORT_DIR / "hard_v4_scaffold_manifest.tex",
+    "hard_v4_protocol": ROOT / "docs" / "llm_downstream_hard_v4.md",
     "paper_eval_status": ROOT / "docs" / "paper_eval_status.md",
     "experiment_handoff": ROOT / "docs" / "experiment_handoff.md",
     "progress_log": ROOT / "docs" / "progress_log.md",
@@ -98,6 +104,8 @@ SCRIPT_PATHS = {
     "run_admission_regression": ROOT / "scripts" / "run_admission_regression.py",
     "check_hard_v2": ROOT / "scripts" / "check_downstream_hard_v2_tasks.py",
     "check_hard_v3": ROOT / "scripts" / "check_downstream_hard_v3_tasks.py",
+    "build_hard_v4": ROOT / "scripts" / "build_downstream_hard_v4_tasks.py",
+    "check_hard_v4": ROOT / "scripts" / "check_downstream_hard_v4_tasks.py",
     "summarize_hard_v2": ROOT / "scripts" / "summarize_hard_v2_results.py",
     "export_hard_v2": ROOT / "scripts" / "export_hard_v2_evidence_package.py",
     "summarize_hard_v3": ROOT / "scripts" / "summarize_hard_v3_results.py",
@@ -105,6 +113,7 @@ SCRIPT_PATHS = {
     "export_cross_synthesis": ROOT / "scripts" / "export_downstream_cross_version_synthesis.py",
     "export_paper_section": ROOT / "scripts" / "export_downstream_paper_section.py",
     "export_claim_defense": ROOT / "scripts" / "export_downstream_claim_defense_matrix.py",
+    "export_hard_v4_scaffold": ROOT / "scripts" / "export_hard_v4_scaffold_manifest.py",
     "export_artifacts_index": ROOT / "scripts" / "export_paper_artifacts_index.py",
 }
 
@@ -266,6 +275,20 @@ def build_artifact_groups() -> list[dict[str, Any]]:
             "Use to recover the current project state and avoid repeating frozen experiments.",
             "Do not cite progress logs as primary empirical evidence when paper-facing tables exist.",
         ),
+        build_artifact_group(
+            "G8_hard_v4_scaffold",
+            "Hard v4 Scaffold",
+            "Freeze-ready future downstream boundary scaffold, not current LLM evidence.",
+            ["hard_v4_scaffold_json", "hard_v4_scaffold_md", "hard_v4_scaffold_tex"],
+            ["hard_v4_protocol", "paper_eval_status", "experiment_handoff"],
+            [
+                "python scripts/build_downstream_hard_v4_tasks.py",
+                "python scripts/check_downstream_hard_v4_tasks.py",
+                "python scripts/export_hard_v4_scaffold_manifest.py --run-checker --assert-current-hard-v4-scaffold",
+            ],
+            "Use only to document the future hard_v4 boundary and its no-LLM-evidence status.",
+            "Do not cite as evidence that SkillAdmit helps on hard_v4.",
+        ),
     ]
 
 
@@ -281,6 +304,12 @@ def build_regeneration_order() -> list[dict[str, str]]:
         ("export_cross_synthesis", "python scripts/export_downstream_cross_version_synthesis.py --assert-current-synthesis"),
         ("export_paper_section", "python scripts/export_downstream_paper_section.py --assert-current-paper-section"),
         ("export_claim_defense", "python scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-defense"),
+        ("build_hard_v4", "python scripts/build_downstream_hard_v4_tasks.py"),
+        ("check_hard_v4", "python scripts/check_downstream_hard_v4_tasks.py"),
+        (
+            "export_hard_v4_scaffold",
+            "python scripts/export_hard_v4_scaffold_manifest.py --run-checker --assert-current-hard-v4-scaffold",
+        ),
         ("export_artifacts_index", "python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index"),
     ]
     return [
@@ -394,6 +423,10 @@ def build_do_not_cite_as_primary() -> list[dict[str, str]]:
             "reason": "Task files define the benchmark and verifiers; do not use inspected failures for prompt tuning while preserving clean evidence.",
         },
         {
+            "artifact_pattern": "benchmark/downstream_hard_v4/tasks/*",
+            "reason": "hard_v4 task files define a future boundary; do not tune prompts or strategies from inspected hard_v4 failures.",
+        },
+        {
             "artifact_pattern": "docs/progress_log.md",
             "reason": "Progress log is a handoff ledger, not a primary empirical table.",
         },
@@ -454,8 +487,8 @@ def build_index(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
         "claim_to_artifact_map": build_claim_to_artifact_map(claim_defense),
         "do_not_cite_as_primary": build_do_not_cite_as_primary(),
         "next_experimental_boundary": {
-            "recommended": "hard_v4 or model-transfer replication only after explicitly declaring a fresh evaluation boundary.",
-            "avoid": "Do not tune hard_v2/hard_v3 prompts or strategies from observed failures while still treating them as clean evidence.",
+            "recommended": "hard_v4 LLM matrix or model-transfer replication only after explicitly declaring a fresh evaluation boundary.",
+            "avoid": "Do not tune hard_v2/hard_v3/hard_v4 prompts or strategies from observed failures while still treating them as clean evidence.",
         },
     }
 
@@ -488,7 +521,7 @@ def assert_index(index: dict[str, Any]) -> None:
         for file_info in group["primary_files"] + group["support_files"]:
             if not file_info["exists"]:
                 raise AssertionError(f"missing artifact file: {file_info['path']}")
-    if len(index["artifact_groups"]) != 7:
+    if len(index["artifact_groups"]) != 8:
         raise AssertionError("artifact group count changed")
     if len(index["table_index"]) != 5:
         raise AssertionError("table index count changed")
@@ -501,8 +534,9 @@ def assert_index(index: dict[str, Any]) -> None:
         "23/25",
         "29/30",
         "0/85",
-        "Do not tune hard_v2/hard_v3 prompts",
-        "hard_v4 or model-transfer replication",
+        "Do not tune hard_v2/hard_v3/hard_v4 prompts",
+        "hard_v4_scaffold_manifest.json",
+        "hard_v4 LLM matrix or model-transfer replication",
         "downstream_claim_defense_matrix.json",
     ]
     for phrase in required:

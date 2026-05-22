@@ -3353,7 +3353,7 @@ PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
 Current export:
 
 ```text
-artifact_groups: 7
+artifact_groups: 8
 table_index: 5
 claim_map: 10
 forced_bad_total_tasks: 85
@@ -3369,6 +3369,7 @@ G4_cross_version_synthesis
 G5_paper_section
 G6_claim_defense
 G7_reporting_handoff
+G8_hard_v4_scaffold
 ```
 
 Important use rule:
@@ -3454,7 +3455,67 @@ Important boundary:
 
 ```text
 No hard_v4 LLM API has been run.
-No generated hard_v4 task directory has been committed yet.
+The earlier temp-only scaffold step has been superseded by section 56.
 No hard_v4 paper claim exists yet.
 Before any hard_v4 LLM matrix, explicitly freeze the generated task boundary.
+```
+
+### 56. Hard v4 Scaffold Freeze Manifest
+
+Created:
+
+```text
+scripts/export_hard_v4_scaffold_manifest.py
+benchmark/downstream_hard_v4/tasks/
+benchmark/downstream/reports/hard_v4_scaffold_manifest.json
+benchmark/downstream/reports/hard_v4_scaffold_manifest.md
+benchmark/downstream/reports/hard_v4_scaffold_manifest.tex
+```
+
+What the files do:
+
+```text
+export_hard_v4_scaffold_manifest.py:
+  reads the generated hard_v4 task tree and writes task counts, template
+  counts, logical file size, task-tree hashes, per-task hashes, source hashes,
+  and optional checker results.
+
+benchmark/downstream_hard_v4/tasks/:
+  contains the generated 24-task hard_v4 downstream scaffold.
+
+hard_v4_scaffold_manifest.*:
+  records the freeze-ready scaffold boundary before any hard_v4 LLM run.
+```
+
+Command:
+
+```bash
+PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
+/home/lijx/anaconda3/envs/skilladmit/bin/python scripts/export_hard_v4_scaffold_manifest.py \
+  --run-checker \
+  --assert-current-hard-v4-scaffold
+```
+
+Current export:
+
+```text
+stage: scaffold_frozen_no_llm_evidence
+tasks_dir: benchmark/downstream_hard_v4/tasks/
+task_count: 24
+file_count: 244
+template_counts: 6 templates x 4 tasks
+initial_failed: 24/24
+gold_passed: 24/24
+forced_public_passed: 24/24
+forced_verifier_failed: 24/24
+```
+
+Important boundary:
+
+```text
+This is a scaffold freeze record, not an LLM downstream result.
+No hard_v4 LLM API has been run.
+No hard_v4 SkillAdmit success claim exists yet.
+Do not tune hard_v4 prompts or strategies from observed failures while keeping
+hard_v4 as clean evidence.
 ```
