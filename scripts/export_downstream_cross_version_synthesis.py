@@ -633,6 +633,14 @@ def resolve(path: Path) -> Path:
     return path if path.is_absolute() else ROOT / path
 
 
+def display_path(path: Path) -> Path:
+    resolved = resolve(path)
+    try:
+        return resolved.relative_to(ROOT)
+    except ValueError:
+        return resolved
+
+
 def main() -> None:
     args = parse_args()
     hard_v2_path = resolve(args.hard_v2_package)
@@ -650,9 +658,9 @@ def main() -> None:
     print(f"forced_bad_total_tasks: {package['derived_synthesis']['forced_bad_total_tasks']}")
     print(f"selected_superiority_consistent: {package['derived_synthesis']['selected_superiority_consistent']}")
     print(f"selected_token_savings_supported: {package['derived_synthesis']['selected_token_savings_supported']}")
-    print(f"wrote_json: {resolve(args.json_out).relative_to(ROOT)}")
-    print(f"wrote_md: {resolve(args.md_out).relative_to(ROOT)}")
-    print(f"wrote_tex: {resolve(args.tex_out).relative_to(ROOT)}")
+    print(f"wrote_json: {display_path(args.json_out)}")
+    print(f"wrote_md: {display_path(args.md_out)}")
+    print(f"wrote_tex: {display_path(args.tex_out)}")
 
 
 if __name__ == "__main__":

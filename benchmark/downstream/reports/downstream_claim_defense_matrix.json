@@ -1,0 +1,690 @@
+{
+  "generated_at_utc": "2026-05-22T13:56:02.456157+00:00",
+  "source_packages": [
+    {
+      "name": "hard_v2_evidence_package",
+      "path": "benchmark/downstream/reports/hard_v2_evidence_package.json",
+      "sha256": "7deb038d4adfc285d7ac4473a6b5d0a8704ca0b160715af57220f54d818f1edb",
+      "generated_at_utc": "2026-05-22T05:36:13.500710+00:00"
+    },
+    {
+      "name": "hard_v3_evidence_package",
+      "path": "benchmark/downstream/reports/hard_v3_evidence_package.json",
+      "sha256": "894b8f7a1f7ac29659bb5adbcee4323aa11294a6741057d145f4ff0feb4101ec",
+      "generated_at_utc": "2026-05-22T13:03:52.487189+00:00"
+    },
+    {
+      "name": "downstream_cross_version_synthesis",
+      "path": "benchmark/downstream/reports/downstream_cross_version_synthesis.json",
+      "sha256": "e5d5bf0e8545fb09a69c506b0ed8ca4b4b404c1f48324e72c7290b1337330ee3",
+      "generated_at_utc": "2026-05-22T13:23:18.827390+00:00"
+    },
+    {
+      "name": "downstream_paper_eval_section",
+      "path": "benchmark/downstream/reports/downstream_paper_eval_section.json",
+      "sha256": "c2349ccafc9043d59964319fcb1980320cfeeacb6ac8bd428d947fbe4cc7a684",
+      "generated_at_utc": "2026-05-22T13:56:02.404103+00:00"
+    }
+  ],
+  "claim_count": 10,
+  "claims": [
+    {
+      "claim_id": "C1_downstream_hidden_verifier_is_required",
+      "status": "supported_design_claim",
+      "paper_claim": "SkillAdmit should be evaluated with downstream hidden-verifier tasks, not admission labels alone.",
+      "evidence_summary": "Both hard_v2 and hard_v3 use hidden verifiers, and forced bad artifacts create 85 public-pass/hidden-fail cases across 85 tasks.",
+      "evidence": [
+        {
+          "source": "hard_v2_evidence_package",
+          "setting": "forced harmful artifact",
+          "run_name": "llm_downstream_hard_v2_forced_bad_25",
+          "strategy": "forced_bad_artifact",
+          "display_strategy": "Forced bad artifact",
+          "note": "forced harmful artifact control",
+          "success": "0/25",
+          "negative_transfer": 25,
+          "public_passed_hidden_failed": 25,
+          "total_tokens": 0
+        },
+        {
+          "source": "hard_v3_evidence_package",
+          "setting": "tree-aware",
+          "run_name": "llm_downstream_hard_v3_tree_core_30x2",
+          "strategy": "forced_bad_artifact",
+          "display_strategy": "Forced bad artifact",
+          "note": "tree-aware forced harmful artifact control",
+          "success": "0/30",
+          "negative_transfer": 30,
+          "public_passed_hidden_failed": 30,
+          "total_tokens": 0
+        },
+        {
+          "source": "hard_v3_evidence_package",
+          "setting": "strict visible",
+          "run_name": "llm_downstream_hard_v3_strict_30x8",
+          "strategy": "forced_bad_artifact",
+          "display_strategy": "Forced bad artifact",
+          "note": "strict visible-file forced harmful artifact control",
+          "success": "0/30",
+          "negative_transfer": 30,
+          "public_passed_hidden_failed": 30,
+          "total_tokens": 0
+        }
+      ],
+      "allowed_wording": [
+        "We complement admission accuracy with downstream hidden-verifier validation.",
+        "Public tests are insufficient for evaluating admitted experience."
+      ],
+      "forbidden_wording": [
+        "Admission accuracy alone proves downstream utility.",
+        "Passing public tests is enough to validate an admitted artifact."
+      ],
+      "required_qualifiers": [
+        "Say downstream evidence is complementary and sharper for utility, not a replacement for all admission metrics.",
+        "Mention hidden verification and public-pass/hidden-fail cases."
+      ],
+      "reviewer_risk": "A reviewer may ask why admission accuracy is not enough.",
+      "reviewer_response": "Admission labels test classification, while downstream tasks test whether admitted artifacts change future agent behavior under hidden verification. The forced bad-artifact controls show public tests can be fooled."
+    },
+    {
+      "claim_id": "C2_hard_v2_tree_selected_positive",
+      "status": "supported_conditional_claim",
+      "paper_claim": "In hard_v2 tree-aware downstream validation, SkillAdmit-selected context improves success over no_experience.",
+      "evidence_summary": "hard_v2 tree-aware selected is 25/25 versus 23/25 for no_experience; selected was replicated with success values [25, 25].",
+      "evidence": [
+        {
+          "source": "hard_v2_evidence_package",
+          "setting": "tree-aware",
+          "run_name": "llm_downstream_hard_v2_tree_25x2",
+          "strategy": "skilladmit_selected",
+          "display_strategy": "SkillAdmit-selected",
+          "note": "tree-aware selected",
+          "success": "25/25",
+          "negative_transfer": 0,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 57597
+        },
+        {
+          "source": "hard_v2_evidence_package",
+          "setting": "tree-aware",
+          "run_name": "llm_downstream_hard_v2_tree_25x2",
+          "strategy": "no_experience",
+          "display_strategy": "No experience",
+          "note": "tree-aware no_experience",
+          "success": "23/25",
+          "negative_transfer": 2,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 51548
+        },
+        {
+          "source": "hard_v2_evidence_package",
+          "group": "tree_aware_skilladmit_selected",
+          "success_values": [
+            25,
+            25
+          ],
+          "token_values": [
+            57597,
+            52144
+          ],
+          "note": "replication stability group"
+        }
+      ],
+      "allowed_wording": [
+        "On hard_v2 with repo-tree context, SkillAdmit-selected reached 25/25 versus 23/25 for no_experience.",
+        "hard_v2 provides positive evidence for tree-aware selected utility."
+      ],
+      "forbidden_wording": [
+        "SkillAdmit-selected universally beats no_experience.",
+        "The hard_v2 result proves selected is best under every executor setting."
+      ],
+      "required_qualifiers": [
+        "Keep the tree-aware executor qualifier.",
+        "Report strict visible-file hard_v2 separately."
+      ],
+      "reviewer_risk": "A reviewer may point to strict visible-file hard_v2 where selected is worse.",
+      "reviewer_response": "That objection is correct and is part of the claim boundary. The positive claim is limited to the tree-aware coding-agent setting, while strict visible-file is reported as a separate boundary."
+    },
+    {
+      "claim_id": "C3_hard_v2_strict_visible_boundary",
+      "status": "boundary_claim",
+      "paper_claim": "Strict visible-file hard_v2 does not support a SkillAdmit-selected win.",
+      "evidence_summary": "In strict visible-file hard_v2, selected is 23/25, no_experience is 24/25, and all distilled skills are 25/25.",
+      "evidence": [
+        {
+          "source": "hard_v2_evidence_package",
+          "setting": "strict visible",
+          "run_name": "llm_downstream_hard_v2_full_25x6",
+          "strategy": "skilladmit_selected",
+          "display_strategy": "SkillAdmit-selected",
+          "note": "strict visible-file selected",
+          "success": "23/25",
+          "negative_transfer": 2,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 66608
+        },
+        {
+          "source": "hard_v2_evidence_package",
+          "setting": "strict visible",
+          "run_name": "llm_downstream_hard_v2_full_25x6",
+          "strategy": "no_experience",
+          "display_strategy": "No experience",
+          "note": "strict visible-file no_experience",
+          "success": "24/25",
+          "negative_transfer": 0,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 59272
+        },
+        {
+          "source": "hard_v2_evidence_package",
+          "setting": "strict visible",
+          "run_name": "llm_downstream_hard_v2_full_25x6",
+          "strategy": "distilled_skills_all",
+          "display_strategy": "All distilled skills",
+          "note": "strict visible-file all distilled skills",
+          "success": "25/25",
+          "negative_transfer": 0,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 84986
+        }
+      ],
+      "allowed_wording": [
+        "Strict visible-file hard_v2 is a boundary where selected-only context is insufficient.",
+        "All-skills is strongest in strict visible-file hard_v2, but it is more token-expensive."
+      ],
+      "forbidden_wording": [
+        "SkillAdmit-selected wins hard_v2 overall.",
+        "Selection is always better than providing all skills."
+      ],
+      "required_qualifiers": [
+        "Separate strict visible-file and tree-aware settings.",
+        "Do not collapse hard_v2 into one leaderboard."
+      ],
+      "reviewer_risk": "A reviewer may accuse the paper of cherry-picking tree-aware hard_v2.",
+      "reviewer_response": "The defense is to report strict visible-file explicitly as a negative boundary. The paper should say tree-aware selected helps, not that selected wins every hard_v2 setting."
+    },
+    {
+      "claim_id": "C4_hard_v3_generalization_boundary",
+      "status": "boundary_claim",
+      "paper_claim": "hard_v3 does not support universal SkillAdmit-selected superiority.",
+      "evidence_summary": "In hard_v3 tree-aware, selected and no_experience are both 29/30. In strict visible-file hard_v3, selected is 29/30 while precondition-only and raw memory are 30/30.",
+      "evidence": [
+        {
+          "source": "hard_v3_evidence_package",
+          "setting": "tree-aware",
+          "run_name": "llm_downstream_hard_v3_tree_core_30x2",
+          "strategy": "skilladmit_selected",
+          "display_strategy": "SkillAdmit-selected",
+          "note": "tree-aware selected",
+          "success": "29/30",
+          "negative_transfer": 1,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 69291
+        },
+        {
+          "source": "hard_v3_evidence_package",
+          "setting": "tree-aware",
+          "run_name": "llm_downstream_hard_v3_tree_core_30x2",
+          "strategy": "no_experience",
+          "display_strategy": "No experience",
+          "note": "tree-aware no_experience",
+          "success": "29/30",
+          "negative_transfer": 1,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 70208
+        },
+        {
+          "source": "hard_v3_evidence_package",
+          "setting": "strict visible",
+          "run_name": "llm_downstream_hard_v3_strict_30x8",
+          "strategy": "skilladmit_selected",
+          "display_strategy": "SkillAdmit-selected",
+          "note": "strict visible-file selected",
+          "success": "29/30",
+          "negative_transfer": 1,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 71390
+        },
+        {
+          "source": "hard_v3_evidence_package",
+          "setting": "strict visible",
+          "run_name": "llm_downstream_hard_v3_strict_30x8",
+          "strategy": "skilladmit_selected_with_precondition_only",
+          "display_strategy": "Selected + preconditions only",
+          "note": "strict precondition-only",
+          "success": "30/30",
+          "negative_transfer": 0,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 82615
+        },
+        {
+          "source": "hard_v3_evidence_package",
+          "setting": "strict visible",
+          "run_name": "llm_downstream_hard_v3_strict_30x8",
+          "strategy": "raw_memory",
+          "display_strategy": "Raw memory",
+          "note": "strict raw memory",
+          "success": "30/30",
+          "negative_transfer": 0,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 73789
+        }
+      ],
+      "allowed_wording": [
+        "hard_v3 is a generalization boundary for the selected-superiority claim.",
+        "SkillAdmit-selected can help in some settings, but hard_v3 does not make it universally best."
+      ],
+      "forbidden_wording": [
+        "hard_v3 proves SkillAdmit-selected superiority.",
+        "SkillAdmit-selected is the best hard_v3 condition."
+      ],
+      "required_qualifiers": [
+        "State that hard_v3 weakens the universal claim.",
+        "Mention tree-aware tie and strict non-best result."
+      ],
+      "reviewer_risk": "A reviewer may ask why hard_v3 is included if selected does not win.",
+      "reviewer_response": "It is included exactly as a clean downstream boundary. A credible evaluation should report where the mechanism generalizes and where it does not."
+    },
+    {
+      "claim_id": "C5_repo_tree_and_preconditions_are_context_variables",
+      "status": "conditional_claim",
+      "paper_claim": "Repository tree and precondition context are important variables, but neither is universally sufficient or necessary.",
+      "evidence_summary": "hard_v2 strict precondition-only is unstable with success values [24, 23]; hard_v3 strict precondition-only reaches 30/30.",
+      "evidence": [
+        {
+          "source": "hard_v2_evidence_package",
+          "setting": "tree-aware",
+          "run_name": "llm_downstream_hard_v2_tree_25x2",
+          "strategy": "skilladmit_selected",
+          "display_strategy": "SkillAdmit-selected",
+          "note": "hard_v2 tree-aware selected",
+          "success": "25/25",
+          "negative_transfer": 0,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 57597
+        },
+        {
+          "source": "hard_v2_evidence_package",
+          "setting": "strict + preconditions only",
+          "run_name": "llm_downstream_hard_v2_precondition_only_25",
+          "strategy": "skilladmit_selected_with_precondition_only",
+          "display_strategy": "Selected + preconditions only",
+          "note": "hard_v2 strict precondition-only",
+          "success": "24/25",
+          "negative_transfer": 1,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 72316
+        },
+        {
+          "source": "hard_v2_evidence_package",
+          "group": "strict_precondition_only",
+          "success_values": [
+            24,
+            23
+          ],
+          "token_values": [
+            72316,
+            77487
+          ],
+          "note": "precondition-only stability group"
+        },
+        {
+          "source": "hard_v3_evidence_package",
+          "setting": "strict visible",
+          "run_name": "llm_downstream_hard_v3_strict_30x8",
+          "strategy": "skilladmit_selected_with_precondition_only",
+          "display_strategy": "Selected + preconditions only",
+          "note": "hard_v3 strict precondition-only",
+          "success": "30/30",
+          "negative_transfer": 0,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 82615
+        }
+      ],
+      "allowed_wording": [
+        "Repo tree and preconditions should be treated as task-context variables.",
+        "hard_v2 suggests tree-aware context can be more reliable than precondition text alone; hard_v3 shows precondition-only can be sufficient on another suite."
+      ],
+      "forbidden_wording": [
+        "Precondition-only replaces repository tree.",
+        "Repository tree is always necessary."
+      ],
+      "required_qualifiers": [
+        "Report suite-specific differences.",
+        "Do not turn hard_v2 or hard_v3 alone into a universal context rule."
+      ],
+      "reviewer_risk": "A reviewer may ask whether the mechanism is really SkillAdmit or just extra context.",
+      "reviewer_response": "The matrix separates artifact selection from execution context. Current evidence supports conditional utility, while repo tree and preconditions remain explicit variables rather than hidden assumptions."
+    },
+    {
+      "claim_id": "C6_forced_bad_artifacts_negative_transfer",
+      "status": "strong_supported_claim",
+      "paper_claim": "When harmful admitted artifacts are forced into execution, they cause systematic negative transfer.",
+      "evidence_summary": "Forced bad artifacts are 0/85 success across hard_v2 and hard_v3, with 85 public-pass/hidden-fail cases.",
+      "evidence": [
+        {
+          "source": "hard_v2_evidence_package",
+          "setting": "forced harmful artifact",
+          "run_name": "llm_downstream_hard_v2_forced_bad_25",
+          "strategy": "forced_bad_artifact",
+          "display_strategy": "Forced bad artifact",
+          "note": "hard_v2 forced bad artifact",
+          "success": "0/25",
+          "negative_transfer": 25,
+          "public_passed_hidden_failed": 25,
+          "total_tokens": 0
+        },
+        {
+          "source": "hard_v3_evidence_package",
+          "setting": "tree-aware",
+          "run_name": "llm_downstream_hard_v3_tree_core_30x2",
+          "strategy": "forced_bad_artifact",
+          "display_strategy": "Forced bad artifact",
+          "note": "hard_v3 tree-aware forced bad artifact",
+          "success": "0/30",
+          "negative_transfer": 30,
+          "public_passed_hidden_failed": 30,
+          "total_tokens": 0
+        },
+        {
+          "source": "hard_v3_evidence_package",
+          "setting": "strict visible",
+          "run_name": "llm_downstream_hard_v3_strict_30x8",
+          "strategy": "forced_bad_artifact",
+          "display_strategy": "Forced bad artifact",
+          "note": "hard_v3 strict forced bad artifact",
+          "success": "0/30",
+          "negative_transfer": 30,
+          "public_passed_hidden_failed": 30,
+          "total_tokens": 0
+        },
+        {
+          "source": "downstream_cross_version_synthesis",
+          "forced_bad_total_tasks": 85,
+          "forced_bad_total_successes": 0,
+          "forced_bad_total_public_passed_hidden_failed": 85,
+          "forced_bad_total_negative_transfer": 85,
+          "note": "cross-version forced bad aggregate"
+        }
+      ],
+      "allowed_wording": [
+        "Forced harmful artifacts produce systematic negative transfer: 0/85 success with 85 public-pass/hidden-fail cases.",
+        "The negative-transfer control supports the need for admission hygiene."
+      ],
+      "forbidden_wording": [
+        "SkillAdmit proves all admitted artifacts are safe.",
+        "Bad experience is harmless if public tests pass."
+      ],
+      "required_qualifiers": [
+        "Say harmful artifacts damage behavior when executed.",
+        "Use forced_bad_artifact as the clean negative-transfer control."
+      ],
+      "reviewer_risk": "A reviewer may ask whether negative transfer is deterministic or model-specific.",
+      "reviewer_response": "The forced artifact is a controlled downstream condition: it demonstrates the behavioral hazard of executing known-bad experience. It complements, rather than replaces, stochastic LLM strategy rows."
+    },
+    {
+      "claim_id": "C7_bad_dependency_rule_is_not_safe",
+      "status": "caveat_claim",
+      "paper_claim": "Ordinary bad_dependency_rule success does not prove bad advice is safe, because adherence is low on hard_v3.",
+      "evidence_summary": "hard_v3 bad_dependency_rule succeeds at 30/30 and 30/30, but artifact adherence is 4/30 and 11/30.",
+      "evidence": [
+        {
+          "source": "hard_v3_evidence_package",
+          "setting": "tree-aware",
+          "run_name": "llm_downstream_hard_v3_tree_core_30x2",
+          "strategy": "bad_dependency_rule",
+          "display_strategy": "Bad dependency rule",
+          "note": "tree-aware bad_dependency_rule with low adherence",
+          "success": "30/30",
+          "artifact_adherence": 4,
+          "tasks": 30,
+          "total_tokens": 68671
+        },
+        {
+          "source": "hard_v3_evidence_package",
+          "setting": "strict visible",
+          "run_name": "llm_downstream_hard_v3_strict_30x8",
+          "strategy": "bad_dependency_rule",
+          "display_strategy": "Bad dependency rule",
+          "note": "strict bad_dependency_rule with low adherence",
+          "success": "30/30",
+          "artifact_adherence": 11,
+          "tasks": 30,
+          "total_tokens": 75920
+        },
+        {
+          "source": "hard_v2_evidence_package",
+          "setting": "strict visible",
+          "run_name": "llm_downstream_hard_v2_full_25x6",
+          "strategy": "bad_dependency_rule",
+          "display_strategy": "Bad dependency rule",
+          "note": "hard_v2 strict bad_dependency_rule",
+          "success": "22/25",
+          "negative_transfer": 2,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 75724
+        },
+        {
+          "source": "hard_v3_evidence_package",
+          "setting": "tree-aware",
+          "run_name": "llm_downstream_hard_v3_tree_core_30x2",
+          "strategy": "forced_bad_artifact",
+          "display_strategy": "Forced bad artifact",
+          "note": "forced control remains harmful",
+          "success": "0/30",
+          "negative_transfer": 30,
+          "public_passed_hidden_failed": 30,
+          "total_tokens": 0
+        }
+      ],
+      "allowed_wording": [
+        "The model often succeeds by ignoring harmful advice.",
+        "Use forced_bad_artifact, not ordinary bad_dependency_rule success, as negative-transfer evidence."
+      ],
+      "forbidden_wording": [
+        "Bad dependency advice is safe.",
+        "The model can always ignore harmful experience."
+      ],
+      "required_qualifiers": [
+        "Mention artifact adherence when discussing bad_dependency_rule.",
+        "Separate ignored bad advice from forced executed bad artifacts."
+      ],
+      "reviewer_risk": "A reviewer may argue that bad_dependency_rule success weakens the negative-transfer story.",
+      "reviewer_response": "It does not: low adherence means the condition often did not execute the bad advice. The forced condition answers the causal question and fails 0/85."
+    },
+    {
+      "claim_id": "C8_raw_memory_is_a_serious_baseline_not_a_policy",
+      "status": "boundary_claim",
+      "paper_claim": "Raw memory is a serious downstream baseline, but current evidence does not make it a safe admission policy.",
+      "evidence_summary": "Raw memory is 22/25 in hard_v2 strict visible-file, but 30/30 and 30/30 in hard_v3.",
+      "evidence": [
+        {
+          "source": "hard_v2_evidence_package",
+          "setting": "strict visible",
+          "run_name": "llm_downstream_hard_v2_full_25x6",
+          "strategy": "raw_memory",
+          "display_strategy": "Raw memory",
+          "note": "hard_v2 strict raw memory",
+          "success": "22/25",
+          "negative_transfer": 3,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 56941
+        },
+        {
+          "source": "hard_v3_evidence_package",
+          "setting": "tree-aware",
+          "run_name": "llm_downstream_hard_v3_tree_core_30x2",
+          "strategy": "raw_memory",
+          "display_strategy": "Raw memory",
+          "note": "hard_v3 tree-aware raw memory",
+          "success": "30/30",
+          "negative_transfer": 0,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 68753
+        },
+        {
+          "source": "hard_v3_evidence_package",
+          "setting": "strict visible",
+          "run_name": "llm_downstream_hard_v3_strict_30x8",
+          "strategy": "raw_memory",
+          "display_strategy": "Raw memory",
+          "note": "hard_v3 strict raw memory",
+          "success": "30/30",
+          "negative_transfer": 0,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 73789
+        }
+      ],
+      "allowed_wording": [
+        "Raw memory must be reported as a serious comparison condition.",
+        "hard_v3 raw-memory success is a baseline result, not an admission-policy proof."
+      ],
+      "forbidden_wording": [
+        "Raw memory is safe because it reaches 30/30 on hard_v3.",
+        "SkillAdmit is unnecessary because raw memory wins one suite."
+      ],
+      "required_qualifiers": [
+        "Discuss memory cost, specificity, and harmful-memory risk before making policy claims.",
+        "Keep raw memory as a baseline unless a separate policy evaluation is run."
+      ],
+      "reviewer_risk": "A reviewer may ask why SkillAdmit matters if raw memory reaches 30/30 on hard_v3.",
+      "reviewer_response": "The honest answer is that hard_v3 makes raw memory a strong baseline. It does not settle admission policy because it omits cost, specificity, and harmful-memory controls."
+    },
+    {
+      "claim_id": "C9_selected_token_savings_not_supported",
+      "status": "not_supported_claim",
+      "paper_claim": "The current cross-version evidence does not support SkillAdmit-selected token savings.",
+      "evidence_summary": "Selected token deltas are mixed: hard_v2 tree +6049, hard_v2 strict +7336, hard_v3 tree -917, and hard_v3 strict -2763.",
+      "evidence": [
+        {
+          "source": "downstream_cross_version_synthesis",
+          "selected_token_delta_values": {
+            "hard_v2_tree_selected_token_delta_vs_no_experience": 6049,
+            "hard_v2_strict_selected_token_delta_vs_no_experience": 7336,
+            "hard_v3_tree_selected_token_delta_vs_no_experience": -917,
+            "hard_v3_strict_selected_token_delta_vs_no_experience": -2763
+          },
+          "selected_token_savings_supported": false,
+          "note": "cross-version selected token delta summary"
+        }
+      ],
+      "allowed_wording": [
+        "Token savings are not a supported paper claim.",
+        "The current evidence focuses on success, hidden-verifier safety, and negative transfer."
+      ],
+      "forbidden_wording": [
+        "SkillAdmit-selected reduces token cost.",
+        "Selection is more efficient across downstream tasks."
+      ],
+      "required_qualifiers": [
+        "If token cost is mentioned, frame it as inconclusive or mixed.",
+        "Do not use small hard_v3 token decreases to override hard_v2 increases."
+      ],
+      "reviewer_risk": "A reviewer may ask whether SkillAdmit is cost-effective.",
+      "reviewer_response": "The current downstream evidence was not designed as a cost-effectiveness study. A separate controlled token-cost evaluation would be needed."
+    },
+    {
+      "claim_id": "C10_all_skills_is_strong_but_not_the_target_policy",
+      "status": "boundary_claim",
+      "paper_claim": "All-skills context is a strong comparison condition, but it is not the same as an admitted selected artifact policy.",
+      "evidence_summary": "All-skills reaches 25/25 in hard_v2 strict and 30/30 in hard_v3 tree-aware; selected reaches 23/25 and 29/30 in those rows.",
+      "evidence": [
+        {
+          "source": "hard_v2_evidence_package",
+          "setting": "strict visible",
+          "run_name": "llm_downstream_hard_v2_full_25x6",
+          "strategy": "distilled_skills_all",
+          "display_strategy": "All distilled skills",
+          "note": "hard_v2 strict all distilled skills",
+          "success": "25/25",
+          "negative_transfer": 0,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 84986
+        },
+        {
+          "source": "hard_v2_evidence_package",
+          "setting": "strict visible",
+          "run_name": "llm_downstream_hard_v2_full_25x6",
+          "strategy": "skilladmit_selected",
+          "display_strategy": "SkillAdmit-selected",
+          "note": "hard_v2 strict selected",
+          "success": "23/25",
+          "negative_transfer": 2,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 66608
+        },
+        {
+          "source": "hard_v3_evidence_package",
+          "setting": "tree-aware",
+          "run_name": "llm_downstream_hard_v3_tree_core_30x2",
+          "strategy": "distilled_skills_all",
+          "display_strategy": "All distilled skills",
+          "note": "hard_v3 tree-aware all distilled skills",
+          "success": "30/30",
+          "negative_transfer": 0,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 75603
+        },
+        {
+          "source": "hard_v3_evidence_package",
+          "setting": "tree-aware",
+          "run_name": "llm_downstream_hard_v3_tree_core_30x2",
+          "strategy": "skilladmit_selected",
+          "display_strategy": "SkillAdmit-selected",
+          "note": "hard_v3 tree-aware selected",
+          "success": "29/30",
+          "negative_transfer": 1,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 69291
+        },
+        {
+          "source": "hard_v3_evidence_package",
+          "setting": "strict visible",
+          "run_name": "llm_downstream_hard_v3_strict_30x8",
+          "strategy": "distilled_skills_all",
+          "display_strategy": "All distilled skills",
+          "note": "hard_v3 strict all distilled skills",
+          "success": "29/30",
+          "negative_transfer": 1,
+          "public_passed_hidden_failed": 1,
+          "total_tokens": 83366
+        },
+        {
+          "source": "hard_v3_evidence_package",
+          "setting": "strict visible",
+          "run_name": "llm_downstream_hard_v3_strict_30x8",
+          "strategy": "skilladmit_selected",
+          "display_strategy": "SkillAdmit-selected",
+          "note": "hard_v3 strict selected",
+          "success": "29/30",
+          "negative_transfer": 1,
+          "public_passed_hidden_failed": 0,
+          "total_tokens": 71390
+        }
+      ],
+      "allowed_wording": [
+        "All-skills is a strong upper-context comparison and should be reported.",
+        "Selected experience is a policy target, not a claim that fewer artifacts always beat all available skills."
+      ],
+      "forbidden_wording": [
+        "Selection always beats all-skills.",
+        "All-skills success invalidates experience admission."
+      ],
+      "required_qualifiers": [
+        "Distinguish policy selection from maximum-context baselines.",
+        "Do not turn all-skills into the headline condition unless the paper is about context stuffing."
+      ],
+      "reviewer_risk": "A reviewer may ask why not always provide every distilled skill.",
+      "reviewer_response": "All-skills is a valid comparison but changes the policy question. SkillAdmit studies admission and selection; all-skills is useful as a high-context baseline with different cost and contamination risks."
+    }
+  ],
+  "global_red_lines": [
+    "Do not claim universal SkillAdmit-selected superiority.",
+    "Do not claim cross-version SkillAdmit-selected token savings.",
+    "Do not claim precondition-only generally replaces repository-tree context.",
+    "Do not claim raw memory is a safe admission policy from hard_v3 success alone.",
+    "Do not claim bad dependency advice is safe when the model often ignored it.",
+    "Do not tune hard_v2 or hard_v3 failures while treating them as clean evidence."
+  ],
+  "global_positive_claim": "SkillAdmit has conditional downstream utility evidence and strong negative-transfer evidence: hard_v2 supports tree-aware selected utility, hard_v3 bounds universal selected-superiority claims, and forced bad artifacts fail 0/85 with 85 public-pass/hidden-fail cases."
+}

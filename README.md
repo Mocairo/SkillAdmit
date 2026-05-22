@@ -26,6 +26,8 @@ python scripts/export_hard_v2_evidence_package.py --assert-current-hard-v2
 python scripts/summarize_hard_v3_results.py --assert-current-hard-v3
 python scripts/export_hard_v3_evidence_package.py --assert-current-hard-v3
 python scripts/export_downstream_cross_version_synthesis.py --assert-current-synthesis
+python scripts/export_downstream_paper_section.py --assert-current-paper-section
+python scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-defense
 ```
 
 Use the existing `skilladmit` conda environment for local reproduction. Runtime

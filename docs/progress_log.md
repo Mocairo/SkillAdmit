@@ -3133,3 +3133,164 @@ Not supported:
   bad dependency advice as safe when the model often ignores it
   prompt or strategy tuning from hard_v2/hard_v3 failures while preserving them as clean evidence
 ```
+
+### 52. Downstream Paper Evaluation Section Export
+
+Created:
+
+```text
+scripts/export_downstream_paper_section.py
+```
+
+What the file does:
+
+```text
+Reads the frozen cross-version downstream synthesis package and exports a
+paper-ready downstream validation section in JSON, Markdown, and LaTeX. The
+section includes research questions, protocol wording, result interpretation,
+one-paragraph paper wording, table captions, and explicit claim limits.
+```
+
+Why it is needed:
+
+```text
+The downstream result is subtle: hard_v2 supports tree-aware selected utility,
+while hard_v3 rejects universal selected superiority. Hand-writing the paper
+section from individual summary files risks overclaiming. This exporter keeps
+the prose tied to the frozen synthesis artifact and asserts the main red lines.
+```
+
+Input:
+
+```text
+benchmark/downstream/reports/downstream_cross_version_synthesis.json
+```
+
+Outputs:
+
+```text
+benchmark/downstream/reports/downstream_paper_eval_section.json
+benchmark/downstream/reports/downstream_paper_eval_section.md
+benchmark/downstream/reports/downstream_paper_eval_section.tex
+```
+
+Command:
+
+```bash
+PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
+/home/lijx/anaconda3/envs/skilladmit/bin/python scripts/export_downstream_paper_section.py \
+  --assert-current-paper-section
+```
+
+Current export:
+
+```text
+research_questions: 3
+result_paragraphs: 5
+claim_limits: 7
+forced_bad_total_tasks: 85
+```
+
+Paper-section thesis:
+
+```text
+Downstream validation gives a sharper claim boundary than admission accuracy
+alone. hard_v2 supports SkillAdmit-selected utility in a tree-aware coding-agent
+setting, but hard_v3 does not support universal selected superiority. The
+strongest cross-version result is safety-related: forced harmful artifacts
+achieve 0/85 success with 85 public-pass/hidden-fail cases.
+```
+
+Asserted red lines:
+
+```text
+selected_superiority_consistent: False
+selected_token_savings_supported: False
+repo_tree_necessity_universal: False
+forced_bad_total_successes: 0
+forced_bad_total_public_passed_hidden_failed: 85
+```
+
+### 53. Downstream Claim Defense Matrix
+
+Created:
+
+```text
+scripts/export_downstream_claim_defense_matrix.py
+```
+
+What the file does:
+
+```text
+Reads the paper-facing hard_v2/hard_v3 evidence packages, cross-version
+synthesis, and generated paper section. It exports a claim-by-claim defense
+matrix: what can be claimed, what evidence supports it, what wording is allowed,
+what wording is forbidden, and how to answer likely reviewer objections.
+```
+
+Why it is needed:
+
+```text
+SkillAdmit's downstream evidence is intentionally conditional. The matrix keeps
+the paper from drifting into stronger claims than the evidence supports:
+hard_v2 is positive tree-aware selected evidence, hard_v3 is a generalization
+boundary, and forced bad artifacts are the strongest negative-transfer signal.
+```
+
+Inputs:
+
+```text
+benchmark/downstream/reports/hard_v2_evidence_package.json
+benchmark/downstream/reports/hard_v3_evidence_package.json
+benchmark/downstream/reports/downstream_cross_version_synthesis.json
+benchmark/downstream/reports/downstream_paper_eval_section.json
+```
+
+Outputs:
+
+```text
+benchmark/downstream/reports/downstream_claim_defense_matrix.json
+benchmark/downstream/reports/downstream_claim_defense_matrix.md
+benchmark/downstream/reports/downstream_claim_defense_matrix.tex
+```
+
+Command:
+
+```bash
+PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
+/home/lijx/anaconda3/envs/skilladmit/bin/python scripts/export_downstream_claim_defense_matrix.py \
+  --assert-current-claim-defense
+```
+
+Current export:
+
+```text
+claim_count: 10
+global_red_lines: 6
+```
+
+Claim cards:
+
+```text
+C1_downstream_hidden_verifier_is_required
+C2_hard_v2_tree_selected_positive
+C3_hard_v2_strict_visible_boundary
+C4_hard_v3_generalization_boundary
+C5_repo_tree_and_preconditions_are_context_variables
+C6_forced_bad_artifacts_negative_transfer
+C7_bad_dependency_rule_is_not_safe
+C8_raw_memory_is_a_serious_baseline_not_a_policy
+C9_selected_token_savings_not_supported
+C10_all_skills_is_strong_but_not_the_target_policy
+```
+
+Global red lines:
+
+```text
+Do not claim universal SkillAdmit-selected superiority.
+Do not claim cross-version SkillAdmit-selected token savings.
+Do not claim precondition-only generally replaces repository-tree context.
+Do not claim raw memory is a safe admission policy from hard_v3 success alone.
+Do not claim bad dependency advice is safe when the model often ignored it.
+Do not tune hard_v2 or hard_v3 failures while treating them as clean evidence.
+```
