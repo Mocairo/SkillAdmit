@@ -3042,3 +3042,94 @@ Not supported:
   bad dependency advice being safe
   prompt tuning from hard_v3 failures while still treating hard_v3 as clean evidence
 ```
+
+### 51. Cross-Version Downstream Synthesis
+
+Created:
+
+```text
+scripts/export_downstream_cross_version_synthesis.py
+```
+
+What the file does:
+
+```text
+Reads the frozen hard_v2 and hard_v3 paper-facing evidence packages and exports
+a cross-version downstream synthesis table, derived comparisons, source package
+hashes, and explicit supported/unsupported paper claims.
+```
+
+Why it is needed:
+
+```text
+hard_v2 and hard_v3 now answer different scientific questions. hard_v2 is
+positive evidence for tree-aware SkillAdmit-selected utility. hard_v3 is
+boundary evidence showing that selected does not universally dominate on a
+fresh downstream suite. The paper needs both facts in one place instead of a
+hand-written narrative copied from individual summary files.
+```
+
+Inputs:
+
+```text
+benchmark/downstream/reports/hard_v2_evidence_package.json
+benchmark/downstream/reports/hard_v3_evidence_package.json
+```
+
+Outputs:
+
+```text
+benchmark/downstream/reports/downstream_cross_version_synthesis.json
+benchmark/downstream/reports/downstream_cross_version_synthesis.md
+benchmark/downstream/reports/downstream_cross_version_synthesis.tex
+```
+
+Command:
+
+```bash
+PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
+/home/lijx/anaconda3/envs/skilladmit/bin/python scripts/export_downstream_cross_version_synthesis.py \
+  --assert-current-synthesis
+```
+
+Current export:
+
+```text
+primary_rows: 27
+forced_bad_total_tasks: 85
+selected_superiority_consistent: False
+selected_token_savings_supported: False
+```
+
+Key synthesis:
+
+```text
+hard_v2 supports a positive tree-aware selected result:
+  selected 25/25 versus no_experience 23/25, with selected replicated at 25/25.
+
+hard_v3 rejects a universal selected-superiority story:
+  tree-aware selected ties no_experience at 29/30.
+  strict selected is 29/30 while precondition-only and raw_memory are 30/30.
+
+Across hard_v2 and hard_v3 forced bad-artifact controls:
+  forced_bad_artifact success: 0/85
+  public_passed_hidden_failed: 85/85
+  negative_transfer: 85/85
+```
+
+Paper-facing boundary:
+
+```text
+Supported:
+  downstream hidden-verifier evidence is now stronger than admission accuracy alone
+  harmful admitted artifacts can create systematic public-pass/hidden-fail transfer
+  SkillAdmit-selected utility is conditional and context-dependent
+  repo tree and preconditions are important variables, not universal guarantees
+
+Not supported:
+  universal SkillAdmit-selected dominance
+  cross-version selected token savings
+  raw_memory as a safe admission policy
+  bad dependency advice as safe when the model often ignores it
+  prompt or strategy tuning from hard_v2/hard_v3 failures while preserving them as clean evidence
+```

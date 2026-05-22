@@ -481,6 +481,14 @@ def write_outputs(package: dict[str, Any], json_path: Path, md_path: Path, tex_p
     tex_path.write_text(render_latex(package), encoding="utf-8")
 
 
+def display_path(path: Path) -> Path:
+    resolved = path if path.is_absolute() else Path.cwd() / path
+    try:
+        return resolved.relative_to(Path.cwd())
+    except ValueError:
+        return resolved
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--json-out", type=Path, default=DEFAULT_JSON)
@@ -506,9 +514,9 @@ def main() -> None:
     print(f"primary_rows: {len(package['primary_strategy_table'])}")
     print(f"stability_rows: {len(package['stability_table'])}")
     print(f"failure_taxonomy_rows: {len(package['failure_taxonomy']['by_setting_strategy_template'])}")
-    print(f"wrote_json: {args.json_out.relative_to(Path.cwd())}")
-    print(f"wrote_md: {args.md_out.relative_to(Path.cwd())}")
-    print(f"wrote_tex: {args.tex_out.relative_to(Path.cwd())}")
+    print(f"wrote_json: {display_path(args.json_out)}")
+    print(f"wrote_md: {display_path(args.md_out)}")
+    print(f"wrote_tex: {display_path(args.tex_out)}")
 
 
 if __name__ == "__main__":
