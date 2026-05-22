@@ -1,0 +1,28 @@
+{
+  "task_id": "hard_v3_agent_014",
+  "family": "python_coding_agent_downstream_hard_v3",
+  "template": "T3_dual_use_command_module",
+  "instruction": "Fix the command module so the script entrypoint and package import path both keep working.",
+  "failing_command": "python ops_delta/scripts/migrate.py",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ImportError: attempted relative import with no known parent package",
+  "downstream_gold_skill": "Repair Relative Imports for Script Execution",
+  "visible_files": [
+    "tests/test_command.py",
+    "ops_delta/scripts/migrate.py"
+  ],
+  "gold_like_edits": [
+    {
+      "path": "ops_delta/scripts/migrate.py",
+      "content": "try:\n    from .payload import build_payload\nexcept ImportError:\n    from payload import build_payload\n\nCOMMAND_MARKER = \"hard-v3-dual-command-14\"\n\ndef command_output():\n    return build_payload()\n\ndef preserve_marker():\n    return COMMAND_MARKER\n\nif __name__ == \"__main__\":\n    print(command_output())\n"
+    }
+  ],
+  "forced_bad_artifact_edits": [
+    {
+      "path": "ops_delta/scripts/migrate.py",
+      "content": "from payload import build_payload\n\nCOMMAND_MARKER = \"hard-v3-dual-command-14\"\n\ndef command_output():\n    return build_payload()\n\ndef preserve_marker():\n    return COMMAND_MARKER\n\nif __name__ == \"__main__\":\n    print(command_output())\n"
+    }
+  ],
+  "forced_bad_artifact_name": "Apply a public-passing masking repair instead of the intended repo-aware fix.",
+  "file_context_note": "Hard v3 intentionally shows only the files a coding agent is likely to inspect first. Other repository files may exist. Hidden verifier checks reject public-test masking repairs such as stubs, copied resources, top-level compatibility packages, test edits, or verifier edits."
+}

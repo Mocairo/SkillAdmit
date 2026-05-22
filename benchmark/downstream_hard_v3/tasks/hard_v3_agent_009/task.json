@@ -1,0 +1,28 @@
+{
+  "task_id": "hard_v3_agent_009",
+  "family": "python_coding_agent_downstream_hard_v3",
+  "template": "T2_application_package_local_import",
+  "instruction": "Fix the package-local import without adding a top-level compatibility module.",
+  "failing_command": "python -m pytest -q",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ModuleNotFoundError: No module named 'summaries'",
+  "downstream_gold_skill": "Repair Local Module Imports",
+  "visible_files": [
+    "tests/test_api.py",
+    "orders_delta/api.py"
+  ],
+  "gold_like_edits": [
+    {
+      "path": "orders_delta/api.py",
+      "content": "from .summaries import summarize_order\n\nAPI_MARKER = \"hard-v3-local-import-9\"\n\ndef render_order(order_id):\n    return summarize_order(order_id)\n\ndef preserve_marker():\n    return API_MARKER\n"
+    }
+  ],
+  "forced_bad_artifact_edits": [
+    {
+      "path": "summaries.py",
+      "content": "def summarize_order(order_id):\n    return \"order-delta:\" + str(order_id)\n"
+    }
+  ],
+  "forced_bad_artifact_name": "Apply a public-passing masking repair instead of the intended repo-aware fix.",
+  "file_context_note": "Hard v3 intentionally shows only the files a coding agent is likely to inspect first. Other repository files may exist. Hidden verifier checks reject public-test masking repairs such as stubs, copied resources, top-level compatibility packages, test edits, or verifier edits."
+}

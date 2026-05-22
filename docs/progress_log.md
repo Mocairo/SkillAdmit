@@ -2599,3 +2599,238 @@ preconditions reaching stable 25/25. The strict precondition-only ablation
 remains weaker and unstable, so it should be reported as a failed replacement
 for repository-tree context.
 ```
+
+### 47. Hard v3 Deterministic Downstream Boundary
+
+Created:
+
+```text
+docs/llm_downstream_hard_v3.md
+scripts/build_downstream_hard_v3_tasks.py
+scripts/check_downstream_hard_v3_tasks.py
+benchmark/downstream_hard_v3/tasks/
+```
+
+What the files do:
+
+```text
+docs/llm_downstream_hard_v3.md
+  Defines the hard_v3 scientific goal, stage-1 boundary, task families,
+  checker invariants, planned strategy matrix, commands, and current claim
+  boundary.
+
+scripts/build_downstream_hard_v3_tasks.py
+  Generates 30 fresh hard_v3 downstream tasks under
+  benchmark/downstream_hard_v3/tasks/. The suite uses service, CLI, config,
+  plugin, and resource-loading mini-projects rather than directly copying the
+  hard_v2 minimal import/path cases.
+
+scripts/check_downstream_hard_v3_tasks.py
+  Validates every hard_v3 task: initial failure, gold-like repair success,
+  forced bad artifact public-test success, and forced bad artifact hidden
+  verifier failure.
+```
+
+Why this is needed:
+
+```text
+hard_v2 has been used enough to serve as evidence, not a tuning target. hard_v3
+is the next clean downstream validation boundary for testing whether the
+hard_v2 SkillAdmit-selected claim generalizes to a fresh task surface.
+```
+
+Task design:
+
+```text
+30 tasks = 6 templates x 5 variants
+
+T1_optional_integration_import
+T2_application_package_local_import
+T3_dual_use_command_module
+T4_repo_config_cwd_path
+T5_plugin_registry_internal_import
+T6_template_resource_cwd_path
+```
+
+The suite keeps the current admitted skill names so the existing downstream
+runner can compare `no_experience`, `skilladmit_selected`,
+`skilladmit_selected_with_precondition_context`,
+`skilladmit_selected_with_precondition_only`, `distilled_skills_all`,
+`raw_memory`, `promoted_rules`, `bad_dependency_rule`, and
+`forced_bad_artifact` without tuning the admission controller.
+
+Deterministic checker result:
+
+```text
+total: 30
+initial_failed: 30
+gold_passed: 30
+forced_public_passed: 30
+forced_verifier_failed: 30
+```
+
+By template:
+
+```text
+T1_optional_integration_import:       5/5 all checks
+T2_application_package_local_import:  5/5 all checks
+T3_dual_use_command_module:           5/5 all checks
+T4_repo_config_cwd_path:              5/5 all checks
+T5_plugin_registry_internal_import:   5/5 all checks
+T6_template_resource_cwd_path:        5/5 all checks
+```
+
+Regression checks:
+
+```text
+py_compile:
+  scripts/build_downstream_hard_v3_tasks.py
+  scripts/check_downstream_hard_v3_tasks.py
+  scripts/build_downstream_hard_v2_tasks.py
+  scripts/check_downstream_hard_v2_tasks.py
+  scripts/run_llm_downstream_validation.py
+  scripts/inspect_llm_downstream_run.py
+  scripts/run_admission_regression.py
+
+scripts/check_downstream_hard_v2_tasks.py:
+  total: 25
+  initial_failed: 25
+  gold_passed: 25
+  forced_public_passed: 25
+  forced_verifier_failed: 25
+
+scripts/run_admission_regression.py:
+  checked_files: 9
+  min_accuracy: 1.000
+  passed_files: 9
+  failed_files: 0
+```
+
+Current claim boundary:
+
+```text
+hard_v3 now supports a deterministic scaffold claim only: it is a validated
+30-task downstream task suite with hidden-verifier negative-transfer controls.
+
+It does not yet support LLM downstream success, token savings, or strategy
+superiority claims. Those require fresh LLM runs after the task suite is treated
+as frozen.
+```
+
+### 48. Hard v3 Tree-Aware Core LLM Run
+
+Completed:
+
+```text
+benchmark/downstream/llm_runs/llm_downstream_hard_v3_tree_core_30x2/
+```
+
+Strategies:
+
+```text
+no_experience
+skilladmit_selected
+skilladmit_selected_with_precondition_context
+forced_bad_artifact
+```
+
+Executor setting:
+
+```text
+--tasks-dir benchmark/downstream_hard_v3/tasks
+--use-task-visible-files
+--include-repo-tree
+--resume
+```
+
+Final cleaned summary:
+
+```text
+forced_bad_artifact: 0/30, success_rate=0.000, negative_transfer=30,
+  public_passed_hidden_failed=30, artifact_adherence=30/30,
+  parse_errors=0, total_tokens=0
+
+no_experience: 29/30, success_rate=0.967, negative_transfer=1,
+  public_passed_hidden_failed=0, artifact_adherence=30/30,
+  parse_errors=0, total_tokens=70208
+
+skilladmit_selected: 29/30, success_rate=0.967, negative_transfer=1,
+  public_passed_hidden_failed=0, artifact_adherence=30/30,
+  parse_errors=0, total_tokens=69291
+
+skilladmit_selected_with_precondition_context: 29/30,
+  success_rate=0.967, negative_transfer=1,
+  public_passed_hidden_failed=0, artifact_adherence=30/30,
+  parse_errors=0, total_tokens=74559
+```
+
+API hygiene note:
+
+```text
+The first selected+precondition pass had two infrastructure failures:
+
+hard_v3_agent_016: APIConnectionError
+hard_v3_agent_017: APITimeoutError
+
+Those two rows were removed from trajectories.jsonl and rerun. Both passed.
+The final run has parse_errors=0.
+```
+
+Failure distribution:
+
+```text
+no_experience:
+  hard_v3_agent_013, T3_dual_use_command_module
+
+skilladmit_selected:
+  hard_v3_agent_027, T6_template_resource_cwd_path
+
+skilladmit_selected_with_precondition_context:
+  hard_v3_agent_027, T6_template_resource_cwd_path
+
+forced_bad_artifact:
+  all 30 tasks, all public-pass/hidden-fail negative transfer
+```
+
+Interpretation:
+
+```text
+This is not a SkillAdmit-selected superiority result. On hard_v3 tree-aware core,
+no_experience, skilladmit_selected, and selected+precondition all reach 29/30.
+
+SkillAdmit-selected fixes the no_experience T3 failure but introduces/fails a T6
+resource-path case. The precondition context does not recover that T6 failure
+and costs more tokens in this run.
+
+The strong hard_v3 result is the negative-transfer control: if a bad admitted
+artifact is executed, it systematically creates public-pass/hidden-fail repairs
+across all 30 tasks.
+```
+
+Runner report polish:
+
+```text
+scripts/run_llm_downstream_validation.py now writes a generic report title,
+run name, tasks directory, total rows, and a protocol-sensitive caveat rather
+than hard-coding "LLM Downstream Validation v0".
+
+scripts/check_downstream_hard_v2_tasks.py and
+scripts/check_downstream_hard_v3_tasks.py now run checks with
+PYTHONDONTWRITEBYTECODE=1 and pytest cache disabled, so verifier runs do not
+leave __pycache__ or .pytest_cache directories inside task repos.
+```
+
+Current claim boundary:
+
+```text
+Do not claim hard_v3 token savings, selected superiority, or precondition
+superiority from this run.
+
+Do not tune prompt or strategy text from hard_v3_agent_013 or hard_v3_agent_027
+unless hard_v3 is explicitly converted from an evaluation boundary into a
+development set.
+
+The next clean hard_v3 step is either a pre-declared matrix extension
+(precondition-only, all-skills, raw-memory, promoted-rules) or a fresh
+replication, not post-hoc strategy editing.
+```

@@ -11,6 +11,7 @@ The current repo contains:
 - Python import/debug downstream task suites;
 - LLM downstream validation runners;
 - hard_v2 downstream reports with hidden-verifier and negative-transfer checks;
+- hard_v3 deterministic downstream task scaffold and tree-aware core LLM run;
 - experiment handoff and paper-facing status notes.
 
 Key entry points:
@@ -18,6 +19,8 @@ Key entry points:
 ```bash
 python scripts/run_admission_regression.py
 python scripts/check_downstream_hard_v2_tasks.py
+python scripts/check_downstream_hard_v3_tasks.py
+python scripts/inspect_llm_downstream_run.py --run-name llm_downstream_hard_v3_tree_core_30x2
 python scripts/summarize_hard_v2_results.py --assert-current-hard-v2
 python scripts/export_hard_v2_evidence_package.py --assert-current-hard-v2
 ```

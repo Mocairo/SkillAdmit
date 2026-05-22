@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import subprocess
 import tempfile
@@ -14,8 +15,25 @@ ROOT = Path(__file__).resolve().parents[1]
 TASKS_DIR = ROOT / "benchmark" / "downstream_hard_v2" / "tasks"
 
 
+def clean_test_env() -> dict[str, str]:
+    env = os.environ.copy()
+    env["PYTHONDONTWRITEBYTECODE"] = "1"
+    pytest_addopts = env.get("PYTEST_ADDOPTS", "").strip()
+    cache_opt = "-p no:cacheprovider"
+    if cache_opt not in pytest_addopts:
+        env["PYTEST_ADDOPTS"] = f"{pytest_addopts} {cache_opt}".strip()
+    return env
+
+
 def run_cmd(cmd: list[str], cwd: Path, timeout: int = 30) -> subprocess.CompletedProcess[str]:
-    return subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, timeout=timeout)
+    return subprocess.run(
+        cmd,
+        cwd=cwd,
+        capture_output=True,
+        text=True,
+        timeout=timeout,
+        env=clean_test_env(),
+    )
 
 
 def load_task(task_dir: Path) -> dict[str, Any]:
@@ -46,7 +64,7 @@ def check_task(task_dir: Path) -> dict[str, Any]:
         bad_dir = Path(tmp) / "forced_bad" / task_dir.name
         shutil.copytree(task_dir, bad_dir)
         apply_edits(bad_dir / "repo", task["forced_bad_artifact_edits"])
-        public = run_cmd(["python", "-m", "pytest", "-q"], bad_dir / "repo")
+        public = run_cmd(["python", "-m", "pytest", "-q", "-p", "no:cacheprovider"], bad_dir / "repo")
         forced = run_cmd(["bash", "verifier.sh"], bad_dir)
 
     return {

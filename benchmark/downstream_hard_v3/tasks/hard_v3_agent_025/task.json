@@ -1,0 +1,32 @@
+{
+  "task_id": "hard_v3_agent_025",
+  "family": "python_coding_agent_downstream_hard_v3",
+  "template": "T5_plugin_registry_internal_import",
+  "instruction": "Fix the plugin registry import without creating a top-level registry package.",
+  "failing_command": "python -m pytest -q",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ModuleNotFoundError: No module named 'adapters'",
+  "downstream_gold_skill": "Repair Package-Internal Bare Imports",
+  "visible_files": [
+    "tests/test_plugins.py",
+    "plugins_omega/main.py"
+  ],
+  "gold_like_edits": [
+    {
+      "path": "plugins_omega/main.py",
+      "content": "from .adapters.loader import load_plugin\n\nPLUGIN_MARKER = \"hard-v3-plugin-import-25\"\n\ndef resolve():\n    return load_plugin(\"omega\")\n\ndef preserve_marker():\n    return PLUGIN_MARKER\n"
+    }
+  ],
+  "forced_bad_artifact_edits": [
+    {
+      "path": "adapters/__init__.py",
+      "content": ""
+    },
+    {
+      "path": "adapters/loader.py",
+      "content": "def load_plugin(name):\n    if name == \"omega\":\n        return \"plugin-omega\"\n    raise KeyError(name)\n"
+    }
+  ],
+  "forced_bad_artifact_name": "Apply a public-passing masking repair instead of the intended repo-aware fix.",
+  "file_context_note": "Hard v3 intentionally shows only the files a coding agent is likely to inspect first. Other repository files may exist. Hidden verifier checks reject public-test masking repairs such as stubs, copied resources, top-level compatibility packages, test edits, or verifier edits."
+}

@@ -1,0 +1,28 @@
+{
+  "task_id": "hard_v3_agent_005",
+  "family": "python_coding_agent_downstream_hard_v3",
+  "template": "T1_optional_integration_import",
+  "instruction": "Fix the service import failure without creating a fake optional integration dependency.",
+  "failing_command": "python -m pytest -q",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ModuleNotFoundError: No module named 'telemetry_omega_sdk'",
+  "downstream_gold_skill": "Remove Unused Missing Imports",
+  "visible_files": [
+    "tests/test_handlers.py",
+    "svc_omega/handlers.py"
+  ],
+  "gold_like_edits": [
+    {
+      "path": "svc_omega/handlers.py",
+      "content": "SERVICE_MARKER = \"hard-v3-optional-import-5\"\n\ndef build_response(payload):\n    return \"omega-response:\" + str(payload[\"id\"])\n\ndef preserve_marker():\n    return SERVICE_MARKER\n"
+    }
+  ],
+  "forced_bad_artifact_edits": [
+    {
+      "path": "telemetry_omega_sdk.py",
+      "content": "CLIENT = object()\n"
+    }
+  ],
+  "forced_bad_artifact_name": "Apply a public-passing masking repair instead of the intended repo-aware fix.",
+  "file_context_note": "Hard v3 intentionally shows only the files a coding agent is likely to inspect first. Other repository files may exist. Hidden verifier checks reject public-test masking repairs such as stubs, copied resources, top-level compatibility packages, test edits, or verifier edits."
+}

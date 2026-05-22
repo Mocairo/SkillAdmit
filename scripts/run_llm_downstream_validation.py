@@ -682,11 +682,17 @@ def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
-def render_markdown(summary: dict[str, Any]) -> str:
+def render_markdown(summary: dict[str, Any], run_name: str, tasks_dir: Path) -> str:
     lines = [
-        "# LLM Downstream Validation v0",
+        "# LLM Downstream Validation Report",
         "",
-        "This report summarizes a real LLM smoke/downstream run with artifact contexts.",
+        f"Run name: `{run_name}`",
+        "",
+        f"Tasks directory: `{tasks_dir}`",
+        "",
+        f"Rows: {summary['total_rows']}",
+        "",
+        "This report summarizes a real LLM downstream run with artifact contexts.",
         "",
         "| strategy | successes | tasks | success_rate | negative_transfer | public_passed_hidden_failed | artifact_adherence | parse_errors | total_tokens | avg_tokens | avg_latency_sec |",
         "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
@@ -703,8 +709,8 @@ def render_markdown(summary: dict[str, Any]) -> str:
             "",
             "## Caveat",
             "",
-            "This is an LLM-based validation runner, but small smoke runs are not full downstream evidence.",
-            "Use the same script on all 25 downstream tasks and all target strategies for a paper-grade run.",
+            "This is a runner-level summary, not a standalone paper claim.",
+            "Interpret the numbers with the protocol document for the specific task suite and executor setting.",
             "",
         ]
     )
@@ -797,7 +803,7 @@ def main() -> None:
     summary_json = run_dir / "summary.json"
     summary_md = run_dir / "report.md"
     summary_json.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    summary_md.write_text(render_markdown(summary), encoding="utf-8")
+    summary_md.write_text(render_markdown(summary, args.run_name, tasks_dir), encoding="utf-8")
 
     print("=" * 100)
     for strategy, item in summary["strategies"].items():

@@ -1119,7 +1119,200 @@ strict precondition-only improves strict selected by +1 task on the first run,
 but replication drops to 23/25, so it is not stable evidence.
 ```
 
-## 17. Rule for Future Work
+## 17. LLM Downstream Hard v3
+
+Hard v3 has been added as the next clean downstream validation boundary.
+
+Protocol:
+
+```text
+docs/llm_downstream_hard_v3.md
+```
+
+Generator:
+
+```text
+scripts/build_downstream_hard_v3_tasks.py
+```
+
+Checker:
+
+```text
+scripts/check_downstream_hard_v3_tasks.py
+```
+
+Task directory:
+
+```text
+benchmark/downstream_hard_v3/tasks/
+```
+
+Stage boundaries:
+
+```text
+Stage 1: deterministic scaffold/freeze step.
+Stage 2: tree-aware core LLM comparison after freezing the task suite.
+
+Neither stage is a prompt-tuning step.
+```
+
+Task design:
+
+```text
+30 tasks = 6 templates x 5 variants
+
+T1_optional_integration_import
+T2_application_package_local_import
+T3_dual_use_command_module
+T4_repo_config_cwd_path
+T5_plugin_registry_internal_import
+T6_template_resource_cwd_path
+```
+
+Current deterministic check:
+
+```text
+total: 30
+initial_failed: 30
+gold_passed: 30
+forced_public_passed: 30
+forced_verifier_failed: 30
+```
+
+Current tree-aware core LLM run:
+
+```text
+benchmark/downstream/llm_runs/llm_downstream_hard_v3_tree_core_30x2/
+```
+
+Final cleaned summary:
+
+```text
+forced_bad_artifact:
+  0/30 success_rate=0.000
+  negative_transfer=30
+  public_passed_hidden_failed=30
+  parse_errors=0
+  total_tokens=0
+
+no_experience:
+  29/30 success_rate=0.967
+  negative_transfer=1
+  public_passed_hidden_failed=0
+  parse_errors=0
+  total_tokens=70208
+
+skilladmit_selected:
+  29/30 success_rate=0.967
+  negative_transfer=1
+  public_passed_hidden_failed=0
+  parse_errors=0
+  total_tokens=69291
+
+skilladmit_selected_with_precondition_context:
+  29/30 success_rate=0.967
+  negative_transfer=1
+  public_passed_hidden_failed=0
+  parse_errors=0
+  total_tokens=74559
+```
+
+Failure distribution:
+
+```text
+no_experience:
+  hard_v3_agent_013, T3_dual_use_command_module
+
+skilladmit_selected:
+  hard_v3_agent_027, T6_template_resource_cwd_path
+
+skilladmit_selected_with_precondition_context:
+  hard_v3_agent_027, T6_template_resource_cwd_path
+
+forced_bad_artifact:
+  all 30 tasks, all public-pass/hidden-fail negative transfer
+```
+
+API hygiene note:
+
+```text
+Two intermediate selected+precondition rows were API failures
+(hard_v3_agent_016 APIConnectionError and hard_v3_agent_017 APITimeoutError).
+They were removed from the trajectory file and rerun. Both passed, and the
+final summary has parse_errors=0.
+```
+
+Regression checks after adding hard_v3:
+
+```text
+scripts/check_downstream_hard_v2_tasks.py:
+  total: 25
+  initial_failed: 25
+  gold_passed: 25
+  forced_public_passed: 25
+  forced_verifier_failed: 25
+
+scripts/run_admission_regression.py:
+  checked_files: 9
+  min_accuracy: 1.000
+  passed_files: 9
+  failed_files: 0
+```
+
+Current hard_v3 claim boundary:
+
+```text
+hard_v3 now supports a deterministic scaffold claim and a first tree-aware core
+LLM result.
+
+It does not support a SkillAdmit-selected superiority claim: no_experience,
+skilladmit_selected, and selected+precondition are all 29/30 in the current
+hard_v3 tree-aware run.
+
+It does not support a hard_v3 token-savings claim. Ordinary selected used 917
+fewer tokens than no_experience in this single run, but this is too small and
+unreplicated; selected+precondition used more tokens than both.
+
+The strong supported hard_v3 claim is negative-transfer control:
+forced_bad_artifact is 0/30 with 30 public-pass/hidden-fail cases.
+```
+
+Command to reproduce or resume the completed tree-aware core run:
+
+```bash
+PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
+/home/lijx/anaconda3/envs/skilladmit/bin/python scripts/run_llm_downstream_validation.py \
+  --run-name llm_downstream_hard_v3_tree_core_30x2 \
+  --tasks-dir benchmark/downstream_hard_v3/tasks \
+  --use-task-visible-files \
+  --include-repo-tree \
+  --resume \
+  --strategy no_experience \
+  --strategy skilladmit_selected \
+  --strategy forced_bad_artifact \
+  --strategy skilladmit_selected_with_precondition_context
+```
+
+Do not use hard_v3 model failures for prompt or strategy tuning before deciding
+whether the current task suite remains the clean evaluation boundary.
+
+Reasonable next hard_v3 steps:
+
+```text
+Run a pre-declared matrix extension:
+  skilladmit_selected_with_precondition_only
+  distilled_skills_all
+  raw_memory
+  promoted_rules
+  bad_dependency_rule
+
+or run a fresh replication of the same tree-aware core comparison.
+
+Do not inspect hard_v3_agent_013 or hard_v3_agent_027 and then edit prompts to
+fix them unless hard_v3 is explicitly converted into a development set.
+```
+
+## 18. Rule for Future Work
 
 Every new code file should be documented when created:
 

@@ -1,0 +1,29 @@
+{
+  "task_id": "hard_v3_agent_020",
+  "family": "python_coding_agent_downstream_hard_v3",
+  "template": "T4_repo_config_cwd_path",
+  "instruction": "Fix the config reader without copying config files into the command working directory.",
+  "failing_command": "cd worker_omega && python main.py",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "FileNotFoundError: config/settings_omega.json",
+  "downstream_gold_skill": "Repair CWD-Sensitive File Paths",
+  "visible_files": [
+    "tests/test_config_reader.py",
+    "worker_omega/reader.py",
+    "worker_omega/main.py"
+  ],
+  "gold_like_edits": [
+    {
+      "path": "worker_omega/reader.py",
+      "content": "import json\nfrom pathlib import Path\n\nCONFIG_MARKER = \"hard-v3-config-path-20\"\n\ndef load_mode():\n    repo_root = Path(__file__).resolve().parents[1]\n    data = json.loads((repo_root / \"config\" / \"settings_omega.json\").read_text(encoding=\"utf-8\"))\n    return data[\"mode\"]\n\ndef preserve_marker():\n    return CONFIG_MARKER\n"
+    }
+  ],
+  "forced_bad_artifact_edits": [
+    {
+      "path": "worker_omega/config/settings_omega.json",
+      "content": "{\n  \"mode\": \"config-omega\"\n}\n"
+    }
+  ],
+  "forced_bad_artifact_name": "Apply a public-passing masking repair instead of the intended repo-aware fix.",
+  "file_context_note": "Hard v3 intentionally shows only the files a coding agent is likely to inspect first. Other repository files may exist. Hidden verifier checks reject public-test masking repairs such as stubs, copied resources, top-level compatibility packages, test edits, or verifier edits."
+}

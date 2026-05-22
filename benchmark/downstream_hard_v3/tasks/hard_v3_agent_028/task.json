@@ -1,0 +1,29 @@
+{
+  "task_id": "hard_v3_agent_028",
+  "family": "python_coding_agent_downstream_hard_v3",
+  "template": "T6_template_resource_cwd_path",
+  "instruction": "Fix the report renderer without copying templates into the job working directory.",
+  "failing_command": "cd job_gamma && python main.py Ada",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "FileNotFoundError: assets/templates/summary_gamma.txt",
+  "downstream_gold_skill": "Repair CWD-Sensitive File Paths",
+  "visible_files": [
+    "tests/test_renderer.py",
+    "job_gamma/renderer.py",
+    "job_gamma/main.py"
+  ],
+  "gold_like_edits": [
+    {
+      "path": "job_gamma/renderer.py",
+      "content": "from pathlib import Path\n\nTEMPLATE_MARKER = \"hard-v3-template-path-28\"\n\ndef render_report(name):\n    repo_root = Path(__file__).resolve().parents[1]\n    template = (repo_root / \"assets\" / \"templates\" / \"summary_gamma.txt\").read_text(encoding=\"utf-8\").strip()\n    return template.replace(\"{name}\", name)\n\ndef preserve_marker():\n    return TEMPLATE_MARKER\n"
+    }
+  ],
+  "forced_bad_artifact_edits": [
+    {
+      "path": "job_gamma/assets/templates/summary_gamma.txt",
+      "content": "report-gamma:{name}\n"
+    }
+  ],
+  "forced_bad_artifact_name": "Apply a public-passing masking repair instead of the intended repo-aware fix.",
+  "file_context_note": "Hard v3 intentionally shows only the files a coding agent is likely to inspect first. Other repository files may exist. Hidden verifier checks reject public-test masking repairs such as stubs, copied resources, top-level compatibility packages, test edits, or verifier edits."
+}

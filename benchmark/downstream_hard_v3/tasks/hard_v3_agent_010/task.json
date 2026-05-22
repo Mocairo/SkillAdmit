@@ -1,0 +1,28 @@
+{
+  "task_id": "hard_v3_agent_010",
+  "family": "python_coding_agent_downstream_hard_v3",
+  "template": "T2_application_package_local_import",
+  "instruction": "Fix the package-local import without adding a top-level compatibility module.",
+  "failing_command": "python -m pytest -q",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ModuleNotFoundError: No module named 'labels'",
+  "downstream_gold_skill": "Repair Local Module Imports",
+  "visible_files": [
+    "tests/test_api.py",
+    "orders_omega/api.py"
+  ],
+  "gold_like_edits": [
+    {
+      "path": "orders_omega/api.py",
+      "content": "from .labels import label_order\n\nAPI_MARKER = \"hard-v3-local-import-10\"\n\ndef render_order(order_id):\n    return label_order(order_id)\n\ndef preserve_marker():\n    return API_MARKER\n"
+    }
+  ],
+  "forced_bad_artifact_edits": [
+    {
+      "path": "labels.py",
+      "content": "def label_order(order_id):\n    return \"order-omega:\" + str(order_id)\n"
+    }
+  ],
+  "forced_bad_artifact_name": "Apply a public-passing masking repair instead of the intended repo-aware fix.",
+  "file_context_note": "Hard v3 intentionally shows only the files a coding agent is likely to inspect first. Other repository files may exist. Hidden verifier checks reject public-test masking repairs such as stubs, copied resources, top-level compatibility packages, test edits, or verifier edits."
+}

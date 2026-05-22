@@ -562,3 +562,128 @@ Use this package for paper tables rather than hand-copying from an individual
 `summary.json`. It contains explicit supported and unsupported claims so the
 paper does not overstate token savings, universal superiority, or
 precondition-only reliability.
+
+## 10. LLM Downstream Hard v3
+
+Hard v3 has been added as the next clean downstream validation boundary after
+hard_v2.
+
+Protocol:
+
+```text
+docs/llm_downstream_hard_v3.md
+```
+
+Scripts:
+
+```text
+scripts/build_downstream_hard_v3_tasks.py
+scripts/check_downstream_hard_v3_tasks.py
+```
+
+Task directory:
+
+```text
+benchmark/downstream_hard_v3/tasks/
+```
+
+Current deterministic scaffold:
+
+```text
+30 tasks = 6 templates x 5 variants
+
+initial_failed: 30/30
+gold_passed: 30/30
+forced_public_passed: 30/30
+forced_verifier_failed: 30/30
+```
+
+Current tree-aware core LLM run:
+
+```text
+benchmark/downstream/llm_runs/llm_downstream_hard_v3_tree_core_30x2/
+```
+
+Result:
+
+```text
+forced_bad_artifact:
+  0/30 success_rate=0.000
+  negative_transfer=30
+  public_passed_hidden_failed=30
+  parse_errors=0
+  total_tokens=0
+
+no_experience:
+  29/30 success_rate=0.967
+  negative_transfer=1
+  public_passed_hidden_failed=0
+  parse_errors=0
+  total_tokens=70208
+
+skilladmit_selected:
+  29/30 success_rate=0.967
+  negative_transfer=1
+  public_passed_hidden_failed=0
+  parse_errors=0
+  total_tokens=69291
+
+skilladmit_selected_with_precondition_context:
+  29/30 success_rate=0.967
+  negative_transfer=1
+  public_passed_hidden_failed=0
+  parse_errors=0
+  total_tokens=74559
+```
+
+Failure distribution:
+
+```text
+no_experience:
+  hard_v3_agent_013, T3_dual_use_command_module
+
+skilladmit_selected:
+  hard_v3_agent_027, T6_template_resource_cwd_path
+
+skilladmit_selected_with_precondition_context:
+  hard_v3_agent_027, T6_template_resource_cwd_path
+
+forced_bad_artifact:
+  all 30 tasks, all public-pass/hidden-fail negative transfer
+```
+
+Interpretation:
+
+```text
+Hard v3 now provides a first real LLM downstream result on a fresh task boundary.
+The result is deliberately narrower than hard_v2's positive tree-aware selected
+claim: selected does not beat no_experience in aggregate on this hard_v3 core
+run. Both are 29/30.
+
+The strong hard_v3 paper-facing signal is negative transfer. The forced bad
+artifact condition is 0/30 and all 30 failures are public-pass/hidden-fail,
+which directly supports the idea that admitting harmful experience can
+systematically damage downstream behavior even when public tests pass.
+```
+
+Current claim boundary:
+
+```text
+Do not claim that SkillAdmit-selected beats no_experience on hard_v3. In the
+current tree-aware core run, no_experience, selected, and selected+precondition
+are all 29/30.
+
+Do not claim that selected+precondition improves hard_v3 accuracy over ordinary
+selected. Both fail hard_v3_agent_027.
+
+Do not claim hard_v3 token savings. Ordinary selected used 917 fewer tokens than
+no_experience in this single run, but this is unreplicated and not large enough
+to carry a paper claim; selected+precondition used more tokens than both.
+
+Do not claim hard_v3 proves repo-tree necessity yet. The current hard_v3 LLM run
+is tree-aware only; strict and precondition-only hard_v3 ablations remain future
+work.
+
+Do not tune prompts or strategy text from hard_v3_agent_013 or hard_v3_agent_027
+unless hard_v3 is explicitly reclassified as development data.
+```
