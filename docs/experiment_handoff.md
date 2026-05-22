@@ -1565,7 +1565,53 @@ answering reviewer questions. It says which artifacts are primary evidence,
 which are drafting aids, which are handoff context, and which files should not
 be cited as primary evidence.
 
-## 18. Rule for Future Work
+## 18. Hard v4 Scaffold
+
+Hard v4 has been added as a candidate fresh downstream boundary. It is not an
+LLM evidence result yet.
+
+Protocol:
+
+```text
+docs/llm_downstream_hard_v4.md
+```
+
+Scripts:
+
+```text
+scripts/build_downstream_hard_v4_tasks.py
+scripts/check_downstream_hard_v4_tasks.py
+```
+
+Current deterministic scaffold:
+
+```text
+24 tasks = 6 templates x 4 variants
+initial_failed: 24/24
+gold_passed: 24/24
+forced_public_passed: 24/24
+forced_verifier_failed: 24/24
+```
+
+This validation was run against a temporary directory:
+
+```text
+/tmp/skilladmit_hard_v4_tasks
+```
+
+The generated task directory has not been committed yet. This is deliberate:
+hard_v4 should be explicitly frozen before any LLM API run and before its task
+files are treated as paper-facing evidence.
+
+Boundary:
+
+```text
+Do not tune hard_v2 or hard_v3 further.
+Do not claim hard_v4 evidence yet.
+Do not run hard_v4 LLM API until the generated task boundary is intentionally frozen.
+```
+
+## 19. Rule for Future Work
 
 Every new code file should be documented when created:
 

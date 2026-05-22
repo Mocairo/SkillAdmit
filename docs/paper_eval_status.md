@@ -905,3 +905,44 @@ evidence packages, synthesis reports, generated drafting aids, claim-defense
 tables, and handoff logs. It also records files that should not be cited as
 primary evidence, such as individual llm_runs summary.json files.
 ```
+
+## 15. Hard v4 Scaffold Status
+
+Hard v4 is a candidate future downstream boundary, not current paper evidence.
+
+Protocol and scripts:
+
+```text
+docs/llm_downstream_hard_v4.md
+scripts/build_downstream_hard_v4_tasks.py
+scripts/check_downstream_hard_v4_tasks.py
+```
+
+Current deterministic scaffold validation:
+
+```text
+tasks: 24
+templates: 6
+variants_per_template: 4
+initial_failed: 24/24
+gold_passed: 24/24
+forced_public_passed: 24/24
+forced_verifier_failed: 24/24
+```
+
+Interpretation:
+
+```text
+This only proves that the hard_v4 scaffold is mechanically valid. It does not
+create a new downstream model result and should not be cited as evidence that
+SkillAdmit helps on hard_v4.
+```
+
+Next experimental step:
+
+```text
+If continuing experimentally, explicitly freeze the generated hard_v4 task
+directory first, then run a no-tuning LLM strategy matrix or model-transfer
+replication. Do not inspect hard_v4 failures and tune prompts while preserving
+hard_v4 as clean evidence.
+```

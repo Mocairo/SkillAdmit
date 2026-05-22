@@ -3378,3 +3378,83 @@ Use paper_artifacts_index.md as the navigation layer before writing or revising
 the paper. Do not cite individual llm_runs summary.json files as primary paper
 evidence when evidence packages, synthesis reports, and paper tables exist.
 ```
+
+### 55. Hard v4 Downstream Scaffold
+
+Created:
+
+```text
+docs/llm_downstream_hard_v4.md
+scripts/build_downstream_hard_v4_tasks.py
+scripts/check_downstream_hard_v4_tasks.py
+```
+
+What the files do:
+
+```text
+build_downstream_hard_v4_tasks.py:
+  deterministically generates a candidate hard_v4 downstream task suite.
+
+check_downstream_hard_v4_tasks.py:
+  validates initial failure, gold-like pass, forced-public pass, and
+  forced-hidden failure for each generated task.
+
+docs/llm_downstream_hard_v4.md:
+  defines the hard_v4 scientific goal, task families, hidden verifier design,
+  commands, planned strategy matrix, and hygiene rules.
+```
+
+Why it is needed:
+
+```text
+hard_v2 and hard_v3 are frozen evidence boundaries. hard_v4 is the next
+candidate clean downstream boundary if the project continues experimentally.
+It gives a fresh task surface rather than tuning prompts or strategies against
+hard_v2/hard_v3 failures.
+```
+
+Current generated scaffold:
+
+```text
+24 tasks = 6 templates x 4 variants
+
+T1_optional_telemetry_import
+T2_src_layout_package_import
+T3_dual_entrypoint_command
+T4_workspace_config_resolution
+T5_resource_template_resolution
+T6_plugin_registry_namespace
+```
+
+Temporary validation command:
+
+```bash
+rm -rf /tmp/skilladmit_hard_v4_tasks
+
+PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
+/home/lijx/anaconda3/envs/skilladmit/bin/python scripts/build_downstream_hard_v4_tasks.py \
+  --tasks-dir /tmp/skilladmit_hard_v4_tasks
+
+PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
+/home/lijx/anaconda3/envs/skilladmit/bin/python scripts/check_downstream_hard_v4_tasks.py \
+  --tasks-dir /tmp/skilladmit_hard_v4_tasks
+```
+
+Temporary validation result:
+
+```text
+total: 24
+initial_failed: 24
+gold_passed: 24
+forced_public_passed: 24
+forced_verifier_failed: 24
+```
+
+Important boundary:
+
+```text
+No hard_v4 LLM API has been run.
+No generated hard_v4 task directory has been committed yet.
+No hard_v4 paper claim exists yet.
+Before any hard_v4 LLM matrix, explicitly freeze the generated task boundary.
+```
