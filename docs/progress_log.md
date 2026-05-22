@@ -2964,3 +2964,81 @@ Do not claim raw memory or bad_dependency_rule are valid admission policies.
 Use hard_v3 mainly as generalization/boundary evidence and negative-transfer
 evidence.
 ```
+
+### 50. Hard v3 Paper Evidence Export
+
+Created:
+
+```text
+scripts/export_hard_v3_evidence_package.py
+```
+
+What the file does:
+
+```text
+Builds a compact paper-facing hard_v3 evidence package from the strategy
+matrix: primary strategy table, selected comparisons, artifact-adherence table,
+non-forced failure taxonomy, source hashes, Markdown paper tables, LaTeX table,
+and explicit supported/unsupported claims.
+```
+
+Why it is needed:
+
+```text
+hard_v3 is boundary evidence, not a simple selected-wins result. The paper needs
+a compact surface that prevents over-reading raw_memory, bad_dependency_rule,
+or selected token deltas as stronger claims than the data supports.
+```
+
+Inputs:
+
+```text
+benchmark/downstream/llm_runs/llm_downstream_hard_v3_tree_core_30x2/
+benchmark/downstream/llm_runs/llm_downstream_hard_v3_strict_30x8/
+benchmark/downstream/reports/hard_v3_strategy_matrix.json
+```
+
+Outputs:
+
+```text
+benchmark/downstream/reports/hard_v3_evidence_package.json
+benchmark/downstream/reports/hard_v3_paper_tables.md
+benchmark/downstream/reports/hard_v3_paper_tables.tex
+```
+
+Command:
+
+```bash
+PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
+/home/lijx/anaconda3/envs/skilladmit/bin/python scripts/export_hard_v3_evidence_package.py \
+  --assert-current-hard-v3
+```
+
+Result:
+
+```text
+primary_rows: 16
+artifact_adherence_rows: 14
+non_forced_failures: 9
+```
+
+Key paper-facing boundary:
+
+```text
+Supported:
+  hard_v3 is a fresh 30-task downstream validation boundary
+  forced bad artifacts produce systematic negative transfer in both settings
+  tree-aware selected ties no_experience at 29/30
+  strict selected+precondition-only reaches 30/30
+  raw_memory reaches 30/30 in both settings and cannot be ignored as a baseline
+  bad_dependency_rule success is explained by low artifact adherence
+
+Not supported:
+  selected superiority
+  selected token savings
+  tree-aware selected+precondition superiority
+  repo tree being always necessary
+  raw memory being a safe admission policy
+  bad dependency advice being safe
+  prompt tuning from hard_v3 failures while still treating hard_v3 as clean evidence
+```

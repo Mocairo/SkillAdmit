@@ -1,6 +1,6 @@
 # Hard v3 Strategy Matrix
 
-Generated at UTC: `2026-05-22T12:21:25.956620+00:00`
+Generated at UTC: `2026-05-22T13:03:52.483098+00:00`
 
 This report snapshots hard_v3 downstream summaries and trajectory hashes.
 Tree-aware and strict visible-file settings are intentionally reported separately.
