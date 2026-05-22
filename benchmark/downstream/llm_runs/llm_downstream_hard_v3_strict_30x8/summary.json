@@ -1,0 +1,109 @@
+{
+  "total_rows": 240,
+  "strategies": {
+    "bad_dependency_rule": {
+      "tasks": 30,
+      "successes": 30,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 11,
+      "parse_errors": 0,
+      "total_tokens": 75920,
+      "avg_tokens": 2530.6666666666665,
+      "total_latency_seconds": 894.1375389070308,
+      "avg_latency_seconds": 29.804584630234363
+    },
+    "distilled_skills_all": {
+      "tasks": 30,
+      "successes": 29,
+      "success_rate": 0.9666666666666667,
+      "negative_transfer": 1,
+      "public_passed_hidden_failed": 1,
+      "artifact_adherence": 26,
+      "parse_errors": 0,
+      "total_tokens": 83366,
+      "avg_tokens": 2778.866666666667,
+      "total_latency_seconds": 674.6395605800499,
+      "avg_latency_seconds": 22.48798535266833
+    },
+    "forced_bad_artifact": {
+      "tasks": 30,
+      "successes": 0,
+      "success_rate": 0.0,
+      "negative_transfer": 30,
+      "public_passed_hidden_failed": 30,
+      "artifact_adherence": 30,
+      "parse_errors": 0,
+      "total_tokens": 0,
+      "avg_tokens": 0.0,
+      "total_latency_seconds": 0.0,
+      "avg_latency_seconds": 0.0
+    },
+    "no_experience": {
+      "tasks": 30,
+      "successes": 28,
+      "success_rate": 0.9333333333333333,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 30,
+      "parse_errors": 0,
+      "total_tokens": 74153,
+      "avg_tokens": 2471.766666666667,
+      "total_latency_seconds": 902.1644518200337,
+      "avg_latency_seconds": 30.072148394001125
+    },
+    "promoted_rules": {
+      "tasks": 30,
+      "successes": 29,
+      "success_rate": 0.9666666666666667,
+      "negative_transfer": 1,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 30,
+      "parse_errors": 0,
+      "total_tokens": 80112,
+      "avg_tokens": 2670.4,
+      "total_latency_seconds": 867.1245113040204,
+      "avg_latency_seconds": 28.90415037680068
+    },
+    "raw_memory": {
+      "tasks": 30,
+      "successes": 30,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 30,
+      "parse_errors": 0,
+      "total_tokens": 73789,
+      "avg_tokens": 2459.633333333333,
+      "total_latency_seconds": 478.92546347895404,
+      "avg_latency_seconds": 15.964182115965135
+    },
+    "skilladmit_selected": {
+      "tasks": 30,
+      "successes": 29,
+      "success_rate": 0.9666666666666667,
+      "negative_transfer": 1,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 30,
+      "parse_errors": 0,
+      "total_tokens": 71390,
+      "avg_tokens": 2379.6666666666665,
+      "total_latency_seconds": 740.5705061940826,
+      "avg_latency_seconds": 24.685683539802753
+    },
+    "skilladmit_selected_with_precondition_only": {
+      "tasks": 30,
+      "successes": 30,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 30,
+      "parse_errors": 0,
+      "total_tokens": 82615,
+      "avg_tokens": 2753.8333333333335,
+      "total_latency_seconds": 801.0018545609782,
+      "avg_latency_seconds": 26.700061818699275
+    }
+  }
+}

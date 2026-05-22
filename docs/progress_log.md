@@ -2834,3 +2834,133 @@ The next clean hard_v3 step is either a pre-declared matrix extension
 (precondition-only, all-skills, raw-memory, promoted-rules) or a fresh
 replication, not post-hoc strategy editing.
 ```
+
+### 49. Hard v3 Full Strategy Matrix
+
+Completed tree-aware matrix extension:
+
+```text
+benchmark/downstream/llm_runs/llm_downstream_hard_v3_tree_core_30x2/
+
+Added after the core run:
+  distilled_skills_all
+  raw_memory
+  promoted_rules
+  bad_dependency_rule
+```
+
+Completed strict visible-file matrix:
+
+```text
+benchmark/downstream/llm_runs/llm_downstream_hard_v3_strict_30x8/
+
+Strategies:
+  no_experience
+  skilladmit_selected
+  skilladmit_selected_with_precondition_only
+  distilled_skills_all
+  raw_memory
+  promoted_rules
+  bad_dependency_rule
+  forced_bad_artifact
+```
+
+Created:
+
+```text
+scripts/summarize_hard_v3_results.py
+benchmark/downstream/reports/hard_v3_strategy_matrix.json
+benchmark/downstream/reports/hard_v3_strategy_matrix.md
+```
+
+What the file does:
+
+```text
+Builds an auditable hard_v3 strategy matrix from completed LLM downstream runs,
+including strategy-level results, template-level results, failure rows, derived
+comparisons, source hashes, and explicit claim boundaries.
+```
+
+Why it is needed:
+
+```text
+hard_v3 now has multiple executor settings. Individual summary.json files are
+easy to over-read, especially because tree-aware and strict visible-file results
+tell different stories.
+```
+
+Current matrix summary:
+
+```text
+tree-aware:
+  bad_dependency_rule:                            30/30, tokens=68671, artifact_adherence=4/30
+  distilled_skills_all:                           30/30, tokens=75603
+  forced_bad_artifact:                             0/30, public_hidden=30
+  no_experience:                                  29/30, tokens=70208
+  promoted_rules:                                 29/30, public_hidden=1, tokens=73114
+  raw_memory:                                     30/30, tokens=68753
+  skilladmit_selected:                            29/30, tokens=69291
+  skilladmit_selected_with_precondition_context:  29/30, tokens=74559
+
+strict visible-file:
+  bad_dependency_rule:                            30/30, tokens=75920, artifact_adherence=11/30
+  distilled_skills_all:                           29/30, public_hidden=1, tokens=83366
+  forced_bad_artifact:                             0/30, public_hidden=30
+  no_experience:                                  28/30, tokens=74153
+  promoted_rules:                                 29/30, tokens=80112
+  raw_memory:                                     30/30, tokens=73789
+  skilladmit_selected:                            29/30, tokens=71390
+  skilladmit_selected_with_precondition_only:     30/30, tokens=82615
+```
+
+Derived comparisons:
+
+```text
+tree_selected_success_delta_vs_no_experience:                  0
+tree_selected_token_delta_vs_no_experience:                 -917
+tree_precondition_context_success_delta_vs_selected:           0
+tree_precondition_context_token_delta_vs_selected:          +5268
+tree_raw_memory_success_delta_vs_no_experience:               +1
+tree_raw_memory_token_delta_vs_no_experience:              -1455
+tree_all_skills_success_delta_vs_selected:                    +1
+tree_all_skills_token_delta_vs_selected:                   +6312
+
+strict_selected_success_delta_vs_no_experience:               +1
+strict_selected_token_delta_vs_no_experience:              -2763
+strict_precondition_only_success_delta_vs_selected:           +1
+strict_precondition_only_token_delta_vs_selected:         +11225
+strict_raw_memory_success_delta_vs_no_experience:             +2
+strict_raw_memory_token_delta_vs_no_experience:             -364
+```
+
+Interpretation:
+
+```text
+hard_v3 weakens a simplistic SkillAdmit-selected superiority story. In the
+tree-aware setting, ordinary selected ties no_experience at 29/30, while
+raw_memory, bad_dependency_rule, and all-skills reach 30/30. In strict
+visible-file, ordinary selected is 29/30 versus no_experience 28/30, but
+precondition-only and raw_memory reach 30/30.
+
+The bad_dependency_rule result must not be read as "bad advice is safe":
+artifact adherence is only 4/30 in tree-aware and 11/30 in strict visible-file.
+The model often succeeds by ignoring the harmful artifact. The forced_bad_artifact
+condition remains the real negative-transfer evidence and is 0/30 in both
+settings with 30 public-pass/hidden-fail cases.
+
+The honest hard_v3 claim is therefore boundary-setting: SkillAdmit-selected is
+not sufficient as a universal best downstream context, explicit preconditions can
+matter strongly on this suite, and harmful artifacts create systematic negative
+transfer when actually executed.
+```
+
+Current claim boundary:
+
+```text
+Do not tune prompts or task design from hard_v3 failures.
+Do not claim hard_v3 selected superiority.
+Do not claim hard_v3 selected token savings.
+Do not claim raw memory or bad_dependency_rule are valid admission policies.
+Use hard_v3 mainly as generalization/boundary evidence and negative-transfer
+evidence.
+```
