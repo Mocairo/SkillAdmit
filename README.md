@@ -19,6 +19,7 @@ Key entry points:
 python scripts/run_admission_regression.py
 python scripts/check_downstream_hard_v2_tasks.py
 python scripts/summarize_hard_v2_results.py --assert-current-hard-v2
+python scripts/export_hard_v2_evidence_package.py --assert-current-hard-v2
 ```
 
 Use the existing `skilladmit` conda environment for local reproduction. Runtime

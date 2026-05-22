@@ -1,6 +1,6 @@
 # Hard v2 Strategy Matrix
 
-Generated at UTC: `2026-05-22T05:14:29.817313+00:00`
+Generated at UTC: `2026-05-22T05:35:21.409580+00:00`
 
 This report snapshots hard_v2 downstream summaries and trajectory hashes so updated run directories are detectable.
 

@@ -1,0 +1,511 @@
+{
+  "generated_at_utc": "2026-05-22T05:36:13.500710+00:00",
+  "source_matrix_generated_at_utc": "2026-05-22T05:36:13.500353+00:00",
+  "primary_strategy_table": [
+    {
+      "setting": "strict visible",
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "strategy": "no_experience",
+      "display_strategy": "No experience",
+      "success": "24/25",
+      "successes": 24,
+      "tasks": 25,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 59272,
+      "avg_tokens": 2370.88,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 25
+    },
+    {
+      "setting": "strict visible",
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "strategy": "skilladmit_selected",
+      "display_strategy": "SkillAdmit-selected",
+      "success": "23/25",
+      "successes": 23,
+      "tasks": 25,
+      "negative_transfer": 2,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 66608,
+      "avg_tokens": 2664.32,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 25
+    },
+    {
+      "setting": "strict visible",
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "strategy": "raw_memory",
+      "display_strategy": "Raw memory",
+      "success": "22/25",
+      "successes": 22,
+      "tasks": 25,
+      "negative_transfer": 3,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 56941,
+      "avg_tokens": 2277.64,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 25
+    },
+    {
+      "setting": "strict visible",
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "strategy": "promoted_rules",
+      "display_strategy": "Promoted rules",
+      "success": "21/25",
+      "successes": 21,
+      "tasks": 25,
+      "negative_transfer": 4,
+      "public_passed_hidden_failed": 1,
+      "total_tokens": 77858,
+      "avg_tokens": 3114.32,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 25
+    },
+    {
+      "setting": "strict visible",
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "strategy": "bad_dependency_rule",
+      "display_strategy": "Bad dependency rule",
+      "success": "22/25",
+      "successes": 22,
+      "tasks": 25,
+      "negative_transfer": 2,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 75724,
+      "avg_tokens": 3028.96,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 25
+    },
+    {
+      "setting": "strict visible",
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "strategy": "distilled_skills_all",
+      "display_strategy": "All distilled skills",
+      "success": "25/25",
+      "successes": 25,
+      "tasks": 25,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 84986,
+      "avg_tokens": 3399.44,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 25
+    },
+    {
+      "setting": "tree-aware",
+      "run_name": "llm_downstream_hard_v2_tree_25x2",
+      "strategy": "no_experience",
+      "display_strategy": "No experience",
+      "success": "23/25",
+      "successes": 23,
+      "tasks": 25,
+      "negative_transfer": 2,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 51548,
+      "avg_tokens": 2061.92,
+      "included_repo_tree_rows": 25,
+      "visible_file_rows": 25
+    },
+    {
+      "setting": "tree-aware",
+      "run_name": "llm_downstream_hard_v2_tree_25x2",
+      "strategy": "skilladmit_selected",
+      "display_strategy": "SkillAdmit-selected",
+      "success": "25/25",
+      "successes": 25,
+      "tasks": 25,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 57597,
+      "avg_tokens": 2303.88,
+      "included_repo_tree_rows": 25,
+      "visible_file_rows": 25
+    },
+    {
+      "setting": "tree-aware + preconditions",
+      "run_name": "llm_downstream_hard_v2_selected_precondition_25",
+      "strategy": "skilladmit_selected_with_precondition_context",
+      "display_strategy": "Selected + tree + preconditions",
+      "success": "25/25",
+      "successes": 25,
+      "tasks": 25,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 67504,
+      "avg_tokens": 2700.16,
+      "included_repo_tree_rows": 25,
+      "visible_file_rows": 25
+    },
+    {
+      "setting": "strict + preconditions only",
+      "run_name": "llm_downstream_hard_v2_precondition_only_25",
+      "strategy": "skilladmit_selected_with_precondition_only",
+      "display_strategy": "Selected + preconditions only",
+      "success": "24/25",
+      "successes": 24,
+      "tasks": 25,
+      "negative_transfer": 1,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 72316,
+      "avg_tokens": 2892.64,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 25
+    },
+    {
+      "setting": "forced harmful artifact",
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "strategy": "forced_bad_artifact",
+      "display_strategy": "Forced bad artifact",
+      "success": "0/25",
+      "successes": 0,
+      "tasks": 25,
+      "negative_transfer": 25,
+      "public_passed_hidden_failed": 25,
+      "total_tokens": 0,
+      "avg_tokens": 0.0,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 25
+    }
+  ],
+  "stability_table": [
+    {
+      "group": "tree_aware_skilladmit_selected",
+      "interpretation": "Tree-aware selected skill condition.",
+      "success_values": [
+        25,
+        25
+      ],
+      "token_values": [
+        57597,
+        52144
+      ],
+      "failure_tasks_by_run": {
+        "llm_downstream_hard_v2_tree_25x2": [],
+        "llm_downstream_hard_v2_replication_tree_selected_25": []
+      },
+      "min_successes": 25,
+      "max_successes": 25
+    },
+    {
+      "group": "tree_aware_selected_precondition_context",
+      "interpretation": "Tree-aware selected skill plus explicit precondition context.",
+      "success_values": [
+        25,
+        25
+      ],
+      "token_values": [
+        67504,
+        64150
+      ],
+      "failure_tasks_by_run": {
+        "llm_downstream_hard_v2_selected_precondition_25": [],
+        "llm_downstream_hard_v2_replication_selected_precondition_25": []
+      },
+      "min_successes": 25,
+      "max_successes": 25
+    },
+    {
+      "group": "strict_precondition_only",
+      "interpretation": "Strict visible-file selected skill plus preconditions, without repo tree.",
+      "success_values": [
+        24,
+        23
+      ],
+      "token_values": [
+        72316,
+        77487
+      ],
+      "failure_tasks_by_run": {
+        "llm_downstream_hard_v2_precondition_only_25": [
+          "hard_v2_py_import_012"
+        ],
+        "llm_downstream_hard_v2_replication_precondition_only_25": [
+          "hard_v2_py_import_012",
+          "hard_v2_py_import_018"
+        ]
+      },
+      "min_successes": 23,
+      "max_successes": 24
+    }
+  ],
+  "failure_taxonomy": {
+    "by_setting_strategy_template": [
+      {
+        "setting": "canary_visible_file",
+        "strategy": "no_experience",
+        "template": "T4_cwd_sensitive_path_hard",
+        "failures": 1
+      },
+      {
+        "setting": "forced_bad_standalone",
+        "strategy": "forced_bad_artifact",
+        "template": "T1_unused_missing_import_hard",
+        "failures": 5
+      },
+      {
+        "setting": "forced_bad_standalone",
+        "strategy": "forced_bad_artifact",
+        "template": "T2_local_module_import_hard",
+        "failures": 5
+      },
+      {
+        "setting": "forced_bad_standalone",
+        "strategy": "forced_bad_artifact",
+        "template": "T3_script_relative_import_hard",
+        "failures": 5
+      },
+      {
+        "setting": "forced_bad_standalone",
+        "strategy": "forced_bad_artifact",
+        "template": "T4_cwd_sensitive_path_hard",
+        "failures": 5
+      },
+      {
+        "setting": "forced_bad_standalone",
+        "strategy": "forced_bad_artifact",
+        "template": "T5_package_internal_import_hard",
+        "failures": 5
+      },
+      {
+        "setting": "replication_strict_precondition_only",
+        "strategy": "skilladmit_selected_with_precondition_only",
+        "template": "T3_script_relative_import_hard",
+        "failures": 1
+      },
+      {
+        "setting": "replication_strict_precondition_only",
+        "strategy": "skilladmit_selected_with_precondition_only",
+        "template": "T4_cwd_sensitive_path_hard",
+        "failures": 1
+      },
+      {
+        "setting": "strict_precondition_only",
+        "strategy": "skilladmit_selected_with_precondition_only",
+        "template": "T3_script_relative_import_hard",
+        "failures": 1
+      },
+      {
+        "setting": "strict_visible_file",
+        "strategy": "bad_dependency_rule",
+        "template": "T2_local_module_import_hard",
+        "failures": 1
+      },
+      {
+        "setting": "strict_visible_file",
+        "strategy": "bad_dependency_rule",
+        "template": "T3_script_relative_import_hard",
+        "failures": 1
+      },
+      {
+        "setting": "strict_visible_file",
+        "strategy": "bad_dependency_rule",
+        "template": "T4_cwd_sensitive_path_hard",
+        "failures": 1
+      },
+      {
+        "setting": "strict_visible_file",
+        "strategy": "forced_bad_artifact",
+        "template": "T1_unused_missing_import_hard",
+        "failures": 5
+      },
+      {
+        "setting": "strict_visible_file",
+        "strategy": "forced_bad_artifact",
+        "template": "T2_local_module_import_hard",
+        "failures": 5
+      },
+      {
+        "setting": "strict_visible_file",
+        "strategy": "forced_bad_artifact",
+        "template": "T3_script_relative_import_hard",
+        "failures": 5
+      },
+      {
+        "setting": "strict_visible_file",
+        "strategy": "forced_bad_artifact",
+        "template": "T4_cwd_sensitive_path_hard",
+        "failures": 5
+      },
+      {
+        "setting": "strict_visible_file",
+        "strategy": "forced_bad_artifact",
+        "template": "T5_package_internal_import_hard",
+        "failures": 5
+      },
+      {
+        "setting": "strict_visible_file",
+        "strategy": "no_experience",
+        "template": "T2_local_module_import_hard",
+        "failures": 1
+      },
+      {
+        "setting": "strict_visible_file",
+        "strategy": "promoted_rules",
+        "template": "T2_local_module_import_hard",
+        "failures": 1
+      },
+      {
+        "setting": "strict_visible_file",
+        "strategy": "promoted_rules",
+        "template": "T4_cwd_sensitive_path_hard",
+        "failures": 2
+      },
+      {
+        "setting": "strict_visible_file",
+        "strategy": "promoted_rules",
+        "template": "T5_package_internal_import_hard",
+        "failures": 1
+      },
+      {
+        "setting": "strict_visible_file",
+        "strategy": "raw_memory",
+        "template": "T4_cwd_sensitive_path_hard",
+        "failures": 3
+      },
+      {
+        "setting": "strict_visible_file",
+        "strategy": "skilladmit_selected",
+        "template": "T4_cwd_sensitive_path_hard",
+        "failures": 2
+      },
+      {
+        "setting": "tree_aware",
+        "strategy": "no_experience",
+        "template": "T3_script_relative_import_hard",
+        "failures": 1
+      },
+      {
+        "setting": "tree_aware",
+        "strategy": "no_experience",
+        "template": "T4_cwd_sensitive_path_hard",
+        "failures": 1
+      }
+    ],
+    "by_strategy": {
+      "bad_dependency_rule": 3,
+      "forced_bad_artifact": 50,
+      "no_experience": 4,
+      "promoted_rules": 4,
+      "raw_memory": 3,
+      "skilladmit_selected": 2,
+      "skilladmit_selected_with_precondition_only": 3
+    },
+    "public_passed_hidden_failed_by_strategy": {
+      "forced_bad_artifact": 50,
+      "no_experience": 1,
+      "promoted_rules": 1,
+      "skilladmit_selected_with_precondition_only": 1
+    },
+    "negative_transfer_by_strategy": {
+      "bad_dependency_rule": 2,
+      "forced_bad_artifact": 50,
+      "no_experience": 3,
+      "promoted_rules": 4,
+      "raw_memory": 3,
+      "skilladmit_selected": 2,
+      "skilladmit_selected_with_precondition_only": 3
+    },
+    "precondition_only_failures": [
+      {
+        "run_name": "llm_downstream_hard_v2_precondition_only_25",
+        "task_id": "hard_v2_py_import_012",
+        "template": "T3_script_relative_import_hard",
+        "public_tests_passed": false,
+        "public_passed_hidden_failed": false,
+        "negative_transfer": true,
+        "diagnosis": "The script is executed directly via `python clipkg_beta/main.py`, but uses a relative import (`from .tools import format_value`) which fails because Python doesn't recognize the module as part of a package when run directly. Need to change the import to work in script execution mode while preserving package import behavior."
+      },
+      {
+        "run_name": "llm_downstream_hard_v2_replication_precondition_only_25",
+        "task_id": "hard_v2_py_import_012",
+        "template": "T3_script_relative_import_hard",
+        "public_tests_passed": true,
+        "public_passed_hidden_failed": true,
+        "negative_transfer": true,
+        "diagnosis": "The script clipkg_beta/main.py uses a relative import (from .tools) but is executed directly via python path/to/file.py rather than as a module. This causes an ImportError because relative imports require a parent package context. Since the verifier explicitly runs the file as a script (not via python -m), we need to change the import to work in script mode while preserving package import behavior."
+      },
+      {
+        "run_name": "llm_downstream_hard_v2_replication_precondition_only_25",
+        "task_id": "hard_v2_py_import_018",
+        "template": "T4_cwd_sensitive_path_hard",
+        "public_tests_passed": false,
+        "public_passed_hidden_failed": false,
+        "negative_transfer": true,
+        "diagnosis": "The code uses a relative path that assumes current working directory is the repo root, but the subprocess runs from runner_gamma subdirectory"
+      }
+    ]
+  },
+  "claim_boundary": {
+    "supported": [
+      "Hard v2 is a validated 25-task downstream suite with fail-first, gold-pass, forced-public-pass, and forced-hidden-fail checks.",
+      "Forced harmful artifacts produce systematic negative transfer: 0/25 success with 25 public-pass/hidden-fail cases.",
+      "In the tree-aware coding-agent setting, SkillAdmit-selected reached 25/25 while no_experience reached 23/25 in the original hard_v2 tree-aware run.",
+      "Tree-aware SkillAdmit-selected is stable across the two completed full 25-task calls: 25/25 and 25/25.",
+      "Tree-aware selected + precondition context is also stable across two completed calls: 25/25 and 25/25.",
+      "Strict precondition-only is a weaker ablation, not a replacement for repo-tree context: 24/25 on the first run and 23/25 on replication."
+    ],
+    "not_supported": [
+      "SkillAdmit-selected dominates every baseline under every prompt setting.",
+      "SkillAdmit-selected has demonstrated token savings over no_experience on hard_v2.",
+      "Selected + precondition context is more accurate than ordinary tree-aware selected.",
+      "Precondition text alone can replace repository-tree context.",
+      "Admission-label accuracy alone proves downstream utility.",
+      "The current v7 admission set remains clean held-out evidence after error inspection or tuning."
+    ]
+  },
+  "source_hashes": [
+    {
+      "run_name": "llm_downstream_hard_v2_canary_5x2",
+      "summary_sha256": "f3871b2c22f6b8914df210a23e25041fe4eb5747c365942d8079cc017a5c4ee2",
+      "trajectories_sha256": "7aea6cfaced47cf0572c86de51f4bf56cef1ea08700cc6b4eebb108c83725b4e"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "summary_sha256": "00c948a714722de716790ae413f92fab4adfe70ca6aca3523e2fe3cc8c000d36",
+      "trajectories_sha256": "7d72e9580606855c7fe4bebfd9560d0f77bf77b322c12f365b52a1095955f269"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "summary_sha256": "aaa4ddda178e546d38ec2d727f15cdeb6f9c1481a96896dcf3e5373bc192674d",
+      "trajectories_sha256": "b5cecc5b1d882d29b4097d2140045fce082b7afb831cf8358aeda3b6ef522395"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_tree_25x2",
+      "summary_sha256": "8f9a45128274432348d85472e5360fef9c3a6e56f45676260bf7a5610582fdf9",
+      "trajectories_sha256": "21cac9fc80ca97b16063994ba2a1b89ce798581003fdb5746ed5378f83466cdb"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_precondition_only_25",
+      "summary_sha256": "634f318fc2d8b643958e7d8410f5c14694b44bf35cea5efff84e7702536e78a2",
+      "trajectories_sha256": "0c5bbf2d04e0d809c81b2f6b442dbacd64eedad89cfc64e3975a8f72912e8cdf"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_selected_precondition_25",
+      "summary_sha256": "ef9c0292db345bb00149ee630e48b63397b97919cca1b3346e2ebe0e800d9c8f",
+      "trajectories_sha256": "514921d44c7e22df91397d1113a3686b52c440980c6de7e209d10c6ad6d230ae"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_tree_selected_25",
+      "summary_sha256": "8c680c4a238b4239759d66cc3f9f61b40ffe82dfc7f84bae433cfea292cce524",
+      "trajectories_sha256": "0288786a19aa8904bb04df0548f9e07a2603714955af8800d79c8695064740fc"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_selected_precondition_25",
+      "summary_sha256": "6c068c371bb735cfa14a788b77ebd2801a2bf421a51a259aa7327bd8fba19275",
+      "trajectories_sha256": "0e0588553fbfb8e450c1006279d4c52f9dc10a82210336d05299337b4ee59b4f"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_precondition_only_25",
+      "summary_sha256": "3b58624eb5101a323d84d18ccc0fed60818ed505b53f7f04a16136e1a2dcd632",
+      "trajectories_sha256": "12569afc718a81530c532782574f30a269fff48bef212ff674b2b16463a33d4c"
+    }
+  ],
+  "derived_comparisons": {
+    "tree_aware_selected_success_delta_vs_no_experience": 2,
+    "tree_aware_selected_token_delta_vs_no_experience": 6049,
+    "selected_precondition_token_delta_vs_tree_selected": 9907,
+    "selected_precondition_token_delta_vs_all_skills": -17482,
+    "strict_precondition_only_success_delta_vs_strict_selected": 1
+  }
+}

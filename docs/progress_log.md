@@ -2517,3 +2517,85 @@ strict_precondition_only:
   tokens:    [72316, 77487]
   failures:  hard_v2_py_import_012; then hard_v2_py_import_012 and hard_v2_py_import_018
 ```
+
+### 46. Hard v2 Paper Evidence Export
+
+Created:
+
+```text
+scripts/export_hard_v2_evidence_package.py
+```
+
+What the file does:
+
+```text
+Builds compact paper-facing hard_v2 evidence from the downstream run ledger:
+primary strategy table, stability table, failure taxonomy, derived comparisons,
+source hashes, and supported/unsupported claim lists.
+```
+
+Why it is needed:
+
+```text
+The individual `summary.json` files are correct but scattered and easy to
+over-read. The evidence package gives the paper one stable downstream-validation
+surface while preserving the strict-visible/tree-aware/precondition distinction.
+```
+
+Inputs:
+
+```text
+benchmark/downstream/llm_runs/*/summary.json
+benchmark/downstream/llm_runs/*/trajectories.jsonl
+```
+
+Outputs:
+
+```text
+benchmark/downstream/reports/hard_v2_evidence_package.json
+benchmark/downstream/reports/hard_v2_paper_tables.md
+benchmark/downstream/reports/hard_v2_paper_tables.tex
+```
+
+Who runs it:
+
+```text
+Researchers or Codex sessions after adding, resuming, or recomputing hard_v2
+runs, and before writing the downstream-validation section of a paper.
+```
+
+Command:
+
+```bash
+PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
+/home/lijx/anaconda3/envs/skilladmit/bin/python scripts/export_hard_v2_evidence_package.py \
+  --assert-current-hard-v2
+```
+
+Result:
+
+```text
+primary_rows: 11
+stability_rows: 3
+failure_taxonomy_rows: 25
+```
+
+Derived comparisons:
+
+```text
+tree_aware_selected_success_delta_vs_no_experience: +2
+tree_aware_selected_token_delta_vs_no_experience: +6049
+selected_precondition_token_delta_vs_tree_selected: +9907
+selected_precondition_token_delta_vs_all_skills: -17482
+strict_precondition_only_success_delta_vs_strict_selected: +1 on the first run only
+```
+
+Interpretation:
+
+```text
+The package makes the paper claim sharper, not bigger. The supported positive
+result is still tree-aware SkillAdmit-selected and tree-aware selected plus
+preconditions reaching stable 25/25. The strict precondition-only ablation
+remains weaker and unstable, so it should be reported as a failed replacement
+for repository-tree context.
+```

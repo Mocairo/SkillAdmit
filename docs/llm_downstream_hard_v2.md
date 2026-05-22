@@ -626,7 +626,77 @@ strict_precondition_only:
 The report is a ledger, not a new model run. It should be regenerated after
 future hard_v2 experiments.
 
-## 14. Current Claim Boundary
+## 14. Hard v2 Evidence Package
+
+A paper-facing evidence export was added on top of the matrix ledger.
+
+Script:
+
+```text
+scripts/export_hard_v2_evidence_package.py
+```
+
+What it does:
+
+```text
+Builds compact hard_v2 paper tables, a JSON evidence package, a LaTeX table,
+failure taxonomy, derived comparisons, provenance hashes, and explicit
+supported/unsupported claim lists.
+```
+
+Why it is needed:
+
+```text
+The raw run summaries are correct but scattered. The evidence package provides
+one downstream-validation artifact that can be cited while preserving the
+strict-visible vs tree-aware claim boundary.
+```
+
+Inputs:
+
+```text
+benchmark/downstream/llm_runs/*/summary.json
+benchmark/downstream/llm_runs/*/trajectories.jsonl
+```
+
+Outputs:
+
+```text
+benchmark/downstream/reports/hard_v2_evidence_package.json
+benchmark/downstream/reports/hard_v2_paper_tables.md
+benchmark/downstream/reports/hard_v2_paper_tables.tex
+```
+
+Command:
+
+```bash
+PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
+/home/lijx/anaconda3/envs/skilladmit/bin/python scripts/export_hard_v2_evidence_package.py \
+  --assert-current-hard-v2
+```
+
+Current export:
+
+```text
+primary_rows: 11
+stability_rows: 3
+failure_taxonomy_rows: 25
+```
+
+Important derived comparisons:
+
+```text
+tree_aware_selected_success_delta_vs_no_experience: +2
+tree_aware_selected_token_delta_vs_no_experience: +6049
+selected_precondition_token_delta_vs_tree_selected: +9907
+selected_precondition_token_delta_vs_all_skills: -17482
+strict_precondition_only_success_delta_vs_strict_selected: +1 on the first run only
+```
+
+The export is not a new model run. It is a reproducibility and paper-writing
+surface over the already completed hard_v2 trajectories.
+
+## 15. Current Claim Boundary
 
 Reasonable claims:
 
@@ -663,7 +733,7 @@ Rules-only context is enough.
 Raw memory is reliably better than no experience.
 ```
 
-## 15. Next Step
+## 16. Next Step
 
 The next scientific step is not more admission-controller tuning. The downstream
 story should now be reported as four executor settings:
