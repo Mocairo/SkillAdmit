@@ -1,0 +1,252 @@
+[
+  {
+    "cluster_id": "cluster_t1_missing_third_party",
+    "cluster_name": "Missing third-party dependency",
+    "family": "python_import_debug",
+    "template": "T1_missing_third_party_package",
+    "expected_primary_action": "defer",
+    "note": "Useful only after confirming the module is truly external; risky if generalized to all ModuleNotFoundError cases.",
+    "trajectory_ids": [
+      "seed_traj_py_import_001",
+      "seed_traj_py_import_002",
+      "seed_traj_py_import_003",
+      "seed_traj_py_import_004"
+    ],
+    "task_ids": [
+      "py_import_001",
+      "py_import_002",
+      "py_import_003",
+      "py_import_004"
+    ],
+    "experience_cluster": [
+      {
+        "task_id": "py_import_001",
+        "observation": "The task fails with ModuleNotFoundError for a module that is intended to be an external third-party dependency.",
+        "diagnosis": "The missing import should be treated as a dependency issue only after checking that it is not a local module.",
+        "fix_pattern": "Add or provide the missing dependency, then rerun the verifier.",
+        "risk": "This pattern can overgeneralize if applied to local modules with the same error message."
+      },
+      {
+        "task_id": "py_import_002",
+        "observation": "The task fails with ModuleNotFoundError for a module that is intended to be an external third-party dependency.",
+        "diagnosis": "The missing import should be treated as a dependency issue only after checking that it is not a local module.",
+        "fix_pattern": "Add or provide the missing dependency, then rerun the verifier.",
+        "risk": "This pattern can overgeneralize if applied to local modules with the same error message."
+      },
+      {
+        "task_id": "py_import_003",
+        "observation": "The task fails with ModuleNotFoundError for a module that is intended to be an external third-party dependency.",
+        "diagnosis": "The missing import should be treated as a dependency issue only after checking that it is not a local module.",
+        "fix_pattern": "Add or provide the missing dependency, then rerun the verifier.",
+        "risk": "This pattern can overgeneralize if applied to local modules with the same error message."
+      },
+      {
+        "task_id": "py_import_004",
+        "observation": "The task fails with ModuleNotFoundError for a module that is intended to be an external third-party dependency.",
+        "diagnosis": "The missing import should be treated as a dependency issue only after checking that it is not a local module.",
+        "fix_pattern": "Add or provide the missing dependency, then rerun the verifier.",
+        "risk": "This pattern can overgeneralize if applied to local modules with the same error message."
+      }
+    ]
+  },
+  {
+    "cluster_id": "cluster_t2_local_module",
+    "cluster_name": "Local module mistaken as missing package",
+    "family": "python_import_debug",
+    "template": "T2_local_module_mistaken_as_missing_package",
+    "expected_primary_action": "distill_into_skill",
+    "note": "Strong negative-transfer evidence against blindly installing missing module names.",
+    "trajectory_ids": [
+      "seed_traj_py_import_005",
+      "seed_traj_py_import_006",
+      "seed_traj_py_import_007",
+      "seed_traj_py_import_008"
+    ],
+    "task_ids": [
+      "py_import_005",
+      "py_import_006",
+      "py_import_007",
+      "py_import_008"
+    ],
+    "experience_cluster": [
+      {
+        "task_id": "py_import_005",
+        "observation": "The task fails with ModuleNotFoundError for a name that actually corresponds to a local project file.",
+        "diagnosis": "The error is caused by an import path mismatch, not by a missing third-party dependency.",
+        "fix_pattern": "Use a package-qualified import or adjust the local import according to the project structure.",
+        "risk": "Installing a package with the same name would not address the local import problem."
+      },
+      {
+        "task_id": "py_import_006",
+        "observation": "The task fails with ModuleNotFoundError for a name that actually corresponds to a local project file.",
+        "diagnosis": "The error is caused by an import path mismatch, not by a missing third-party dependency.",
+        "fix_pattern": "Use a package-qualified import or adjust the local import according to the project structure.",
+        "risk": "Installing a package with the same name would not address the local import problem."
+      },
+      {
+        "task_id": "py_import_007",
+        "observation": "The task fails with ModuleNotFoundError for a name that actually corresponds to a local project file.",
+        "diagnosis": "The error is caused by an import path mismatch, not by a missing third-party dependency.",
+        "fix_pattern": "Use a package-qualified import or adjust the local import according to the project structure.",
+        "risk": "Installing a package with the same name would not address the local import problem."
+      },
+      {
+        "task_id": "py_import_008",
+        "observation": "The task fails with ModuleNotFoundError for a name that actually corresponds to a local project file.",
+        "diagnosis": "The error is caused by an import path mismatch, not by a missing third-party dependency.",
+        "fix_pattern": "Use a package-qualified import or adjust the local import according to the project structure.",
+        "risk": "Installing a package with the same name would not address the local import problem."
+      }
+    ]
+  },
+  {
+    "cluster_id": "cluster_t3_relative_import_script",
+    "cluster_name": "Relative import executed as script",
+    "family": "python_import_debug",
+    "template": "T3_relative_import_executed_as_script",
+    "expected_primary_action": "distill_into_skill",
+    "note": "Stable diagnostic procedure around script mode versus package mode.",
+    "trajectory_ids": [
+      "seed_traj_py_import_009",
+      "seed_traj_py_import_010",
+      "seed_traj_py_import_011",
+      "seed_traj_py_import_012"
+    ],
+    "task_ids": [
+      "py_import_009",
+      "py_import_010",
+      "py_import_011",
+      "py_import_012"
+    ],
+    "experience_cluster": [
+      {
+        "task_id": "py_import_009",
+        "observation": "The task fails with an attempted relative import error because a package file is executed as a script.",
+        "diagnosis": "Relative imports require package context. The launch mode and import style are inconsistent.",
+        "fix_pattern": "Either run the module with package context or change the import style to match script execution.",
+        "risk": "Blindly rewriting all relative imports can break package-mode usage."
+      },
+      {
+        "task_id": "py_import_010",
+        "observation": "The task fails with an attempted relative import error because a package file is executed as a script.",
+        "diagnosis": "Relative imports require package context. The launch mode and import style are inconsistent.",
+        "fix_pattern": "Either run the module with package context or change the import style to match script execution.",
+        "risk": "Blindly rewriting all relative imports can break package-mode usage."
+      },
+      {
+        "task_id": "py_import_011",
+        "observation": "The task fails with an attempted relative import error because a package file is executed as a script.",
+        "diagnosis": "Relative imports require package context. The launch mode and import style are inconsistent.",
+        "fix_pattern": "Either run the module with package context or change the import style to match script execution.",
+        "risk": "Blindly rewriting all relative imports can break package-mode usage."
+      },
+      {
+        "task_id": "py_import_012",
+        "observation": "The task fails with an attempted relative import error because a package file is executed as a script.",
+        "diagnosis": "Relative imports require package context. The launch mode and import style are inconsistent.",
+        "fix_pattern": "Either run the module with package context or change the import style to match script execution.",
+        "risk": "Blindly rewriting all relative imports can break package-mode usage."
+      }
+    ]
+  },
+  {
+    "cluster_id": "cluster_t4_wrong_cwd",
+    "cluster_name": "Wrong current working directory",
+    "family": "python_import_debug",
+    "template": "T4_wrong_current_working_directory",
+    "expected_primary_action": "distill_into_skill",
+    "note": "Stable diagnostic procedure around cwd-sensitive paths and imports.",
+    "trajectory_ids": [
+      "seed_traj_py_import_013",
+      "seed_traj_py_import_014",
+      "seed_traj_py_import_015",
+      "seed_traj_py_import_016"
+    ],
+    "task_ids": [
+      "py_import_013",
+      "py_import_014",
+      "py_import_015",
+      "py_import_016"
+    ],
+    "experience_cluster": [
+      {
+        "task_id": "py_import_013",
+        "observation": "The task fails because code relies on the current working directory for imports or file paths.",
+        "diagnosis": "The path resolution is unstable across launch locations.",
+        "fix_pattern": "Anchor file paths relative to __file__ or ensure commands run from the intended project root.",
+        "risk": "Changing imports without checking cwd can hide the real path bug."
+      },
+      {
+        "task_id": "py_import_014",
+        "observation": "The task fails because code relies on the current working directory for imports or file paths.",
+        "diagnosis": "The path resolution is unstable across launch locations.",
+        "fix_pattern": "Anchor file paths relative to __file__ or ensure commands run from the intended project root.",
+        "risk": "Changing imports without checking cwd can hide the real path bug."
+      },
+      {
+        "task_id": "py_import_015",
+        "observation": "The task fails because code relies on the current working directory for imports or file paths.",
+        "diagnosis": "The path resolution is unstable across launch locations.",
+        "fix_pattern": "Anchor file paths relative to __file__ or ensure commands run from the intended project root.",
+        "risk": "Changing imports without checking cwd can hide the real path bug."
+      },
+      {
+        "task_id": "py_import_016",
+        "observation": "The task fails because code relies on the current working directory for imports or file paths.",
+        "diagnosis": "The path resolution is unstable across launch locations.",
+        "fix_pattern": "Anchor file paths relative to __file__ or ensure commands run from the intended project root.",
+        "risk": "Changing imports without checking cwd can hide the real path bug."
+      }
+    ]
+  },
+  {
+    "cluster_id": "cluster_t5_broken_package_import",
+    "cluster_name": "Broken package-qualified import",
+    "family": "python_import_debug",
+    "template": "T5_broken_package_structure",
+    "expected_primary_action": "distill_into_skill",
+    "note": "Stable package-structure import pattern; also supports a general rule against blind pip install.",
+    "trajectory_ids": [
+      "seed_traj_py_import_017",
+      "seed_traj_py_import_018",
+      "seed_traj_py_import_019",
+      "seed_traj_py_import_020"
+    ],
+    "task_ids": [
+      "py_import_017",
+      "py_import_018",
+      "py_import_019",
+      "py_import_020"
+    ],
+    "experience_cluster": [
+      {
+        "task_id": "py_import_017",
+        "observation": "The task fails because code inside a package uses a bare import for a package-internal submodule.",
+        "diagnosis": "The import statement does not match the package-qualified context in which the module is loaded.",
+        "fix_pattern": "Use a relative import or a package-qualified import for the internal submodule.",
+        "risk": "Treating the missing submodule as a third-party dependency causes negative transfer."
+      },
+      {
+        "task_id": "py_import_018",
+        "observation": "The task fails because code inside a package uses a bare import for a package-internal submodule.",
+        "diagnosis": "The import statement does not match the package-qualified context in which the module is loaded.",
+        "fix_pattern": "Use a relative import or a package-qualified import for the internal submodule.",
+        "risk": "Treating the missing submodule as a third-party dependency causes negative transfer."
+      },
+      {
+        "task_id": "py_import_019",
+        "observation": "The task fails because code inside a package uses a bare import for a package-internal submodule.",
+        "diagnosis": "The import statement does not match the package-qualified context in which the module is loaded.",
+        "fix_pattern": "Use a relative import or a package-qualified import for the internal submodule.",
+        "risk": "Treating the missing submodule as a third-party dependency causes negative transfer."
+      },
+      {
+        "task_id": "py_import_020",
+        "observation": "The task fails because code inside a package uses a bare import for a package-internal submodule.",
+        "diagnosis": "The import statement does not match the package-qualified context in which the module is loaded.",
+        "fix_pattern": "Use a relative import or a package-qualified import for the internal submodule.",
+        "risk": "Treating the missing submodule as a third-party dependency causes negative transfer."
+      }
+    ]
+  }
+]

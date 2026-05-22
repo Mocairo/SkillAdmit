@@ -1,0 +1,18 @@
+{
+  "total_rows": 25,
+  "strategies": {
+    "forced_bad_artifact": {
+      "tasks": 25,
+      "successes": 0,
+      "success_rate": 0.0,
+      "negative_transfer": 25,
+      "public_passed_hidden_failed": 25,
+      "artifact_adherence": 25,
+      "parse_errors": 0,
+      "total_tokens": 0,
+      "avg_tokens": 0.0,
+      "total_latency_seconds": 0.0,
+      "avg_latency_seconds": 0.0
+    }
+  }
+}

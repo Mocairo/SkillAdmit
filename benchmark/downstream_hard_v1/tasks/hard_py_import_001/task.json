@@ -1,0 +1,15 @@
+{
+  "task_id": "hard_py_import_001",
+  "family": "python_import_debug_downstream_hard_v1",
+  "template": "T2_local_module_import_hard",
+  "instruction": "Fix the project so that the verifier passes without adding top-level compatibility stubs.",
+  "failing_command": "python -m pytest -q",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ModuleNotFoundError: No module named 'analytics'",
+  "downstream_gold_skill": "Repair Local Module Imports",
+  "visible_files": [
+    "tests/test_main.py",
+    "app/main.py"
+  ],
+  "file_context_note": "This hard-v1 run may show only a budgeted subset of files. Hidden files can exist and verifier checks may depend on preserving source behavior, so avoid broad rewrites and avoid adding top-level stubs unless clearly justified."
+}

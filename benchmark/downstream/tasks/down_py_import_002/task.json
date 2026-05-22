@@ -1,0 +1,10 @@
+{
+  "task_id": "down_py_import_002",
+  "family": "python_import_debug_downstream",
+  "template": "T1_unused_missing_import",
+  "instruction": "Fix the project so that the verifier passes.",
+  "failing_command": "python app.py",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ModuleNotFoundError: No module named 'futuredep_beta'",
+  "downstream_gold_skill": "Remove Unused Missing Imports"
+}

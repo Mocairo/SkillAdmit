@@ -1,0 +1,10 @@
+{
+  "task_id": "py_import_012",
+  "family": "python_import_debug",
+  "template": "T3_relative_import_executed_as_script",
+  "instruction": "Fix the project so that the verifier passes.",
+  "failing_command": "python nestedpkg/main.py",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ImportError: attempted relative import with no known parent package",
+  "gold_hint": "The file uses relative imports but is executed as a script."
+}

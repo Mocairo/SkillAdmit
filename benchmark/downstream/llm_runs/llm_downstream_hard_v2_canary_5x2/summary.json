@@ -1,0 +1,31 @@
+{
+  "total_rows": 10,
+  "strategies": {
+    "no_experience": {
+      "tasks": 5,
+      "successes": 4,
+      "success_rate": 0.8,
+      "negative_transfer": 1,
+      "public_passed_hidden_failed": 1,
+      "artifact_adherence": 5,
+      "parse_errors": 0,
+      "total_tokens": 12775,
+      "avg_tokens": 2555.0,
+      "total_latency_seconds": 187.83170692899876,
+      "avg_latency_seconds": 37.56634138579975
+    },
+    "skilladmit_selected": {
+      "tasks": 5,
+      "successes": 5,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 5,
+      "parse_errors": 0,
+      "total_tokens": 13840,
+      "avg_tokens": 2768.0,
+      "total_latency_seconds": 183.89722464300212,
+      "avg_latency_seconds": 36.77944492860043
+    }
+  }
+}

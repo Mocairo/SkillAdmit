@@ -1,0 +1,29 @@
+{
+  "task_id": "hard_v2_py_import_019",
+  "family": "python_import_debug_downstream_hard_v2",
+  "template": "T4_cwd_sensitive_path_hard",
+  "instruction": "Fix the project so that the verifier passes without duplicating data files.",
+  "failing_command": "cd runner_delta && python main.py",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "FileNotFoundError: data/delta.txt",
+  "downstream_gold_skill": "Repair CWD-Sensitive File Paths",
+  "visible_files": [
+    "tests/test_loader.py",
+    "runner_delta/loader.py",
+    "runner_delta/main.py"
+  ],
+  "gold_like_edits": [
+    {
+      "path": "runner_delta/loader.py",
+      "content": "from pathlib import Path\n\nLABEL = \"cwd-hard-v2-19\"\n\ndef load_value():\n    repo_root = Path(__file__).resolve().parents[1]\n    return (repo_root / \"data\" / \"delta.txt\").read_text(encoding=\"utf-8\").strip()\n\ndef preserve_label():\n    return LABEL\n"
+    }
+  ],
+  "forced_bad_artifact_edits": [
+    {
+      "path": "runner_delta/data/delta.txt",
+      "content": "hard-v2-cwd-delta\n"
+    }
+  ],
+  "forced_bad_artifact_name": "Mask Import Or Path Failures With Compatibility Stubs",
+  "file_context_note": "This hard-v2 run intentionally shows only selected visible files. Hidden files may exist and hidden verifier checks may reject repairs that merely mask the failure, such as top-level stubs, duplicated data files, test edits, or verifier edits."
+}

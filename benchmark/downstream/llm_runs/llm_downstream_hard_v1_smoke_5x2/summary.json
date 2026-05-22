@@ -1,0 +1,27 @@
+{
+  "total_rows": 10,
+  "strategies": {
+    "no_experience": {
+      "tasks": 5,
+      "successes": 4,
+      "success_rate": 0.8,
+      "negative_transfer": 1,
+      "parse_errors": 0,
+      "total_tokens": 9530,
+      "avg_tokens": 1906.0,
+      "total_latency_seconds": 109.4644404210012,
+      "avg_latency_seconds": 21.89288808420024
+    },
+    "skilladmit_selected": {
+      "tasks": 5,
+      "successes": 5,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "parse_errors": 0,
+      "total_tokens": 15903,
+      "avg_tokens": 3180.6,
+      "total_latency_seconds": 215.391961981004,
+      "avg_latency_seconds": 43.0783923962008
+    }
+  }
+}

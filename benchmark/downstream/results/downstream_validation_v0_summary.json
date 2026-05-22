@@ -1,0 +1,149 @@
+{
+  "total_rows": 150,
+  "strategies": {
+    "bad_dependency_stub": {
+      "tasks": 25,
+      "successes": 5,
+      "success_rate": 0.2,
+      "negative_transfer": 10,
+      "avg_actions": 4.0,
+      "by_template": {
+        "T1_unused_missing_import": {
+          "success": 5
+        },
+        "T2_local_module_import": {
+          "fail": 5
+        },
+        "T3_script_relative_import": {
+          "fail": 5
+        },
+        "T4_cwd_sensitive_path": {
+          "fail": 5
+        },
+        "T5_package_internal_import": {
+          "fail": 5
+        }
+      }
+    },
+    "distilled_skill": {
+      "tasks": 25,
+      "successes": 25,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "avg_actions": 4.0,
+      "by_template": {
+        "T1_unused_missing_import": {
+          "success": 5
+        },
+        "T2_local_module_import": {
+          "success": 5
+        },
+        "T3_script_relative_import": {
+          "success": 5
+        },
+        "T4_cwd_sensitive_path": {
+          "success": 5
+        },
+        "T5_package_internal_import": {
+          "success": 5
+        }
+      }
+    },
+    "no_experience": {
+      "tasks": 25,
+      "successes": 0,
+      "success_rate": 0.0,
+      "negative_transfer": 0,
+      "avg_actions": 4.0,
+      "by_template": {
+        "T1_unused_missing_import": {
+          "fail": 5
+        },
+        "T2_local_module_import": {
+          "fail": 5
+        },
+        "T3_script_relative_import": {
+          "fail": 5
+        },
+        "T4_cwd_sensitive_path": {
+          "fail": 5
+        },
+        "T5_package_internal_import": {
+          "fail": 5
+        }
+      }
+    },
+    "promoted_rule_only": {
+      "tasks": 25,
+      "successes": 0,
+      "success_rate": 0.0,
+      "negative_transfer": 0,
+      "avg_actions": 4.0,
+      "by_template": {
+        "T1_unused_missing_import": {
+          "fail": 5
+        },
+        "T2_local_module_import": {
+          "fail": 5
+        },
+        "T3_script_relative_import": {
+          "fail": 5
+        },
+        "T4_cwd_sensitive_path": {
+          "fail": 5
+        },
+        "T5_package_internal_import": {
+          "fail": 5
+        }
+      }
+    },
+    "raw_memory_replay": {
+      "tasks": 25,
+      "successes": 0,
+      "success_rate": 0.0,
+      "negative_transfer": 0,
+      "avg_actions": 4.0,
+      "by_template": {
+        "T1_unused_missing_import": {
+          "fail": 5
+        },
+        "T2_local_module_import": {
+          "fail": 5
+        },
+        "T3_script_relative_import": {
+          "fail": 5
+        },
+        "T4_cwd_sensitive_path": {
+          "fail": 5
+        },
+        "T5_package_internal_import": {
+          "fail": 5
+        }
+      }
+    },
+    "skilladmit_selected": {
+      "tasks": 25,
+      "successes": 25,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "avg_actions": 5.0,
+      "by_template": {
+        "T1_unused_missing_import": {
+          "success": 5
+        },
+        "T2_local_module_import": {
+          "success": 5
+        },
+        "T3_script_relative_import": {
+          "success": 5
+        },
+        "T4_cwd_sensitive_path": {
+          "success": 5
+        },
+        "T5_package_internal_import": {
+          "success": 5
+        }
+      }
+    }
+  }
+}

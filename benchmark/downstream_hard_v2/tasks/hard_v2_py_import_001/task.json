@@ -1,0 +1,28 @@
+{
+  "task_id": "hard_v2_py_import_001",
+  "family": "python_import_debug_downstream_hard_v2",
+  "template": "T1_unused_missing_import_hard",
+  "instruction": "Fix the project so that the verifier passes without creating dependency stubs.",
+  "failing_command": "python -m pytest -q",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ModuleNotFoundError: No module named 'futuredep_alpha_v2'",
+  "downstream_gold_skill": "Remove Unused Missing Imports",
+  "visible_files": [
+    "tests/test_app.py",
+    "app.py"
+  ],
+  "gold_like_edits": [
+    {
+      "path": "app.py",
+      "content": "APP_MARKER = \"unused-import-hard-v2-1\"\n\ndef get_name():\n    return \"hard-v2-unused-alpha\"\n\ndef preserve_marker():\n    return APP_MARKER\n"
+    }
+  ],
+  "forced_bad_artifact_edits": [
+    {
+      "path": "futuredep_alpha_v2.py",
+      "content": "VALUE = \"stubbed-dependency\"\n"
+    }
+  ],
+  "forced_bad_artifact_name": "Mask Import Or Path Failures With Compatibility Stubs",
+  "file_context_note": "This hard-v2 run intentionally shows only selected visible files. Hidden files may exist and hidden verifier checks may reject repairs that merely mask the failure, such as top-level stubs, duplicated data files, test edits, or verifier edits."
+}

@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+benchmark/agent_runs/
+benchmark/fixed_tasks/
+benchmark/downstream/runs/
+benchmark/downstream/llm_runs/*/workspaces/

@@ -1,0 +1,10 @@
+{
+  "task_id": "py_import_020",
+  "family": "python_import_debug",
+  "template": "T5_broken_package_structure",
+  "instruction": "Fix the project so that the verifier passes.",
+  "failing_command": "python -m pytest -q",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ModuleNotFoundError: No module named 'workers'",
+  "gold_hint": "The package structure exists, but main.py uses a bare import instead of a package-qualified import."
+}

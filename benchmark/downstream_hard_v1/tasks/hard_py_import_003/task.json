@@ -1,0 +1,16 @@
+{
+  "task_id": "hard_py_import_003",
+  "family": "python_import_debug_downstream_hard_v1",
+  "template": "T4_cwd_sensitive_path_hard",
+  "instruction": "Fix the project so that the verifier passes without duplicating data files.",
+  "failing_command": "cd service && python main.py",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "FileNotFoundError: data/value.txt",
+  "downstream_gold_skill": "Repair CWD-Sensitive File Paths",
+  "visible_files": [
+    "tests/test_loader.py",
+    "service/loader.py",
+    "service/main.py"
+  ],
+  "file_context_note": "This hard-v1 run may show only a budgeted subset of files. Hidden files can exist and verifier checks may depend on preserving source behavior, so avoid broad rewrites and avoid adding top-level stubs unless clearly justified."
+}

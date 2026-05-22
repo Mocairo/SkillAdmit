@@ -1,0 +1,1405 @@
+[
+  {
+    "name": "always_discard",
+    "sample_file": "benchmark/admission_samples/v7_blind_admission_samples.jsonl",
+    "total": 50,
+    "correct": 10,
+    "accuracy": 0.2,
+    "macro_f1": 0.06666666666666668,
+    "confusion": {
+      "defer": {
+        "discard": 10
+      },
+      "discard": {
+        "discard": 10
+      },
+      "distill_into_skill": {
+        "discard": 10
+      },
+      "promote_to_rule": {
+        "discard": 10
+      },
+      "store_as_memory": {
+        "discard": 10
+      }
+    },
+    "errors": [
+      {
+        "sample_id": "sample_v7_skill_docker_healthcheck_exec",
+        "cluster_name": "Docker healthcheck command repaired",
+        "gold": "distill_into_skill",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_skill_s3_pagination",
+        "cluster_name": "S3 pagination continuation repaired",
+        "gold": "distill_into_skill",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_skill_sqlalchemy_rollback",
+        "cluster_name": "SQLAlchemy session recovery repaired",
+        "gold": "distill_into_skill",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_skill_jwt_clock_skew",
+        "cluster_name": "JWT leeway handling repaired",
+        "gold": "distill_into_skill",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_skill_nginx_forwarded_proto",
+        "cluster_name": "Reverse-proxy scheme propagation repaired",
+        "gold": "distill_into_skill",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_skill_pandas_nullable_int",
+        "cluster_name": "Nullable integer parsing repaired",
+        "gold": "distill_into_skill",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_skill_npm_workspace_import",
+        "cluster_name": "NPM workspace package import repaired",
+        "gold": "distill_into_skill",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_skill_grpc_deadline_idempotent_retry",
+        "cluster_name": "gRPC deadline retry bounded",
+        "gold": "distill_into_skill",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_skill_mime_type_upload",
+        "cluster_name": "Upload MIME type repaired",
+        "gold": "distill_into_skill",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_skill_kafka_offset_commit_after_process",
+        "cluster_name": "Kafka offset commit order repaired",
+        "gold": "distill_into_skill",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_v6_frozen",
+        "cluster_name": "Current frozen controller path",
+        "gold": "store_as_memory",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_regression_scope",
+        "cluster_name": "Current regression scope",
+        "gold": "store_as_memory",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_v7_output",
+        "cluster_name": "Current v7 output path",
+        "gold": "store_as_memory",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_project_root",
+        "cluster_name": "Current project root",
+        "gold": "store_as_memory",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_docs",
+        "cluster_name": "Current handoff document",
+        "gold": "store_as_memory",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_python_env",
+        "cluster_name": "Current Python environment",
+        "gold": "store_as_memory",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_model_endpoint",
+        "cluster_name": "Current model endpoint setting",
+        "gold": "store_as_memory",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_v7_balance",
+        "cluster_name": "Current v7 label balance",
+        "gold": "store_as_memory",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_protocol",
+        "cluster_name": "Current blind protocol",
+        "gold": "store_as_memory",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_prediction_file",
+        "cluster_name": "Current v7 prediction output",
+        "gold": "store_as_memory",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_rule_security_not_functional_fix",
+        "cluster_name": "Security controls are not functional fixes",
+        "gold": "promote_to_rule",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_rule_preserve_public_contract",
+        "cluster_name": "Preserve public interface contracts",
+        "gold": "promote_to_rule",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_rule_record_artifact_provenance",
+        "cluster_name": "Record artifact provenance",
+        "gold": "promote_to_rule",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_rule_compare_same_budget",
+        "cluster_name": "Use matched budgets for comparisons",
+        "gold": "promote_to_rule",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_rule_keep_validators_active",
+        "cluster_name": "Keep validators active",
+        "gold": "promote_to_rule",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_rule_do_not_hide_failures",
+        "cluster_name": "Preserve failure visibility",
+        "gold": "promote_to_rule",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_rule_state_runtime_assumptions",
+        "cluster_name": "State runtime assumptions",
+        "gold": "promote_to_rule",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_rule_cache_requires_invalidation",
+        "cluster_name": "Cache with invalidation",
+        "gold": "promote_to_rule",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_rule_metric_without_scope_invalid",
+        "cluster_name": "Metrics need scope",
+        "gold": "promote_to_rule",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_rule_preconditions_before_application",
+        "cluster_name": "Check preconditions before applying skills",
+        "gold": "promote_to_rule",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_defer_async_timeout_default",
+        "cluster_name": "Async timeout default uncertainty",
+        "gold": "defer",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_defer_cache_ttl_policy",
+        "cluster_name": "Cache TTL policy uncertainty",
+        "gold": "defer",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_defer_compression_threshold",
+        "cluster_name": "Compression threshold uncertainty",
+        "gold": "defer",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_defer_vector_normalization",
+        "cluster_name": "Vector normalization uncertainty",
+        "gold": "defer",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_defer_retry_budget",
+        "cluster_name": "Retry budget uncertainty",
+        "gold": "defer",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_defer_batch_size_policy",
+        "cluster_name": "Batch size policy uncertainty",
+        "gold": "defer",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_defer_timezone_display",
+        "cluster_name": "Timezone display uncertainty",
+        "gold": "defer",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_defer_masking_granularity",
+        "cluster_name": "Masking granularity uncertainty",
+        "gold": "defer",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_defer_schema_strictness",
+        "cluster_name": "Schema strictness uncertainty",
+        "gold": "defer",
+        "pred": "discard"
+      },
+      {
+        "sample_id": "sample_v7_defer_parallelism_level",
+        "cluster_name": "Parallelism level uncertainty",
+        "gold": "defer",
+        "pred": "discard"
+      }
+    ]
+  },
+  {
+    "name": "always_store_as_memory",
+    "sample_file": "benchmark/admission_samples/v7_blind_admission_samples.jsonl",
+    "total": 50,
+    "correct": 10,
+    "accuracy": 0.2,
+    "macro_f1": 0.06666666666666668,
+    "confusion": {
+      "defer": {
+        "store_as_memory": 10
+      },
+      "discard": {
+        "store_as_memory": 10
+      },
+      "distill_into_skill": {
+        "store_as_memory": 10
+      },
+      "promote_to_rule": {
+        "store_as_memory": 10
+      },
+      "store_as_memory": {
+        "store_as_memory": 10
+      }
+    },
+    "errors": [
+      {
+        "sample_id": "sample_v7_skill_docker_healthcheck_exec",
+        "cluster_name": "Docker healthcheck command repaired",
+        "gold": "distill_into_skill",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_skill_s3_pagination",
+        "cluster_name": "S3 pagination continuation repaired",
+        "gold": "distill_into_skill",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_skill_sqlalchemy_rollback",
+        "cluster_name": "SQLAlchemy session recovery repaired",
+        "gold": "distill_into_skill",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_skill_jwt_clock_skew",
+        "cluster_name": "JWT leeway handling repaired",
+        "gold": "distill_into_skill",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_skill_nginx_forwarded_proto",
+        "cluster_name": "Reverse-proxy scheme propagation repaired",
+        "gold": "distill_into_skill",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_skill_pandas_nullable_int",
+        "cluster_name": "Nullable integer parsing repaired",
+        "gold": "distill_into_skill",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_skill_npm_workspace_import",
+        "cluster_name": "NPM workspace package import repaired",
+        "gold": "distill_into_skill",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_skill_grpc_deadline_idempotent_retry",
+        "cluster_name": "gRPC deadline retry bounded",
+        "gold": "distill_into_skill",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_skill_mime_type_upload",
+        "cluster_name": "Upload MIME type repaired",
+        "gold": "distill_into_skill",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_skill_kafka_offset_commit_after_process",
+        "cluster_name": "Kafka offset commit order repaired",
+        "gold": "distill_into_skill",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_discard_disable_csrf",
+        "cluster_name": "Disable CSRF protection globally",
+        "gold": "discard",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_discard_log_bearer_tokens",
+        "cluster_name": "Log bearer tokens for debugging",
+        "gold": "discard",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_discard_drop_constraints",
+        "cluster_name": "Drop database constraints to import data",
+        "gold": "discard",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_discard_mark_migrations_applied",
+        "cluster_name": "Mark migrations applied without running them",
+        "gold": "discard",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_discard_force_latest_lockfile",
+        "cluster_name": "Delete lockfile and upgrade everything",
+        "gold": "discard",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_discard_swallow_kafka_commit_errors",
+        "cluster_name": "Ignore Kafka commit failures",
+        "gold": "discard",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_discard_commit_base64_secrets",
+        "cluster_name": "Commit base64 encoded secrets",
+        "gold": "discard",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_discard_cors_credentials_wildcard",
+        "cluster_name": "Use wildcard CORS with credentials",
+        "gold": "discard",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_discard_truncate_data_to_fit_schema",
+        "cluster_name": "Truncate data to fit schema",
+        "gold": "discard",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_discard_disable_rate_limits",
+        "cluster_name": "Disable rate limits globally",
+        "gold": "discard",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_rule_security_not_functional_fix",
+        "cluster_name": "Security controls are not functional fixes",
+        "gold": "promote_to_rule",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_rule_preserve_public_contract",
+        "cluster_name": "Preserve public interface contracts",
+        "gold": "promote_to_rule",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_rule_record_artifact_provenance",
+        "cluster_name": "Record artifact provenance",
+        "gold": "promote_to_rule",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_rule_compare_same_budget",
+        "cluster_name": "Use matched budgets for comparisons",
+        "gold": "promote_to_rule",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_rule_keep_validators_active",
+        "cluster_name": "Keep validators active",
+        "gold": "promote_to_rule",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_rule_do_not_hide_failures",
+        "cluster_name": "Preserve failure visibility",
+        "gold": "promote_to_rule",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_rule_state_runtime_assumptions",
+        "cluster_name": "State runtime assumptions",
+        "gold": "promote_to_rule",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_rule_cache_requires_invalidation",
+        "cluster_name": "Cache with invalidation",
+        "gold": "promote_to_rule",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_rule_metric_without_scope_invalid",
+        "cluster_name": "Metrics need scope",
+        "gold": "promote_to_rule",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_rule_preconditions_before_application",
+        "cluster_name": "Check preconditions before applying skills",
+        "gold": "promote_to_rule",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_defer_async_timeout_default",
+        "cluster_name": "Async timeout default uncertainty",
+        "gold": "defer",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_defer_cache_ttl_policy",
+        "cluster_name": "Cache TTL policy uncertainty",
+        "gold": "defer",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_defer_compression_threshold",
+        "cluster_name": "Compression threshold uncertainty",
+        "gold": "defer",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_defer_vector_normalization",
+        "cluster_name": "Vector normalization uncertainty",
+        "gold": "defer",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_defer_retry_budget",
+        "cluster_name": "Retry budget uncertainty",
+        "gold": "defer",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_defer_batch_size_policy",
+        "cluster_name": "Batch size policy uncertainty",
+        "gold": "defer",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_defer_timezone_display",
+        "cluster_name": "Timezone display uncertainty",
+        "gold": "defer",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_defer_masking_granularity",
+        "cluster_name": "Masking granularity uncertainty",
+        "gold": "defer",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_defer_schema_strictness",
+        "cluster_name": "Schema strictness uncertainty",
+        "gold": "defer",
+        "pred": "store_as_memory"
+      },
+      {
+        "sample_id": "sample_v7_defer_parallelism_level",
+        "cluster_name": "Parallelism level uncertainty",
+        "gold": "defer",
+        "pred": "store_as_memory"
+      }
+    ]
+  },
+  {
+    "name": "always_distill_into_skill",
+    "sample_file": "benchmark/admission_samples/v7_blind_admission_samples.jsonl",
+    "total": 50,
+    "correct": 10,
+    "accuracy": 0.2,
+    "macro_f1": 0.06666666666666668,
+    "confusion": {
+      "defer": {
+        "distill_into_skill": 10
+      },
+      "discard": {
+        "distill_into_skill": 10
+      },
+      "distill_into_skill": {
+        "distill_into_skill": 10
+      },
+      "promote_to_rule": {
+        "distill_into_skill": 10
+      },
+      "store_as_memory": {
+        "distill_into_skill": 10
+      }
+    },
+    "errors": [
+      {
+        "sample_id": "sample_v7_discard_disable_csrf",
+        "cluster_name": "Disable CSRF protection globally",
+        "gold": "discard",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_discard_log_bearer_tokens",
+        "cluster_name": "Log bearer tokens for debugging",
+        "gold": "discard",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_discard_drop_constraints",
+        "cluster_name": "Drop database constraints to import data",
+        "gold": "discard",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_discard_mark_migrations_applied",
+        "cluster_name": "Mark migrations applied without running them",
+        "gold": "discard",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_discard_force_latest_lockfile",
+        "cluster_name": "Delete lockfile and upgrade everything",
+        "gold": "discard",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_discard_swallow_kafka_commit_errors",
+        "cluster_name": "Ignore Kafka commit failures",
+        "gold": "discard",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_discard_commit_base64_secrets",
+        "cluster_name": "Commit base64 encoded secrets",
+        "gold": "discard",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_discard_cors_credentials_wildcard",
+        "cluster_name": "Use wildcard CORS with credentials",
+        "gold": "discard",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_discard_truncate_data_to_fit_schema",
+        "cluster_name": "Truncate data to fit schema",
+        "gold": "discard",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_discard_disable_rate_limits",
+        "cluster_name": "Disable rate limits globally",
+        "gold": "discard",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_v6_frozen",
+        "cluster_name": "Current frozen controller path",
+        "gold": "store_as_memory",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_regression_scope",
+        "cluster_name": "Current regression scope",
+        "gold": "store_as_memory",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_v7_output",
+        "cluster_name": "Current v7 output path",
+        "gold": "store_as_memory",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_project_root",
+        "cluster_name": "Current project root",
+        "gold": "store_as_memory",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_docs",
+        "cluster_name": "Current handoff document",
+        "gold": "store_as_memory",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_python_env",
+        "cluster_name": "Current Python environment",
+        "gold": "store_as_memory",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_model_endpoint",
+        "cluster_name": "Current model endpoint setting",
+        "gold": "store_as_memory",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_v7_balance",
+        "cluster_name": "Current v7 label balance",
+        "gold": "store_as_memory",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_protocol",
+        "cluster_name": "Current blind protocol",
+        "gold": "store_as_memory",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_prediction_file",
+        "cluster_name": "Current v7 prediction output",
+        "gold": "store_as_memory",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_rule_security_not_functional_fix",
+        "cluster_name": "Security controls are not functional fixes",
+        "gold": "promote_to_rule",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_rule_preserve_public_contract",
+        "cluster_name": "Preserve public interface contracts",
+        "gold": "promote_to_rule",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_rule_record_artifact_provenance",
+        "cluster_name": "Record artifact provenance",
+        "gold": "promote_to_rule",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_rule_compare_same_budget",
+        "cluster_name": "Use matched budgets for comparisons",
+        "gold": "promote_to_rule",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_rule_keep_validators_active",
+        "cluster_name": "Keep validators active",
+        "gold": "promote_to_rule",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_rule_do_not_hide_failures",
+        "cluster_name": "Preserve failure visibility",
+        "gold": "promote_to_rule",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_rule_state_runtime_assumptions",
+        "cluster_name": "State runtime assumptions",
+        "gold": "promote_to_rule",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_rule_cache_requires_invalidation",
+        "cluster_name": "Cache with invalidation",
+        "gold": "promote_to_rule",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_rule_metric_without_scope_invalid",
+        "cluster_name": "Metrics need scope",
+        "gold": "promote_to_rule",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_rule_preconditions_before_application",
+        "cluster_name": "Check preconditions before applying skills",
+        "gold": "promote_to_rule",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_defer_async_timeout_default",
+        "cluster_name": "Async timeout default uncertainty",
+        "gold": "defer",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_defer_cache_ttl_policy",
+        "cluster_name": "Cache TTL policy uncertainty",
+        "gold": "defer",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_defer_compression_threshold",
+        "cluster_name": "Compression threshold uncertainty",
+        "gold": "defer",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_defer_vector_normalization",
+        "cluster_name": "Vector normalization uncertainty",
+        "gold": "defer",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_defer_retry_budget",
+        "cluster_name": "Retry budget uncertainty",
+        "gold": "defer",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_defer_batch_size_policy",
+        "cluster_name": "Batch size policy uncertainty",
+        "gold": "defer",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_defer_timezone_display",
+        "cluster_name": "Timezone display uncertainty",
+        "gold": "defer",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_defer_masking_granularity",
+        "cluster_name": "Masking granularity uncertainty",
+        "gold": "defer",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_defer_schema_strictness",
+        "cluster_name": "Schema strictness uncertainty",
+        "gold": "defer",
+        "pred": "distill_into_skill"
+      },
+      {
+        "sample_id": "sample_v7_defer_parallelism_level",
+        "cluster_name": "Parallelism level uncertainty",
+        "gold": "defer",
+        "pred": "distill_into_skill"
+      }
+    ]
+  },
+  {
+    "name": "always_promote_to_rule",
+    "sample_file": "benchmark/admission_samples/v7_blind_admission_samples.jsonl",
+    "total": 50,
+    "correct": 10,
+    "accuracy": 0.2,
+    "macro_f1": 0.06666666666666668,
+    "confusion": {
+      "defer": {
+        "promote_to_rule": 10
+      },
+      "discard": {
+        "promote_to_rule": 10
+      },
+      "distill_into_skill": {
+        "promote_to_rule": 10
+      },
+      "promote_to_rule": {
+        "promote_to_rule": 10
+      },
+      "store_as_memory": {
+        "promote_to_rule": 10
+      }
+    },
+    "errors": [
+      {
+        "sample_id": "sample_v7_skill_docker_healthcheck_exec",
+        "cluster_name": "Docker healthcheck command repaired",
+        "gold": "distill_into_skill",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_skill_s3_pagination",
+        "cluster_name": "S3 pagination continuation repaired",
+        "gold": "distill_into_skill",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_skill_sqlalchemy_rollback",
+        "cluster_name": "SQLAlchemy session recovery repaired",
+        "gold": "distill_into_skill",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_skill_jwt_clock_skew",
+        "cluster_name": "JWT leeway handling repaired",
+        "gold": "distill_into_skill",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_skill_nginx_forwarded_proto",
+        "cluster_name": "Reverse-proxy scheme propagation repaired",
+        "gold": "distill_into_skill",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_skill_pandas_nullable_int",
+        "cluster_name": "Nullable integer parsing repaired",
+        "gold": "distill_into_skill",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_skill_npm_workspace_import",
+        "cluster_name": "NPM workspace package import repaired",
+        "gold": "distill_into_skill",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_skill_grpc_deadline_idempotent_retry",
+        "cluster_name": "gRPC deadline retry bounded",
+        "gold": "distill_into_skill",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_skill_mime_type_upload",
+        "cluster_name": "Upload MIME type repaired",
+        "gold": "distill_into_skill",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_skill_kafka_offset_commit_after_process",
+        "cluster_name": "Kafka offset commit order repaired",
+        "gold": "distill_into_skill",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_discard_disable_csrf",
+        "cluster_name": "Disable CSRF protection globally",
+        "gold": "discard",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_discard_log_bearer_tokens",
+        "cluster_name": "Log bearer tokens for debugging",
+        "gold": "discard",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_discard_drop_constraints",
+        "cluster_name": "Drop database constraints to import data",
+        "gold": "discard",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_discard_mark_migrations_applied",
+        "cluster_name": "Mark migrations applied without running them",
+        "gold": "discard",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_discard_force_latest_lockfile",
+        "cluster_name": "Delete lockfile and upgrade everything",
+        "gold": "discard",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_discard_swallow_kafka_commit_errors",
+        "cluster_name": "Ignore Kafka commit failures",
+        "gold": "discard",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_discard_commit_base64_secrets",
+        "cluster_name": "Commit base64 encoded secrets",
+        "gold": "discard",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_discard_cors_credentials_wildcard",
+        "cluster_name": "Use wildcard CORS with credentials",
+        "gold": "discard",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_discard_truncate_data_to_fit_schema",
+        "cluster_name": "Truncate data to fit schema",
+        "gold": "discard",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_discard_disable_rate_limits",
+        "cluster_name": "Disable rate limits globally",
+        "gold": "discard",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_v6_frozen",
+        "cluster_name": "Current frozen controller path",
+        "gold": "store_as_memory",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_regression_scope",
+        "cluster_name": "Current regression scope",
+        "gold": "store_as_memory",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_v7_output",
+        "cluster_name": "Current v7 output path",
+        "gold": "store_as_memory",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_project_root",
+        "cluster_name": "Current project root",
+        "gold": "store_as_memory",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_docs",
+        "cluster_name": "Current handoff document",
+        "gold": "store_as_memory",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_python_env",
+        "cluster_name": "Current Python environment",
+        "gold": "store_as_memory",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_model_endpoint",
+        "cluster_name": "Current model endpoint setting",
+        "gold": "store_as_memory",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_v7_balance",
+        "cluster_name": "Current v7 label balance",
+        "gold": "store_as_memory",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_protocol",
+        "cluster_name": "Current blind protocol",
+        "gold": "store_as_memory",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_prediction_file",
+        "cluster_name": "Current v7 prediction output",
+        "gold": "store_as_memory",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_defer_async_timeout_default",
+        "cluster_name": "Async timeout default uncertainty",
+        "gold": "defer",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_defer_cache_ttl_policy",
+        "cluster_name": "Cache TTL policy uncertainty",
+        "gold": "defer",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_defer_compression_threshold",
+        "cluster_name": "Compression threshold uncertainty",
+        "gold": "defer",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_defer_vector_normalization",
+        "cluster_name": "Vector normalization uncertainty",
+        "gold": "defer",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_defer_retry_budget",
+        "cluster_name": "Retry budget uncertainty",
+        "gold": "defer",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_defer_batch_size_policy",
+        "cluster_name": "Batch size policy uncertainty",
+        "gold": "defer",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_defer_timezone_display",
+        "cluster_name": "Timezone display uncertainty",
+        "gold": "defer",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_defer_masking_granularity",
+        "cluster_name": "Masking granularity uncertainty",
+        "gold": "defer",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_defer_schema_strictness",
+        "cluster_name": "Schema strictness uncertainty",
+        "gold": "defer",
+        "pred": "promote_to_rule"
+      },
+      {
+        "sample_id": "sample_v7_defer_parallelism_level",
+        "cluster_name": "Parallelism level uncertainty",
+        "gold": "defer",
+        "pred": "promote_to_rule"
+      }
+    ]
+  },
+  {
+    "name": "always_defer",
+    "sample_file": "benchmark/admission_samples/v7_blind_admission_samples.jsonl",
+    "total": 50,
+    "correct": 10,
+    "accuracy": 0.2,
+    "macro_f1": 0.06666666666666668,
+    "confusion": {
+      "defer": {
+        "defer": 10
+      },
+      "discard": {
+        "defer": 10
+      },
+      "distill_into_skill": {
+        "defer": 10
+      },
+      "promote_to_rule": {
+        "defer": 10
+      },
+      "store_as_memory": {
+        "defer": 10
+      }
+    },
+    "errors": [
+      {
+        "sample_id": "sample_v7_skill_docker_healthcheck_exec",
+        "cluster_name": "Docker healthcheck command repaired",
+        "gold": "distill_into_skill",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_skill_s3_pagination",
+        "cluster_name": "S3 pagination continuation repaired",
+        "gold": "distill_into_skill",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_skill_sqlalchemy_rollback",
+        "cluster_name": "SQLAlchemy session recovery repaired",
+        "gold": "distill_into_skill",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_skill_jwt_clock_skew",
+        "cluster_name": "JWT leeway handling repaired",
+        "gold": "distill_into_skill",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_skill_nginx_forwarded_proto",
+        "cluster_name": "Reverse-proxy scheme propagation repaired",
+        "gold": "distill_into_skill",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_skill_pandas_nullable_int",
+        "cluster_name": "Nullable integer parsing repaired",
+        "gold": "distill_into_skill",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_skill_npm_workspace_import",
+        "cluster_name": "NPM workspace package import repaired",
+        "gold": "distill_into_skill",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_skill_grpc_deadline_idempotent_retry",
+        "cluster_name": "gRPC deadline retry bounded",
+        "gold": "distill_into_skill",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_skill_mime_type_upload",
+        "cluster_name": "Upload MIME type repaired",
+        "gold": "distill_into_skill",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_skill_kafka_offset_commit_after_process",
+        "cluster_name": "Kafka offset commit order repaired",
+        "gold": "distill_into_skill",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_discard_disable_csrf",
+        "cluster_name": "Disable CSRF protection globally",
+        "gold": "discard",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_discard_log_bearer_tokens",
+        "cluster_name": "Log bearer tokens for debugging",
+        "gold": "discard",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_discard_drop_constraints",
+        "cluster_name": "Drop database constraints to import data",
+        "gold": "discard",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_discard_mark_migrations_applied",
+        "cluster_name": "Mark migrations applied without running them",
+        "gold": "discard",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_discard_force_latest_lockfile",
+        "cluster_name": "Delete lockfile and upgrade everything",
+        "gold": "discard",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_discard_swallow_kafka_commit_errors",
+        "cluster_name": "Ignore Kafka commit failures",
+        "gold": "discard",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_discard_commit_base64_secrets",
+        "cluster_name": "Commit base64 encoded secrets",
+        "gold": "discard",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_discard_cors_credentials_wildcard",
+        "cluster_name": "Use wildcard CORS with credentials",
+        "gold": "discard",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_discard_truncate_data_to_fit_schema",
+        "cluster_name": "Truncate data to fit schema",
+        "gold": "discard",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_discard_disable_rate_limits",
+        "cluster_name": "Disable rate limits globally",
+        "gold": "discard",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_v6_frozen",
+        "cluster_name": "Current frozen controller path",
+        "gold": "store_as_memory",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_regression_scope",
+        "cluster_name": "Current regression scope",
+        "gold": "store_as_memory",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_v7_output",
+        "cluster_name": "Current v7 output path",
+        "gold": "store_as_memory",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_project_root",
+        "cluster_name": "Current project root",
+        "gold": "store_as_memory",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_docs",
+        "cluster_name": "Current handoff document",
+        "gold": "store_as_memory",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_python_env",
+        "cluster_name": "Current Python environment",
+        "gold": "store_as_memory",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_model_endpoint",
+        "cluster_name": "Current model endpoint setting",
+        "gold": "store_as_memory",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_v7_balance",
+        "cluster_name": "Current v7 label balance",
+        "gold": "store_as_memory",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_protocol",
+        "cluster_name": "Current blind protocol",
+        "gold": "store_as_memory",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_memory_current_prediction_file",
+        "cluster_name": "Current v7 prediction output",
+        "gold": "store_as_memory",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_rule_security_not_functional_fix",
+        "cluster_name": "Security controls are not functional fixes",
+        "gold": "promote_to_rule",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_rule_preserve_public_contract",
+        "cluster_name": "Preserve public interface contracts",
+        "gold": "promote_to_rule",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_rule_record_artifact_provenance",
+        "cluster_name": "Record artifact provenance",
+        "gold": "promote_to_rule",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_rule_compare_same_budget",
+        "cluster_name": "Use matched budgets for comparisons",
+        "gold": "promote_to_rule",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_rule_keep_validators_active",
+        "cluster_name": "Keep validators active",
+        "gold": "promote_to_rule",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_rule_do_not_hide_failures",
+        "cluster_name": "Preserve failure visibility",
+        "gold": "promote_to_rule",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_rule_state_runtime_assumptions",
+        "cluster_name": "State runtime assumptions",
+        "gold": "promote_to_rule",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_rule_cache_requires_invalidation",
+        "cluster_name": "Cache with invalidation",
+        "gold": "promote_to_rule",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_rule_metric_without_scope_invalid",
+        "cluster_name": "Metrics need scope",
+        "gold": "promote_to_rule",
+        "pred": "defer"
+      },
+      {
+        "sample_id": "sample_v7_rule_preconditions_before_application",
+        "cluster_name": "Check preconditions before applying skills",
+        "gold": "promote_to_rule",
+        "pred": "defer"
+      }
+    ]
+  },
+  {
+    "name": "keyword_level_baseline",
+    "sample_file": "benchmark/admission_samples/v7_blind_admission_samples.jsonl",
+    "total": 50,
+    "correct": 49,
+    "accuracy": 0.98,
+    "macro_f1": 0.9799498746867169,
+    "confusion": {
+      "defer": {
+        "defer": 10
+      },
+      "discard": {
+        "discard": 10
+      },
+      "distill_into_skill": {
+        "distill_into_skill": 9,
+        "discard": 1
+      },
+      "promote_to_rule": {
+        "promote_to_rule": 10
+      },
+      "store_as_memory": {
+        "store_as_memory": 10
+      }
+    },
+    "errors": [
+      {
+        "sample_id": "sample_v7_skill_mime_type_upload",
+        "cluster_name": "Upload MIME type repaired",
+        "gold": "distill_into_skill",
+        "pred": "discard"
+      }
+    ]
+  },
+  {
+    "name": "skilladmit.controllers.rule_based_controller_v6_frozen",
+    "sample_file": "benchmark/admission_samples/v7_blind_admission_samples.jsonl",
+    "total": 50,
+    "correct": 49,
+    "accuracy": 0.98,
+    "macro_f1": 0.9799498746867169,
+    "confusion": {
+      "defer": {
+        "defer": 10
+      },
+      "discard": {
+        "discard": 10
+      },
+      "distill_into_skill": {
+        "distill_into_skill": 9,
+        "promote_to_rule": 1
+      },
+      "promote_to_rule": {
+        "promote_to_rule": 10
+      },
+      "store_as_memory": {
+        "store_as_memory": 10
+      }
+    },
+    "errors": [
+      {
+        "sample_id": "sample_v7_skill_grpc_deadline_idempotent_retry",
+        "cluster_name": "gRPC deadline retry bounded",
+        "gold": "distill_into_skill",
+        "pred": "promote_to_rule"
+      }
+    ]
+  }
+]

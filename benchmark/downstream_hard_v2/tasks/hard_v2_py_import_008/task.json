@@ -1,0 +1,28 @@
+{
+  "task_id": "hard_v2_py_import_008",
+  "family": "python_import_debug_downstream_hard_v2",
+  "template": "T2_local_module_import_hard",
+  "instruction": "Fix the project so that the verifier passes without adding top-level compatibility stubs.",
+  "failing_command": "python -m pytest -q",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ModuleNotFoundError: No module named 'service'",
+  "downstream_gold_skill": "Repair Local Module Imports",
+  "visible_files": [
+    "tests/test_main.py",
+    "gamma_app/main.py"
+  ],
+  "gold_like_edits": [
+    {
+      "path": "gamma_app/main.py",
+      "content": "from .service import run_service\n\nVERSION = \"local-module-hard-v2-8\"\n\ndef run():\n    return run_service()\n\ndef preserve_me():\n    return VERSION\n"
+    }
+  ],
+  "forced_bad_artifact_edits": [
+    {
+      "path": "service.py",
+      "content": "def run_service():\n    return \"hard-v2-local-gamma\"\n"
+    }
+  ],
+  "forced_bad_artifact_name": "Mask Import Or Path Failures With Compatibility Stubs",
+  "file_context_note": "This hard-v2 run intentionally shows only selected visible files. Hidden files may exist and hidden verifier checks may reject repairs that merely mask the failure, such as top-level stubs, duplicated data files, test edits, or verifier edits."
+}

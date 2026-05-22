@@ -1,0 +1,10 @@
+{
+  "task_id": "down_py_import_019",
+  "family": "python_import_debug_downstream",
+  "template": "T4_cwd_sensitive_path",
+  "instruction": "Fix the project so that the verifier passes.",
+  "failing_command": "cd batch && python main.py",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "FileNotFoundError: payloads/message.txt",
+  "downstream_gold_skill": "Repair CWD-Sensitive File Paths"
+}

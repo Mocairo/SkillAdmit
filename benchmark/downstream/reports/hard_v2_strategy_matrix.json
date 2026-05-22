@@ -1,0 +1,3460 @@
+{
+  "generated_at_utc": "2026-05-22T05:14:29.817313+00:00",
+  "run_root": "benchmark/downstream/llm_runs",
+  "run_summaries": [
+    {
+      "run_name": "llm_downstream_hard_v2_canary_5x2",
+      "setting": "canary_visible_file",
+      "setting_order": 10,
+      "paper_role": "canary only",
+      "total_rows": 10,
+      "trajectory_rows": 10,
+      "source_files": {
+        "summary": {
+          "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_canary_5x2/summary.json",
+          "size_bytes": 807,
+          "mtime_utc": "2026-05-21T14:05:38.751108+00:00",
+          "sha256": "f3871b2c22f6b8914df210a23e25041fe4eb5747c365942d8079cc017a5c4ee2"
+        },
+        "trajectories": {
+          "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_canary_5x2/trajectories.jsonl",
+          "size_bytes": 50024,
+          "mtime_utc": "2026-05-21T14:05:38.750108+00:00",
+          "sha256": "7aea6cfaced47cf0572c86de51f4bf56cef1ea08700cc6b4eebb108c83725b4e"
+        }
+      }
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "paper_role": "negative transfer control",
+      "total_rows": 25,
+      "trajectory_rows": 25,
+      "source_files": {
+        "summary": {
+          "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_forced_bad_25/summary.json",
+          "size_bytes": 397,
+          "mtime_utc": "2026-05-21T13:59:04.599329+00:00",
+          "sha256": "00c948a714722de716790ae413f92fab4adfe70ca6aca3523e2fe3cc8c000d36"
+        },
+        "trajectories": {
+          "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_forced_bad_25/trajectories.jsonl",
+          "size_bytes": 115702,
+          "mtime_utc": "2026-05-21T13:59:04.599329+00:00",
+          "sha256": "7d72e9580606855c7fe4bebfd9560d0f77bf77b322c12f365b52a1095955f269"
+        }
+      }
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "paper_role": "strict visible-file comparison",
+      "total_rows": 175,
+      "trajectory_rows": 175,
+      "source_files": {
+        "summary": {
+          "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_full_25x6/summary.json",
+          "size_bytes": 2708,
+          "mtime_utc": "2026-05-21T15:55:48.616108+00:00",
+          "sha256": "aaa4ddda178e546d38ec2d727f15cdeb6f9c1481a96896dcf3e5373bc192674d"
+        },
+        "trajectories": {
+          "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_full_25x6/trajectories.jsonl",
+          "size_bytes": 921828,
+          "mtime_utc": "2026-05-21T15:55:48.612108+00:00",
+          "sha256": "b5cecc5b1d882d29b4097d2140045fce082b7afb831cf8358aeda3b6ef522395"
+        }
+      }
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_tree_25x2",
+      "setting": "tree_aware",
+      "setting_order": 40,
+      "paper_role": "realistic coding-agent comparison",
+      "total_rows": 50,
+      "trajectory_rows": 50,
+      "source_files": {
+        "summary": {
+          "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_tree_25x2/summary.json",
+          "size_bytes": 815,
+          "mtime_utc": "2026-05-21T16:19:26.750081+00:00",
+          "sha256": "8f9a45128274432348d85472e5360fef9c3a6e56f45676260bf7a5610582fdf9"
+        },
+        "trajectories": {
+          "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_tree_25x2/trajectories.jsonl",
+          "size_bytes": 278599,
+          "mtime_utc": "2026-05-21T16:19:26.749081+00:00",
+          "sha256": "21cac9fc80ca97b16063994ba2a1b89ce798581003fdb5746ed5378f83466cdb"
+        }
+      }
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_precondition_only_25",
+      "setting": "strict_precondition_only",
+      "setting_order": 50,
+      "paper_role": "precondition-text ablation",
+      "total_rows": 25,
+      "trajectory_rows": 25,
+      "source_files": {
+        "summary": {
+          "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_precondition_only_25/summary.json",
+          "size_bytes": 456,
+          "mtime_utc": "2026-05-22T04:13:44.112952+00:00",
+          "sha256": "634f318fc2d8b643958e7d8410f5c14694b44bf35cea5efff84e7702536e78a2"
+        },
+        "trajectories": {
+          "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_precondition_only_25/trajectories.jsonl",
+          "size_bytes": 136377,
+          "mtime_utc": "2026-05-22T04:13:44.111951+00:00",
+          "sha256": "0c5bbf2d04e0d809c81b2f6b442dbacd64eedad89cfc64e3975a8f72912e8cdf"
+        }
+      }
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_selected_precondition_25",
+      "setting": "tree_aware_precondition_context",
+      "setting_order": 60,
+      "paper_role": "selected skill plus tree and guardrail context",
+      "total_rows": 25,
+      "trajectory_rows": 25,
+      "source_files": {
+        "summary": {
+          "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_selected_precondition_25/summary.json",
+          "size_bytes": 459,
+          "mtime_utc": "2026-05-22T03:46:57.043651+00:00",
+          "sha256": "ef9c0292db345bb00149ee630e48b63397b97919cca1b3346e2ebe0e800d9c8f"
+        },
+        "trajectories": {
+          "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_selected_precondition_25/trajectories.jsonl",
+          "size_bytes": 146859,
+          "mtime_utc": "2026-05-22T03:46:57.043651+00:00",
+          "sha256": "514921d44c7e22df91397d1113a3686b52c440980c6de7e209d10c6ad6d230ae"
+        }
+      }
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_tree_selected_25",
+      "setting": "replication_tree_aware",
+      "setting_order": 70,
+      "paper_role": "replication of tree-aware selected skill",
+      "total_rows": 25,
+      "trajectory_rows": 25,
+      "source_files": {
+        "summary": {
+          "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_replication_tree_selected_25/summary.json",
+          "size_bytes": 434,
+          "mtime_utc": "2026-05-22T04:40:20.060041+00:00",
+          "sha256": "8c680c4a238b4239759d66cc3f9f61b40ffe82dfc7f84bae433cfea292cce524"
+        },
+        "trajectories": {
+          "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_replication_tree_selected_25/trajectories.jsonl",
+          "size_bytes": 139687,
+          "mtime_utc": "2026-05-22T04:40:20.059041+00:00",
+          "sha256": "0288786a19aa8904bb04df0548f9e07a2603714955af8800d79c8695064740fc"
+        }
+      }
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_selected_precondition_25",
+      "setting": "replication_tree_aware_precondition_context",
+      "setting_order": 80,
+      "paper_role": "replication of selected skill plus tree and guardrail context",
+      "total_rows": 25,
+      "trajectory_rows": 25,
+      "source_files": {
+        "summary": {
+          "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_replication_selected_precondition_25/summary.json",
+          "size_bytes": 457,
+          "mtime_utc": "2026-05-22T04:50:13.556187+00:00",
+          "sha256": "6c068c371bb735cfa14a788b77ebd2801a2bf421a51a259aa7327bd8fba19275"
+        },
+        "trajectories": {
+          "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_replication_selected_precondition_25/trajectories.jsonl",
+          "size_bytes": 147508,
+          "mtime_utc": "2026-05-22T04:50:13.555187+00:00",
+          "sha256": "0e0588553fbfb8e450c1006279d4c52f9dc10a82210336d05299337b4ee59b4f"
+        }
+      }
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_precondition_only_25",
+      "setting": "replication_strict_precondition_only",
+      "setting_order": 90,
+      "paper_role": "replication of precondition-text ablation",
+      "total_rows": 25,
+      "trajectory_rows": 25,
+      "source_files": {
+        "summary": {
+          "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_replication_precondition_only_25/summary.json",
+          "size_bytes": 456,
+          "mtime_utc": "2026-05-22T05:05:48.995659+00:00",
+          "sha256": "3b58624eb5101a323d84d18ccc0fed60818ed505b53f7f04a16136e1a2dcd632"
+        },
+        "trajectories": {
+          "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_replication_precondition_only_25/trajectories.jsonl",
+          "size_bytes": 138658,
+          "mtime_utc": "2026-05-22T05:05:48.994659+00:00",
+          "sha256": "12569afc718a81530c532782574f30a269fff48bef212ff674b2b16463a33d4c"
+        }
+      }
+    }
+  ],
+  "strategy_matrix": [
+    {
+      "run_name": "llm_downstream_hard_v2_canary_5x2",
+      "setting": "canary_visible_file",
+      "setting_order": 10,
+      "paper_role": "canary only",
+      "strategy": "no_experience",
+      "tasks": 5,
+      "successes": 4,
+      "success_rate": 0.8,
+      "negative_transfer": 1,
+      "public_passed_hidden_failed": 1,
+      "artifact_adherence": 5,
+      "parse_errors": 0,
+      "total_tokens": 12775,
+      "avg_tokens": 2555.0,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 5
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_canary_5x2",
+      "setting": "canary_visible_file",
+      "setting_order": 10,
+      "paper_role": "canary only",
+      "strategy": "skilladmit_selected",
+      "tasks": 5,
+      "successes": 5,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 5,
+      "parse_errors": 0,
+      "total_tokens": 13840,
+      "avg_tokens": 2768.0,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 5
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "paper_role": "negative transfer control",
+      "strategy": "forced_bad_artifact",
+      "tasks": 25,
+      "successes": 0,
+      "success_rate": 0.0,
+      "negative_transfer": 25,
+      "public_passed_hidden_failed": 25,
+      "artifact_adherence": 25,
+      "parse_errors": 0,
+      "total_tokens": 0,
+      "avg_tokens": 0.0,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 25
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "paper_role": "strict visible-file comparison",
+      "strategy": "bad_dependency_rule",
+      "tasks": 25,
+      "successes": 22,
+      "success_rate": 0.88,
+      "negative_transfer": 2,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 3,
+      "parse_errors": 0,
+      "total_tokens": 75724,
+      "avg_tokens": 3028.96,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 25
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "paper_role": "strict visible-file comparison",
+      "strategy": "distilled_skills_all",
+      "tasks": 25,
+      "successes": 25,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 25,
+      "parse_errors": 0,
+      "total_tokens": 84986,
+      "avg_tokens": 3399.44,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 25
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "paper_role": "strict visible-file comparison",
+      "strategy": "forced_bad_artifact",
+      "tasks": 25,
+      "successes": 0,
+      "success_rate": 0.0,
+      "negative_transfer": 25,
+      "public_passed_hidden_failed": 25,
+      "artifact_adherence": 25,
+      "parse_errors": 0,
+      "total_tokens": 0,
+      "avg_tokens": 0.0,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 25
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "paper_role": "strict visible-file comparison",
+      "strategy": "no_experience",
+      "tasks": 25,
+      "successes": 24,
+      "success_rate": 0.96,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 25,
+      "parse_errors": 0,
+      "total_tokens": 59272,
+      "avg_tokens": 2370.88,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 25
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "paper_role": "strict visible-file comparison",
+      "strategy": "promoted_rules",
+      "tasks": 25,
+      "successes": 21,
+      "success_rate": 0.84,
+      "negative_transfer": 4,
+      "public_passed_hidden_failed": 1,
+      "artifact_adherence": 25,
+      "parse_errors": 0,
+      "total_tokens": 77858,
+      "avg_tokens": 3114.32,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 25
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "paper_role": "strict visible-file comparison",
+      "strategy": "raw_memory",
+      "tasks": 25,
+      "successes": 22,
+      "success_rate": 0.88,
+      "negative_transfer": 3,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 25,
+      "parse_errors": 0,
+      "total_tokens": 56941,
+      "avg_tokens": 2277.64,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 25
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "paper_role": "strict visible-file comparison",
+      "strategy": "skilladmit_selected",
+      "tasks": 25,
+      "successes": 23,
+      "success_rate": 0.92,
+      "negative_transfer": 2,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 25,
+      "parse_errors": 0,
+      "total_tokens": 66608,
+      "avg_tokens": 2664.32,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 25
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_tree_25x2",
+      "setting": "tree_aware",
+      "setting_order": 40,
+      "paper_role": "realistic coding-agent comparison",
+      "strategy": "no_experience",
+      "tasks": 25,
+      "successes": 23,
+      "success_rate": 0.92,
+      "negative_transfer": 2,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 25,
+      "parse_errors": 0,
+      "total_tokens": 51548,
+      "avg_tokens": 2061.92,
+      "included_repo_tree_rows": 25,
+      "visible_file_rows": 25
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_tree_25x2",
+      "setting": "tree_aware",
+      "setting_order": 40,
+      "paper_role": "realistic coding-agent comparison",
+      "strategy": "skilladmit_selected",
+      "tasks": 25,
+      "successes": 25,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 25,
+      "parse_errors": 0,
+      "total_tokens": 57597,
+      "avg_tokens": 2303.88,
+      "included_repo_tree_rows": 25,
+      "visible_file_rows": 25
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_precondition_only_25",
+      "setting": "strict_precondition_only",
+      "setting_order": 50,
+      "paper_role": "precondition-text ablation",
+      "strategy": "skilladmit_selected_with_precondition_only",
+      "tasks": 25,
+      "successes": 24,
+      "success_rate": 0.96,
+      "negative_transfer": 1,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 25,
+      "parse_errors": 0,
+      "total_tokens": 72316,
+      "avg_tokens": 2892.64,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 25
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_selected_precondition_25",
+      "setting": "tree_aware_precondition_context",
+      "setting_order": 60,
+      "paper_role": "selected skill plus tree and guardrail context",
+      "strategy": "skilladmit_selected_with_precondition_context",
+      "tasks": 25,
+      "successes": 25,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 25,
+      "parse_errors": 0,
+      "total_tokens": 67504,
+      "avg_tokens": 2700.16,
+      "included_repo_tree_rows": 25,
+      "visible_file_rows": 25
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_tree_selected_25",
+      "setting": "replication_tree_aware",
+      "setting_order": 70,
+      "paper_role": "replication of tree-aware selected skill",
+      "strategy": "skilladmit_selected",
+      "tasks": 25,
+      "successes": 25,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 25,
+      "parse_errors": 0,
+      "total_tokens": 52144,
+      "avg_tokens": 2085.76,
+      "included_repo_tree_rows": 25,
+      "visible_file_rows": 25
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_selected_precondition_25",
+      "setting": "replication_tree_aware_precondition_context",
+      "setting_order": 80,
+      "paper_role": "replication of selected skill plus tree and guardrail context",
+      "strategy": "skilladmit_selected_with_precondition_context",
+      "tasks": 25,
+      "successes": 25,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 25,
+      "parse_errors": 0,
+      "total_tokens": 64150,
+      "avg_tokens": 2566.0,
+      "included_repo_tree_rows": 25,
+      "visible_file_rows": 25
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_precondition_only_25",
+      "setting": "replication_strict_precondition_only",
+      "setting_order": 90,
+      "paper_role": "replication of precondition-text ablation",
+      "strategy": "skilladmit_selected_with_precondition_only",
+      "tasks": 25,
+      "successes": 23,
+      "success_rate": 0.92,
+      "negative_transfer": 2,
+      "public_passed_hidden_failed": 1,
+      "artifact_adherence": 25,
+      "parse_errors": 0,
+      "total_tokens": 77487,
+      "avg_tokens": 3099.48,
+      "included_repo_tree_rows": 0,
+      "visible_file_rows": 25
+    }
+  ],
+  "template_matrix": [
+    {
+      "run_name": "llm_downstream_hard_v2_canary_5x2",
+      "setting": "canary_visible_file",
+      "setting_order": 10,
+      "strategy": "no_experience",
+      "template": "T1_unused_missing_import_hard",
+      "tasks": 1,
+      "successes": 1,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 1979,
+      "avg_tokens": 1979.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_canary_5x2",
+      "setting": "canary_visible_file",
+      "setting_order": 10,
+      "strategy": "no_experience",
+      "template": "T2_local_module_import_hard",
+      "tasks": 1,
+      "successes": 1,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 2398,
+      "avg_tokens": 2398.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_canary_5x2",
+      "setting": "canary_visible_file",
+      "setting_order": 10,
+      "strategy": "no_experience",
+      "template": "T3_script_relative_import_hard",
+      "tasks": 1,
+      "successes": 1,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 2690,
+      "avg_tokens": 2690.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_canary_5x2",
+      "setting": "canary_visible_file",
+      "setting_order": 10,
+      "strategy": "no_experience",
+      "template": "T4_cwd_sensitive_path_hard",
+      "tasks": 1,
+      "successes": 0,
+      "negative_transfer": 1,
+      "public_passed_hidden_failed": 1,
+      "total_tokens": 3260,
+      "avg_tokens": 3260.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_canary_5x2",
+      "setting": "canary_visible_file",
+      "setting_order": 10,
+      "strategy": "no_experience",
+      "template": "T5_package_internal_import_hard",
+      "tasks": 1,
+      "successes": 1,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 2448,
+      "avg_tokens": 2448.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_canary_5x2",
+      "setting": "canary_visible_file",
+      "setting_order": 10,
+      "strategy": "skilladmit_selected",
+      "template": "T1_unused_missing_import_hard",
+      "tasks": 1,
+      "successes": 1,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 1258,
+      "avg_tokens": 1258.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_canary_5x2",
+      "setting": "canary_visible_file",
+      "setting_order": 10,
+      "strategy": "skilladmit_selected",
+      "template": "T2_local_module_import_hard",
+      "tasks": 1,
+      "successes": 1,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 2824,
+      "avg_tokens": 2824.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_canary_5x2",
+      "setting": "canary_visible_file",
+      "setting_order": 10,
+      "strategy": "skilladmit_selected",
+      "template": "T3_script_relative_import_hard",
+      "tasks": 1,
+      "successes": 1,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 3734,
+      "avg_tokens": 3734.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_canary_5x2",
+      "setting": "canary_visible_file",
+      "setting_order": 10,
+      "strategy": "skilladmit_selected",
+      "template": "T4_cwd_sensitive_path_hard",
+      "tasks": 1,
+      "successes": 1,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 3455,
+      "avg_tokens": 3455.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_canary_5x2",
+      "setting": "canary_visible_file",
+      "setting_order": 10,
+      "strategy": "skilladmit_selected",
+      "template": "T5_package_internal_import_hard",
+      "tasks": 1,
+      "successes": 1,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 2569,
+      "avg_tokens": 2569.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "template": "T1_unused_missing_import_hard",
+      "tasks": 5,
+      "successes": 0,
+      "negative_transfer": 5,
+      "public_passed_hidden_failed": 5,
+      "total_tokens": 0,
+      "avg_tokens": 0.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "template": "T2_local_module_import_hard",
+      "tasks": 5,
+      "successes": 0,
+      "negative_transfer": 5,
+      "public_passed_hidden_failed": 5,
+      "total_tokens": 0,
+      "avg_tokens": 0.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "template": "T3_script_relative_import_hard",
+      "tasks": 5,
+      "successes": 0,
+      "negative_transfer": 5,
+      "public_passed_hidden_failed": 5,
+      "total_tokens": 0,
+      "avg_tokens": 0.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "template": "T4_cwd_sensitive_path_hard",
+      "tasks": 5,
+      "successes": 0,
+      "negative_transfer": 5,
+      "public_passed_hidden_failed": 5,
+      "total_tokens": 0,
+      "avg_tokens": 0.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "template": "T5_package_internal_import_hard",
+      "tasks": 5,
+      "successes": 0,
+      "negative_transfer": 5,
+      "public_passed_hidden_failed": 5,
+      "total_tokens": 0,
+      "avg_tokens": 0.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "bad_dependency_rule",
+      "template": "T1_unused_missing_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 7781,
+      "avg_tokens": 1556.2
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "bad_dependency_rule",
+      "template": "T2_local_module_import_hard",
+      "tasks": 5,
+      "successes": 4,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 16024,
+      "avg_tokens": 3204.8
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "bad_dependency_rule",
+      "template": "T3_script_relative_import_hard",
+      "tasks": 5,
+      "successes": 4,
+      "negative_transfer": 1,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 17713,
+      "avg_tokens": 3542.6
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "bad_dependency_rule",
+      "template": "T4_cwd_sensitive_path_hard",
+      "tasks": 5,
+      "successes": 4,
+      "negative_transfer": 1,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 15463,
+      "avg_tokens": 3092.6
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "bad_dependency_rule",
+      "template": "T5_package_internal_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 18743,
+      "avg_tokens": 3748.6
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "distilled_skills_all",
+      "template": "T1_unused_missing_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 9318,
+      "avg_tokens": 1863.6
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "distilled_skills_all",
+      "template": "T2_local_module_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 18119,
+      "avg_tokens": 3623.8
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "distilled_skills_all",
+      "template": "T3_script_relative_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 19235,
+      "avg_tokens": 3847.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "distilled_skills_all",
+      "template": "T4_cwd_sensitive_path_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 18203,
+      "avg_tokens": 3640.6
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "distilled_skills_all",
+      "template": "T5_package_internal_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 20111,
+      "avg_tokens": 4022.2
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "template": "T1_unused_missing_import_hard",
+      "tasks": 5,
+      "successes": 0,
+      "negative_transfer": 5,
+      "public_passed_hidden_failed": 5,
+      "total_tokens": 0,
+      "avg_tokens": 0.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "template": "T2_local_module_import_hard",
+      "tasks": 5,
+      "successes": 0,
+      "negative_transfer": 5,
+      "public_passed_hidden_failed": 5,
+      "total_tokens": 0,
+      "avg_tokens": 0.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "template": "T3_script_relative_import_hard",
+      "tasks": 5,
+      "successes": 0,
+      "negative_transfer": 5,
+      "public_passed_hidden_failed": 5,
+      "total_tokens": 0,
+      "avg_tokens": 0.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "template": "T4_cwd_sensitive_path_hard",
+      "tasks": 5,
+      "successes": 0,
+      "negative_transfer": 5,
+      "public_passed_hidden_failed": 5,
+      "total_tokens": 0,
+      "avg_tokens": 0.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "template": "T5_package_internal_import_hard",
+      "tasks": 5,
+      "successes": 0,
+      "negative_transfer": 5,
+      "public_passed_hidden_failed": 5,
+      "total_tokens": 0,
+      "avg_tokens": 0.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "no_experience",
+      "template": "T1_unused_missing_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 7571,
+      "avg_tokens": 1514.2
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "no_experience",
+      "template": "T2_local_module_import_hard",
+      "tasks": 5,
+      "successes": 4,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 12928,
+      "avg_tokens": 2585.6
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "no_experience",
+      "template": "T3_script_relative_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 13093,
+      "avg_tokens": 2618.6
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "no_experience",
+      "template": "T4_cwd_sensitive_path_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 14033,
+      "avg_tokens": 2806.6
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "no_experience",
+      "template": "T5_package_internal_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 11647,
+      "avg_tokens": 2329.4
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "promoted_rules",
+      "template": "T1_unused_missing_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 7848,
+      "avg_tokens": 1569.6
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "promoted_rules",
+      "template": "T2_local_module_import_hard",
+      "tasks": 5,
+      "successes": 4,
+      "negative_transfer": 1,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 19735,
+      "avg_tokens": 3947.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "promoted_rules",
+      "template": "T3_script_relative_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 17015,
+      "avg_tokens": 3403.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "promoted_rules",
+      "template": "T4_cwd_sensitive_path_hard",
+      "tasks": 5,
+      "successes": 3,
+      "negative_transfer": 2,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 17527,
+      "avg_tokens": 3505.4
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "promoted_rules",
+      "template": "T5_package_internal_import_hard",
+      "tasks": 5,
+      "successes": 4,
+      "negative_transfer": 1,
+      "public_passed_hidden_failed": 1,
+      "total_tokens": 15733,
+      "avg_tokens": 3146.6
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "raw_memory",
+      "template": "T1_unused_missing_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 9171,
+      "avg_tokens": 1834.2
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "raw_memory",
+      "template": "T2_local_module_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 9646,
+      "avg_tokens": 1929.2
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "raw_memory",
+      "template": "T3_script_relative_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 14054,
+      "avg_tokens": 2810.8
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "raw_memory",
+      "template": "T4_cwd_sensitive_path_hard",
+      "tasks": 5,
+      "successes": 2,
+      "negative_transfer": 3,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 14017,
+      "avg_tokens": 2803.4
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "raw_memory",
+      "template": "T5_package_internal_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 10053,
+      "avg_tokens": 2010.6
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "skilladmit_selected",
+      "template": "T1_unused_missing_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 6917,
+      "avg_tokens": 1383.4
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "skilladmit_selected",
+      "template": "T2_local_module_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 14204,
+      "avg_tokens": 2840.8
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "skilladmit_selected",
+      "template": "T3_script_relative_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 15722,
+      "avg_tokens": 3144.4
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "skilladmit_selected",
+      "template": "T4_cwd_sensitive_path_hard",
+      "tasks": 5,
+      "successes": 3,
+      "negative_transfer": 2,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 15118,
+      "avg_tokens": 3023.6
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "skilladmit_selected",
+      "template": "T5_package_internal_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 14647,
+      "avg_tokens": 2929.4
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_tree_25x2",
+      "setting": "tree_aware",
+      "setting_order": 40,
+      "strategy": "no_experience",
+      "template": "T1_unused_missing_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 8125,
+      "avg_tokens": 1625.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_tree_25x2",
+      "setting": "tree_aware",
+      "setting_order": 40,
+      "strategy": "no_experience",
+      "template": "T2_local_module_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 7850,
+      "avg_tokens": 1570.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_tree_25x2",
+      "setting": "tree_aware",
+      "setting_order": 40,
+      "strategy": "no_experience",
+      "template": "T3_script_relative_import_hard",
+      "tasks": 5,
+      "successes": 4,
+      "negative_transfer": 1,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 14384,
+      "avg_tokens": 2876.8
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_tree_25x2",
+      "setting": "tree_aware",
+      "setting_order": 40,
+      "strategy": "no_experience",
+      "template": "T4_cwd_sensitive_path_hard",
+      "tasks": 5,
+      "successes": 4,
+      "negative_transfer": 1,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 11977,
+      "avg_tokens": 2395.4
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_tree_25x2",
+      "setting": "tree_aware",
+      "setting_order": 40,
+      "strategy": "no_experience",
+      "template": "T5_package_internal_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 9212,
+      "avg_tokens": 1842.4
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_tree_25x2",
+      "setting": "tree_aware",
+      "setting_order": 40,
+      "strategy": "skilladmit_selected",
+      "template": "T1_unused_missing_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 6605,
+      "avg_tokens": 1321.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_tree_25x2",
+      "setting": "tree_aware",
+      "setting_order": 40,
+      "strategy": "skilladmit_selected",
+      "template": "T2_local_module_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 10765,
+      "avg_tokens": 2153.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_tree_25x2",
+      "setting": "tree_aware",
+      "setting_order": 40,
+      "strategy": "skilladmit_selected",
+      "template": "T3_script_relative_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 18147,
+      "avg_tokens": 3629.4
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_tree_25x2",
+      "setting": "tree_aware",
+      "setting_order": 40,
+      "strategy": "skilladmit_selected",
+      "template": "T4_cwd_sensitive_path_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 13850,
+      "avg_tokens": 2770.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_tree_25x2",
+      "setting": "tree_aware",
+      "setting_order": 40,
+      "strategy": "skilladmit_selected",
+      "template": "T5_package_internal_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 8230,
+      "avg_tokens": 1646.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_precondition_only_25",
+      "setting": "strict_precondition_only",
+      "setting_order": 50,
+      "strategy": "skilladmit_selected_with_precondition_only",
+      "template": "T1_unused_missing_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 10064,
+      "avg_tokens": 2012.8
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_precondition_only_25",
+      "setting": "strict_precondition_only",
+      "setting_order": 50,
+      "strategy": "skilladmit_selected_with_precondition_only",
+      "template": "T2_local_module_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 14947,
+      "avg_tokens": 2989.4
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_precondition_only_25",
+      "setting": "strict_precondition_only",
+      "setting_order": 50,
+      "strategy": "skilladmit_selected_with_precondition_only",
+      "template": "T3_script_relative_import_hard",
+      "tasks": 5,
+      "successes": 4,
+      "negative_transfer": 1,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 16284,
+      "avg_tokens": 3256.8
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_precondition_only_25",
+      "setting": "strict_precondition_only",
+      "setting_order": 50,
+      "strategy": "skilladmit_selected_with_precondition_only",
+      "template": "T4_cwd_sensitive_path_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 17928,
+      "avg_tokens": 3585.6
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_precondition_only_25",
+      "setting": "strict_precondition_only",
+      "setting_order": 50,
+      "strategy": "skilladmit_selected_with_precondition_only",
+      "template": "T5_package_internal_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 13093,
+      "avg_tokens": 2618.6
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_selected_precondition_25",
+      "setting": "tree_aware_precondition_context",
+      "setting_order": 60,
+      "strategy": "skilladmit_selected_with_precondition_context",
+      "template": "T1_unused_missing_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 9326,
+      "avg_tokens": 1865.2
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_selected_precondition_25",
+      "setting": "tree_aware_precondition_context",
+      "setting_order": 60,
+      "strategy": "skilladmit_selected_with_precondition_context",
+      "template": "T2_local_module_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 11986,
+      "avg_tokens": 2397.2
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_selected_precondition_25",
+      "setting": "tree_aware_precondition_context",
+      "setting_order": 60,
+      "strategy": "skilladmit_selected_with_precondition_context",
+      "template": "T3_script_relative_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 19866,
+      "avg_tokens": 3973.2
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_selected_precondition_25",
+      "setting": "tree_aware_precondition_context",
+      "setting_order": 60,
+      "strategy": "skilladmit_selected_with_precondition_context",
+      "template": "T4_cwd_sensitive_path_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 15243,
+      "avg_tokens": 3048.6
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_selected_precondition_25",
+      "setting": "tree_aware_precondition_context",
+      "setting_order": 60,
+      "strategy": "skilladmit_selected_with_precondition_context",
+      "template": "T5_package_internal_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 11083,
+      "avg_tokens": 2216.6
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_tree_selected_25",
+      "setting": "replication_tree_aware",
+      "setting_order": 70,
+      "strategy": "skilladmit_selected",
+      "template": "T1_unused_missing_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 7342,
+      "avg_tokens": 1468.4
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_tree_selected_25",
+      "setting": "replication_tree_aware",
+      "setting_order": 70,
+      "strategy": "skilladmit_selected",
+      "template": "T2_local_module_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 9974,
+      "avg_tokens": 1994.8
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_tree_selected_25",
+      "setting": "replication_tree_aware",
+      "setting_order": 70,
+      "strategy": "skilladmit_selected",
+      "template": "T3_script_relative_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 15653,
+      "avg_tokens": 3130.6
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_tree_selected_25",
+      "setting": "replication_tree_aware",
+      "setting_order": 70,
+      "strategy": "skilladmit_selected",
+      "template": "T4_cwd_sensitive_path_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 12689,
+      "avg_tokens": 2537.8
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_tree_selected_25",
+      "setting": "replication_tree_aware",
+      "setting_order": 70,
+      "strategy": "skilladmit_selected",
+      "template": "T5_package_internal_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 6486,
+      "avg_tokens": 1297.2
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_selected_precondition_25",
+      "setting": "replication_tree_aware_precondition_context",
+      "setting_order": 80,
+      "strategy": "skilladmit_selected_with_precondition_context",
+      "template": "T1_unused_missing_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 10157,
+      "avg_tokens": 2031.4
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_selected_precondition_25",
+      "setting": "replication_tree_aware_precondition_context",
+      "setting_order": 80,
+      "strategy": "skilladmit_selected_with_precondition_context",
+      "template": "T2_local_module_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 11410,
+      "avg_tokens": 2282.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_selected_precondition_25",
+      "setting": "replication_tree_aware_precondition_context",
+      "setting_order": 80,
+      "strategy": "skilladmit_selected_with_precondition_context",
+      "template": "T3_script_relative_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 18715,
+      "avg_tokens": 3743.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_selected_precondition_25",
+      "setting": "replication_tree_aware_precondition_context",
+      "setting_order": 80,
+      "strategy": "skilladmit_selected_with_precondition_context",
+      "template": "T4_cwd_sensitive_path_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 14043,
+      "avg_tokens": 2808.6
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_selected_precondition_25",
+      "setting": "replication_tree_aware_precondition_context",
+      "setting_order": 80,
+      "strategy": "skilladmit_selected_with_precondition_context",
+      "template": "T5_package_internal_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 9825,
+      "avg_tokens": 1965.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_precondition_only_25",
+      "setting": "replication_strict_precondition_only",
+      "setting_order": 90,
+      "strategy": "skilladmit_selected_with_precondition_only",
+      "template": "T1_unused_missing_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 10326,
+      "avg_tokens": 2065.2
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_precondition_only_25",
+      "setting": "replication_strict_precondition_only",
+      "setting_order": 90,
+      "strategy": "skilladmit_selected_with_precondition_only",
+      "template": "T2_local_module_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 14713,
+      "avg_tokens": 2942.6
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_precondition_only_25",
+      "setting": "replication_strict_precondition_only",
+      "setting_order": 90,
+      "strategy": "skilladmit_selected_with_precondition_only",
+      "template": "T3_script_relative_import_hard",
+      "tasks": 5,
+      "successes": 4,
+      "negative_transfer": 1,
+      "public_passed_hidden_failed": 1,
+      "total_tokens": 17025,
+      "avg_tokens": 3405.0
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_precondition_only_25",
+      "setting": "replication_strict_precondition_only",
+      "setting_order": 90,
+      "strategy": "skilladmit_selected_with_precondition_only",
+      "template": "T4_cwd_sensitive_path_hard",
+      "tasks": 5,
+      "successes": 4,
+      "negative_transfer": 1,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 18554,
+      "avg_tokens": 3710.8
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_precondition_only_25",
+      "setting": "replication_strict_precondition_only",
+      "setting_order": 90,
+      "strategy": "skilladmit_selected_with_precondition_only",
+      "template": "T5_package_internal_import_hard",
+      "tasks": 5,
+      "successes": 5,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "total_tokens": 16869,
+      "avg_tokens": 3373.8
+    }
+  ],
+  "failures": [
+    {
+      "run_name": "llm_downstream_hard_v2_canary_5x2",
+      "setting": "canary_visible_file",
+      "setting_order": 10,
+      "strategy": "no_experience",
+      "task_id": "hard_v2_py_import_016",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_alpha/loader.py",
+        "runner_alpha/main.py"
+      ],
+      "used_artifact": "none",
+      "diagnosis": "Missing data file 'runner_alpha/data/alpha.txt' causing FileNotFoundError when loader.py attempts to read it.",
+      "notes": "Created required data file in runner_alpha/data/ directory to match the relative path in loader.py.",
+      "applied_paths": [
+        "runner_alpha/data/alpha.txt"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.04s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 8, in <module>\nAssertionError: duplicating data under cwd masks the path bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_001",
+      "template": "T1_unused_missing_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_app.py",
+        "app.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "futuredep_alpha_v2.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 5, in <module>\nAssertionError: dependency stub masks an unused import"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_002",
+      "template": "T1_unused_missing_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_app.py",
+        "app.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "ghostlib_beta_v2.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 5, in <module>\nAssertionError: dependency stub masks an unused import"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_003",
+      "template": "T1_unused_missing_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_app.py",
+        "app.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "phantom_gamma_v2.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 5, in <module>\nAssertionError: dependency stub masks an unused import"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_004",
+      "template": "T1_unused_missing_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_app.py",
+        "app.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "missingdelta_v2.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 5, in <module>\nAssertionError: dependency stub masks an unused import"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_005",
+      "template": "T1_unused_missing_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_app.py",
+        "app.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "optionalomega_v2.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 5, in <module>\nAssertionError: dependency stub masks an unused import"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_006",
+      "template": "T2_local_module_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "alpha_app/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "analytics.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level stub masks the local package import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_007",
+      "template": "T2_local_module_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "beta_app/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "config.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level stub masks the local package import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_008",
+      "template": "T2_local_module_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "gamma_app/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "service.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level stub masks the local package import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_009",
+      "template": "T2_local_module_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "delta_app/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "parser.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level stub masks the local package import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_010",
+      "template": "T2_local_module_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "omega_app/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "helpers.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level stub masks the local package import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_011",
+      "template": "T3_script_relative_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_script.py",
+        "clipkg_alpha/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "clipkg_alpha/main.py",
+        "formatters.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.02s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 10, in <module>\nAssertionError: top-level helper masks script/package import semantics"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_012",
+      "template": "T3_script_relative_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_script.py",
+        "clipkg_beta/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "clipkg_beta/main.py",
+        "tools.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.02s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 10, in <module>\nAssertionError: top-level helper masks script/package import semantics"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_013",
+      "template": "T3_script_relative_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_script.py",
+        "clipkg_gamma/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "clipkg_gamma/main.py",
+        "helpers.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.03s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 10, in <module>\nAssertionError: top-level helper masks script/package import semantics"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_014",
+      "template": "T3_script_relative_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_script.py",
+        "clipkg_delta/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "clipkg_delta/main.py",
+        "serializers.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.02s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 10, in <module>\nAssertionError: top-level helper masks script/package import semantics"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_015",
+      "template": "T3_script_relative_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_script.py",
+        "clipkg_omega/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "clipkg_omega/main.py",
+        "views.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.02s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 10, in <module>\nAssertionError: top-level helper masks script/package import semantics"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_016",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_alpha/loader.py",
+        "runner_alpha/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "runner_alpha/data/alpha.txt"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.04s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 8, in <module>\nAssertionError: duplicating data under cwd masks the path bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_017",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_beta/loader.py",
+        "runner_beta/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "runner_beta/data/beta.txt"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.04s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 8, in <module>\nAssertionError: duplicating data under cwd masks the path bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_018",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_gamma/loader.py",
+        "runner_gamma/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "runner_gamma/data/gamma.txt"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.04s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 8, in <module>\nAssertionError: duplicating data under cwd masks the path bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_019",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_delta/loader.py",
+        "runner_delta/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "runner_delta/data/delta.txt"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.04s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 8, in <module>\nAssertionError: duplicating data under cwd masks the path bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_020",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_omega/loader.py",
+        "runner_omega/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "runner_omega/data/omega.txt"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.04s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 8, in <module>\nAssertionError: duplicating data under cwd masks the path bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_021",
+      "template": "T5_package_internal_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "omega_pkg_alpha/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "adapters/__init__.py",
+        "adapters/worker.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level package masks the package-internal import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_022",
+      "template": "T5_package_internal_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "omega_pkg_beta/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "engine/__init__.py",
+        "engine/worker.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level package masks the package-internal import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_023",
+      "template": "T5_package_internal_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "omega_pkg_gamma/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "services/__init__.py",
+        "services/worker.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level package masks the package-internal import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_024",
+      "template": "T5_package_internal_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "omega_pkg_delta/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "workers/__init__.py",
+        "workers/worker.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level package masks the package-internal import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_forced_bad_25",
+      "setting": "forced_bad_standalone",
+      "setting_order": 20,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_025",
+      "template": "T5_package_internal_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "omega_pkg_omega/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "plugins/__init__.py",
+        "plugins/worker.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level package masks the package-internal import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "bad_dependency_rule",
+      "task_id": "hard_v2_py_import_009",
+      "template": "T2_local_module_import_hard",
+      "public_tests_passed": false,
+      "public_passed_hidden_failed": false,
+      "negative_transfer": false,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "delta_app/main.py"
+      ],
+      "used_artifact": "none",
+      "diagnosis": "The code imports a missing 'parser' module. Since we cannot create top-level stubs, we need to provide the missing functionality within the project structure itself. The parser module likely contains the parse_text function used by delta_app/main.py.",
+      "notes": "Created the missing parser module inside the delta_app package with the required parse_text function to satisfy the import and test expectations.",
+      "applied_paths": [
+        "delta_app/parser.py"
+      ],
+      "final_stdout_tail": "==================================== ERRORS ====================================\n_____________________ ERROR collecting tests/test_main.py ______________________\nImportError while importing test module '/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_full_25x6/workspaces/bad_dependency_rule/hard_v2_py_import_009/repo/tests/test_main.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/home/lijx/anaconda3/envs/skilladmit/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n../../../../../../../downstream_hard_v2/tasks/hard_v2_py_import_009/repo/tests/test_main.py:1: in <module>\n    from delta_app.main import run\ndelta_app/main.py:1: in <module>\n    from parser import parse_text\nE   ModuleNotFoundError: No module named 'parser'\n=========================== short test summary info ============================\nERROR tests/test_main.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.13s",
+      "final_stderr_tail": ""
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "bad_dependency_rule",
+      "task_id": "hard_v2_py_import_015",
+      "template": "T3_script_relative_import_hard",
+      "public_tests_passed": false,
+      "public_passed_hidden_failed": false,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_script.py",
+        "clipkg_omega/main.py"
+      ],
+      "used_artifact": "none",
+      "diagnosis": "Relative import fails when script is run directly; changed to conditional import based on __name__ to preserve both script and package behavior.",
+      "notes": "Fixed incomplete JSON by completing the import line and closing the string.",
+      "applied_paths": [
+        "clipkg_omega/main.py"
+      ],
+      "final_stdout_tail": "F                                                                        [100%]\n=================================== FAILURES ===================================\n__________________________ test_script_command_works ___________________________\n\n    def test_script_command_works():\n        result = subprocess.run(\n            [sys.executable, \"clipkg_omega/main.py\"],\n            capture_output=True,\n            text=True,\n        )\n        assert result.returncode == 0, result.stderr\n>       assert \"hard-v2-script-omega\" in result.stdout\nE       AssertionError: assert 'hard-v2-script-omega' in ''\nE        +  where '' = CompletedProcess(args=['/home/lijx/anaconda3/envs/skilladmit/bin/python', 'clipkg_omega/main.py'], returncode=0, stdout='', stderr='').stdout\n\n../../../../../../../downstream_hard_v2/tasks/hard_v2_py_import_015/repo/tests/test_script.py:11: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_script.py::test_script_command_works - AssertionError: asse...\n1 failed in 0.04s",
+      "final_stderr_tail": ""
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "bad_dependency_rule",
+      "task_id": "hard_v2_py_import_018",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": false,
+      "public_passed_hidden_failed": false,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_gamma/loader.py",
+        "runner_gamma/main.py"
+      ],
+      "used_artifact": "none",
+      "diagnosis": "The test runs main.py from the runner_gamma directory, but load_value() uses a relative path 'data/gamma.txt' which doesn't exist there. Need to adjust path resolution relative to the script's location.",
+      "notes": "Changed load_value() to use script directory for relative path resolution. This ensures the file is found when running from runner_gamma directory without duplicating data files.",
+      "applied_paths": [
+        "runner_gamma/loader.py"
+      ],
+      "final_stdout_tail": "home/lijx/anaconda3/envs/skilladmit/lib/python3.10/pathlib.py\", line 1134, in read_text\nE             with self.open(mode='r', encoding=encoding, errors=errors) as f:\nE           File \"/home/lijx/anaconda3/envs/skilladmit/lib/python3.10/pathlib.py\", line 1119, in open\nE             return self._accessor.open(self, mode, buffering, encoding, errors,\nE         FileNotFoundError: [Errno 2] No such file or directory: '/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_full_25x6/workspaces/bad_dependency_rule/hard_v2_py_import_018/repo/runner_gamma/data/gamma.txt'\nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['/home/lijx/anaconda3/envs/skilladmit/bin/python', 'main.py'], returncode=1, stdout='', stderr=...ownstream_hard_v2_full_25x6/workspaces/bad_dependency_rule/hard_v2_py_import_018/repo/runner_gamma/data/gamma.txt\\'\\n').returncode\n\n../../../../../../../downstream_hard_v2/tasks/hard_v2_py_import_018/repo/tests/test_loader.py:11: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_loader.py::test_subdir_execution - AssertionError: Tracebac...\n1 failed in 0.06s",
+      "final_stderr_tail": ""
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_001",
+      "template": "T1_unused_missing_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_app.py",
+        "app.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "futuredep_alpha_v2.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 5, in <module>\nAssertionError: dependency stub masks an unused import"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_002",
+      "template": "T1_unused_missing_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_app.py",
+        "app.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "ghostlib_beta_v2.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 5, in <module>\nAssertionError: dependency stub masks an unused import"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_003",
+      "template": "T1_unused_missing_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_app.py",
+        "app.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "phantom_gamma_v2.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 5, in <module>\nAssertionError: dependency stub masks an unused import"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_004",
+      "template": "T1_unused_missing_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_app.py",
+        "app.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "missingdelta_v2.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 5, in <module>\nAssertionError: dependency stub masks an unused import"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_005",
+      "template": "T1_unused_missing_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_app.py",
+        "app.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "optionalomega_v2.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 5, in <module>\nAssertionError: dependency stub masks an unused import"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_006",
+      "template": "T2_local_module_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "alpha_app/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "analytics.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level stub masks the local package import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_007",
+      "template": "T2_local_module_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "beta_app/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "config.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level stub masks the local package import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_008",
+      "template": "T2_local_module_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "gamma_app/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "service.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level stub masks the local package import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_009",
+      "template": "T2_local_module_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "delta_app/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "parser.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level stub masks the local package import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_010",
+      "template": "T2_local_module_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "omega_app/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "helpers.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level stub masks the local package import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_011",
+      "template": "T3_script_relative_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_script.py",
+        "clipkg_alpha/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "clipkg_alpha/main.py",
+        "formatters.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.02s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 10, in <module>\nAssertionError: top-level helper masks script/package import semantics"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_012",
+      "template": "T3_script_relative_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_script.py",
+        "clipkg_beta/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "clipkg_beta/main.py",
+        "tools.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.02s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 10, in <module>\nAssertionError: top-level helper masks script/package import semantics"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_013",
+      "template": "T3_script_relative_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_script.py",
+        "clipkg_gamma/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "clipkg_gamma/main.py",
+        "helpers.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.03s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 10, in <module>\nAssertionError: top-level helper masks script/package import semantics"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_014",
+      "template": "T3_script_relative_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_script.py",
+        "clipkg_delta/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "clipkg_delta/main.py",
+        "serializers.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.02s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 10, in <module>\nAssertionError: top-level helper masks script/package import semantics"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_015",
+      "template": "T3_script_relative_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_script.py",
+        "clipkg_omega/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "clipkg_omega/main.py",
+        "views.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.02s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 10, in <module>\nAssertionError: top-level helper masks script/package import semantics"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_016",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_alpha/loader.py",
+        "runner_alpha/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "runner_alpha/data/alpha.txt"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.03s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 8, in <module>\nAssertionError: duplicating data under cwd masks the path bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_017",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_beta/loader.py",
+        "runner_beta/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "runner_beta/data/beta.txt"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.04s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 8, in <module>\nAssertionError: duplicating data under cwd masks the path bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_018",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_gamma/loader.py",
+        "runner_gamma/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "runner_gamma/data/gamma.txt"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.03s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 8, in <module>\nAssertionError: duplicating data under cwd masks the path bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_019",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_delta/loader.py",
+        "runner_delta/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "runner_delta/data/delta.txt"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.04s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 8, in <module>\nAssertionError: duplicating data under cwd masks the path bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_020",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_omega/loader.py",
+        "runner_omega/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "runner_omega/data/omega.txt"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.04s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 8, in <module>\nAssertionError: duplicating data under cwd masks the path bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_021",
+      "template": "T5_package_internal_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "omega_pkg_alpha/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "adapters/__init__.py",
+        "adapters/worker.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level package masks the package-internal import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_022",
+      "template": "T5_package_internal_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "omega_pkg_beta/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "engine/__init__.py",
+        "engine/worker.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level package masks the package-internal import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_023",
+      "template": "T5_package_internal_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "omega_pkg_gamma/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "services/__init__.py",
+        "services/worker.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level package masks the package-internal import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_024",
+      "template": "T5_package_internal_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "omega_pkg_delta/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "workers/__init__.py",
+        "workers/worker.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level package masks the package-internal import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "forced_bad_artifact",
+      "task_id": "hard_v2_py_import_025",
+      "template": "T5_package_internal_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "omega_pkg_omega/main.py"
+      ],
+      "used_artifact": "forced_bad_artifact",
+      "diagnosis": "Deterministically applying the task-provided bad artifact to measure negative transfer.",
+      "notes": "This baseline intentionally applies a masking or overgeneralized repair.",
+      "applied_paths": [
+        "plugins/__init__.py",
+        "plugins/worker.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level package masks the package-internal import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "no_experience",
+      "task_id": "hard_v2_py_import_008",
+      "template": "T2_local_module_import_hard",
+      "public_tests_passed": false,
+      "public_passed_hidden_failed": false,
+      "negative_transfer": false,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "gamma_app/main.py"
+      ],
+      "used_artifact": "none",
+      "diagnosis": "The 'service' module is imported but doesn't exist in the repository. This is causing the ModuleNotFoundError when the test tries to import gamma_app.main. The test expects run() to return 'hard-v2-local-gamma', so we need to create the missing service module with a run_service function that returns that value.",
+      "notes": "Created the missing service module with the required run_service function to fix the import error.",
+      "applied_paths": [
+        "gamma_app/service.py"
+      ],
+      "final_stdout_tail": "==================================== ERRORS ====================================\n_____________________ ERROR collecting tests/test_main.py ______________________\nImportError while importing test module '/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_full_25x6/workspaces/no_experience/hard_v2_py_import_008/repo/tests/test_main.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/home/lijx/anaconda3/envs/skilladmit/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n../../../../../../../downstream_hard_v2/tasks/hard_v2_py_import_008/repo/tests/test_main.py:1: in <module>\n    from gamma_app.main import run\ngamma_app/main.py:1: in <module>\n    from service import run_service\nE   ModuleNotFoundError: No module named 'service'\n=========================== short test summary info ============================\nERROR tests/test_main.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.13s",
+      "final_stderr_tail": ""
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "promoted_rules",
+      "task_id": "hard_v2_py_import_008",
+      "template": "T2_local_module_import_hard",
+      "public_tests_passed": false,
+      "public_passed_hidden_failed": false,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "gamma_app/main.py"
+      ],
+      "used_artifact": "promoted_rules",
+      "diagnosis": "The import 'from service import run_service' in gamma_app/main.py uses an absolute import, but the module 'service' is not found in the Python path. Based on promoted rules, this is likely an internal module and should be imported as a relative import.",
+      "notes": "Fixed the import to use relative import for internal module.",
+      "applied_paths": [
+        "gamma_app/main.py"
+      ],
+      "final_stdout_tail": "==================================== ERRORS ====================================\n_____________________ ERROR collecting tests/test_main.py ______________________\nImportError while importing test module '/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_full_25x6/workspaces/promoted_rules/hard_v2_py_import_008/repo/tests/test_main.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/home/lijx/anaconda3/envs/skilladmit/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n../../../../../../../downstream_hard_v2/tasks/hard_v2_py_import_008/repo/tests/test_main.py:1: in <module>\n    from gamma_app.main import run\nE   ImportError: cannot import name 'run' from 'gamma_app.main' (/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_full_25x6/workspaces/promoted_rules/hard_v2_py_import_008/repo/gamma_app/main.py)\n=========================== short test summary info ============================\nERROR tests/test_main.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.13s",
+      "final_stderr_tail": ""
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "promoted_rules",
+      "task_id": "hard_v2_py_import_018",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": false,
+      "public_passed_hidden_failed": false,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_gamma/loader.py",
+        "runner_gamma/main.py"
+      ],
+      "used_artifact": "promoted_rules",
+      "diagnosis": "The test runs main.py from runner_gamma directory, but data/gamma.txt doesn't exist relative to that directory. The data file likely exists at a different location in the repository structure.",
+      "notes": "Fixed path to use relative location from loader.py file instead of CWD. This finds data/gamma.txt from repository root instead of runner_gamma directory.",
+      "applied_paths": [
+        "runner_gamma/loader.py"
+      ],
+      "final_stdout_tail": "s.run(\n            [sys.executable, \"main.py\"],\n            cwd=\"runner_gamma\",\n            capture_output=True,\n            text=True,\n        )\n        assert result.returncode == 0, result.stderr\n>       assert \"hard-v2-cwd-gamma\" in result.stdout\nE       AssertionError: assert 'hard-v2-cwd-gamma' in '/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_full_25x6/workspaces/promoted_rules/hard_v2_py_import_018/repo/data/gamma.txt\\n'\nE        +  where '/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_full_25x6/workspaces/promoted_rules/hard_v2_py_import_018/repo/data/gamma.txt\\n' = CompletedProcess(args=['/home/lijx/anaconda3/envs/skilladmit/bin/python', 'main.py'], returncode=0, stdout='/home/lijx...uns/llm_downstream_hard_v2_full_25x6/workspaces/promoted_rules/hard_v2_py_import_018/repo/data/gamma.txt\\n', stderr='').stdout\n\n../../../../../../../downstream_hard_v2/tasks/hard_v2_py_import_018/repo/tests/test_loader.py:12: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_loader.py::test_subdir_execution - AssertionError: assert '...\n1 failed in 0.06s",
+      "final_stderr_tail": ""
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "promoted_rules",
+      "task_id": "hard_v2_py_import_019",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": false,
+      "public_passed_hidden_failed": false,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_delta/loader.py",
+        "runner_delta/main.py"
+      ],
+      "used_artifact": "promoted_rules",
+      "diagnosis": "Path('data/delta.txt') is relative to cwd, which is runner_delta when the test runs. The data file likely exists at a different location (repo root data/). Fix by making the path relative to the script file location instead of cwd.",
+      "notes": "Applied promoted rule: 'For path-related failures, check the command's current working directory before modifying imports or dependencies.' Changed path to be relative to __file__ rather than cwd.",
+      "applied_paths": [
+        "runner_delta/loader.py"
+      ],
+      "final_stdout_tail": "le \"/home/lijx/anaconda3/envs/skilladmit/lib/python3.10/pathlib.py\", line 1134, in read_text\nE             with self.open(mode='r', encoding=encoding, errors=errors) as f:\nE           File \"/home/lijx/anaconda3/envs/skilladmit/lib/python3.10/pathlib.py\", line 1119, in open\nE             return self._accessor.open(self, mode, buffering, encoding, errors,\nE         FileNotFoundError: [Errno 2] No such file or directory: '/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_full_25x6/workspaces/promoted_rules/hard_v2_py_import_019/repo/runner_delta/data/delta.txt'\nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['/home/lijx/anaconda3/envs/skilladmit/bin/python', 'main.py'], returncode=1, stdout='', stderr=...llm_downstream_hard_v2_full_25x6/workspaces/promoted_rules/hard_v2_py_import_019/repo/runner_delta/data/delta.txt\\'\\n').returncode\n\n../../../../../../../downstream_hard_v2/tasks/hard_v2_py_import_019/repo/tests/test_loader.py:11: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_loader.py::test_subdir_execution - AssertionError: Tracebac...\n1 failed in 0.05s",
+      "final_stderr_tail": ""
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "promoted_rules",
+      "task_id": "hard_v2_py_import_022",
+      "template": "T5_package_internal_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_main.py",
+        "omega_pkg_beta/main.py"
+      ],
+      "used_artifact": "promoted_rules",
+      "diagnosis": "The 'engine' module is missing, causing import failure. Creating a local 'engine' package with 'worker' module to satisfy the import.",
+      "notes": "Created engine package locally to resolve ModuleNotFoundError without installing top-level packages.",
+      "applied_paths": [
+        "engine/__init__.py",
+        "engine/worker.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.01s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: top-level package masks the package-internal import bug"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "raw_memory",
+      "task_id": "hard_v2_py_import_016",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": false,
+      "public_passed_hidden_failed": false,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_alpha/loader.py",
+        "runner_alpha/main.py"
+      ],
+      "used_artifact": "raw_memory",
+      "diagnosis": "The loader.py uses a relative path that only works when run from the repository root. When the test sets cwd to 'runner_alpha', the path becomes invalid because it looks for 'data/alpha.txt' relative to that directory instead of relative to the script location.",
+      "notes": "Fixed path resolution to be relative to the script location instead of current working directory",
+      "applied_paths": [
+        "runner_alpha/loader.py"
+      ],
+      "final_stdout_tail": "  File \"/home/lijx/anaconda3/envs/skilladmit/lib/python3.10/pathlib.py\", line 1134, in read_text\nE             with self.open(mode='r', encoding=encoding, errors=errors) as f:\nE           File \"/home/lijx/anaconda3/envs/skilladmit/lib/python3.10/pathlib.py\", line 1119, in open\nE             return self._accessor.open(self, mode, buffering, encoding, errors,\nE         FileNotFoundError: [Errno 2] No such file or directory: '/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_full_25x6/workspaces/raw_memory/hard_v2_py_import_016/repo/runner_alpha/data/alpha.txt'\nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['/home/lijx/anaconda3/envs/skilladmit/bin/python', 'main.py'], returncode=1, stdout='', stderr=...uns/llm_downstream_hard_v2_full_25x6/workspaces/raw_memory/hard_v2_py_import_016/repo/runner_alpha/data/alpha.txt\\'\\n').returncode\n\n../../../../../../../downstream_hard_v2/tasks/hard_v2_py_import_016/repo/tests/test_loader.py:11: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_loader.py::test_subdir_execution - AssertionError: Tracebac...\n1 failed in 0.06s",
+      "final_stderr_tail": ""
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "raw_memory",
+      "task_id": "hard_v2_py_import_018",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": false,
+      "public_passed_hidden_failed": false,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_gamma/loader.py",
+        "runner_gamma/main.py"
+      ],
+      "used_artifact": "raw_memory",
+      "diagnosis": "Path('data/gamma.txt') is relative to CWD, so when main.py is run from runner_gamma/ it looks for runner_gamma/data/gamma.txt. Fix by resolving path relative to the script's directory.",
+      "notes": "Applied same fix pattern from raw memories: resolve data file path relative to script location instead of CWD.",
+      "applied_paths": [
+        "runner_gamma/loader.py"
+      ],
+      "final_stdout_tail": "  File \"/home/lijx/anaconda3/envs/skilladmit/lib/python3.10/pathlib.py\", line 1134, in read_text\nE             with self.open(mode='r', encoding=encoding, errors=errors) as f:\nE           File \"/home/lijx/anaconda3/envs/skilladmit/lib/python3.10/pathlib.py\", line 1119, in open\nE             return self._accessor.open(self, mode, buffering, encoding, errors,\nE         FileNotFoundError: [Errno 2] No such file or directory: '/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_full_25x6/workspaces/raw_memory/hard_v2_py_import_018/repo/runner_gamma/data/gamma.txt'\nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['/home/lijx/anaconda3/envs/skilladmit/bin/python', 'main.py'], returncode=1, stdout='', stderr=...uns/llm_downstream_hard_v2_full_25x6/workspaces/raw_memory/hard_v2_py_import_018/repo/runner_gamma/data/gamma.txt\\'\\n').returncode\n\n../../../../../../../downstream_hard_v2/tasks/hard_v2_py_import_018/repo/tests/test_loader.py:11: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_loader.py::test_subdir_execution - AssertionError: Tracebac...\n1 failed in 0.06s",
+      "final_stderr_tail": ""
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "raw_memory",
+      "task_id": "hard_v2_py_import_020",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": false,
+      "public_passed_hidden_failed": false,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_omega/loader.py",
+        "runner_omega/main.py"
+      ],
+      "used_artifact": "raw_memory",
+      "diagnosis": "The path 'data/omega.txt' in loader.py is relative to the current working directory. When main.py is executed from runner_omega/, the file cannot be found. Need to resolve the path relative to the script's location.",
+      "notes": "Resolved path relative to script location using Path(__file__).resolve().parent, consistent with prior experience patterns.",
+      "applied_paths": [
+        "runner_omega/loader.py"
+      ],
+      "final_stdout_tail": "  File \"/home/lijx/anaconda3/envs/skilladmit/lib/python3.10/pathlib.py\", line 1134, in read_text\nE             with self.open(mode='r', encoding=encoding, errors=errors) as f:\nE           File \"/home/lijx/anaconda3/envs/skilladmit/lib/python3.10/pathlib.py\", line 1119, in open\nE             return self._accessor.open(self, mode, buffering, encoding, errors,\nE         FileNotFoundError: [Errno 2] No such file or directory: '/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_full_25x6/workspaces/raw_memory/hard_v2_py_import_020/repo/runner_omega/data/omega.txt'\nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['/home/lijx/anaconda3/envs/skilladmit/bin/python', 'main.py'], returncode=1, stdout='', stderr=...uns/llm_downstream_hard_v2_full_25x6/workspaces/raw_memory/hard_v2_py_import_020/repo/runner_omega/data/omega.txt\\'\\n').returncode\n\n../../../../../../../downstream_hard_v2/tasks/hard_v2_py_import_020/repo/tests/test_loader.py:11: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_loader.py::test_subdir_execution - AssertionError: Tracebac...\n1 failed in 0.06s",
+      "final_stderr_tail": ""
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "skilladmit_selected",
+      "task_id": "hard_v2_py_import_019",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": false,
+      "public_passed_hidden_failed": false,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_delta/loader.py",
+        "runner_delta/main.py"
+      ],
+      "used_artifact": "skilladmit_selected",
+      "diagnosis": "The test runs main.py from the 'runner_delta' subdirectory, causing a relative path 'data/delta.txt' to fail. The fix anchors the path to the script's location using __file__.",
+      "notes": "Changed path to be relative to the script's directory, ensuring it works when cwd is runner_delta.",
+      "applied_paths": [
+        "runner_delta/loader.py"
+      ],
+      "final_stdout_tail": "home/lijx/anaconda3/envs/skilladmit/lib/python3.10/pathlib.py\", line 1134, in read_text\nE             with self.open(mode='r', encoding=encoding, errors=errors) as f:\nE           File \"/home/lijx/anaconda3/envs/skilladmit/lib/python3.10/pathlib.py\", line 1119, in open\nE             return self._accessor.open(self, mode, buffering, encoding, errors,\nE         FileNotFoundError: [Errno 2] No such file or directory: '/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_full_25x6/workspaces/skilladmit_selected/hard_v2_py_import_019/repo/runner_delta/data/delta.txt'\nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['/home/lijx/anaconda3/envs/skilladmit/bin/python', 'main.py'], returncode=1, stdout='', stderr=...ownstream_hard_v2_full_25x6/workspaces/skilladmit_selected/hard_v2_py_import_019/repo/runner_delta/data/delta.txt\\'\\n').returncode\n\n../../../../../../../downstream_hard_v2/tasks/hard_v2_py_import_019/repo/tests/test_loader.py:11: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_loader.py::test_subdir_execution - AssertionError: Tracebac...\n1 failed in 0.06s",
+      "final_stderr_tail": ""
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_full_25x6",
+      "setting": "strict_visible_file",
+      "setting_order": 30,
+      "strategy": "skilladmit_selected",
+      "task_id": "hard_v2_py_import_020",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": false,
+      "public_passed_hidden_failed": false,
+      "negative_transfer": true,
+      "included_repo_tree": null,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_omega/loader.py",
+        "runner_omega/main.py"
+      ],
+      "used_artifact": "skilladmit_selected",
+      "diagnosis": "loader.py uses a relative path that fails when main.py is executed from a different directory. Need to anchor the path using __file__ to resolve relative to the script's location rather than the working directory.",
+      "notes": "Fixed path to use __file__ parent directory, assuming data/omega.txt exists relative to runner_omega directory. If data directory is elsewhere, additional adjustment may be needed.",
+      "applied_paths": [
+        "runner_omega/loader.py"
+      ],
+      "final_stdout_tail": "home/lijx/anaconda3/envs/skilladmit/lib/python3.10/pathlib.py\", line 1134, in read_text\nE             with self.open(mode='r', encoding=encoding, errors=errors) as f:\nE           File \"/home/lijx/anaconda3/envs/skilladmit/lib/python3.10/pathlib.py\", line 1119, in open\nE             return self._accessor.open(self, mode, buffering, encoding, errors,\nE         FileNotFoundError: [Errno 2] No such file or directory: '/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_full_25x6/workspaces/skilladmit_selected/hard_v2_py_import_020/repo/runner_omega/data/omega.txt'\nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['/home/lijx/anaconda3/envs/skilladmit/bin/python', 'main.py'], returncode=1, stdout='', stderr=...ownstream_hard_v2_full_25x6/workspaces/skilladmit_selected/hard_v2_py_import_020/repo/runner_omega/data/omega.txt\\'\\n').returncode\n\n../../../../../../../downstream_hard_v2/tasks/hard_v2_py_import_020/repo/tests/test_loader.py:11: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_loader.py::test_subdir_execution - AssertionError: Tracebac...\n1 failed in 0.06s",
+      "final_stderr_tail": ""
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_tree_25x2",
+      "setting": "tree_aware",
+      "setting_order": 40,
+      "strategy": "no_experience",
+      "task_id": "hard_v2_py_import_011",
+      "template": "T3_script_relative_import_hard",
+      "public_tests_passed": false,
+      "public_passed_hidden_failed": false,
+      "negative_transfer": true,
+      "included_repo_tree": true,
+      "files_seen": [
+        "tests/test_script.py",
+        "clipkg_alpha/main.py"
+      ],
+      "used_artifact": "none",
+      "diagnosis": "The script uses relative import which fails when run directly as __main__. Need to adjust import for direct execution while preserving package behavior.",
+      "notes": "The original error occurs because running main.py directly doesn't have package context. The fix is to use absolute import when run as __main__.",
+      "applied_paths": [
+        "clipkg_alpha/main.py"
+      ],
+      "final_stdout_tail": "():\n        result = subprocess.run(\n            [sys.executable, \"clipkg_alpha/main.py\"],\n            capture_output=True,\n            text=True,\n        )\n>       assert result.returncode == 0, result.stderr\nE       AssertionError: Traceback (most recent call last):\nE           File \"/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_tree_25x2/workspaces/no_experience/hard_v2_py_import_011/repo/clipkg_alpha/main.py\", line 1, in <module>\nE             from .formatters import render\nE         ImportError: attempted relative import with no known parent package\nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['/home/lijx/anaconda3/envs/skilladmit/bin/python', 'clipkg_alpha/main.py'], returncode=1, stdou...n <module>\\n    from .formatters import render\\nImportError: attempted relative import with no known parent package\\n').returncode\n\n../../../../../../../downstream_hard_v2/tasks/hard_v2_py_import_011/repo/tests/test_script.py:10: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_script.py::test_script_command_works - AssertionError: Trac...\n1 failed in 0.04s",
+      "final_stderr_tail": ""
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_tree_25x2",
+      "setting": "tree_aware",
+      "setting_order": 40,
+      "strategy": "no_experience",
+      "task_id": "hard_v2_py_import_016",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": false,
+      "public_passed_hidden_failed": false,
+      "negative_transfer": true,
+      "included_repo_tree": true,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_alpha/loader.py",
+        "runner_alpha/main.py"
+      ],
+      "used_artifact": "none",
+      "diagnosis": "The script fails because it's looking for data/alpha.txt relative to the runner_alpha directory, but the data directory is at the project root. Fix by using the correct path.",
+      "notes": "Changed Path to use __file__ to resolve parent directory structure correctly",
+      "applied_paths": [
+        "runner_alpha/loader.py"
+      ],
+      "final_stdout_tail": "ess.run(\n            [sys.executable, \"main.py\"],\n            cwd=\"runner_alpha\",\n            capture_output=True,\n            text=True,\n        )\n        assert result.returncode == 0, result.stderr\n>       assert \"hard-v2-cwd-alpha\" in result.stdout\nE       AssertionError: assert 'hard-v2-cwd-alpha' in '/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_tree_25x2/workspaces/no_experience/hard_v2_py_import_016/repo/data/alpha.txt\\n'\nE        +  where '/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_tree_25x2/workspaces/no_experience/hard_v2_py_import_016/repo/data/alpha.txt\\n' = CompletedProcess(args=['/home/lijx/anaconda3/envs/skilladmit/bin/python', 'main.py'], returncode=0, stdout='/home/lijx...runs/llm_downstream_hard_v2_tree_25x2/workspaces/no_experience/hard_v2_py_import_016/repo/data/alpha.txt\\n', stderr='').stdout\n\n../../../../../../../downstream_hard_v2/tasks/hard_v2_py_import_016/repo/tests/test_loader.py:12: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_loader.py::test_subdir_execution - AssertionError: assert '...\n1 failed in 0.06s",
+      "final_stderr_tail": ""
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_precondition_only_25",
+      "setting": "strict_precondition_only",
+      "setting_order": 50,
+      "strategy": "skilladmit_selected_with_precondition_only",
+      "task_id": "hard_v2_py_import_012",
+      "template": "T3_script_relative_import_hard",
+      "public_tests_passed": false,
+      "public_passed_hidden_failed": false,
+      "negative_transfer": true,
+      "included_repo_tree": false,
+      "files_seen": [
+        "tests/test_script.py",
+        "clipkg_beta/main.py"
+      ],
+      "used_artifact": "skilladmit_selected_with_precondition_only",
+      "diagnosis": "The script is executed directly via `python clipkg_beta/main.py`, but uses a relative import (`from .tools import format_value`) which fails because Python doesn't recognize the module as part of a package when run directly. Need to change the import to work in script execution mode while preserving package import behavior.",
+      "notes": "Added conditional import in __main__ block to handle script execution, while keeping the module-level relative import for package imports. This preserves both execution modes.",
+      "applied_paths": [
+        "clipkg_beta/main.py"
+      ],
+      "final_stdout_tail": "          [sys.executable, \"clipkg_beta/main.py\"],\n            capture_output=True,\n            text=True,\n        )\n>       assert result.returncode == 0, result.stderr\nE       AssertionError: Traceback (most recent call last):\nE           File \"/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_precondition_only_25/workspaces/skilladmit_selected_with_precondition_only/hard_v2_py_import_012/repo/clipkg_beta/main.py\", line 1, in <module>\nE             from .tools import format_value\nE         ImportError: attempted relative import with no known parent package\nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['/home/lijx/anaconda3/envs/skilladmit/bin/python', 'clipkg_beta/main.py'], returncode=1, stdout... <module>\\n    from .tools import format_value\\nImportError: attempted relative import with no known parent package\\n').returncode\n\n../../../../../../../downstream_hard_v2/tasks/hard_v2_py_import_012/repo/tests/test_script.py:10: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_script.py::test_script_command_works - AssertionError: Trac...\n1 failed in 0.04s",
+      "final_stderr_tail": ""
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_precondition_only_25",
+      "setting": "replication_strict_precondition_only",
+      "setting_order": 90,
+      "strategy": "skilladmit_selected_with_precondition_only",
+      "task_id": "hard_v2_py_import_012",
+      "template": "T3_script_relative_import_hard",
+      "public_tests_passed": true,
+      "public_passed_hidden_failed": true,
+      "negative_transfer": true,
+      "included_repo_tree": false,
+      "files_seen": [
+        "tests/test_script.py",
+        "clipkg_beta/main.py"
+      ],
+      "used_artifact": "skilladmit_selected_with_precondition_only",
+      "diagnosis": "The script clipkg_beta/main.py uses a relative import (from .tools) but is executed directly via python path/to/file.py rather than as a module. This causes an ImportError because relative imports require a parent package context. Since the verifier explicitly runs the file as a script (not via python -m), we need to change the import to work in script mode while preserving package import behavior.",
+      "notes": "Changed relative import to direct module import. When run as a script, Python adds the script's directory to sys.path, so 'from tools import format_value' will find tools.py in the same directory. This preserves both script execution and package import behavior (when imported as part of the package, the absolute import path clipkg_beta.tools will be used).",
+      "applied_paths": [
+        "clipkg_beta/main.py"
+      ],
+      "final_stdout_tail": ".                                                                        [100%]\n1 passed in 0.03s",
+      "final_stderr_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 4, in <module>\n  File \"/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_replication_precondition_only_25/workspaces/skilladmit_selected_with_precondition_only/hard_v2_py_import_012/repo/clipkg_beta/main.py\", line 1, in <module>\n    from tools import format_value\nModuleNotFoundError: No module named 'tools'"
+    },
+    {
+      "run_name": "llm_downstream_hard_v2_replication_precondition_only_25",
+      "setting": "replication_strict_precondition_only",
+      "setting_order": 90,
+      "strategy": "skilladmit_selected_with_precondition_only",
+      "task_id": "hard_v2_py_import_018",
+      "template": "T4_cwd_sensitive_path_hard",
+      "public_tests_passed": false,
+      "public_passed_hidden_failed": false,
+      "negative_transfer": true,
+      "included_repo_tree": false,
+      "files_seen": [
+        "tests/test_loader.py",
+        "runner_gamma/loader.py",
+        "runner_gamma/main.py"
+      ],
+      "used_artifact": "skilladmit_selected_with_precondition_only",
+      "diagnosis": "The code uses a relative path that assumes current working directory is the repo root, but the subprocess runs from runner_gamma subdirectory",
+      "notes": "Fixed path to be relative to script location using __file__ anchor",
+      "applied_paths": [
+        "runner_gamma/loader.py"
+      ],
+      "final_stdout_tail": "tput=True,\n            text=True,\n        )\n        assert result.returncode == 0, result.stderr\n>       assert \"hard-v2-cwd-gamma\" in result.stdout\nE       AssertionError: assert 'hard-v2-cwd-gamma' in '/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_replication_precondition_only_25/workspaces/skilladmit_selected_with_precondition_only/hard_v2_py_import_018/repo/data/gamma.txt\\n'\nE        +  where '/home/lijx/workspace/skilladmit/benchmark/downstream/llm_runs/llm_downstream_hard_v2_replication_precondition_only_25/workspaces/skilladmit_selected_with_precondition_only/hard_v2_py_import_018/repo/data/gamma.txt\\n' = CompletedProcess(args=['/home/lijx/anaconda3/envs/skilladmit/bin/python', 'main.py'], returncode=0, stdout='/home/lijx..._only_25/workspaces/skilladmit_selected_with_precondition_only/hard_v2_py_import_018/repo/data/gamma.txt\\n', stderr='').stdout\n\n../../../../../../../downstream_hard_v2/tasks/hard_v2_py_import_018/repo/tests/test_loader.py:12: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_loader.py::test_subdir_execution - AssertionError: assert '...\n1 failed in 0.06s",
+      "final_stderr_tail": ""
+    }
+  ],
+  "stability_groups": [
+    {
+      "name": "tree_aware_skilladmit_selected",
+      "interpretation": "Tree-aware selected skill condition.",
+      "members": [
+        {
+          "run_name": "llm_downstream_hard_v2_tree_25x2",
+          "strategy": "skilladmit_selected",
+          "successes": 25,
+          "tasks": 25,
+          "total_tokens": 57597,
+          "negative_transfer": 0,
+          "public_passed_hidden_failed": 0,
+          "failure_tasks": []
+        },
+        {
+          "run_name": "llm_downstream_hard_v2_replication_tree_selected_25",
+          "strategy": "skilladmit_selected",
+          "successes": 25,
+          "tasks": 25,
+          "total_tokens": 52144,
+          "negative_transfer": 0,
+          "public_passed_hidden_failed": 0,
+          "failure_tasks": []
+        }
+      ],
+      "missing_members": [],
+      "min_successes": 25,
+      "max_successes": 25,
+      "successes_values": [
+        25,
+        25
+      ],
+      "min_total_tokens": 52144,
+      "max_total_tokens": 57597,
+      "token_values": [
+        57597,
+        52144
+      ],
+      "failure_tasks_by_run": {
+        "llm_downstream_hard_v2_tree_25x2": [],
+        "llm_downstream_hard_v2_replication_tree_selected_25": []
+      }
+    },
+    {
+      "name": "tree_aware_selected_precondition_context",
+      "interpretation": "Tree-aware selected skill plus explicit precondition context.",
+      "members": [
+        {
+          "run_name": "llm_downstream_hard_v2_selected_precondition_25",
+          "strategy": "skilladmit_selected_with_precondition_context",
+          "successes": 25,
+          "tasks": 25,
+          "total_tokens": 67504,
+          "negative_transfer": 0,
+          "public_passed_hidden_failed": 0,
+          "failure_tasks": []
+        },
+        {
+          "run_name": "llm_downstream_hard_v2_replication_selected_precondition_25",
+          "strategy": "skilladmit_selected_with_precondition_context",
+          "successes": 25,
+          "tasks": 25,
+          "total_tokens": 64150,
+          "negative_transfer": 0,
+          "public_passed_hidden_failed": 0,
+          "failure_tasks": []
+        }
+      ],
+      "missing_members": [],
+      "min_successes": 25,
+      "max_successes": 25,
+      "successes_values": [
+        25,
+        25
+      ],
+      "min_total_tokens": 64150,
+      "max_total_tokens": 67504,
+      "token_values": [
+        67504,
+        64150
+      ],
+      "failure_tasks_by_run": {
+        "llm_downstream_hard_v2_selected_precondition_25": [],
+        "llm_downstream_hard_v2_replication_selected_precondition_25": []
+      }
+    },
+    {
+      "name": "strict_precondition_only",
+      "interpretation": "Strict visible-file selected skill plus preconditions, without repo tree.",
+      "members": [
+        {
+          "run_name": "llm_downstream_hard_v2_precondition_only_25",
+          "strategy": "skilladmit_selected_with_precondition_only",
+          "successes": 24,
+          "tasks": 25,
+          "total_tokens": 72316,
+          "negative_transfer": 1,
+          "public_passed_hidden_failed": 0,
+          "failure_tasks": [
+            "hard_v2_py_import_012"
+          ]
+        },
+        {
+          "run_name": "llm_downstream_hard_v2_replication_precondition_only_25",
+          "strategy": "skilladmit_selected_with_precondition_only",
+          "successes": 23,
+          "tasks": 25,
+          "total_tokens": 77487,
+          "negative_transfer": 2,
+          "public_passed_hidden_failed": 1,
+          "failure_tasks": [
+            "hard_v2_py_import_012",
+            "hard_v2_py_import_018"
+          ]
+        }
+      ],
+      "missing_members": [],
+      "min_successes": 23,
+      "max_successes": 24,
+      "successes_values": [
+        24,
+        23
+      ],
+      "min_total_tokens": 72316,
+      "max_total_tokens": 77487,
+      "token_values": [
+        72316,
+        77487
+      ],
+      "failure_tasks_by_run": {
+        "llm_downstream_hard_v2_precondition_only_25": [
+          "hard_v2_py_import_012"
+        ],
+        "llm_downstream_hard_v2_replication_precondition_only_25": [
+          "hard_v2_py_import_012",
+          "hard_v2_py_import_018"
+        ]
+      }
+    }
+  ]
+}

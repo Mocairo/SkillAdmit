@@ -1,0 +1,18 @@
+{
+  "total_rows": 25,
+  "strategies": {
+    "skilladmit_selected_with_precondition_only": {
+      "tasks": 25,
+      "successes": 24,
+      "success_rate": 0.96,
+      "negative_transfer": 1,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 25,
+      "parse_errors": 0,
+      "total_tokens": 72316,
+      "avg_tokens": 2892.64,
+      "total_latency_seconds": 785.5565499069635,
+      "avg_latency_seconds": 31.42226199627854
+    }
+  }
+}

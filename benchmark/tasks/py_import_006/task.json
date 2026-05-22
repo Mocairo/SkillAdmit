@@ -1,0 +1,10 @@
+{
+  "task_id": "py_import_006",
+  "family": "python_import_debug",
+  "template": "T2_local_module_mistaken_as_missing_package",
+  "instruction": "Fix the project so that the verifier passes. Do not install unrelated packages.",
+  "failing_command": "python -m pytest -q",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ModuleNotFoundError: No module named 'config'",
+  "gold_hint": "The missing module is local to the project, not a third-party package."
+}

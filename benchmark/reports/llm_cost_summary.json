@@ -1,0 +1,118 @@
+{
+  "trajectory_file": "benchmark/trajectories/llm_coding_agent_v0_trajectories.jsonl",
+  "admission_file": "benchmark/admission_samples/llm_coding_agent_v0_admission_samples.jsonl",
+  "trajectory_summary": {
+    "tasks": 20,
+    "successes": 20,
+    "success_rate": 1.0,
+    "prompt_tokens": 14916,
+    "completion_tokens": 24083,
+    "total_tokens": 38999,
+    "avg_tokens_per_task": 1949.95,
+    "avg_tokens_per_success": 1949.95,
+    "latency_seconds": {
+      "min": 4.244913040078245,
+      "median": 19.136397245514672,
+      "mean": 24.169087225373367,
+      "max": 70.4876932130428,
+      "total": 483.3817445074674
+    },
+    "by_template": {
+      "T1_missing_third_party_package": {
+        "tasks": 4,
+        "successes": 4,
+        "total_tokens": 4841,
+        "avg_tokens": 1210.25
+      },
+      "T2_local_module_mistaken_as_missing_package": {
+        "tasks": 4,
+        "successes": 4,
+        "total_tokens": 14721,
+        "avg_tokens": 3680.25
+      },
+      "T3_relative_import_executed_as_script": {
+        "tasks": 4,
+        "successes": 4,
+        "total_tokens": 6317,
+        "avg_tokens": 1579.25
+      },
+      "T4_wrong_current_working_directory": {
+        "tasks": 4,
+        "successes": 4,
+        "total_tokens": 8464,
+        "avg_tokens": 2116
+      },
+      "T5_broken_package_structure": {
+        "tasks": 4,
+        "successes": 4,
+        "total_tokens": 4656,
+        "avg_tokens": 1164
+      }
+    }
+  },
+  "admission_summary": {
+    "samples": 5,
+    "label_counts": {
+      "distill_into_skill": 5
+    },
+    "admitted_artifacts": 5,
+    "source_tokens_all_samples": 38999,
+    "source_tokens_admitted_artifacts": 38999,
+    "avg_source_tokens_per_sample": 7799.8,
+    "avg_source_tokens_per_admitted_artifact": 7799.8,
+    "artifacts": [
+      {
+        "sample_id": "sample_llm_cluster_t1_missing_import_removed",
+        "label": "distill_into_skill",
+        "cluster_name": "Missing dependency import removed as unused",
+        "num_trajectories": 4,
+        "success_rate": 1.0,
+        "total_tokens": 4841,
+        "avg_tokens": 1210.25
+      },
+      {
+        "sample_id": "sample_llm_cluster_t2_local_module",
+        "label": "distill_into_skill",
+        "cluster_name": "Local module import repaired",
+        "num_trajectories": 4,
+        "success_rate": 1.0,
+        "total_tokens": 14721,
+        "avg_tokens": 3680.25
+      },
+      {
+        "sample_id": "sample_llm_cluster_t3_relative_import_script",
+        "label": "distill_into_skill",
+        "cluster_name": "Relative import repaired for script execution",
+        "num_trajectories": 4,
+        "success_rate": 1.0,
+        "total_tokens": 6317,
+        "avg_tokens": 1579.25
+      },
+      {
+        "sample_id": "sample_llm_cluster_t4_wrong_cwd",
+        "label": "distill_into_skill",
+        "cluster_name": "CWD-sensitive path repaired",
+        "num_trajectories": 4,
+        "success_rate": 1.0,
+        "total_tokens": 8464,
+        "avg_tokens": 2116.0
+      },
+      {
+        "sample_id": "sample_llm_cluster_t5_broken_package_import",
+        "label": "distill_into_skill",
+        "cluster_name": "Package-internal bare import repaired",
+        "num_trajectories": 4,
+        "success_rate": 1.0,
+        "total_tokens": 4656,
+        "avg_tokens": 1164.0
+      }
+    ]
+  },
+  "break_even": {
+    "tokens_saved_per_artifact_use": 500.0,
+    "expected_uses_per_future_task": 1.0,
+    "estimated_saved_tokens_per_future_task": 2500.0,
+    "break_even_future_tasks": 15.5996,
+    "break_even_uses_per_artifact": 15.5996
+  }
+}

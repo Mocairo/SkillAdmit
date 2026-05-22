@@ -1,0 +1,10 @@
+{
+  "task_id": "down_py_import_015",
+  "family": "python_import_debug_downstream",
+  "template": "T3_script_relative_import",
+  "instruction": "Fix the project so that the verifier passes.",
+  "failing_command": "python flowpkg/main.py",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ImportError: attempted relative import with no known parent package",
+  "downstream_gold_skill": "Repair Relative Imports for Script Execution"
+}

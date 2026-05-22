@@ -1,0 +1,15 @@
+{
+  "task_id": "hard_py_import_004",
+  "family": "python_import_debug_downstream_hard_v1",
+  "template": "T5_package_internal_import_hard",
+  "instruction": "Fix the project so that the verifier passes without adding top-level packages.",
+  "failing_command": "python -m pytest -q",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ModuleNotFoundError: No module named 'adapters'",
+  "downstream_gold_skill": "Repair Package-Internal Bare Imports",
+  "visible_files": [
+    "tests/test_main.py",
+    "omega_pkg/main.py"
+  ],
+  "file_context_note": "This hard-v1 run may show only a budgeted subset of files. Hidden files can exist and verifier checks may depend on preserving source behavior, so avoid broad rewrites and avoid adding top-level stubs unless clearly justified."
+}

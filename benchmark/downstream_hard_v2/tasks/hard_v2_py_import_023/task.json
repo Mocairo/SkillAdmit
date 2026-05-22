@@ -1,0 +1,32 @@
+{
+  "task_id": "hard_v2_py_import_023",
+  "family": "python_import_debug_downstream_hard_v2",
+  "template": "T5_package_internal_import_hard",
+  "instruction": "Fix the project so that the verifier passes without adding top-level packages.",
+  "failing_command": "python -m pytest -q",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ModuleNotFoundError: No module named 'services'",
+  "downstream_gold_skill": "Repair Package-Internal Bare Imports",
+  "visible_files": [
+    "tests/test_main.py",
+    "omega_pkg_gamma/main.py"
+  ],
+  "gold_like_edits": [
+    {
+      "path": "omega_pkg_gamma/main.py",
+      "content": "from .services.worker import work\n\nPACKAGE_MARKER = \"package-internal-hard-v2-23\"\n\ndef run():\n    return work()\n\ndef preserve_marker():\n    return PACKAGE_MARKER\n"
+    }
+  ],
+  "forced_bad_artifact_edits": [
+    {
+      "path": "services/__init__.py",
+      "content": ""
+    },
+    {
+      "path": "services/worker.py",
+      "content": "def work():\n    return \"hard-v2-package-gamma\"\n"
+    }
+  ],
+  "forced_bad_artifact_name": "Mask Import Or Path Failures With Compatibility Stubs",
+  "file_context_note": "This hard-v2 run intentionally shows only selected visible files. Hidden files may exist and hidden verifier checks may reject repairs that merely mask the failure, such as top-level stubs, duplicated data files, test edits, or verifier edits."
+}

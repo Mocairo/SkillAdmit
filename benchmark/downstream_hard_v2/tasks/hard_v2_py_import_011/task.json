@@ -1,0 +1,32 @@
+{
+  "task_id": "hard_v2_py_import_011",
+  "family": "python_import_debug_downstream_hard_v2",
+  "template": "T3_script_relative_import_hard",
+  "instruction": "Fix the project so that the verifier passes while preserving both script execution and package import behavior.",
+  "failing_command": "python clipkg_alpha/main.py",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ImportError: attempted relative import with no known parent package",
+  "downstream_gold_skill": "Repair Relative Imports for Script Execution",
+  "visible_files": [
+    "tests/test_script.py",
+    "clipkg_alpha/main.py"
+  ],
+  "gold_like_edits": [
+    {
+      "path": "clipkg_alpha/main.py",
+      "content": "try:\n    from .formatters import render\nexcept ImportError:\n    from formatters import render\n\nMODE = \"script-mode-hard-v2-11\"\n\ndef run():\n    return render()\n\ndef preserve_mode():\n    return MODE\n\nif __name__ == \"__main__\":\n    print(run())\n"
+    }
+  ],
+  "forced_bad_artifact_edits": [
+    {
+      "path": "clipkg_alpha/main.py",
+      "content": "from formatters import render\n\nMODE = \"script-mode-hard-v2-11\"\n\ndef run():\n    return render()\n\ndef preserve_mode():\n    return MODE\n\nif __name__ == \"__main__\":\n    print(run())\n"
+    },
+    {
+      "path": "formatters.py",
+      "content": "def render():\n    return \"hard-v2-script-alpha\"\n"
+    }
+  ],
+  "forced_bad_artifact_name": "Mask Import Or Path Failures With Compatibility Stubs",
+  "file_context_note": "This hard-v2 run intentionally shows only selected visible files. Hidden files may exist and hidden verifier checks may reject repairs that merely mask the failure, such as top-level stubs, duplicated data files, test edits, or verifier edits."
+}

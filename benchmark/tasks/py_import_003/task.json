@@ -1,0 +1,10 @@
+{
+  "task_id": "py_import_003",
+  "family": "python_import_debug",
+  "template": "T1_missing_third_party_package",
+  "instruction": "Fix the project so that the verifier passes.",
+  "failing_command": "python app.py",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ModuleNotFoundError: No module named 'missingdep_gamma'",
+  "gold_hint": "This task represents a real missing third-party dependency."
+}

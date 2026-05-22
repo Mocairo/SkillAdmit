@@ -1,0 +1,10 @@
+{
+  "task_id": "down_py_import_025",
+  "family": "python_import_debug_downstream",
+  "template": "T5_package_internal_import",
+  "instruction": "Fix the project so that the verifier passes.",
+  "failing_command": "python -m pytest -q",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "ModuleNotFoundError: No module named 'modules'",
+  "downstream_gold_skill": "Repair Package-Internal Bare Imports"
+}

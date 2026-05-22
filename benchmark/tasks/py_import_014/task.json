@@ -1,0 +1,10 @@
+{
+  "task_id": "py_import_014",
+  "family": "python_import_debug",
+  "template": "T4_wrong_current_working_directory",
+  "instruction": "Fix the project so that the verifier passes.",
+  "failing_command": "cd cli && python main.py",
+  "verifier": "bash verifier.sh",
+  "expected_failure": "FileNotFoundError: assets/message.txt",
+  "gold_hint": "The code relies on the current working directory instead of a stable path."
+}

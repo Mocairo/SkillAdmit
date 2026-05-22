@@ -1,0 +1,49 @@
+{
+  "total_rows": 20,
+  "strategies": {
+    "bad_dependency_rule": {
+      "tasks": 5,
+      "successes": 5,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "parse_errors": 0,
+      "total_tokens": 13923,
+      "avg_tokens": 2784.6,
+      "total_latency_seconds": 188.22885773999224,
+      "avg_latency_seconds": 37.64577154799845
+    },
+    "distilled_skills_all": {
+      "tasks": 5,
+      "successes": 5,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "parse_errors": 0,
+      "total_tokens": 17515,
+      "avg_tokens": 3503.0,
+      "total_latency_seconds": 181.07796229799715,
+      "avg_latency_seconds": 36.21559245959943
+    },
+    "promoted_rules": {
+      "tasks": 5,
+      "successes": 5,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "parse_errors": 0,
+      "total_tokens": 16218,
+      "avg_tokens": 3243.6,
+      "total_latency_seconds": 209.54967190200477,
+      "avg_latency_seconds": 41.909934380400955
+    },
+    "raw_memory": {
+      "tasks": 5,
+      "successes": 5,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "parse_errors": 0,
+      "total_tokens": 13140,
+      "avg_tokens": 2628.0,
+      "total_latency_seconds": 109.51453972300078,
+      "avg_latency_seconds": 21.902907944600155
+    }
+  }
+}

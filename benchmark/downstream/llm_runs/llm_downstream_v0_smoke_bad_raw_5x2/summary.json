@@ -1,0 +1,27 @@
+{
+  "total_rows": 10,
+  "strategies": {
+    "bad_dependency_rule": {
+      "tasks": 5,
+      "successes": 5,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "parse_errors": 0,
+      "total_tokens": 11044,
+      "avg_tokens": 2208.8,
+      "total_latency_seconds": 126.8011800210079,
+      "avg_latency_seconds": 25.360236004201578
+    },
+    "raw_memory": {
+      "tasks": 5,
+      "successes": 5,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "parse_errors": 0,
+      "total_tokens": 8927,
+      "avg_tokens": 1785.4,
+      "total_latency_seconds": 33.90675505599938,
+      "avg_latency_seconds": 6.7813510111998765
+    }
+  }
+}
