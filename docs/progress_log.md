@@ -3294,3 +3294,87 @@ Do not claim raw memory is a safe admission policy from hard_v3 success alone.
 Do not claim bad dependency advice is safe when the model often ignored it.
 Do not tune hard_v2 or hard_v3 failures while treating them as clean evidence.
 ```
+
+### 54. Paper Artifacts Index
+
+Created:
+
+```text
+scripts/export_paper_artifacts_index.py
+```
+
+What the file does:
+
+```text
+Builds a one-stop index of the paper-facing SkillAdmit artifacts: admission
+context, hard_v2 evidence, hard_v3 evidence, cross-version synthesis, generated
+paper section, claim-defense matrix, and reporting handoff files. The index
+records each artifact's role, primary files, support files, regeneration
+commands, paper use, and forbidden use.
+```
+
+Why it is needed:
+
+```text
+The repo now has many summaries and reports. The paper should cite the right
+artifact for the right purpose: evidence packages and synthesis reports for
+claims, generated paper-section text for drafting, claim-defense matrix for
+reviewer responses, and individual run summaries only for debugging.
+```
+
+Inputs:
+
+```text
+benchmark/reports/v7_admission_baselines.json
+benchmark/reports/llm_cost_summary.json
+benchmark/downstream/reports/hard_v2_evidence_package.json
+benchmark/downstream/reports/hard_v3_evidence_package.json
+benchmark/downstream/reports/downstream_cross_version_synthesis.json
+benchmark/downstream/reports/downstream_paper_eval_section.json
+benchmark/downstream/reports/downstream_claim_defense_matrix.json
+```
+
+Outputs:
+
+```text
+benchmark/downstream/reports/paper_artifacts_index.json
+benchmark/downstream/reports/paper_artifacts_index.md
+benchmark/downstream/reports/paper_artifacts_index.tex
+```
+
+Command:
+
+```bash
+PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
+/home/lijx/anaconda3/envs/skilladmit/bin/python scripts/export_paper_artifacts_index.py \
+  --assert-current-artifacts-index
+```
+
+Current export:
+
+```text
+artifact_groups: 7
+table_index: 5
+claim_map: 10
+forced_bad_total_tasks: 85
+```
+
+Artifact groups:
+
+```text
+G1_admission_context
+G2_hard_v2_evidence
+G3_hard_v3_evidence
+G4_cross_version_synthesis
+G5_paper_section
+G6_claim_defense
+G7_reporting_handoff
+```
+
+Important use rule:
+
+```text
+Use paper_artifacts_index.md as the navigation layer before writing or revising
+the paper. Do not cite individual llm_runs summary.json files as primary paper
+evidence when evidence packages, synthesis reports, and paper tables exist.
+```
