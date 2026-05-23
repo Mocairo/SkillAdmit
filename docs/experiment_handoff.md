@@ -1874,8 +1874,8 @@ PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
 Current audit:
 
 ```text
-total_checks: 12
-passed_checks: 12
+total_checks: 13
+passed_checks: 13
 failed_checks: 0
 forced_bad: 0/133
 public-pass/hidden-fail: 133
@@ -2235,8 +2235,8 @@ benchmark/downstream/reports/reproduction_guide_audit.tex
 Current result:
 
 ```text
-total_checks: 12
-passed_checks: 12
+total_checks: 13
+passed_checks: 13
 failed_checks: 0
 status: pass
 ```
@@ -2295,13 +2295,44 @@ The reproduction-guide audit now checks README as well:
 ```text
 RG11_readme_names_reader_entry_points
 RG12_readme_preserves_public_claim_boundary
+RG13_public_surface_avoids_local_paths
 ```
 
 Current result:
 
 ```text
-total_checks: 12
-passed_checks: 12
+total_checks: 13
+passed_checks: 13
+failed_checks: 0
+status: pass
+```
+
+## 30. Public Surface Local Path Cleanup
+
+The public reproduction guide has been cleaned so it no longer contains local
+absolute paths from this machine.
+
+Public commands now shown:
+
+```bash
+cd SkillAdmit
+python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index
+```
+
+The reproduction-guide audit now rejects these public-surface path fragments:
+
+```text
+/home/
+anaconda3/envs
+workspace/skilladmit
+skilladmit/bin/python
+```
+
+Current result:
+
+```text
+total_checks: 13
+passed_checks: 13
 failed_checks: 0
 status: pass
 ```

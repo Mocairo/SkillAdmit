@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T12:48:42.978917+00:00",
+  "generated_at_utc": "2026-05-23T13:09:04.168295+00:00",
   "purpose": "Consistency audit for the paper-facing hard_v2/hard_v3/hard_v4 downstream claim layer. This is a reporting-hygiene artifact, not new empirical evidence.",
   "source_files": [
     {
@@ -27,7 +27,7 @@
       "name": "artifacts_index",
       "path": "benchmark/downstream/reports/paper_artifacts_index.json",
       "exists": true,
-      "sha256": "c9b8dd2fdd4962a4e58597c7a79775f4fe4f35233ed044060f021e321162883f",
+      "sha256": "d3a8f372d5b74ead8708627f5db67ce35bc94904c52867aaab2a49bbfb502f31",
       "size_bytes": 52639
     },
     {
@@ -62,7 +62,7 @@
       "name": "artifacts_index_md",
       "path": "benchmark/downstream/reports/paper_artifacts_index.md",
       "exists": true,
-      "sha256": "d9512fa4f9795c6c5324edd525f47e92d930d1b831af618aa9fb193dcdbf4881",
+      "sha256": "b9b0a0489bf9ed185a6612bafff64ca3a5b7890330e393031ee1ada7e20116f9",
       "size_bytes": 33846
     },
     {
@@ -76,22 +76,22 @@
       "name": "experiment_handoff",
       "path": "docs/experiment_handoff.md",
       "exists": true,
-      "sha256": "c6b02f45c9c889430d32fef97b62286c992a4f3bbbc2eefb0bc97ab997ac4ada",
-      "size_bytes": 59174
+      "sha256": "85182687ee630c6b55f11b59373a9a5842cbacee33ae299b7b281b49e54be85d",
+      "size_bytes": 59755
     },
     {
       "name": "paper_eval_status",
       "path": "docs/paper_eval_status.md",
       "exists": true,
-      "sha256": "d6282d646e4f7ed22e78fa096bf1cdfa642b66d5596f2fa43124654f9c8cba19",
-      "size_bytes": 40768
+      "sha256": "f2566eee9cedc5da171585743bfed43b176692aea293a5cefac943c2390dadab",
+      "size_bytes": 41448
     },
     {
       "name": "progress_log",
       "path": "docs/progress_log.md",
       "exists": true,
-      "sha256": "b2bfd1091256498f121fa440ab3d5b87f73a0c4dca35c5d8a4d98926ace77ec8",
-      "size_bytes": 112170
+      "sha256": "13c21a3606177f83d2d8b0d5241494f1e7934ba9142a03a5810347369d3a001a",
+      "size_bytes": 113250
     },
     {
       "name": "readme",

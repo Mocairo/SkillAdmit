@@ -1,6 +1,6 @@
 # Paper Artifacts Index
 
-Generated at UTC: `2026-05-23T12:46:24.786896+00:00`
+Generated at UTC: `2026-05-23T13:09:04.150707+00:00`
 
 One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the correct evidence, table, script, and claim boundary for downstream validation writing.
 
@@ -74,8 +74,8 @@ One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the corre
 | primary | `benchmark/reports/v7_admission_baselines.json` | True | `ed051957b16aa28f` | 44474 |
 | primary | `benchmark/reports/llm_cost_summary.md` | True | `6180b9f1ff9021ff` | 1661 |
 | primary | `benchmark/reports/llm_cost_summary.json` | True | `ef312b1019006778` | 3568 |
-| support | `docs/paper_eval_status.md` | True | `d6282d646e4f7ed2` | 40768 |
-| support | `docs/experiment_handoff.md` | True | `c6b02f45c9c88943` | 59174 |
+| support | `docs/paper_eval_status.md` | True | `f2566eee9cedc5da` | 41448 |
+| support | `docs/experiment_handoff.md` | True | `85182687ee630c6b` | 59755 |
 
 Regeneration commands:
 - `python scripts/run_admission_regression.py`
@@ -89,7 +89,7 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/hard_v2_paper_tables.tex` | True | `8af23c87a828d9ea` | 1670 |
 | support | `benchmark/downstream/reports/hard_v2_strategy_matrix.md` | True | `1e2d6d716b8f0428` | 37490 |
 | support | `benchmark/downstream/reports/hard_v2_strategy_matrix.json` | True | `daf5030589d26ad4` | 154134 |
-| support | `docs/paper_eval_status.md` | True | `d6282d646e4f7ed2` | 40768 |
+| support | `docs/paper_eval_status.md` | True | `f2566eee9cedc5da` | 41448 |
 
 Regeneration commands:
 - `python scripts/check_downstream_hard_v2_tasks.py`
@@ -105,7 +105,7 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/hard_v3_paper_tables.tex` | True | `bd6187913ca355f8` | 2067 |
 | support | `benchmark/downstream/reports/hard_v3_strategy_matrix.md` | True | `bceafdf069b46393` | 30895 |
 | support | `benchmark/downstream/reports/hard_v3_strategy_matrix.json` | True | `b4c670caf50341c9` | 137329 |
-| support | `docs/paper_eval_status.md` | True | `d6282d646e4f7ed2` | 40768 |
+| support | `docs/paper_eval_status.md` | True | `f2566eee9cedc5da` | 41448 |
 
 Regeneration commands:
 - `python scripts/check_downstream_hard_v3_tasks.py`
@@ -121,7 +121,7 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/downstream_cross_version_synthesis.tex` | True | `9104d43051644fa1` | 4055 |
 | support | `benchmark/downstream/reports/hard_v2_evidence_package.json` | True | `7deb038d4adfc285` | 18140 |
 | support | `benchmark/downstream/reports/hard_v3_evidence_package.json` | True | `894b8f7a1f7ac296` | 27042 |
-| support | `docs/paper_eval_status.md` | True | `d6282d646e4f7ed2` | 40768 |
+| support | `docs/paper_eval_status.md` | True | `f2566eee9cedc5da` | 41448 |
 
 Regeneration commands:
 - `python scripts/export_downstream_cross_version_synthesis.py --assert-current-synthesis`
@@ -170,9 +170,9 @@ Regeneration commands:
 
 | role | path | exists | sha256 | bytes |
 | --- | --- | --- | --- | --- |
-| primary | `docs/paper_eval_status.md` | True | `d6282d646e4f7ed2` | 40768 |
-| primary | `docs/experiment_handoff.md` | True | `c6b02f45c9c88943` | 59174 |
-| primary | `docs/progress_log.md` | True | `b2bfd1091256498f` | 112170 |
+| primary | `docs/paper_eval_status.md` | True | `f2566eee9cedc5da` | 41448 |
+| primary | `docs/experiment_handoff.md` | True | `85182687ee630c6b` | 59755 |
+| primary | `docs/progress_log.md` | True | `13c21a3606177f83` | 113250 |
 
 ### G9_hard_v4_scaffold - Hard v4 Scaffold
 
@@ -182,8 +182,8 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/hard_v4_scaffold_manifest.md` | True | `02e98f97171e796e` | 5034 |
 | primary | `benchmark/downstream/reports/hard_v4_scaffold_manifest.tex` | True | `8871fc0df34cab6f` | 496 |
 | support | `docs/llm_downstream_hard_v4.md` | True | `c682a7c91829b412` | 12262 |
-| support | `docs/paper_eval_status.md` | True | `d6282d646e4f7ed2` | 40768 |
-| support | `docs/experiment_handoff.md` | True | `c6b02f45c9c88943` | 59174 |
+| support | `docs/paper_eval_status.md` | True | `f2566eee9cedc5da` | 41448 |
+| support | `docs/experiment_handoff.md` | True | `85182687ee630c6b` | 59755 |
 
 Regeneration commands:
 - `python scripts/build_downstream_hard_v4_tasks.py`
@@ -244,7 +244,7 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/model_transfer_paper_addendum.tex` | True | `2d3ea6d8f8ccdd3b` | 1032 |
 | support | `benchmark/downstream/reports/model_transfer_cross_model_synthesis.json` | True | `4e6df53551a1e8f2` | 68222 |
 | support | `benchmark/downstream/reports/model_transfer_evidence_package.json` | True | `282d7bfd51df5176` | 58893 |
-| support | `docs/paper_eval_status.md` | True | `d6282d646e4f7ed2` | 40768 |
+| support | `docs/paper_eval_status.md` | True | `f2566eee9cedc5da` | 41448 |
 
 Regeneration commands:
 - `python scripts/export_model_transfer_paper_addendum.py --assert-current-addendum`
@@ -253,10 +253,10 @@ Regeneration commands:
 
 | role | path | exists | sha256 | bytes |
 | --- | --- | --- | --- | --- |
-| primary | `docs/reproduction_guide.md` | True | `0e31c4584526dd0b` | 6732 |
+| primary | `docs/reproduction_guide.md` | True | `7baf6a11834a96f8` | 6552 |
 | support | `benchmark/downstream/reports/downstream_boundary_synthesis.json` | True | `b5e58a54217563fb` | 45450 |
 | support | `benchmark/downstream/reports/model_transfer_cross_model_synthesis.json` | True | `4e6df53551a1e8f2` | 68222 |
-| support | `docs/paper_eval_status.md` | True | `d6282d646e4f7ed2` | 40768 |
+| support | `docs/paper_eval_status.md` | True | `f2566eee9cedc5da` | 41448 |
 
 Regeneration commands:
 - `python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide`

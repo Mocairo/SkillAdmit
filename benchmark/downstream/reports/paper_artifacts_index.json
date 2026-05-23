@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T12:46:24.786896+00:00",
+  "generated_at_utc": "2026-05-23T13:09:04.150707+00:00",
   "purpose": "One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the correct evidence, table, script, and claim boundary for downstream validation writing.",
   "source_inputs": [
     {
@@ -180,14 +180,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "d6282d646e4f7ed22e78fa096bf1cdfa642b66d5596f2fa43124654f9c8cba19",
-          "size_bytes": 40768
+          "sha256": "f2566eee9cedc5da171585743bfed43b176692aea293a5cefac943c2390dadab",
+          "size_bytes": 41448
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "c6b02f45c9c889430d32fef97b62286c992a4f3bbbc2eefb0bc97ab997ac4ada",
-          "size_bytes": 59174
+          "sha256": "85182687ee630c6b55f11b59373a9a5842cbacee33ae299b7b281b49e54be85d",
+          "size_bytes": 59755
         }
       ],
       "regeneration_commands": [
@@ -236,8 +236,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "d6282d646e4f7ed22e78fa096bf1cdfa642b66d5596f2fa43124654f9c8cba19",
-          "size_bytes": 40768
+          "sha256": "f2566eee9cedc5da171585743bfed43b176692aea293a5cefac943c2390dadab",
+          "size_bytes": 41448
         }
       ],
       "regeneration_commands": [
@@ -288,8 +288,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "d6282d646e4f7ed22e78fa096bf1cdfa642b66d5596f2fa43124654f9c8cba19",
-          "size_bytes": 40768
+          "sha256": "f2566eee9cedc5da171585743bfed43b176692aea293a5cefac943c2390dadab",
+          "size_bytes": 41448
         }
       ],
       "regeneration_commands": [
@@ -340,8 +340,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "d6282d646e4f7ed22e78fa096bf1cdfa642b66d5596f2fa43124654f9c8cba19",
-          "size_bytes": 40768
+          "sha256": "f2566eee9cedc5da171585743bfed43b176692aea293a5cefac943c2390dadab",
+          "size_bytes": 41448
         }
       ],
       "regeneration_commands": [
@@ -496,20 +496,20 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "d6282d646e4f7ed22e78fa096bf1cdfa642b66d5596f2fa43124654f9c8cba19",
-          "size_bytes": 40768
+          "sha256": "f2566eee9cedc5da171585743bfed43b176692aea293a5cefac943c2390dadab",
+          "size_bytes": 41448
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "c6b02f45c9c889430d32fef97b62286c992a4f3bbbc2eefb0bc97ab997ac4ada",
-          "size_bytes": 59174
+          "sha256": "85182687ee630c6b55f11b59373a9a5842cbacee33ae299b7b281b49e54be85d",
+          "size_bytes": 59755
         },
         {
           "path": "docs/progress_log.md",
           "exists": true,
-          "sha256": "b2bfd1091256498f121fa440ab3d5b87f73a0c4dca35c5d8a4d98926ace77ec8",
-          "size_bytes": 112170
+          "sha256": "13c21a3606177f83d2d8b0d5241494f1e7934ba9142a03a5810347369d3a001a",
+          "size_bytes": 113250
         }
       ],
       "support_files": [],
@@ -551,14 +551,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "d6282d646e4f7ed22e78fa096bf1cdfa642b66d5596f2fa43124654f9c8cba19",
-          "size_bytes": 40768
+          "sha256": "f2566eee9cedc5da171585743bfed43b176692aea293a5cefac943c2390dadab",
+          "size_bytes": 41448
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "c6b02f45c9c889430d32fef97b62286c992a4f3bbbc2eefb0bc97ab997ac4ada",
-          "size_bytes": 59174
+          "sha256": "85182687ee630c6b55f11b59373a9a5842cbacee33ae299b7b281b49e54be85d",
+          "size_bytes": 59755
         }
       ],
       "regeneration_commands": [
@@ -767,8 +767,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "d6282d646e4f7ed22e78fa096bf1cdfa642b66d5596f2fa43124654f9c8cba19",
-          "size_bytes": 40768
+          "sha256": "f2566eee9cedc5da171585743bfed43b176692aea293a5cefac943c2390dadab",
+          "size_bytes": 41448
         }
       ],
       "regeneration_commands": [
@@ -785,8 +785,8 @@
         {
           "path": "docs/reproduction_guide.md",
           "exists": true,
-          "sha256": "0e31c4584526dd0b925d1aadeec8be846e4cc402bca0e3357956b111184ee091",
-          "size_bytes": 6732
+          "sha256": "7baf6a11834a96f84fe97f13709143aecdf1e6ff03a0728d5b1a3855018d5a34",
+          "size_bytes": 6552
         }
       ],
       "support_files": [
@@ -805,8 +805,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "d6282d646e4f7ed22e78fa096bf1cdfa642b66d5596f2fa43124654f9c8cba19",
-          "size_bytes": 40768
+          "sha256": "f2566eee9cedc5da171585743bfed43b176692aea293a5cefac943c2390dadab",
+          "size_bytes": 41448
         }
       ],
       "regeneration_commands": [

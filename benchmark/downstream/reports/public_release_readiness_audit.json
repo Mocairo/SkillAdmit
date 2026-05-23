@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T12:48:44.516995+00:00",
+  "generated_at_utc": "2026-05-23T13:09:31.739475+00:00",
   "purpose": "Public-release readiness audit for repository hygiene. This is not new empirical evidence; it checks whether the repo is safe and recoverable to publish.",
   "source_files": [
     {
@@ -15,7 +15,7 @@
     {
       "name": "artifact_index",
       "path": "benchmark/downstream/reports/paper_artifacts_index.json",
-      "sha256": "c9b8dd2fdd4962a4e58597c7a79775f4fe4f35233ed044060f021e321162883f"
+      "sha256": "d3a8f372d5b74ead8708627f5db67ce35bc94904c52867aaab2a49bbfb502f31"
     }
   ],
   "summary": {
@@ -31,7 +31,7 @@
       "summary": "Git status does not expose dirty sensitive, cache, local agent-run, or LLM workspace paths.",
       "details": {
         "dirty_risk_lines": [],
-        "status_line_count": 16
+        "status_line_count": 14
       }
     },
     {

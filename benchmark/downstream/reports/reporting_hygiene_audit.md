@@ -1,6 +1,6 @@
 # Reporting Hygiene Audit
 
-Generated at UTC: `2026-05-23T12:48:42.989361+00:00`
+Generated at UTC: `2026-05-23T13:09:04.223509+00:00`
 
 Public reporting hygiene audit for SkillAdmit downstream artifacts. It checks aggregate separation, legacy wording, overclaim guardrails, and handoff consistency.
 
@@ -46,14 +46,14 @@ Use the hygiene audit before public commits or paper edits. If a new experiment 
 | paper_section | `benchmark/downstream/reports/downstream_paper_eval_section.json` | True | `f026bad7830e2a84` | 7062 |
 | claim_defense | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | True | `09f38bb09aa273ea` | 41180 |
 | model_transfer_addendum | `benchmark/downstream/reports/model_transfer_paper_addendum.json` | True | `56594365d4feb838` | 8044 |
-| artifact_index | `benchmark/downstream/reports/paper_artifacts_index.json` | True | `c9b8dd2fdd4962a4` | 52639 |
+| artifact_index | `benchmark/downstream/reports/paper_artifacts_index.json` | True | `d3a8f372d5b74ead` | 52639 |
 | boundary_synthesis_md | `benchmark/downstream/reports/downstream_boundary_synthesis.md` | True | `a9360eea565f3f41` | 12399 |
 | paper_section_md | `benchmark/downstream/reports/downstream_paper_eval_section.md` | True | `19df606b4bd5459b` | 6712 |
 | claim_defense_md | `benchmark/downstream/reports/downstream_claim_defense_matrix.md` | True | `67b226ce7fb63072` | 24680 |
 | model_transfer_addendum_md | `benchmark/downstream/reports/model_transfer_paper_addendum.md` | True | `b03471c40abfc7bb` | 5668 |
-| artifact_index_md | `benchmark/downstream/reports/paper_artifacts_index.md` | True | `d9512fa4f9795c6c` | 33846 |
+| artifact_index_md | `benchmark/downstream/reports/paper_artifacts_index.md` | True | `b9b0a0489bf9ed18` | 33846 |
 | readme | `README.md` | True | `ca1b0af706beef0b` | 4927 |
-| experiment_handoff | `docs/experiment_handoff.md` | True | `c6b02f45c9c88943` | 59174 |
-| paper_eval_status | `docs/paper_eval_status.md` | True | `d6282d646e4f7ed2` | 40768 |
-| progress_log | `docs/progress_log.md` | True | `b2bfd1091256498f` | 112170 |
+| experiment_handoff | `docs/experiment_handoff.md` | True | `85182687ee630c6b` | 59755 |
+| paper_eval_status | `docs/paper_eval_status.md` | True | `f2566eee9cedc5da` | 41448 |
+| progress_log | `docs/progress_log.md` | True | `13c21a3606177f83` | 113250 |
 

@@ -3915,8 +3915,8 @@ PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
 Current export:
 
 ```text
-total_checks: 12
-passed_checks: 12
+total_checks: 13
+passed_checks: 13
 failed_checks: 0
 forced_bad_total_success: 0/133
 forced_bad_total_public_passed_hidden_failed: 133
@@ -4344,8 +4344,8 @@ The guide separates:
 Current audit:
 
 ```text
-total_checks: 12
-passed_checks: 12
+total_checks: 13
+passed_checks: 13
 failed_checks: 0
 status: pass
 ```
@@ -4363,6 +4363,7 @@ hard_v2/hard_v3/hard_v4 no-retuning rule is present
 .env and no-new-API boundaries are stated
 README names the public reproduction guide, artifact index, main boundary, and transfer addendum
 README exposes aggregate roles and unsupported-claim guardrails
+README and reproduction guide avoid machine-specific absolute paths
 ```
 
 Updated release command tail:
@@ -4418,13 +4419,14 @@ The reproduction-guide audit now includes README-specific checks:
 ```text
 RG11_readme_names_reader_entry_points
 RG12_readme_preserves_public_claim_boundary
+RG13_public_surface_avoids_local_paths
 ```
 
 Current result:
 
 ```text
-total_checks: 12
-passed_checks: 12
+total_checks: 13
+passed_checks: 13
 failed_checks: 0
 status: pass
 ```
@@ -4434,4 +4436,51 @@ Important boundary:
 ```text
 This does not change downstream evidence. It only makes the public entry path
 harder to misread.
+```
+
+### 68. Public Surface Local Path Cleanup
+
+Cleaned the public reproduction guide so it no longer contains machine-specific
+absolute paths from the local development environment.
+
+Updated:
+
+```text
+docs/reproduction_guide.md
+scripts/audit_reproduction_guide.py
+benchmark/downstream/reports/reproduction_guide_audit.json
+benchmark/downstream/reports/reproduction_guide_audit.md
+benchmark/downstream/reports/reproduction_guide_audit.tex
+```
+
+The guide now uses public-clone commands:
+
+```bash
+cd SkillAdmit
+python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index
+```
+
+The reproduction-guide audit now rejects public-surface hits for:
+
+```text
+/home/
+anaconda3/envs
+workspace/skilladmit
+skilladmit/bin/python
+```
+
+Current result:
+
+```text
+total_checks: 13
+passed_checks: 13
+failed_checks: 0
+status: pass
+```
+
+Boundary:
+
+```text
+This is a public-release hygiene change only. It does not change any downstream
+task, strategy, run, checker, or claim.
 ```

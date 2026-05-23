@@ -56,6 +56,13 @@ DEFAULT_JSON = REPORT_DIR / "reproduction_guide_audit.json"
 DEFAULT_MD = REPORT_DIR / "reproduction_guide_audit.md"
 DEFAULT_TEX = REPORT_DIR / "reproduction_guide_audit.tex"
 
+PUBLIC_SURFACE_FORBIDDEN_PATTERNS = [
+    "/home/",
+    "anaconda3/envs",
+    "workspace/skilladmit",
+    "skilladmit/bin/python",
+]
+
 REQUIRED_COMMANDS = [
     "python scripts/check_downstream_hard_v2_tasks.py",
     "python scripts/check_downstream_hard_v3_tasks.py",
@@ -172,6 +179,28 @@ def artifact_index_has_audit_command(index: dict[str, Any]) -> bool:
     return any(row["command"] == expected for row in index["regeneration_order"])
 
 
+def forbidden_public_surface_hits(texts: dict[str, str]) -> list[dict[str, str]]:
+    hits = []
+    for source, text in texts.items():
+        for line_no, line in enumerate(text.splitlines(), start=1):
+            lowered = line.lower()
+            for pattern in PUBLIC_SURFACE_FORBIDDEN_PATTERNS:
+                if pattern in lowered:
+                    hits.append(
+                        {
+                            "source": source,
+                            "line": line_no,
+                            "pattern": pattern,
+                            "text": line.strip()[:200],
+                        }
+                    )
+    return hits
+
+
+def contains_normalized(text: str, phrase: str) -> bool:
+    return " ".join(phrase.split()) in " ".join(text.split())
+
+
 def build_audit(
     guide_path: Path,
     readme_path: Path,
@@ -190,6 +219,12 @@ def build_audit(
     rows = command_rows(REQUIRED_COMMANDS, guide_text)
     missing_commands = [row for row in rows if not row["present_in_guide"]]
     missing_scripts = [row for row in rows if not row["script_exists"]]
+    forbidden_public_surface = forbidden_public_surface_hits(
+        {
+            "README.md": readme_text,
+            "docs/reproduction_guide.md": guide_text,
+        }
+    )
 
     checks: list[dict[str, Any]] = []
     add_check(
@@ -283,7 +318,7 @@ def build_audit(
         "RG9_secret_and_no_api_boundary_present",
         ".env" in guide_text
         and "do not commit `.env`" in guide_text
-        and "do not require a new LLM API run" in guide_text,
+        and contains_normalized(guide_text, "do not require a new LLM API run"),
         "Guide states the local-secret boundary and avoids accidental API reruns.",
         {},
     )
@@ -316,6 +351,15 @@ def build_audit(
         and "Do not tune hard_v2, hard_v3, or hard_v4" in readme_text,
         "README exposes the aggregate roles and unsupported-claim guardrails.",
         {},
+    )
+    add_check(
+        checks,
+        "RG13_public_surface_avoids_local_paths",
+        not forbidden_public_surface
+        and "cd SkillAdmit" in guide_text
+        and "python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index" in guide_text,
+        "README and reproduction guide avoid machine-specific absolute paths.",
+        {"forbidden_public_surface_hits": forbidden_public_surface},
     )
 
     failures = [row for row in checks if row["status"] != "pass"]
@@ -369,8 +413,8 @@ def build_audit(
 
 
 def assert_reproduction_guide(audit: dict[str, Any]) -> None:
-    if audit["summary"]["total_checks"] != 12:
-        raise AssertionError(f"expected 12 checks, got {audit['summary']['total_checks']}")
+    if audit["summary"]["total_checks"] != 13:
+        raise AssertionError(f"expected 13 checks, got {audit['summary']['total_checks']}")
     if audit["summary"]["failed_checks"] != 0:
         failures = [row for row in audit["checks"] if row["status"] != "pass"]
         raise AssertionError(f"failed reproduction-guide checks: {failures}")

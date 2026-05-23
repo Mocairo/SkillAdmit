@@ -25,20 +25,19 @@ top-level result.
 Use the repository root as the working directory:
 
 ```bash
-cd /home/lijx/workspace/skilladmit
+cd SkillAdmit
 ```
 
-The local development environment uses the `skilladmit` conda environment. A
-typical local invocation is:
+Use an environment with the repository's Python dependencies installed. Then
+run scripts from the repository root with `python`, for example:
 
 ```bash
-PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH /home/lijx/anaconda3/envs/skilladmit/bin/python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index
+python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index
 ```
 
-For a public clone, activate an equivalent Python environment and run the same
-scripts with `python`. Runtime secrets belong in `.env`; do not commit `.env`.
-The report-regeneration commands below read existing tracked evidence files and
-do not require a new LLM API run.
+Runtime secrets belong in `.env`; do not commit `.env`. The report-regeneration
+commands below read existing tracked evidence files and do not require a new LLM
+API run.
 
 ## Fast Public Check
 
