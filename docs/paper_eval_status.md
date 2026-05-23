@@ -1447,3 +1447,61 @@ tracked text files do not contain obvious credential patterns
 tracked files stay below the current large-file threshold
 artifact-index regeneration scripts exist
 ```
+
+## 24. Public Reproduction Guide
+
+A public-facing reproduction guide now serves as the first entry point for
+rerunning deterministic checks and reading the current evidence boundary. This
+is separate from model evidence and paper claims.
+
+Guide:
+
+```text
+docs/reproduction_guide.md
+```
+
+Audit:
+
+```text
+scripts/audit_reproduction_guide.py --assert-current-reproduction-guide
+```
+
+Artifacts:
+
+```text
+benchmark/downstream/reports/reproduction_guide_audit.json
+benchmark/downstream/reports/reproduction_guide_audit.md
+benchmark/downstream/reports/reproduction_guide_audit.tex
+```
+
+Current result:
+
+```text
+total_checks: 10
+passed_checks: 10
+failed_checks: 0
+status: pass
+```
+
+The guide makes the public boundary explicit:
+
+```text
+0/133:
+  current hard_v2/hard_v3/hard_v4 main downstream boundary
+
+0/216:
+  model-transfer hard_v3/hard_v4 addendum layer
+
+0/85:
+  historical hard_v2/hard_v3 synthesis only
+```
+
+Claim boundary:
+
+```text
+Use the reproduction guide for commands and navigation.
+Do not cite it as new empirical evidence.
+Do not use it to claim universal SkillAdmit-selected superiority.
+Do not use it to claim selected token savings.
+Do not tune hard_v2/hard_v3/hard_v4 from failures after reading it.
+```

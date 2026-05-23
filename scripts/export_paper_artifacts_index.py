@@ -8,8 +8,9 @@ What this file does:
   paper-section draft, claim-defense matrix, model-transfer evidence,
   model-transfer paper addendum, the paper-claim consistency audit command, the
   public reporting hygiene audit command, public release-readiness audit
-  command, and the model-transfer replication protocol command. The index
-  records each artifact's role, path, regeneration command, and claim boundary.
+  command, public reproduction-guide audit command, and the model-transfer
+  replication protocol command. The index records each artifact's role, path,
+  regeneration command, and claim boundary.
 
 Why it is needed:
   The repository now contains many summaries, tables, evidence packages, and
@@ -126,6 +127,7 @@ ARTIFACT_PATHS = {
     "model_transfer_addendum_json": REPORT_DIR / "model_transfer_paper_addendum.json",
     "model_transfer_addendum_md": REPORT_DIR / "model_transfer_paper_addendum.md",
     "model_transfer_addendum_tex": REPORT_DIR / "model_transfer_paper_addendum.tex",
+    "reproduction_guide": ROOT / "docs" / "reproduction_guide.md",
     "hard_v4_protocol": ROOT / "docs" / "llm_downstream_hard_v4.md",
     "paper_eval_status": ROOT / "docs" / "paper_eval_status.md",
     "experiment_handoff": ROOT / "docs" / "experiment_handoff.md",
@@ -154,6 +156,7 @@ SCRIPT_PATHS = {
     "audit_paper_claim_consistency": ROOT / "scripts" / "audit_paper_claim_consistency.py",
     "audit_reporting_hygiene": ROOT / "scripts" / "audit_reporting_hygiene.py",
     "audit_public_release_readiness": ROOT / "scripts" / "audit_public_release_readiness.py",
+    "audit_reproduction_guide": ROOT / "scripts" / "audit_reproduction_guide.py",
     "export_model_transfer_protocol": ROOT / "scripts" / "export_model_transfer_replication_protocol.py",
     "export_model_transfer_evidence": ROOT / "scripts" / "export_model_transfer_evidence_package.py",
     "export_model_transfer_cross_model": ROOT / "scripts" / "export_model_transfer_cross_model_synthesis.py",
@@ -431,6 +434,21 @@ def build_artifact_groups() -> list[dict[str, Any]]:
             ),
             "Do not use the addendum to strengthen the main paper claim into model-general selected superiority.",
         ),
+        build_artifact_group(
+            "G14_reproduction_guide",
+            "Public Reproduction Guide",
+            "Release-facing entry guide for reproducing deterministic reports and interpreting evidence layers.",
+            ["reproduction_guide"],
+            ["boundary_synthesis_json", "model_transfer_cross_model_json", "paper_eval_status"],
+            [
+                "python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide",
+            ],
+            (
+                "Use as the first public entry point for reproduction commands, "
+                "aggregate roles, claim guardrails, and no-retuning rules."
+            ),
+            "Do not cite the reproduction guide as new empirical evidence.",
+        ),
     ]
 
 
@@ -477,6 +495,10 @@ def build_regeneration_order() -> list[dict[str, str]]:
         (
             "audit_public_release_readiness",
             "python scripts/audit_public_release_readiness.py --assert-current-release",
+        ),
+        (
+            "audit_reproduction_guide",
+            "python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide",
         ),
     ]
     return [
@@ -829,7 +851,7 @@ def assert_index(index: dict[str, Any]) -> None:
         for file_info in group["primary_files"] + group["support_files"]:
             if not file_info["exists"]:
                 raise AssertionError(f"missing artifact file: {file_info['path']}")
-    if len(index["artifact_groups"]) != 13:
+    if len(index["artifact_groups"]) != 14:
         raise AssertionError("artifact group count changed")
     if len(index["table_index"]) != 9:
         raise AssertionError("table index count changed")
@@ -857,6 +879,9 @@ def assert_index(index: dict[str, Any]) -> None:
         "audit_paper_claim_consistency.py",
         "audit_reporting_hygiene.py",
         "audit_public_release_readiness.py",
+        "audit_reproduction_guide.py",
+        "G14_reproduction_guide",
+        "docs/reproduction_guide.md",
         "export_model_transfer_replication_protocol.py",
         "export_model_transfer_evidence_package.py",
         "export_model_transfer_cross_model_synthesis.py",

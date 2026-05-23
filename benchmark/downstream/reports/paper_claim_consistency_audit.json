@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T12:01:47.166709+00:00",
+  "generated_at_utc": "2026-05-23T12:24:15.000401+00:00",
   "purpose": "Consistency audit for the paper-facing hard_v2/hard_v3/hard_v4 downstream claim layer. This is a reporting-hygiene artifact, not new empirical evidence.",
   "source_files": [
     {
@@ -27,8 +27,8 @@
       "name": "artifacts_index",
       "path": "benchmark/downstream/reports/paper_artifacts_index.json",
       "exists": true,
-      "sha256": "4fd37d050d87695554fe37e18c37a7a1e8be97af28d72767cf00c733d1773cb9",
-      "size_bytes": 50860
+      "sha256": "f643f46e72cd101c925d2eed1fd6460de7d09c9ab6c1ed735392363f0d3bf04f",
+      "size_bytes": 52639
     },
     {
       "name": "model_transfer_addendum",
@@ -62,8 +62,8 @@
       "name": "artifacts_index_md",
       "path": "benchmark/downstream/reports/paper_artifacts_index.md",
       "exists": true,
-      "sha256": "4a6867df6745cf003dc8b0f0071800fe978e6d81198c995b5d80692594b3a6f3",
-      "size_bytes": 32746
+      "sha256": "703a4868dd47d6de4a4876779581a9886bbaad59ed3b93247446536b3db2c516",
+      "size_bytes": 33846
     },
     {
       "name": "model_transfer_addendum_md",
@@ -76,29 +76,29 @@
       "name": "experiment_handoff",
       "path": "docs/experiment_handoff.md",
       "exists": true,
-      "sha256": "e6d423ad6290ff79e873ae184104f23b35c48799856a392e6f70de6fb39c3216",
-      "size_bytes": 57163
+      "sha256": "8d3bf6fb426c42103a33b410a593130703f359b06203c1b936c747310b477629",
+      "size_bytes": 58296
     },
     {
       "name": "paper_eval_status",
       "path": "docs/paper_eval_status.md",
       "exists": true,
-      "sha256": "feea7e8374fd64d2519dcf45a0aa94521adbd57f703cb46acaf1e63fcc6aea8c",
-      "size_bytes": 38611
+      "sha256": "23d5bdaa39066f4578ec06476dbbc42faf28834fe35763d248c0df7130d6aa5e",
+      "size_bytes": 39827
     },
     {
       "name": "progress_log",
       "path": "docs/progress_log.md",
       "exists": true,
-      "sha256": "28b4f1001e5ac5ef5ce6228c980804182e5e7a9a2d9289d8ac57eff1e4804f95",
-      "size_bytes": 108916
+      "sha256": "a53a3248ee14d6bbca4fbdba2c811fcc2e71fc1e1d27ba8286da13fc26ba8fc6",
+      "size_bytes": 110664
     },
     {
       "name": "readme",
       "path": "README.md",
       "exists": true,
-      "sha256": "1556126e8da5e061c45c0c3d17b7635891f7a761d14fd9d8f87951135d868d4d",
-      "size_bytes": 3330
+      "sha256": "cc814db6682fc415bd92b58a8d59881e5c5e6949380df925c2ead0bbb383a676",
+      "size_bytes": 3715
     }
   ],
   "summary": {

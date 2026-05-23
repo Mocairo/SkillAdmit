@@ -2206,6 +2206,63 @@ Do not commit __pycache__/ or .pytest_cache/.
 Run the release-readiness audit after regenerating artifact index and reporting audits.
 ```
 
+## 28. Public Reproduction Guide Audit
+
+The repository now has a public reproduction guide and a machine-checkable audit
+for that guide. This is a release/navigation artifact, not new downstream
+evidence.
+
+Guide:
+
+```text
+docs/reproduction_guide.md
+```
+
+Script:
+
+```text
+scripts/audit_reproduction_guide.py --assert-current-reproduction-guide
+```
+
+Outputs:
+
+```text
+benchmark/downstream/reports/reproduction_guide_audit.json
+benchmark/downstream/reports/reproduction_guide_audit.md
+benchmark/downstream/reports/reproduction_guide_audit.tex
+```
+
+Current result:
+
+```text
+total_checks: 10
+passed_checks: 10
+failed_checks: 0
+status: pass
+```
+
+The guide is the recommended public entry point. It tells readers to keep these
+layers separate:
+
+```text
+0/133:
+  current hard_v2/hard_v3/hard_v4 main downstream boundary
+
+0/216:
+  model-transfer hard_v3/hard_v4 addendum layer
+
+0/85:
+  historical hard_v2/hard_v3 synthesis only
+```
+
+Important guardrail:
+
+```text
+The guide does not authorize tuning hard_v2, hard_v3, or hard_v4 after reading
+failures. If a new experiment is needed, predeclare hard_v5 or another fresh
+boundary instead.
+```
+
 ## 23. Rule for Future Work
 
 Every new code file should be documented when created:

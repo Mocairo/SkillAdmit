@@ -21,7 +21,13 @@ The current repo contains:
 - model-transfer paper addendum for optional replication reporting;
 - public reporting hygiene audit for aggregate and overclaim separation;
 - public release-readiness audit for secrets, ignored artifacts, and regeneration commands;
+- public reproduction guide and audit for release-facing rerun instructions;
 - experiment handoff and paper-facing status notes.
+
+Start with `docs/reproduction_guide.md` before running the full report
+regeneration sequence. It separates the current hard_v2/hard_v3/hard_v4
+boundary, the model-transfer addendum, and the historical hard_v2/hard_v3
+synthesis.
 
 Key entry points:
 
@@ -51,6 +57,7 @@ python scripts/export_model_transfer_cross_model_synthesis.py --assert-current-c
 python scripts/export_model_transfer_paper_addendum.py --assert-current-addendum
 python scripts/audit_reporting_hygiene.py --assert-current-hygiene
 python scripts/audit_public_release_readiness.py --assert-current-release
+python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide
 ```
 
 Use the existing `skilladmit` conda environment for local reproduction. Runtime

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T12:01:48.387030+00:00",
+  "generated_at_utc": "2026-05-23T12:24:50.049290+00:00",
   "purpose": "Public-release readiness audit for repository hygiene. This is not new empirical evidence; it checks whether the repo is safe and recoverable to publish.",
   "source_files": [
     {
@@ -10,12 +10,12 @@
     {
       "name": "readme",
       "path": "README.md",
-      "sha256": "1556126e8da5e061c45c0c3d17b7635891f7a761d14fd9d8f87951135d868d4d"
+      "sha256": "cc814db6682fc415bd92b58a8d59881e5c5e6949380df925c2ead0bbb383a676"
     },
     {
       "name": "artifact_index",
       "path": "benchmark/downstream/reports/paper_artifacts_index.json",
-      "sha256": "4fd37d050d87695554fe37e18c37a7a1e8be97af28d72767cf00c733d1773cb9"
+      "sha256": "f643f46e72cd101c925d2eed1fd6460de7d09c9ab6c1ed735392363f0d3bf04f"
     }
   ],
   "summary": {
@@ -31,7 +31,7 @@
       "summary": "Git status does not expose dirty sensitive, cache, local agent-run, or LLM workspace paths.",
       "details": {
         "dirty_risk_lines": [],
-        "status_line_count": 15
+        "status_line_count": 21
       }
     },
     {
@@ -108,7 +108,7 @@
       "details": {}
     }
   ],
-  "tracked_file_count": 1650,
+  "tracked_file_count": 1654,
   "top_tracked_files": [
     {
       "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v3_transfer_mimo_v2_5_tree_30x8/trajectories.jsonl",
@@ -354,6 +354,13 @@
       "command": "python scripts/audit_public_release_readiness.py --assert-current-release",
       "script": "scripts/audit_public_release_readiness.py",
       "script_exists": true
+    },
+    {
+      "step": 25,
+      "name": "audit_reproduction_guide",
+      "command": "python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide",
+      "script": "scripts/audit_reproduction_guide.py",
+      "script_exists": true
     }
   ],
   "release_notes": {
@@ -368,7 +375,8 @@
     "final_release_checks": [
       "python scripts/audit_paper_claim_consistency.py --assert-current-audit",
       "python scripts/audit_reporting_hygiene.py --assert-current-hygiene",
-      "python scripts/audit_public_release_readiness.py --assert-current-release"
+      "python scripts/audit_public_release_readiness.py --assert-current-release",
+      "python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide"
     ]
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T12:01:32.178394+00:00",
+  "generated_at_utc": "2026-05-23T12:23:54.671474+00:00",
   "purpose": "One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the correct evidence, table, script, and claim boundary for downstream validation writing.",
   "source_inputs": [
     {
@@ -180,14 +180,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "feea7e8374fd64d2519dcf45a0aa94521adbd57f703cb46acaf1e63fcc6aea8c",
-          "size_bytes": 38611
+          "sha256": "23d5bdaa39066f4578ec06476dbbc42faf28834fe35763d248c0df7130d6aa5e",
+          "size_bytes": 39827
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "e6d423ad6290ff79e873ae184104f23b35c48799856a392e6f70de6fb39c3216",
-          "size_bytes": 57163
+          "sha256": "8d3bf6fb426c42103a33b410a593130703f359b06203c1b936c747310b477629",
+          "size_bytes": 58296
         }
       ],
       "regeneration_commands": [
@@ -236,8 +236,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "feea7e8374fd64d2519dcf45a0aa94521adbd57f703cb46acaf1e63fcc6aea8c",
-          "size_bytes": 38611
+          "sha256": "23d5bdaa39066f4578ec06476dbbc42faf28834fe35763d248c0df7130d6aa5e",
+          "size_bytes": 39827
         }
       ],
       "regeneration_commands": [
@@ -288,8 +288,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "feea7e8374fd64d2519dcf45a0aa94521adbd57f703cb46acaf1e63fcc6aea8c",
-          "size_bytes": 38611
+          "sha256": "23d5bdaa39066f4578ec06476dbbc42faf28834fe35763d248c0df7130d6aa5e",
+          "size_bytes": 39827
         }
       ],
       "regeneration_commands": [
@@ -340,8 +340,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "feea7e8374fd64d2519dcf45a0aa94521adbd57f703cb46acaf1e63fcc6aea8c",
-          "size_bytes": 38611
+          "sha256": "23d5bdaa39066f4578ec06476dbbc42faf28834fe35763d248c0df7130d6aa5e",
+          "size_bytes": 39827
         }
       ],
       "regeneration_commands": [
@@ -496,20 +496,20 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "feea7e8374fd64d2519dcf45a0aa94521adbd57f703cb46acaf1e63fcc6aea8c",
-          "size_bytes": 38611
+          "sha256": "23d5bdaa39066f4578ec06476dbbc42faf28834fe35763d248c0df7130d6aa5e",
+          "size_bytes": 39827
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "e6d423ad6290ff79e873ae184104f23b35c48799856a392e6f70de6fb39c3216",
-          "size_bytes": 57163
+          "sha256": "8d3bf6fb426c42103a33b410a593130703f359b06203c1b936c747310b477629",
+          "size_bytes": 58296
         },
         {
           "path": "docs/progress_log.md",
           "exists": true,
-          "sha256": "28b4f1001e5ac5ef5ce6228c980804182e5e7a9a2d9289d8ac57eff1e4804f95",
-          "size_bytes": 108916
+          "sha256": "a53a3248ee14d6bbca4fbdba2c811fcc2e71fc1e1d27ba8286da13fc26ba8fc6",
+          "size_bytes": 110664
         }
       ],
       "support_files": [],
@@ -551,14 +551,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "feea7e8374fd64d2519dcf45a0aa94521adbd57f703cb46acaf1e63fcc6aea8c",
-          "size_bytes": 38611
+          "sha256": "23d5bdaa39066f4578ec06476dbbc42faf28834fe35763d248c0df7130d6aa5e",
+          "size_bytes": 39827
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "e6d423ad6290ff79e873ae184104f23b35c48799856a392e6f70de6fb39c3216",
-          "size_bytes": 57163
+          "sha256": "8d3bf6fb426c42103a33b410a593130703f359b06203c1b936c747310b477629",
+          "size_bytes": 58296
         }
       ],
       "regeneration_commands": [
@@ -767,8 +767,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "feea7e8374fd64d2519dcf45a0aa94521adbd57f703cb46acaf1e63fcc6aea8c",
-          "size_bytes": 38611
+          "sha256": "23d5bdaa39066f4578ec06476dbbc42faf28834fe35763d248c0df7130d6aa5e",
+          "size_bytes": 39827
         }
       ],
       "regeneration_commands": [
@@ -776,6 +776,44 @@
       ],
       "use_in_paper": "Use as optional paper text for model-transfer replication: 0/216 forced-bad combined evidence, hard_v3 selected pattern replication, and hard_v4 strict selected sign reversal.",
       "do_not_use_for": "Do not use the addendum to strengthen the main paper claim into model-general selected superiority."
+    },
+    {
+      "group_id": "G14_reproduction_guide",
+      "title": "Public Reproduction Guide",
+      "role": "Release-facing entry guide for reproducing deterministic reports and interpreting evidence layers.",
+      "primary_files": [
+        {
+          "path": "docs/reproduction_guide.md",
+          "exists": true,
+          "sha256": "0e31c4584526dd0b925d1aadeec8be846e4cc402bca0e3357956b111184ee091",
+          "size_bytes": 6732
+        }
+      ],
+      "support_files": [
+        {
+          "path": "benchmark/downstream/reports/downstream_boundary_synthesis.json",
+          "exists": true,
+          "sha256": "b5e58a54217563fbe2a24e3b4d63090b66d5d0ded6d9872ccb5e57e6bd1237aa",
+          "size_bytes": 45450
+        },
+        {
+          "path": "benchmark/downstream/reports/model_transfer_cross_model_synthesis.json",
+          "exists": true,
+          "sha256": "4e6df53551a1e8f2017c9e01646b483756ffdb10b21aab5e32ca544a37c74731",
+          "size_bytes": 68222
+        },
+        {
+          "path": "docs/paper_eval_status.md",
+          "exists": true,
+          "sha256": "23d5bdaa39066f4578ec06476dbbc42faf28834fe35763d248c0df7130d6aa5e",
+          "size_bytes": 39827
+        }
+      ],
+      "regeneration_commands": [
+        "python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide"
+      ],
+      "use_in_paper": "Use as the first public entry point for reproduction commands, aggregate roles, claim guardrails, and no-retuning rules.",
+      "do_not_use_for": "Do not cite the reproduction guide as new empirical evidence."
     }
   ],
   "regeneration_order": [
@@ -921,6 +959,12 @@
       "step": 24,
       "name": "audit_public_release_readiness",
       "command": "python scripts/audit_public_release_readiness.py --assert-current-release",
+      "script_exists": true
+    },
+    {
+      "step": 25,
+      "name": "audit_reproduction_guide",
+      "command": "python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide",
       "script_exists": true
     }
   ],

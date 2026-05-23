@@ -1,0 +1,293 @@
+{
+  "generated_at_utc": "2026-05-23T12:29:35.402088+00:00",
+  "purpose": "Public reproduction-guide audit for SkillAdmit. It checks that the public entry guide matches the generated downstream evidence boundary and avoids unsupported claims.",
+  "summary": {
+    "total_checks": 10,
+    "passed_checks": 10,
+    "failed_checks": 0,
+    "status": "pass"
+  },
+  "checked_commands": [
+    {
+      "command": "python scripts/check_downstream_hard_v2_tasks.py",
+      "present_in_guide": true,
+      "script": "scripts/check_downstream_hard_v2_tasks.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/check_downstream_hard_v3_tasks.py",
+      "present_in_guide": true,
+      "script": "scripts/check_downstream_hard_v3_tasks.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/build_downstream_hard_v4_tasks.py",
+      "present_in_guide": true,
+      "script": "scripts/build_downstream_hard_v4_tasks.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/check_downstream_hard_v4_tasks.py",
+      "present_in_guide": true,
+      "script": "scripts/check_downstream_hard_v4_tasks.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/run_admission_regression.py",
+      "present_in_guide": true,
+      "script": "scripts/run_admission_regression.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/summarize_hard_v2_results.py --assert-current-hard-v2",
+      "present_in_guide": true,
+      "script": "scripts/summarize_hard_v2_results.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/export_hard_v2_evidence_package.py --assert-current-hard-v2",
+      "present_in_guide": true,
+      "script": "scripts/export_hard_v2_evidence_package.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/summarize_hard_v3_results.py --assert-current-hard-v3",
+      "present_in_guide": true,
+      "script": "scripts/summarize_hard_v3_results.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/export_hard_v3_evidence_package.py --assert-current-hard-v3",
+      "present_in_guide": true,
+      "script": "scripts/export_hard_v3_evidence_package.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/export_hard_v4_scaffold_manifest.py --run-checker --assert-current-hard-v4-scaffold",
+      "present_in_guide": true,
+      "script": "scripts/export_hard_v4_scaffold_manifest.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/summarize_hard_v4_results.py --assert-current-hard-v4",
+      "present_in_guide": true,
+      "script": "scripts/summarize_hard_v4_results.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/export_hard_v4_evidence_package.py --assert-current-hard-v4",
+      "present_in_guide": true,
+      "script": "scripts/export_hard_v4_evidence_package.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/export_downstream_cross_version_synthesis.py --assert-current-synthesis",
+      "present_in_guide": true,
+      "script": "scripts/export_downstream_cross_version_synthesis.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/export_downstream_boundary_synthesis.py --assert-current-boundary-synthesis",
+      "present_in_guide": true,
+      "script": "scripts/export_downstream_boundary_synthesis.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/export_downstream_paper_section.py --assert-current-paper-section",
+      "present_in_guide": true,
+      "script": "scripts/export_downstream_paper_section.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-defense",
+      "present_in_guide": true,
+      "script": "scripts/export_downstream_claim_defense_matrix.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/export_model_transfer_replication_protocol.py --assert-current-protocol",
+      "present_in_guide": true,
+      "script": "scripts/export_model_transfer_replication_protocol.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/export_model_transfer_evidence_package.py --assert-current-model-transfer",
+      "present_in_guide": true,
+      "script": "scripts/export_model_transfer_evidence_package.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/export_model_transfer_cross_model_synthesis.py --assert-current-cross-model",
+      "present_in_guide": true,
+      "script": "scripts/export_model_transfer_cross_model_synthesis.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/export_model_transfer_paper_addendum.py --assert-current-addendum",
+      "present_in_guide": true,
+      "script": "scripts/export_model_transfer_paper_addendum.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index",
+      "present_in_guide": true,
+      "script": "scripts/export_paper_artifacts_index.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/audit_paper_claim_consistency.py --assert-current-audit",
+      "present_in_guide": true,
+      "script": "scripts/audit_paper_claim_consistency.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/audit_reporting_hygiene.py --assert-current-hygiene",
+      "present_in_guide": true,
+      "script": "scripts/audit_reporting_hygiene.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/audit_public_release_readiness.py --assert-current-release",
+      "present_in_guide": true,
+      "script": "scripts/audit_public_release_readiness.py",
+      "script_exists": true
+    },
+    {
+      "command": "python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide",
+      "present_in_guide": true,
+      "script": "scripts/audit_reproduction_guide.py",
+      "script_exists": true
+    }
+  ],
+  "aggregate_roles": {
+    "current_main_boundary": {
+      "aggregate": "0/133",
+      "public_passed_hidden_failed": 133,
+      "role": "hard_v2/hard_v3/hard_v4 downstream validation"
+    },
+    "model_transfer_addendum": {
+      "aggregate": "0/216",
+      "public_passed_hidden_failed": 216,
+      "role": "two-model hard_v3/hard_v4 sensitivity layer"
+    },
+    "historical_two_boundary": {
+      "aggregate": "0/85",
+      "role": "historical hard_v2/hard_v3 synthesis only"
+    }
+  },
+  "checks": [
+    {
+      "check_id": "RG1_guide_is_discoverable",
+      "status": "pass",
+      "summary": "README points to the reproduction guide and the guide exists.",
+      "details": {
+        "guide_exists": true,
+        "readme_links_guide": true
+      }
+    },
+    {
+      "check_id": "RG2_commands_present_and_scripts_exist",
+      "status": "pass",
+      "summary": "Required report-regeneration and audit commands are present and their scripts exist.",
+      "details": {
+        "missing_commands": [],
+        "missing_scripts": []
+      }
+    },
+    {
+      "check_id": "RG3_artifact_index_exposes_guide",
+      "status": "pass",
+      "summary": "Artifact index exposes the reproduction guide and the guide audit command.",
+      "details": {
+        "has_group": true,
+        "has_audit_command": true
+      }
+    },
+    {
+      "check_id": "RG4_main_boundary_aggregate_matches_report",
+      "status": "pass",
+      "summary": "Guide reports the current hard_v2/hard_v3/hard_v4 main boundary aggregate.",
+      "details": {
+        "report_forced_bad": "0/133",
+        "report_public_hidden": 133
+      }
+    },
+    {
+      "check_id": "RG5_addendum_aggregate_matches_report",
+      "status": "pass",
+      "summary": "Guide reports the model-transfer addendum aggregate without merging it into the main boundary.",
+      "details": {
+        "report_forced_bad": "0/216",
+        "report_public_hidden": 216
+      }
+    },
+    {
+      "check_id": "RG6_layer_roles_are_separated",
+      "status": "pass",
+      "summary": "Guide separates current, addendum, and historical aggregate roles.",
+      "details": {}
+    },
+    {
+      "check_id": "RG7_claim_guardrails_present",
+      "status": "pass",
+      "summary": "Guide includes unsupported-claim guardrails.",
+      "details": {}
+    },
+    {
+      "check_id": "RG8_no_retuning_rule_present",
+      "status": "pass",
+      "summary": "Guide states the frozen-boundary no-retuning rule.",
+      "details": {}
+    },
+    {
+      "check_id": "RG9_secret_and_no_api_boundary_present",
+      "status": "pass",
+      "summary": "Guide states the local-secret boundary and avoids accidental API reruns.",
+      "details": {}
+    },
+    {
+      "check_id": "RG10_guide_declares_not_new_evidence",
+      "status": "pass",
+      "summary": "Guide is explicitly marked as a reproduction entry, not an evidence source.",
+      "details": {}
+    }
+  ],
+  "source_files": [
+    {
+      "name": "reproduction_guide",
+      "path": "docs/reproduction_guide.md",
+      "exists": true,
+      "sha256": "0e31c4584526dd0b925d1aadeec8be846e4cc402bca0e3357956b111184ee091",
+      "size_bytes": 6732
+    },
+    {
+      "name": "readme",
+      "path": "README.md",
+      "exists": true,
+      "sha256": "cc814db6682fc415bd92b58a8d59881e5c5e6949380df925c2ead0bbb383a676",
+      "size_bytes": 3715
+    },
+    {
+      "name": "artifact_index",
+      "path": "benchmark/downstream/reports/paper_artifacts_index.json",
+      "exists": true,
+      "sha256": "f643f46e72cd101c925d2eed1fd6460de7d09c9ab6c1ed735392363f0d3bf04f",
+      "size_bytes": 52639
+    },
+    {
+      "name": "boundary_synthesis",
+      "path": "benchmark/downstream/reports/downstream_boundary_synthesis.json",
+      "exists": true,
+      "sha256": "b5e58a54217563fbe2a24e3b4d63090b66d5d0ded6d9872ccb5e57e6bd1237aa",
+      "size_bytes": 45450
+    },
+    {
+      "name": "cross_model_synthesis",
+      "path": "benchmark/downstream/reports/model_transfer_cross_model_synthesis.json",
+      "exists": true,
+      "sha256": "4e6df53551a1e8f2017c9e01646b483756ffdb10b21aab5e32ca544a37c74731",
+      "size_bytes": 68222
+    }
+  ],
+  "next_recommended_step": "Use this audit with the claim, reporting, and release audits before public README edits or release pushes."
+}

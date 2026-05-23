@@ -4310,3 +4310,65 @@ python scripts/audit_paper_claim_consistency.py --assert-current-audit
 python scripts/audit_reporting_hygiene.py --assert-current-hygiene
 python scripts/audit_public_release_readiness.py --assert-current-release
 ```
+
+### 66. Public Reproduction Guide Audit
+
+Added a public-facing reproduction guide and an executable audit for it. This is
+not new model evidence; it is the release entry point for rerunning deterministic
+checks and keeping the public README aligned with the current downstream claim
+boundary.
+
+Created:
+
+```text
+docs/reproduction_guide.md
+scripts/audit_reproduction_guide.py
+benchmark/downstream/reports/reproduction_guide_audit.json
+benchmark/downstream/reports/reproduction_guide_audit.md
+benchmark/downstream/reports/reproduction_guide_audit.tex
+```
+
+The guide separates:
+
+```text
+0/85:
+  historical hard_v2/hard_v3 synthesis only
+
+0/133:
+  current hard_v2/hard_v3/hard_v4 main downstream boundary
+
+0/216:
+  model-transfer hard_v3/hard_v4 addendum layer
+```
+
+Current audit:
+
+```text
+total_checks: 10
+passed_checks: 10
+failed_checks: 0
+status: pass
+```
+
+The audit checks:
+
+```text
+README links docs/reproduction_guide.md
+required regeneration commands are present and scripts exist
+artifact index exposes the reproduction guide and guide audit command
+the guide reports 0/133 and 0/216 from generated reports
+the guide keeps the historical 0/85 layer separate
+unsupported selected-superiority and token-savings claims are forbidden
+hard_v2/hard_v3/hard_v4 no-retuning rule is present
+.env and no-new-API boundaries are stated
+```
+
+Updated release command tail:
+
+```bash
+python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index
+python scripts/audit_paper_claim_consistency.py --assert-current-audit
+python scripts/audit_reporting_hygiene.py --assert-current-hygiene
+python scripts/audit_public_release_readiness.py --assert-current-release
+python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide
+```

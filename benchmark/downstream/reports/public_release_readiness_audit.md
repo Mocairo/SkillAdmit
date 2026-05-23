@@ -1,6 +1,6 @@
 # Public Release Readiness Audit
 
-Generated at UTC: `2026-05-23T12:01:48.387030+00:00`
+Generated at UTC: `2026-05-23T12:24:50.049290+00:00`
 
 Public-release readiness audit for repository hygiene. This is not new empirical evidence; it checks whether the repo is safe and recoverable to publish.
 
@@ -17,7 +17,7 @@ Public-release readiness audit for repository hygiene. This is not new empirical
 
 | check | status | summary | details |
 | --- | --- | --- | --- |
-| R1_no_dirty_sensitive_or_local_paths | pass | Git status does not expose dirty sensitive, cache, local agent-run, or LLM workspace paths. | {'dirty_risk_lines': [], 'status_line_count': 15} |
+| R1_no_dirty_sensitive_or_local_paths | pass | Git status does not expose dirty sensitive, cache, local agent-run, or LLM workspace paths. | {'dirty_risk_lines': [], 'status_line_count': 21} |
 | R2_expected_local_artifacts_ignored | pass | .env, local agent runs, workspaces, and cache paths are ignored by Git. | {'ignore_rows': [{'path': '.env', 'ignored': True, 'rule': '.gitignore:1:.env\t.env'}, {'path': '__pycache__/', 'ignored': True, 'rule': '.gitignore:2:__pycache__/\t__pycache__/... |
 | R3_no_forbidden_tracked_paths | pass | No tracked .env, pycache, pytest cache, local agent run, or LLM workspace paths. | {'forbidden_tracked_paths': []} |
 | R4_no_obvious_tracked_secrets | pass | No obvious credential patterns were found in tracked text files. | {'secret_hits': [], 'hit_count': 0} |
@@ -73,6 +73,7 @@ Public-release readiness audit for repository hygiene. This is not new empirical
 | 22 | audit_paper_claim_consistency | `python scripts/audit_paper_claim_consistency.py --assert-current-audit` | True |
 | 23 | audit_reporting_hygiene | `python scripts/audit_reporting_hygiene.py --assert-current-hygiene` | True |
 | 24 | audit_public_release_readiness | `python scripts/audit_public_release_readiness.py --assert-current-release` | True |
+| 25 | audit_reproduction_guide | `python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide` | True |
 
 ## Release Notes
 
@@ -80,13 +81,13 @@ Public-release readiness audit for repository hygiene. This is not new empirical
 | --- | --- |
 | commit_do_not_include | .env, benchmark/downstream/llm_runs/*/workspaces/, benchmark/agent_runs/, __pycache__/, .pytest_cache/ |
 | primary_reproduction_command | `python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index` |
-| final_release_checks | `python scripts/audit_paper_claim_consistency.py --assert-current-audit`<br>`python scripts/audit_reporting_hygiene.py --assert-current-hygiene`<br>`python scripts/audit_public_release_readiness.py --assert-current-release` |
+| final_release_checks | `python scripts/audit_paper_claim_consistency.py --assert-current-audit`<br>`python scripts/audit_reporting_hygiene.py --assert-current-hygiene`<br>`python scripts/audit_public_release_readiness.py --assert-current-release`<br>`python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide` |
 
 ## Source Files
 
 | name | path | sha256 |
 | --- | --- | --- |
 | gitignore | `.gitignore` | `19ca3946fd901b14` |
-| readme | `README.md` | `1556126e8da5e061` |
-| artifact_index | `benchmark/downstream/reports/paper_artifacts_index.json` | `4fd37d050d876955` |
+| readme | `README.md` | `cc814db6682fc415` |
+| artifact_index | `benchmark/downstream/reports/paper_artifacts_index.json` | `f643f46e72cd101c` |
 
