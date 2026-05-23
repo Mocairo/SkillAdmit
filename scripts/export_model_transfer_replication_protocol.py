@@ -48,7 +48,7 @@ DEFAULT_TEX = REPORT_DIR / "model_transfer_replication_protocol.tex"
 
 TRANSFER_MODEL_ENV = "SKILLADMIT_TRANSFER_MODEL"
 TRANSFER_MODEL_PLACEHOLDER = f"${TRANSFER_MODEL_ENV}"
-DEFAULT_MODEL_SLUG = "transfer_model"
+DEFAULT_MODEL_SLUG = "mimo_v2_5"
 
 TREE_STRATEGIES = [
     "no_experience",

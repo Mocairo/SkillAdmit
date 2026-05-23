@@ -1972,6 +1972,87 @@ One transfer model can test sensitivity, but it still cannot prove
 model-general SkillAdmit-selected superiority.
 ```
 
+## 24. Completed Model-Transfer Evidence
+
+The predeclared model-transfer run has now completed with `mimo-v2.5` over the
+frozen hard_v3 and hard_v4 matrices. This is post-run evidence, not prompt
+tuning and not a new task boundary.
+
+New scripts:
+
+```text
+scripts/export_model_transfer_evidence_package.py
+scripts/export_model_transfer_cross_model_synthesis.py
+```
+
+New reports:
+
+```text
+benchmark/downstream/reports/model_transfer_evidence_package.json
+benchmark/downstream/reports/model_transfer_evidence_package.md
+benchmark/downstream/reports/model_transfer_evidence_package.tex
+benchmark/downstream/reports/model_transfer_cross_model_synthesis.json
+benchmark/downstream/reports/model_transfer_cross_model_synthesis.md
+benchmark/downstream/reports/model_transfer_cross_model_synthesis.tex
+```
+
+Completed transfer matrix:
+
+```text
+hard_v3 tree-aware:          240/240 rows
+hard_v3 strict visible-file: 240/240 rows
+hard_v4 tree-aware:          192/192 rows
+hard_v4 strict visible-file: 192/192 rows
+total_rows: 864
+parse_errors: 0
+```
+
+Main transfer facts:
+
+```text
+forced_bad_artifact: 0/108
+forced_bad_public_passed_hidden_failed: 108
+
+hard_v3 tree-aware selected vs no_experience: 29/30 vs 29/30
+hard_v3 strict selected vs no_experience: 29/30 vs 28/30
+hard_v4 tree-aware selected vs no_experience: 24/24 vs 23/24
+hard_v4 strict selected vs no_experience: 21/24 vs 18/24
+```
+
+Cross-model interpretation:
+
+```text
+Replicated:
+  forced harmful artifacts fail 0/108 on the baseline hard_v3/hard_v4 slice
+  and 0/108 on the transfer model, for 0/216 combined.
+
+Stable selected pattern:
+  hard_v3 tree-aware selected tie replicates.
+  hard_v3 strict selected +1 over no_experience replicates.
+
+Model-sensitive selected pattern:
+  hard_v4 strict selected reverses sign:
+    baseline: 22/24 selected vs 24/24 no_experience, delta -2
+    transfer: 21/24 selected vs 18/24 no_experience, delta +3
+```
+
+Artifact-index status:
+
+```text
+artifact_groups: 12
+table_index: 8
+claim_map: 10
+```
+
+Current guardrail:
+
+```text
+Do not merge model-transfer evidence into the original hard_v2/hard_v3/hard_v4
+0/133 boundary aggregate.
+Do not claim model-general selected superiority from one transfer model.
+Do not tune hard_v3 or hard_v4 from observed transfer failures.
+```
+
 ## 23. Rule for Future Work
 
 Every new code file should be documented when created:

@@ -1,6 +1,6 @@
 # Model-Transfer Replication Protocol
 
-Generated at UTC: `2026-05-23T06:49:55.015990+00:00`
+Generated at UTC: `2026-05-23T08:33:58.683890+00:00`
 
 Protocol ID: `model_transfer_replication_v0`
 
@@ -23,7 +23,7 @@ Predeclare the next clean downstream validation boundary: replicate the frozen h
 | --- | --- |
 | environment_variable | SKILLADMIT_TRANSFER_MODEL |
 | model_expression | $SKILLADMIT_TRANSFER_MODEL |
-| model_slug | transfer_model |
+| model_slug | mimo_v2_5 |
 | must_differ_from_baseline | True |
 | baseline_model_label | mimo-v2.5-pro |
 
@@ -41,10 +41,10 @@ Expected total rows: `864`
 
 | run | suite | setting | rows | run_name | command |
 | --- | --- | --- | --- | --- | --- |
-| MT1_hard_v3_tree | hard_v3 | tree-aware | 240 | `llm_downstream_hard_v3_transfer_transfer_model_tree_30x8` | `python scripts/run_llm_downstream_validation.py --model "$SKILLADMIT_TRANSFER_MODEL" --run-name llm_downstream_hard_v3_transfer_transfer_model_tree_30x8 --tasks-dir benchmark/downstream_hard_v3/tasks --strategy no_experience --strategy skilladmit_selected --strategy skilladmit_selected_with_precondition_context --strategy raw_memory --strategy distilled_skills_all --strategy promoted_rules --strategy bad_dependency_rule --strategy forced_bad_artifact --use-task-visible-files --include-repo-tree --resume` |
-| MT2_hard_v3_strict | hard_v3 | strict visible-file | 240 | `llm_downstream_hard_v3_transfer_transfer_model_strict_30x8` | `python scripts/run_llm_downstream_validation.py --model "$SKILLADMIT_TRANSFER_MODEL" --run-name llm_downstream_hard_v3_transfer_transfer_model_strict_30x8 --tasks-dir benchmark/downstream_hard_v3/tasks --strategy no_experience --strategy skilladmit_selected --strategy skilladmit_selected_with_precondition_only --strategy raw_memory --strategy distilled_skills_all --strategy promoted_rules --strategy bad_dependency_rule --strategy forced_bad_artifact --use-task-visible-files --resume` |
-| MT3_hard_v4_tree | hard_v4 | tree-aware | 192 | `llm_downstream_hard_v4_transfer_transfer_model_tree_24x8` | `python scripts/run_llm_downstream_validation.py --model "$SKILLADMIT_TRANSFER_MODEL" --run-name llm_downstream_hard_v4_transfer_transfer_model_tree_24x8 --tasks-dir benchmark/downstream_hard_v4/tasks --strategy no_experience --strategy skilladmit_selected --strategy skilladmit_selected_with_precondition_context --strategy raw_memory --strategy distilled_skills_all --strategy promoted_rules --strategy bad_dependency_rule --strategy forced_bad_artifact --use-task-visible-files --include-repo-tree --resume` |
-| MT4_hard_v4_strict | hard_v4 | strict visible-file | 192 | `llm_downstream_hard_v4_transfer_transfer_model_strict_24x8` | `python scripts/run_llm_downstream_validation.py --model "$SKILLADMIT_TRANSFER_MODEL" --run-name llm_downstream_hard_v4_transfer_transfer_model_strict_24x8 --tasks-dir benchmark/downstream_hard_v4/tasks --strategy no_experience --strategy skilladmit_selected --strategy skilladmit_selected_with_precondition_only --strategy raw_memory --strategy distilled_skills_all --strategy promoted_rules --strategy bad_dependency_rule --strategy forced_bad_artifact --use-task-visible-files --resume` |
+| MT1_hard_v3_tree | hard_v3 | tree-aware | 240 | `llm_downstream_hard_v3_transfer_mimo_v2_5_tree_30x8` | `python scripts/run_llm_downstream_validation.py --model "$SKILLADMIT_TRANSFER_MODEL" --run-name llm_downstream_hard_v3_transfer_mimo_v2_5_tree_30x8 --tasks-dir benchmark/downstream_hard_v3/tasks --strategy no_experience --strategy skilladmit_selected --strategy skilladmit_selected_with_precondition_context --strategy raw_memory --strategy distilled_skills_all --strategy promoted_rules --strategy bad_dependency_rule --strategy forced_bad_artifact --use-task-visible-files --include-repo-tree --resume` |
+| MT2_hard_v3_strict | hard_v3 | strict visible-file | 240 | `llm_downstream_hard_v3_transfer_mimo_v2_5_strict_30x8` | `python scripts/run_llm_downstream_validation.py --model "$SKILLADMIT_TRANSFER_MODEL" --run-name llm_downstream_hard_v3_transfer_mimo_v2_5_strict_30x8 --tasks-dir benchmark/downstream_hard_v3/tasks --strategy no_experience --strategy skilladmit_selected --strategy skilladmit_selected_with_precondition_only --strategy raw_memory --strategy distilled_skills_all --strategy promoted_rules --strategy bad_dependency_rule --strategy forced_bad_artifact --use-task-visible-files --resume` |
+| MT3_hard_v4_tree | hard_v4 | tree-aware | 192 | `llm_downstream_hard_v4_transfer_mimo_v2_5_tree_24x8` | `python scripts/run_llm_downstream_validation.py --model "$SKILLADMIT_TRANSFER_MODEL" --run-name llm_downstream_hard_v4_transfer_mimo_v2_5_tree_24x8 --tasks-dir benchmark/downstream_hard_v4/tasks --strategy no_experience --strategy skilladmit_selected --strategy skilladmit_selected_with_precondition_context --strategy raw_memory --strategy distilled_skills_all --strategy promoted_rules --strategy bad_dependency_rule --strategy forced_bad_artifact --use-task-visible-files --include-repo-tree --resume` |
+| MT4_hard_v4_strict | hard_v4 | strict visible-file | 192 | `llm_downstream_hard_v4_transfer_mimo_v2_5_strict_24x8` | `python scripts/run_llm_downstream_validation.py --model "$SKILLADMIT_TRANSFER_MODEL" --run-name llm_downstream_hard_v4_transfer_mimo_v2_5_strict_24x8 --tasks-dir benchmark/downstream_hard_v4/tasks --strategy no_experience --strategy skilladmit_selected --strategy skilladmit_selected_with_precondition_only --strategy raw_memory --strategy distilled_skills_all --strategy promoted_rules --strategy bad_dependency_rule --strategy forced_bad_artifact --use-task-visible-files --resume` |
 
 ## Stop Rules
 

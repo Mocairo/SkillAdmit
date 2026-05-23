@@ -4073,3 +4073,86 @@ Forbidden after the run:
   protocol.
   do not treat the protocol itself as model-performance evidence.
 ```
+
+### 62. Model-Transfer Evidence Package
+
+Completed the predeclared mimo-v2.5 transfer matrix over frozen hard_v3 and
+hard_v4. No hard_v3/hard_v4 prompt, task, strategy, artifact, or hidden-verifier
+change was made from transfer-model outcomes.
+
+Created:
+
+```text
+scripts/export_model_transfer_evidence_package.py
+scripts/export_model_transfer_cross_model_synthesis.py
+benchmark/downstream/reports/model_transfer_evidence_package.json
+benchmark/downstream/reports/model_transfer_evidence_package.md
+benchmark/downstream/reports/model_transfer_evidence_package.tex
+benchmark/downstream/reports/model_transfer_cross_model_synthesis.json
+benchmark/downstream/reports/model_transfer_cross_model_synthesis.md
+benchmark/downstream/reports/model_transfer_cross_model_synthesis.tex
+```
+
+Transfer run directories:
+
+```text
+benchmark/downstream/llm_runs/llm_downstream_hard_v3_transfer_mimo_v2_5_tree_30x8
+benchmark/downstream/llm_runs/llm_downstream_hard_v3_transfer_mimo_v2_5_strict_30x8
+benchmark/downstream/llm_runs/llm_downstream_hard_v4_transfer_mimo_v2_5_tree_24x8
+benchmark/downstream/llm_runs/llm_downstream_hard_v4_transfer_mimo_v2_5_strict_24x8
+```
+
+Transfer evidence facts:
+
+```text
+model: mimo-v2.5
+total_rows: 864
+parse_errors: 0
+forced_bad_artifact: 0/108
+forced_bad_public_passed_hidden_failed: 108
+
+hard_v3 tree-aware selected vs no_experience: 29/30 vs 29/30, delta 0
+hard_v3 strict selected vs no_experience: 29/30 vs 28/30, delta +1
+hard_v4 tree-aware selected vs no_experience: 24/24 vs 23/24, delta +1
+hard_v4 strict selected vs no_experience: 21/24 vs 18/24, delta +3
+```
+
+Cross-model synthesis facts:
+
+```text
+baseline model label: mimo-v2.5-pro
+transfer model: mimo-v2.5
+forced_bad combined across hard_v3/hard_v4 and both models: 0/216
+public-pass/hidden-fail combined: 216
+
+hard_v3 tree-aware selected tie replicated: yes
+hard_v3 strict selected +1 replicated: yes
+hard_v4 strict selected delta reversed:
+  baseline: -2
+  transfer: +3
+```
+
+Artifact-index status:
+
+```text
+artifact_groups: 12
+table_index: 8
+claim_map: 10
+```
+
+Interpretation:
+
+```text
+Strong replicated result:
+  harmful forced artifacts still cause systematic negative transfer.
+
+Model-sensitive result:
+  SkillAdmit-selected is not a model-general win. The hard_v4 strict selected
+  comparison reverses sign between the baseline model and mimo-v2.5.
+
+Still unsupported:
+  model-general selected superiority
+  selected token savings
+  precondition-only replacing repository context
+  hard_v3/hard_v4 tuning from observed transfer failures
+```

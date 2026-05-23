@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T06:49:54.880854+00:00",
+  "generated_at_utc": "2026-05-23T10:23:38.998112+00:00",
   "purpose": "One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the correct evidence, table, script, and claim boundary for downstream validation writing.",
   "source_inputs": [
     {
@@ -81,6 +81,22 @@
       "sha256": "1e7d9adb0b9e9dc9d020a4b9ce4e531a6ff17269564262820181597bca703768",
       "size_bytes": 20700,
       "generated_at_utc": "2026-05-22T15:03:42.737147+00:00"
+    },
+    {
+      "name": "model_transfer_evidence_package",
+      "path": "benchmark/downstream/reports/model_transfer_evidence_package.json",
+      "exists": true,
+      "sha256": "32505f40e1635dcf4f410fa88217becf3d4c0f381782c9d6b49f26fb64b6d2d1",
+      "size_bytes": 58893,
+      "generated_at_utc": "2026-05-23T10:22:44.498111+00:00"
+    },
+    {
+      "name": "model_transfer_cross_model_synthesis",
+      "path": "benchmark/downstream/reports/model_transfer_cross_model_synthesis.json",
+      "exists": true,
+      "sha256": "fc575fd01e28800816b5285c9d580efb64fd1d8943e32263c2fe5b17c47d8f2b",
+      "size_bytes": 68222,
+      "generated_at_utc": "2026-05-23T10:22:44.566296+00:00"
     }
   ],
   "key_current_facts": {
@@ -106,6 +122,15 @@
     "forced_bad_total_public_passed_hidden_failed": 85,
     "selected_superiority_consistent": false,
     "selected_token_savings_supported": false,
+    "model_transfer_model": "mimo-v2.5",
+    "model_transfer_forced_bad_total_success": "0/108",
+    "model_transfer_forced_bad_total_tasks": 108,
+    "model_transfer_forced_bad_total_public_passed_hidden_failed": 108,
+    "model_transfer_selected_superiority_consistent": false,
+    "cross_model_forced_bad_combined_success": "0/216",
+    "cross_model_forced_bad_public_passed_hidden_failed": 216,
+    "cross_model_selected_superiority_model_general": false,
+    "cross_model_hard_v4_strict_selected_delta_reversed": true,
     "claim_count": 10,
     "paper_section_result_paragraphs": 6
   },
@@ -144,14 +169,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "53d8755f9f258cfa2ded177fe45f888cfec6ece4bdbd483c76fd1ea37ec31e5a",
-          "size_bytes": 33188
+          "sha256": "b97ee46c3ebabe8390cd5c396c12a85387980eb1e451a143e0da290436887646",
+          "size_bytes": 35398
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "57a25ffd18e991b86dc9f7c718e0beefbc943e03c0c8e2a60a397f3a2add96bd",
-          "size_bytes": 51320
+          "sha256": "27e3e3fdb744a799c8902cbd3ed54c22902a432bb102b338eaa63ed5ba284141",
+          "size_bytes": 53579
         }
       ],
       "regeneration_commands": [
@@ -200,8 +225,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "53d8755f9f258cfa2ded177fe45f888cfec6ece4bdbd483c76fd1ea37ec31e5a",
-          "size_bytes": 33188
+          "sha256": "b97ee46c3ebabe8390cd5c396c12a85387980eb1e451a143e0da290436887646",
+          "size_bytes": 35398
         }
       ],
       "regeneration_commands": [
@@ -252,8 +277,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "53d8755f9f258cfa2ded177fe45f888cfec6ece4bdbd483c76fd1ea37ec31e5a",
-          "size_bytes": 33188
+          "sha256": "b97ee46c3ebabe8390cd5c396c12a85387980eb1e451a143e0da290436887646",
+          "size_bytes": 35398
         }
       ],
       "regeneration_commands": [
@@ -304,8 +329,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "53d8755f9f258cfa2ded177fe45f888cfec6ece4bdbd483c76fd1ea37ec31e5a",
-          "size_bytes": 33188
+          "sha256": "b97ee46c3ebabe8390cd5c396c12a85387980eb1e451a143e0da290436887646",
+          "size_bytes": 35398
         }
       ],
       "regeneration_commands": [
@@ -460,20 +485,20 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "53d8755f9f258cfa2ded177fe45f888cfec6ece4bdbd483c76fd1ea37ec31e5a",
-          "size_bytes": 33188
+          "sha256": "b97ee46c3ebabe8390cd5c396c12a85387980eb1e451a143e0da290436887646",
+          "size_bytes": 35398
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "57a25ffd18e991b86dc9f7c718e0beefbc943e03c0c8e2a60a397f3a2add96bd",
-          "size_bytes": 51320
+          "sha256": "27e3e3fdb744a799c8902cbd3ed54c22902a432bb102b338eaa63ed5ba284141",
+          "size_bytes": 53579
         },
         {
           "path": "docs/progress_log.md",
           "exists": true,
-          "sha256": "bf2f9910ca9be050538be9699eae08312874177d2678e780f58689639f90a54a",
-          "size_bytes": 102810
+          "sha256": "06459c65389c6fc6f21a2e6f61e3b18032dc3e84d6abb23eb3994379f52849a2",
+          "size_bytes": 105337
         }
       ],
       "support_files": [],
@@ -515,14 +540,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "53d8755f9f258cfa2ded177fe45f888cfec6ece4bdbd483c76fd1ea37ec31e5a",
-          "size_bytes": 33188
+          "sha256": "b97ee46c3ebabe8390cd5c396c12a85387980eb1e451a143e0da290436887646",
+          "size_bytes": 35398
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "57a25ffd18e991b86dc9f7c718e0beefbc943e03c0c8e2a60a397f3a2add96bd",
-          "size_bytes": 51320
+          "sha256": "27e3e3fdb744a799c8902cbd3ed54c22902a432bb102b338eaa63ed5ba284141",
+          "size_bytes": 53579
         }
       ],
       "regeneration_commands": [
@@ -584,6 +609,112 @@
       ],
       "use_in_paper": "Use for hard_v4 boundary claims: tree-aware saturation, strict selected underperformance, and 0/48 forced-bad transfer.",
       "do_not_use_for": "Do not use hard_v4 to claim SkillAdmit-selected superiority or selected token savings."
+    },
+    {
+      "group_id": "G11_model_transfer_evidence",
+      "title": "Model-Transfer Evidence",
+      "role": "Second-model replication evidence over the frozen hard_v3/hard_v4 matrices.",
+      "primary_files": [
+        {
+          "path": "benchmark/downstream/reports/model_transfer_evidence_package.json",
+          "exists": true,
+          "sha256": "32505f40e1635dcf4f410fa88217becf3d4c0f381782c9d6b49f26fb64b6d2d1",
+          "size_bytes": 58893
+        },
+        {
+          "path": "benchmark/downstream/reports/model_transfer_evidence_package.md",
+          "exists": true,
+          "sha256": "7d423d9b66e46b32af60bf5ab6371a5011ed0f6de3d7eab846d117f7a71c9ec1",
+          "size_bytes": 11645
+        },
+        {
+          "path": "benchmark/downstream/reports/model_transfer_evidence_package.tex",
+          "exists": true,
+          "sha256": "ec3fe8515ee6de01157a07b4875a6b81ad5168c198f820eb5de2312a34b461b0",
+          "size_bytes": 4668
+        }
+      ],
+      "support_files": [
+        {
+          "path": "benchmark/downstream/reports/model_transfer_replication_protocol.json",
+          "exists": true,
+          "sha256": "ae3893cb2d81b9432ccc47797b4b390fb44ab5b6b057d14a5c93501090dc785e",
+          "size_bytes": 8593
+        },
+        {
+          "path": "benchmark/downstream/reports/model_transfer_replication_protocol.md",
+          "exists": true,
+          "sha256": "b6f23a607ecb700a27050c7bd68fc11ef6939df79d45c6f15ede2c77481bc609",
+          "size_bytes": 6239
+        },
+        {
+          "path": "benchmark/downstream/reports/hard_v3_evidence_package.json",
+          "exists": true,
+          "sha256": "894b8f7a1f7ac29659bb5adbcee4323aa11294a6741057d145f4ff0feb4101ec",
+          "size_bytes": 27042
+        },
+        {
+          "path": "benchmark/downstream/reports/hard_v4_evidence_package.json",
+          "exists": true,
+          "sha256": "c7e729993e44503b99f074598d0197f636317582a7d6a86f5d4f7984b4d7a022",
+          "size_bytes": 22128
+        }
+      ],
+      "regeneration_commands": [
+        "python scripts/export_model_transfer_evidence_package.py --assert-current-model-transfer"
+      ],
+      "use_in_paper": "Use to report the completed mimo-v2.5 transfer matrix: 864 rows, 0/108 forced-bad success, and model-sensitive selected deltas.",
+      "do_not_use_for": "Do not use one transfer model to claim model-general selected superiority or selected token savings."
+    },
+    {
+      "group_id": "G12_model_transfer_cross_model",
+      "title": "Model-Transfer Cross-Model Synthesis",
+      "role": "Baseline-versus-transfer synthesis over hard_v3/hard_v4 downstream evidence.",
+      "primary_files": [
+        {
+          "path": "benchmark/downstream/reports/model_transfer_cross_model_synthesis.json",
+          "exists": true,
+          "sha256": "fc575fd01e28800816b5285c9d580efb64fd1d8943e32263c2fe5b17c47d8f2b",
+          "size_bytes": 68222
+        },
+        {
+          "path": "benchmark/downstream/reports/model_transfer_cross_model_synthesis.md",
+          "exists": true,
+          "sha256": "f21e836c2239352db7bebc92ad75a7d3841b47a1d95287a0c0035afed98aa3c6",
+          "size_bytes": 9166
+        },
+        {
+          "path": "benchmark/downstream/reports/model_transfer_cross_model_synthesis.tex",
+          "exists": true,
+          "sha256": "c6389b9aa76b7f118ecdb3d6118b2d1ed869dcd559d10c219acdd7474a0abfff",
+          "size_bytes": 4149
+        }
+      ],
+      "support_files": [
+        {
+          "path": "benchmark/downstream/reports/hard_v3_evidence_package.json",
+          "exists": true,
+          "sha256": "894b8f7a1f7ac29659bb5adbcee4323aa11294a6741057d145f4ff0feb4101ec",
+          "size_bytes": 27042
+        },
+        {
+          "path": "benchmark/downstream/reports/hard_v4_evidence_package.json",
+          "exists": true,
+          "sha256": "c7e729993e44503b99f074598d0197f636317582a7d6a86f5d4f7984b4d7a022",
+          "size_bytes": 22128
+        },
+        {
+          "path": "benchmark/downstream/reports/model_transfer_evidence_package.json",
+          "exists": true,
+          "sha256": "32505f40e1635dcf4f410fa88217becf3d4c0f381782c9d6b49f26fb64b6d2d1",
+          "size_bytes": 58893
+        }
+      ],
+      "regeneration_commands": [
+        "python scripts/export_model_transfer_cross_model_synthesis.py --assert-current-cross-model"
+      ],
+      "use_in_paper": "Use to separate replicated findings from model-sensitive findings: forced-bad replicates across models, while hard_v4 strict selected reverses sign between baseline and transfer.",
+      "do_not_use_for": "Do not merge model-transfer synthesis into the hard_v2/hard_v3/hard_v4 boundary aggregate."
     }
   ],
   "regeneration_order": [
@@ -685,20 +816,32 @@
     },
     {
       "step": 17,
+      "name": "export_model_transfer_protocol",
+      "command": "python scripts/export_model_transfer_replication_protocol.py --assert-current-protocol",
+      "script_exists": true
+    },
+    {
+      "step": 18,
+      "name": "export_model_transfer_evidence",
+      "command": "python scripts/export_model_transfer_evidence_package.py --assert-current-model-transfer",
+      "script_exists": true
+    },
+    {
+      "step": 19,
+      "name": "export_model_transfer_cross_model",
+      "command": "python scripts/export_model_transfer_cross_model_synthesis.py --assert-current-cross-model",
+      "script_exists": true
+    },
+    {
+      "step": 20,
       "name": "export_artifacts_index",
       "command": "python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index",
       "script_exists": true
     },
     {
-      "step": 18,
+      "step": 21,
       "name": "audit_paper_claim_consistency",
       "command": "python scripts/audit_paper_claim_consistency.py --assert-current-audit",
-      "script_exists": true
-    },
-    {
-      "step": 19,
-      "name": "export_model_transfer_protocol",
-      "command": "python scripts/export_model_transfer_replication_protocol.py --assert-current-protocol",
       "script_exists": true
     }
   ],
@@ -767,6 +910,18 @@
       ],
       "allowed_claim": "hard_v2/hard_v3/hard_v4 together show conditional positive evidence, generalization boundary, stricter boundary, and 0/133 forced-bad evidence.",
       "avoid": "Do not use the boundary synthesis as a selected-wins leaderboard or as a substitute for evidence packages."
+    },
+    {
+      "table_id": "T_model_transfer",
+      "paper_role": "Optional model-transfer replication table.",
+      "primary_artifacts": [
+        "benchmark/downstream/reports/model_transfer_evidence_package.md",
+        "benchmark/downstream/reports/model_transfer_cross_model_synthesis.md",
+        "benchmark/downstream/reports/model_transfer_evidence_package.json",
+        "benchmark/downstream/reports/model_transfer_cross_model_synthesis.json"
+      ],
+      "allowed_claim": "mimo-v2.5 transfer replicates forced-bad negative transfer and reveals model-sensitive selected deltas.",
+      "avoid": "Do not claim model-general selected superiority or selected token savings from one transfer model."
     },
     {
       "table_id": "T_claim_defense_appendix",
@@ -928,7 +1083,7 @@
     }
   ],
   "next_experimental_boundary": {
-    "recommended": "boundary-synthesis-driven paper revision, model-transfer replication, or a predeclared hard_v5 boundary.",
+    "recommended": "boundary-synthesis-driven paper revision, model-transfer write-up, or a predeclared hard_v5 boundary.",
     "avoid": "Do not tune hard_v2/hard_v3/hard_v4 prompts or strategies from observed failures while still treating them as clean evidence."
   }
 }

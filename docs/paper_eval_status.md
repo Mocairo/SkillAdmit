@@ -1223,3 +1223,82 @@ The protocol is allowed to test model sensitivity, but it must not be used to
 claim model-general SkillAdmit-selected superiority or selected token savings.
 It is a pre-run registration artifact, not evidence.
 ```
+
+## 20. Model-Transfer Evidence Status
+
+The predeclared model-transfer matrix has completed with `mimo-v2.5`. This is a
+replication/sensitivity layer on top of the frozen hard_v3/hard_v4 task
+boundary, not a replacement for the hard_v2/hard_v3/hard_v4 boundary synthesis.
+
+Evidence scripts:
+
+```text
+scripts/export_model_transfer_evidence_package.py --assert-current-model-transfer
+scripts/export_model_transfer_cross_model_synthesis.py --assert-current-cross-model
+```
+
+Evidence artifacts:
+
+```text
+benchmark/downstream/reports/model_transfer_evidence_package.json
+benchmark/downstream/reports/model_transfer_evidence_package.md
+benchmark/downstream/reports/model_transfer_evidence_package.tex
+benchmark/downstream/reports/model_transfer_cross_model_synthesis.json
+benchmark/downstream/reports/model_transfer_cross_model_synthesis.md
+benchmark/downstream/reports/model_transfer_cross_model_synthesis.tex
+```
+
+Model-transfer facts:
+
+```text
+model: mimo-v2.5
+rows: 864/864
+parse_errors: 0
+forced_bad_artifact: 0/108
+forced_bad public-pass/hidden-fail: 108
+```
+
+Selected-vs-no_experience under transfer:
+
+```text
+hard_v3 tree-aware: 29/30 vs 29/30, delta 0
+hard_v3 strict:     29/30 vs 28/30, delta +1
+hard_v4 tree-aware: 24/24 vs 23/24, delta +1
+hard_v4 strict:     21/24 vs 18/24, delta +3
+```
+
+Cross-model synthesis:
+
+```text
+baseline model label: mimo-v2.5-pro
+transfer model: mimo-v2.5
+forced_bad combined: 0/216
+combined public-pass/hidden-fail: 216
+
+hard_v3 tree-aware selected tie replicated: true
+hard_v3 strict selected +1 replicated: true
+hard_v4 strict selected delta reversed: true
+```
+
+Artifact-index status:
+
+```text
+artifact_groups: 12
+table_index: 8
+claim_map: 10
+```
+
+Paper-facing boundary:
+
+```text
+This strengthens the negative-transfer story and weakens any simple selected
+superiority story. The strongest transferable result is harmful artifact
+execution causing systematic hidden-verifier failure. The selected context
+effect is conditional and model-sensitive.
+
+Do not claim:
+  model-general SkillAdmit-selected superiority
+  selected token savings across models
+  precondition-only replacing repository/tree context
+  hard_v3/hard_v4 cleanliness after tuning from transfer failures
+```

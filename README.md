@@ -17,6 +17,7 @@ The current repo contains:
 - generated downstream paper section, claim-defense matrix, and paper artifact index;
 - paper-facing claim consistency audit;
 - predeclared model-transfer replication protocol;
+- completed mimo-v2.5 model-transfer evidence package and cross-model synthesis;
 - experiment handoff and paper-facing status notes.
 
 Key entry points:
@@ -42,6 +43,8 @@ python scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-
 python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index
 python scripts/audit_paper_claim_consistency.py --assert-current-audit
 python scripts/export_model_transfer_replication_protocol.py --assert-current-protocol
+python scripts/export_model_transfer_evidence_package.py --assert-current-model-transfer
+python scripts/export_model_transfer_cross_model_synthesis.py --assert-current-cross-model
 ```
 
 Use the existing `skilladmit` conda environment for local reproduction. Runtime

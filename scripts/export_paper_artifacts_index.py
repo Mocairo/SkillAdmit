@@ -5,9 +5,10 @@ What this file does:
   Builds a compact index of the paper-facing artifacts produced by the
   SkillAdmit experiment: admission context, hard_v2 evidence, hard_v3 evidence,
   hard_v4 boundary evidence, cross-version synthesis, three-boundary synthesis,
-  paper-section draft, claim-defense matrix, the paper-claim consistency audit
-  command, and the model-transfer replication protocol command. The index
-  records each artifact's role, path, regeneration command, and claim boundary.
+  paper-section draft, claim-defense matrix, model-transfer evidence, the
+  paper-claim consistency audit command, and the model-transfer replication
+  protocol command. The index records each artifact's role, path, regeneration
+  command, and claim boundary.
 
 Why it is needed:
   The repository now contains many summaries, tables, evidence packages, and
@@ -28,6 +29,8 @@ Inputs:
   benchmark/downstream/reports/downstream_paper_eval_section.json
   benchmark/downstream/reports/downstream_claim_defense_matrix.json
   benchmark/downstream/reports/hard_v4_scaffold_manifest.json
+  benchmark/downstream/reports/model_transfer_evidence_package.json
+  benchmark/downstream/reports/model_transfer_cross_model_synthesis.json
 
 Outputs:
   benchmark/downstream/reports/paper_artifacts_index.json
@@ -68,6 +71,8 @@ INPUTS = {
     "downstream_paper_eval_section": REPORT_DIR / "downstream_paper_eval_section.json",
     "downstream_claim_defense_matrix": REPORT_DIR / "downstream_claim_defense_matrix.json",
     "hard_v4_scaffold_manifest": REPORT_DIR / "hard_v4_scaffold_manifest.json",
+    "model_transfer_evidence_package": REPORT_DIR / "model_transfer_evidence_package.json",
+    "model_transfer_cross_model_synthesis": REPORT_DIR / "model_transfer_cross_model_synthesis.json",
 }
 
 
@@ -106,6 +111,15 @@ ARTIFACT_PATHS = {
     "hard_v4_evidence_json": REPORT_DIR / "hard_v4_evidence_package.json",
     "hard_v4_paper_tables_md": REPORT_DIR / "hard_v4_paper_tables.md",
     "hard_v4_paper_tables_tex": REPORT_DIR / "hard_v4_paper_tables.tex",
+    "model_transfer_protocol_json": REPORT_DIR / "model_transfer_replication_protocol.json",
+    "model_transfer_protocol_md": REPORT_DIR / "model_transfer_replication_protocol.md",
+    "model_transfer_protocol_tex": REPORT_DIR / "model_transfer_replication_protocol.tex",
+    "model_transfer_evidence_json": REPORT_DIR / "model_transfer_evidence_package.json",
+    "model_transfer_evidence_md": REPORT_DIR / "model_transfer_evidence_package.md",
+    "model_transfer_evidence_tex": REPORT_DIR / "model_transfer_evidence_package.tex",
+    "model_transfer_cross_model_json": REPORT_DIR / "model_transfer_cross_model_synthesis.json",
+    "model_transfer_cross_model_md": REPORT_DIR / "model_transfer_cross_model_synthesis.md",
+    "model_transfer_cross_model_tex": REPORT_DIR / "model_transfer_cross_model_synthesis.tex",
     "hard_v4_protocol": ROOT / "docs" / "llm_downstream_hard_v4.md",
     "paper_eval_status": ROOT / "docs" / "paper_eval_status.md",
     "experiment_handoff": ROOT / "docs" / "experiment_handoff.md",
@@ -133,6 +147,8 @@ SCRIPT_PATHS = {
     "export_artifacts_index": ROOT / "scripts" / "export_paper_artifacts_index.py",
     "audit_paper_claim_consistency": ROOT / "scripts" / "audit_paper_claim_consistency.py",
     "export_model_transfer_protocol": ROOT / "scripts" / "export_model_transfer_replication_protocol.py",
+    "export_model_transfer_evidence": ROOT / "scripts" / "export_model_transfer_evidence_package.py",
+    "export_model_transfer_cross_model": ROOT / "scripts" / "export_model_transfer_cross_model_synthesis.py",
 }
 
 
@@ -334,6 +350,54 @@ def build_artifact_groups() -> list[dict[str, Any]]:
             "Use for hard_v4 boundary claims: tree-aware saturation, strict selected underperformance, and 0/48 forced-bad transfer.",
             "Do not use hard_v4 to claim SkillAdmit-selected superiority or selected token savings.",
         ),
+        build_artifact_group(
+            "G11_model_transfer_evidence",
+            "Model-Transfer Evidence",
+            "Second-model replication evidence over the frozen hard_v3/hard_v4 matrices.",
+            [
+                "model_transfer_evidence_json",
+                "model_transfer_evidence_md",
+                "model_transfer_evidence_tex",
+            ],
+            [
+                "model_transfer_protocol_json",
+                "model_transfer_protocol_md",
+                "hard_v3_evidence_json",
+                "hard_v4_evidence_json",
+            ],
+            [
+                "python scripts/export_model_transfer_evidence_package.py --assert-current-model-transfer",
+            ],
+            (
+                "Use to report the completed mimo-v2.5 transfer matrix: 864 rows, "
+                "0/108 forced-bad success, and model-sensitive selected deltas."
+            ),
+            "Do not use one transfer model to claim model-general selected superiority or selected token savings.",
+        ),
+        build_artifact_group(
+            "G12_model_transfer_cross_model",
+            "Model-Transfer Cross-Model Synthesis",
+            "Baseline-versus-transfer synthesis over hard_v3/hard_v4 downstream evidence.",
+            [
+                "model_transfer_cross_model_json",
+                "model_transfer_cross_model_md",
+                "model_transfer_cross_model_tex",
+            ],
+            [
+                "hard_v3_evidence_json",
+                "hard_v4_evidence_json",
+                "model_transfer_evidence_json",
+            ],
+            [
+                "python scripts/export_model_transfer_cross_model_synthesis.py --assert-current-cross-model",
+            ],
+            (
+                "Use to separate replicated findings from model-sensitive findings: "
+                "forced-bad replicates across models, while hard_v4 strict selected "
+                "reverses sign between baseline and transfer."
+            ),
+            "Do not merge model-transfer synthesis into the hard_v2/hard_v3/hard_v4 boundary aggregate.",
+        ),
     ]
 
 
@@ -358,12 +422,20 @@ def build_regeneration_order() -> list[dict[str, str]]:
         ("export_boundary_synthesis", "python scripts/export_downstream_boundary_synthesis.py --assert-current-boundary-synthesis"),
         ("export_paper_section", "python scripts/export_downstream_paper_section.py --assert-current-paper-section"),
         ("export_claim_defense", "python scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-defense"),
-        ("export_artifacts_index", "python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index"),
-        ("audit_paper_claim_consistency", "python scripts/audit_paper_claim_consistency.py --assert-current-audit"),
         (
             "export_model_transfer_protocol",
             "python scripts/export_model_transfer_replication_protocol.py --assert-current-protocol",
         ),
+        (
+            "export_model_transfer_evidence",
+            "python scripts/export_model_transfer_evidence_package.py --assert-current-model-transfer",
+        ),
+        (
+            "export_model_transfer_cross_model",
+            "python scripts/export_model_transfer_cross_model_synthesis.py --assert-current-cross-model",
+        ),
+        ("export_artifacts_index", "python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index"),
+        ("audit_paper_claim_consistency", "python scripts/audit_paper_claim_consistency.py --assert-current-audit"),
     ]
     return [
         {
@@ -442,6 +514,18 @@ def build_table_index() -> list[dict[str, Any]]:
             ],
             "allowed_claim": "hard_v2/hard_v3/hard_v4 together show conditional positive evidence, generalization boundary, stricter boundary, and 0/133 forced-bad evidence.",
             "avoid": "Do not use the boundary synthesis as a selected-wins leaderboard or as a substitute for evidence packages.",
+        },
+        {
+            "table_id": "T_model_transfer",
+            "paper_role": "Optional model-transfer replication table.",
+            "primary_artifacts": [
+                display_path(ARTIFACT_PATHS["model_transfer_evidence_md"]),
+                display_path(ARTIFACT_PATHS["model_transfer_cross_model_md"]),
+                display_path(ARTIFACT_PATHS["model_transfer_evidence_json"]),
+                display_path(ARTIFACT_PATHS["model_transfer_cross_model_json"]),
+            ],
+            "allowed_claim": "mimo-v2.5 transfer replicates forced-bad negative transfer and reveals model-sensitive selected deltas.",
+            "avoid": "Do not claim model-general selected superiority or selected token savings from one transfer model.",
         },
         {
             "table_id": "T_claim_defense_appendix",
@@ -526,6 +610,8 @@ def build_index(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
     boundary = data["downstream_boundary_synthesis"]
     paper_section = data["downstream_paper_eval_section"]
     claim_defense = data["downstream_claim_defense_matrix"]
+    transfer_evidence = data["model_transfer_evidence_package"]
+    transfer_cross_model = data["model_transfer_cross_model_synthesis"]
 
     v2_tree_no = find_row(hard_v2, "llm_downstream_hard_v2_tree_25x2", "no_experience")
     v2_tree_selected = find_row(hard_v2, "llm_downstream_hard_v2_tree_25x2", "skilladmit_selected")
@@ -590,6 +676,31 @@ def build_index(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
             ],
             "selected_superiority_consistent": derived["selected_superiority_consistent"],
             "selected_token_savings_supported": derived["selected_token_savings_supported"],
+            "model_transfer_model": transfer_evidence["transfer_model"],
+            "model_transfer_forced_bad_total_success": transfer_evidence["forced_bad_summary"][
+                "total_success"
+            ],
+            "model_transfer_forced_bad_total_tasks": transfer_evidence["forced_bad_summary"][
+                "total_tasks"
+            ],
+            "model_transfer_forced_bad_total_public_passed_hidden_failed": transfer_evidence[
+                "forced_bad_summary"
+            ]["total_public_passed_hidden_failed"],
+            "model_transfer_selected_superiority_consistent": transfer_evidence["derived_claims"][
+                "selected_superiority_consistent"
+            ],
+            "cross_model_forced_bad_combined_success": transfer_cross_model["derived_claims"][
+                "forced_bad_combined_success"
+            ],
+            "cross_model_forced_bad_public_passed_hidden_failed": transfer_cross_model[
+                "derived_claims"
+            ]["forced_bad_combined_public_passed_hidden_failed"],
+            "cross_model_selected_superiority_model_general": transfer_cross_model[
+                "derived_claims"
+            ]["selected_superiority_model_general"],
+            "cross_model_hard_v4_strict_selected_delta_reversed": transfer_cross_model[
+                "derived_claims"
+            ]["hard_v4_strict_selected_delta_reversed"],
             "claim_count": claim_defense["claim_count"],
             "paper_section_result_paragraphs": len(paper_section["results"]),
         },
@@ -599,7 +710,7 @@ def build_index(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
         "claim_to_artifact_map": build_claim_to_artifact_map(claim_defense),
         "do_not_cite_as_primary": build_do_not_cite_as_primary(),
         "next_experimental_boundary": {
-            "recommended": "boundary-synthesis-driven paper revision, model-transfer replication, or a predeclared hard_v5 boundary.",
+            "recommended": "boundary-synthesis-driven paper revision, model-transfer write-up, or a predeclared hard_v5 boundary.",
             "avoid": "Do not tune hard_v2/hard_v3/hard_v4 prompts or strategies from observed failures while still treating them as clean evidence.",
         },
     }
@@ -630,6 +741,15 @@ def assert_index(index: dict[str, Any]) -> None:
         "forced_bad_total_public_passed_hidden_failed": 85,
         "selected_superiority_consistent": False,
         "selected_token_savings_supported": False,
+        "model_transfer_model": "mimo-v2.5",
+        "model_transfer_forced_bad_total_success": "0/108",
+        "model_transfer_forced_bad_total_tasks": 108,
+        "model_transfer_forced_bad_total_public_passed_hidden_failed": 108,
+        "model_transfer_selected_superiority_consistent": False,
+        "cross_model_forced_bad_combined_success": "0/216",
+        "cross_model_forced_bad_public_passed_hidden_failed": 216,
+        "cross_model_selected_superiority_model_general": False,
+        "cross_model_hard_v4_strict_selected_delta_reversed": True,
         "claim_count": 10,
         "paper_section_result_paragraphs": 6,
     }
@@ -645,9 +765,9 @@ def assert_index(index: dict[str, Any]) -> None:
         for file_info in group["primary_files"] + group["support_files"]:
             if not file_info["exists"]:
                 raise AssertionError(f"missing artifact file: {file_info['path']}")
-    if len(index["artifact_groups"]) != 10:
+    if len(index["artifact_groups"]) != 12:
         raise AssertionError("artifact group count changed")
-    if len(index["table_index"]) != 7:
+    if len(index["table_index"]) != 8:
         raise AssertionError("table index count changed")
     if len(index["claim_to_artifact_map"]) != 10:
         raise AssertionError("claim map count changed")
@@ -661,12 +781,18 @@ def assert_index(index: dict[str, Any]) -> None:
         "0/85",
         "0/48",
         "0/133",
+        "0/108",
+        "0/216",
         "Do not tune hard_v2/hard_v3/hard_v4 prompts",
         "hard_v4_scaffold_manifest.json",
         "hard_v4_evidence_package.json",
         "downstream_boundary_synthesis.json",
+        "model_transfer_evidence_package.json",
+        "model_transfer_cross_model_synthesis.json",
         "audit_paper_claim_consistency.py",
         "export_model_transfer_replication_protocol.py",
+        "export_model_transfer_evidence_package.py",
+        "export_model_transfer_cross_model_synthesis.py",
         "boundary-synthesis-driven paper revision",
         "downstream_claim_defense_matrix.json",
     ]
