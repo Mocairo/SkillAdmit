@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T05:33:34.101423+00:00",
+  "generated_at_utc": "2026-05-23T06:12:44.298305+00:00",
   "purpose": "One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the correct evidence, table, script, and claim boundary for downstream validation writing.",
   "source_inputs": [
     {
@@ -62,17 +62,17 @@
       "name": "downstream_paper_eval_section",
       "path": "benchmark/downstream/reports/downstream_paper_eval_section.json",
       "exists": true,
-      "sha256": "c2349ccafc9043d59964319fcb1980320cfeeacb6ac8bd428d947fbe4cc7a684",
-      "size_bytes": 6198,
-      "generated_at_utc": "2026-05-22T13:56:02.404103+00:00"
+      "sha256": "d670f1ff13a95fa6ffcfcc863e02ef0f24e80ba3413fe4db8c290f212fa80301",
+      "size_bytes": 7062,
+      "generated_at_utc": "2026-05-23T06:09:05.254849+00:00"
     },
     {
       "name": "downstream_claim_defense_matrix",
       "path": "benchmark/downstream/reports/downstream_claim_defense_matrix.json",
       "exists": true,
-      "sha256": "12fda3af24f4bd40f823c7b57760939c57a22a00b919de2452287d680d2d39c5",
-      "size_bytes": 31094,
-      "generated_at_utc": "2026-05-22T13:56:02.456157+00:00"
+      "sha256": "22c3e5685b9335fe5ad946b5c4cd1c39b687d23c64dc6d0d8443001168c7092b",
+      "size_bytes": 41180,
+      "generated_at_utc": "2026-05-23T06:12:44.291834+00:00"
     },
     {
       "name": "hard_v4_scaffold_manifest",
@@ -107,7 +107,7 @@
     "selected_superiority_consistent": false,
     "selected_token_savings_supported": false,
     "claim_count": 10,
-    "paper_section_result_paragraphs": 5
+    "paper_section_result_paragraphs": 6
   },
   "artifact_groups": [
     {
@@ -144,14 +144,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "cd5698c310c3b88f81b054157f247e00da20330f6162aa6f68db5bbc600bc610",
-          "size_bytes": 29071
+          "sha256": "ce4292f66b5da5d5e79a157e32b5045c38e925e70cbfb55918d69d648890b0d5",
+          "size_bytes": 30984
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "90f8909b393cc58f2d164d7fa4178a6244fb8db96c93a647e8090f4c4c014e5d",
-          "size_bytes": 46050
+          "sha256": "3cd133ba0f35c8bbddef86b0026ac905f4b279636702d5db32ff360967a111b8",
+          "size_bytes": 48054
         }
       ],
       "regeneration_commands": [
@@ -200,8 +200,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "cd5698c310c3b88f81b054157f247e00da20330f6162aa6f68db5bbc600bc610",
-          "size_bytes": 29071
+          "sha256": "ce4292f66b5da5d5e79a157e32b5045c38e925e70cbfb55918d69d648890b0d5",
+          "size_bytes": 30984
         }
       ],
       "regeneration_commands": [
@@ -252,8 +252,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "cd5698c310c3b88f81b054157f247e00da20330f6162aa6f68db5bbc600bc610",
-          "size_bytes": 29071
+          "sha256": "ce4292f66b5da5d5e79a157e32b5045c38e925e70cbfb55918d69d648890b0d5",
+          "size_bytes": 30984
         }
       ],
       "regeneration_commands": [
@@ -304,8 +304,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "cd5698c310c3b88f81b054157f247e00da20330f6162aa6f68db5bbc600bc610",
-          "size_bytes": 29071
+          "sha256": "ce4292f66b5da5d5e79a157e32b5045c38e925e70cbfb55918d69d648890b0d5",
+          "size_bytes": 30984
         }
       ],
       "regeneration_commands": [
@@ -367,39 +367,39 @@
     {
       "group_id": "G6_paper_section",
       "title": "Draftable Paper Section",
-      "role": "Generated evaluation-section prose tied to the frozen synthesis.",
+      "role": "Generated evaluation-section prose tied to the frozen three-boundary synthesis.",
       "primary_files": [
         {
           "path": "benchmark/downstream/reports/downstream_paper_eval_section.json",
           "exists": true,
-          "sha256": "c2349ccafc9043d59964319fcb1980320cfeeacb6ac8bd428d947fbe4cc7a684",
-          "size_bytes": 6198
+          "sha256": "d670f1ff13a95fa6ffcfcc863e02ef0f24e80ba3413fe4db8c290f212fa80301",
+          "size_bytes": 7062
         },
         {
           "path": "benchmark/downstream/reports/downstream_paper_eval_section.md",
           "exists": true,
-          "sha256": "8340e942b14b20a8deb3a0ff5696dae1c05aba9075a5fff86baffe36366e77ce",
-          "size_bytes": 5869
+          "sha256": "5eee30c20fb728d22179d11e57d7e1e0d4e19c3462eb3bd78d3bfb4579dffec9",
+          "size_bytes": 6712
         },
         {
           "path": "benchmark/downstream/reports/downstream_paper_eval_section.tex",
           "exists": true,
-          "sha256": "901dbd57826a011700f2f5cadf219e46dd0f6274c548b67c72da4d8e3af79aab",
-          "size_bytes": 5624
+          "sha256": "a1a1361a512173e99a5e18f3a42fb2b5e70bf47f14d5d46d2ed24d9a6ea04410",
+          "size_bytes": 6491
         }
       ],
       "support_files": [
         {
-          "path": "benchmark/downstream/reports/downstream_cross_version_synthesis.json",
+          "path": "benchmark/downstream/reports/downstream_boundary_synthesis.json",
           "exists": true,
-          "sha256": "e5d5bf0e8545fb09a69c506b0ed8ca4b4b404c1f48324e72c7290b1337330ee3",
-          "size_bytes": 19857
+          "sha256": "b5e58a54217563fbe2a24e3b4d63090b66d5d0ded6d9872ccb5e57e6bd1237aa",
+          "size_bytes": 45450
         },
         {
           "path": "benchmark/downstream/reports/downstream_claim_defense_matrix.md",
           "exists": true,
-          "sha256": "475f21c18415f99892a5017e52483862ccafec6f4bba21147b4491525b416045",
-          "size_bytes": 21198
+          "sha256": "d1dc1123446e988adfa061c3234de6714d0bbcd8a4d4cc8ab176a8048f45a822",
+          "size_bytes": 24680
         }
       ],
       "regeneration_commands": [
@@ -416,34 +416,34 @@
         {
           "path": "benchmark/downstream/reports/downstream_claim_defense_matrix.json",
           "exists": true,
-          "sha256": "12fda3af24f4bd40f823c7b57760939c57a22a00b919de2452287d680d2d39c5",
-          "size_bytes": 31094
+          "sha256": "22c3e5685b9335fe5ad946b5c4cd1c39b687d23c64dc6d0d8443001168c7092b",
+          "size_bytes": 41180
         },
         {
           "path": "benchmark/downstream/reports/downstream_claim_defense_matrix.md",
           "exists": true,
-          "sha256": "475f21c18415f99892a5017e52483862ccafec6f4bba21147b4491525b416045",
-          "size_bytes": 21198
+          "sha256": "d1dc1123446e988adfa061c3234de6714d0bbcd8a4d4cc8ab176a8048f45a822",
+          "size_bytes": 24680
         },
         {
           "path": "benchmark/downstream/reports/downstream_claim_defense_matrix.tex",
           "exists": true,
-          "sha256": "c15b10f10386d5e4fbe075f20991e88ba3cb84e5d808b96db3557b1633c43603",
-          "size_bytes": 3038
+          "sha256": "8c4cb516baba4ccc99d639f25cd84fb444d0bfddddb5ded6fedbd208d41c49c6",
+          "size_bytes": 3063
         }
       ],
       "support_files": [
         {
-          "path": "benchmark/downstream/reports/downstream_cross_version_synthesis.json",
+          "path": "benchmark/downstream/reports/downstream_boundary_synthesis.json",
           "exists": true,
-          "sha256": "e5d5bf0e8545fb09a69c506b0ed8ca4b4b404c1f48324e72c7290b1337330ee3",
-          "size_bytes": 19857
+          "sha256": "b5e58a54217563fbe2a24e3b4d63090b66d5d0ded6d9872ccb5e57e6bd1237aa",
+          "size_bytes": 45450
         },
         {
           "path": "benchmark/downstream/reports/downstream_paper_eval_section.json",
           "exists": true,
-          "sha256": "c2349ccafc9043d59964319fcb1980320cfeeacb6ac8bd428d947fbe4cc7a684",
-          "size_bytes": 6198
+          "sha256": "d670f1ff13a95fa6ffcfcc863e02ef0f24e80ba3413fe4db8c290f212fa80301",
+          "size_bytes": 7062
         }
       ],
       "regeneration_commands": [
@@ -460,20 +460,20 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "cd5698c310c3b88f81b054157f247e00da20330f6162aa6f68db5bbc600bc610",
-          "size_bytes": 29071
+          "sha256": "ce4292f66b5da5d5e79a157e32b5045c38e925e70cbfb55918d69d648890b0d5",
+          "size_bytes": 30984
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "90f8909b393cc58f2d164d7fa4178a6244fb8db96c93a647e8090f4c4c014e5d",
-          "size_bytes": 46050
+          "sha256": "3cd133ba0f35c8bbddef86b0026ac905f4b279636702d5db32ff360967a111b8",
+          "size_bytes": 48054
         },
         {
           "path": "docs/progress_log.md",
           "exists": true,
-          "sha256": "b4bbbfdf1ca62fe9e994f0ef2e74a218d7bcd1056fa85ede0b76a97d2f93c6f3",
-          "size_bytes": 94198
+          "sha256": "ad5a5112011a5c3324c9b12faca67eca184970098a637e521bdee34ca34e836c",
+          "size_bytes": 96971
         }
       ],
       "support_files": [],
@@ -515,14 +515,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "cd5698c310c3b88f81b054157f247e00da20330f6162aa6f68db5bbc600bc610",
-          "size_bytes": 29071
+          "sha256": "ce4292f66b5da5d5e79a157e32b5045c38e925e70cbfb55918d69d648890b0d5",
+          "size_bytes": 30984
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "90f8909b393cc58f2d164d7fa4178a6244fb8db96c93a647e8090f4c4c014e5d",
-          "size_bytes": 46050
+          "sha256": "3cd133ba0f35c8bbddef86b0026ac905f4b279636702d5db32ff360967a111b8",
+          "size_bytes": 48054
         }
       ],
       "regeneration_commands": [
@@ -601,86 +601,86 @@
     },
     {
       "step": 3,
-      "name": "admission_regression",
-      "command": "python scripts/run_admission_regression.py",
-      "script_exists": true
-    },
-    {
-      "step": 4,
-      "name": "summarize_hard_v2",
-      "command": "python scripts/summarize_hard_v2_results.py --assert-current-hard-v2",
-      "script_exists": true
-    },
-    {
-      "step": 5,
-      "name": "export_hard_v2",
-      "command": "python scripts/export_hard_v2_evidence_package.py --assert-current-hard-v2",
-      "script_exists": true
-    },
-    {
-      "step": 6,
-      "name": "summarize_hard_v3",
-      "command": "python scripts/summarize_hard_v3_results.py --assert-current-hard-v3",
-      "script_exists": true
-    },
-    {
-      "step": 7,
-      "name": "export_hard_v3",
-      "command": "python scripts/export_hard_v3_evidence_package.py --assert-current-hard-v3",
-      "script_exists": true
-    },
-    {
-      "step": 8,
-      "name": "export_cross_synthesis",
-      "command": "python scripts/export_downstream_cross_version_synthesis.py --assert-current-synthesis",
-      "script_exists": true
-    },
-    {
-      "step": 9,
-      "name": "export_boundary_synthesis",
-      "command": "python scripts/export_downstream_boundary_synthesis.py --assert-current-boundary-synthesis",
-      "script_exists": true
-    },
-    {
-      "step": 10,
-      "name": "export_paper_section",
-      "command": "python scripts/export_downstream_paper_section.py --assert-current-paper-section",
-      "script_exists": true
-    },
-    {
-      "step": 11,
-      "name": "export_claim_defense",
-      "command": "python scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-defense",
-      "script_exists": true
-    },
-    {
-      "step": 12,
       "name": "build_hard_v4",
       "command": "python scripts/build_downstream_hard_v4_tasks.py",
       "script_exists": true
     },
     {
-      "step": 13,
+      "step": 4,
       "name": "check_hard_v4",
       "command": "python scripts/check_downstream_hard_v4_tasks.py",
       "script_exists": true
     },
     {
-      "step": 14,
+      "step": 5,
+      "name": "admission_regression",
+      "command": "python scripts/run_admission_regression.py",
+      "script_exists": true
+    },
+    {
+      "step": 6,
+      "name": "summarize_hard_v2",
+      "command": "python scripts/summarize_hard_v2_results.py --assert-current-hard-v2",
+      "script_exists": true
+    },
+    {
+      "step": 7,
+      "name": "export_hard_v2",
+      "command": "python scripts/export_hard_v2_evidence_package.py --assert-current-hard-v2",
+      "script_exists": true
+    },
+    {
+      "step": 8,
+      "name": "summarize_hard_v3",
+      "command": "python scripts/summarize_hard_v3_results.py --assert-current-hard-v3",
+      "script_exists": true
+    },
+    {
+      "step": 9,
+      "name": "export_hard_v3",
+      "command": "python scripts/export_hard_v3_evidence_package.py --assert-current-hard-v3",
+      "script_exists": true
+    },
+    {
+      "step": 10,
       "name": "export_hard_v4_scaffold",
       "command": "python scripts/export_hard_v4_scaffold_manifest.py --run-checker --assert-current-hard-v4-scaffold",
       "script_exists": true
     },
     {
-      "step": 15,
+      "step": 11,
       "name": "summarize_hard_v4",
       "command": "python scripts/summarize_hard_v4_results.py --assert-current-hard-v4",
       "script_exists": true
     },
     {
-      "step": 16,
+      "step": 12,
       "name": "export_hard_v4",
       "command": "python scripts/export_hard_v4_evidence_package.py --assert-current-hard-v4",
+      "script_exists": true
+    },
+    {
+      "step": 13,
+      "name": "export_cross_synthesis",
+      "command": "python scripts/export_downstream_cross_version_synthesis.py --assert-current-synthesis",
+      "script_exists": true
+    },
+    {
+      "step": 14,
+      "name": "export_boundary_synthesis",
+      "command": "python scripts/export_downstream_boundary_synthesis.py --assert-current-boundary-synthesis",
+      "script_exists": true
+    },
+    {
+      "step": 15,
+      "name": "export_paper_section",
+      "command": "python scripts/export_downstream_paper_section.py --assert-current-paper-section",
+      "script_exists": true
+    },
+    {
+      "step": 16,
+      "name": "export_claim_defense",
+      "command": "python scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-defense",
       "script_exists": true
     },
     {
@@ -775,7 +775,8 @@
       "primary_artifact": "benchmark/downstream/reports/downstream_claim_defense_matrix.json",
       "supporting_artifacts": [
         "benchmark/downstream/reports/hard_v2_evidence_package.json",
-        "benchmark/downstream/reports/hard_v3_evidence_package.json"
+        "benchmark/downstream/reports/hard_v3_evidence_package.json",
+        "benchmark/downstream/reports/hard_v4_evidence_package.json"
       ],
       "allowed_wording_first": "We complement admission accuracy with downstream hidden-verifier validation.",
       "forbidden_wording_first": "Admission accuracy alone proves downstream utility."
@@ -805,9 +806,10 @@
       "status": "boundary_claim",
       "primary_artifact": "benchmark/downstream/reports/downstream_claim_defense_matrix.json",
       "supporting_artifacts": [
-        "benchmark/downstream/reports/hard_v3_evidence_package.json"
+        "benchmark/downstream/reports/hard_v3_evidence_package.json",
+        "benchmark/downstream/reports/hard_v4_evidence_package.json"
       ],
-      "allowed_wording_first": "hard_v3 is a generalization boundary for the selected-superiority claim.",
+      "allowed_wording_first": "hard_v3 and hard_v4 are generalization boundaries for the selected-superiority claim.",
       "forbidden_wording_first": "hard_v3 proves SkillAdmit-selected superiority."
     },
     {
@@ -816,7 +818,9 @@
       "primary_artifact": "benchmark/downstream/reports/downstream_claim_defense_matrix.json",
       "supporting_artifacts": [
         "benchmark/downstream/reports/hard_v2_evidence_package.json",
-        "benchmark/downstream/reports/hard_v3_evidence_package.json"
+        "benchmark/downstream/reports/hard_v3_evidence_package.json",
+        "benchmark/downstream/reports/hard_v4_evidence_package.json",
+        "benchmark/downstream/reports/downstream_boundary_synthesis.json"
       ],
       "allowed_wording_first": "Repo tree and preconditions should be treated as task-context variables.",
       "forbidden_wording_first": "Precondition-only replaces repository tree."
@@ -828,9 +832,10 @@
       "supporting_artifacts": [
         "benchmark/downstream/reports/hard_v2_evidence_package.json",
         "benchmark/downstream/reports/hard_v3_evidence_package.json",
-        "benchmark/downstream/reports/downstream_cross_version_synthesis.json"
+        "benchmark/downstream/reports/hard_v4_evidence_package.json",
+        "benchmark/downstream/reports/downstream_boundary_synthesis.json"
       ],
-      "allowed_wording_first": "Forced harmful artifacts produce systematic negative transfer: 0/85 success with 85 public-pass/hidden-fail cases.",
+      "allowed_wording_first": "Forced harmful artifacts produce systematic negative transfer: 0/133 success with 133 public-pass/hidden-fail cases.",
       "forbidden_wording_first": "SkillAdmit proves all admitted artifacts are safe."
     },
     {
@@ -839,7 +844,8 @@
       "primary_artifact": "benchmark/downstream/reports/downstream_claim_defense_matrix.json",
       "supporting_artifacts": [
         "benchmark/downstream/reports/hard_v3_evidence_package.json",
-        "benchmark/downstream/reports/hard_v2_evidence_package.json"
+        "benchmark/downstream/reports/hard_v2_evidence_package.json",
+        "benchmark/downstream/reports/hard_v4_evidence_package.json"
       ],
       "allowed_wording_first": "The model often succeeds by ignoring harmful advice.",
       "forbidden_wording_first": "Bad dependency advice is safe."
@@ -850,7 +856,8 @@
       "primary_artifact": "benchmark/downstream/reports/downstream_claim_defense_matrix.json",
       "supporting_artifacts": [
         "benchmark/downstream/reports/hard_v2_evidence_package.json",
-        "benchmark/downstream/reports/hard_v3_evidence_package.json"
+        "benchmark/downstream/reports/hard_v3_evidence_package.json",
+        "benchmark/downstream/reports/hard_v4_evidence_package.json"
       ],
       "allowed_wording_first": "Raw memory must be reported as a serious comparison condition.",
       "forbidden_wording_first": "Raw memory is safe because it reaches 30/30 on hard_v3."
@@ -860,7 +867,7 @@
       "status": "not_supported_claim",
       "primary_artifact": "benchmark/downstream/reports/downstream_claim_defense_matrix.json",
       "supporting_artifacts": [
-        "benchmark/downstream/reports/downstream_cross_version_synthesis.json"
+        "benchmark/downstream/reports/downstream_boundary_synthesis.json"
       ],
       "allowed_wording_first": "Token savings are not a supported paper claim.",
       "forbidden_wording_first": "SkillAdmit-selected reduces token cost."
@@ -871,7 +878,8 @@
       "primary_artifact": "benchmark/downstream/reports/downstream_claim_defense_matrix.json",
       "supporting_artifacts": [
         "benchmark/downstream/reports/hard_v2_evidence_package.json",
-        "benchmark/downstream/reports/hard_v3_evidence_package.json"
+        "benchmark/downstream/reports/hard_v3_evidence_package.json",
+        "benchmark/downstream/reports/hard_v4_evidence_package.json"
       ],
       "allowed_wording_first": "All-skills is a strong upper-context comparison and should be reported.",
       "forbidden_wording_first": "Selection always beats all-skills."

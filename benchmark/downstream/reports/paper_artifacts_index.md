@@ -1,6 +1,6 @@
 # Paper Artifacts Index
 
-Generated at UTC: `2026-05-23T05:33:34.101423+00:00`
+Generated at UTC: `2026-05-23T06:12:44.298305+00:00`
 
 One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the correct evidence, table, script, and claim boundary for downstream validation writing.
 
@@ -31,7 +31,7 @@ One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the corre
 | selected_superiority_consistent | False |
 | selected_token_savings_supported | False |
 | claim_count | 10 |
-| paper_section_result_paragraphs | 5 |
+| paper_section_result_paragraphs | 6 |
 
 ## Artifact Groups
 
@@ -42,7 +42,7 @@ One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the corre
 | G3_hard_v3_evidence | Hard v3 Evidence | Fresh downstream boundary evidence and artifact-adherence caveats. | Use for hard_v3 boundary claims: selected ties no_experience in tree-aware and is not best in strict visible-file. | Do not use hard_v3 to claim universal SkillAdmit-selected superiority or selected token savings. |
 | G4_cross_version_synthesis | Cross-Version Synthesis | Primary paper-facing synthesis of hard_v2 and hard_v3 claim boundaries. | Use for the top-level downstream story and forced_bad_artifact aggregate. | Do not merge hard_v2 and hard_v3 into a single anonymous leaderboard. |
 | G5_boundary_synthesis | Boundary Synthesis | Three-boundary synthesis covering hard_v2, hard_v3, and hard_v4. | Use for the high-level paper boundary story: conditional positive, generalization boundary, stricter boundary, and 0/133 forced-bad evidence. | Do not use boundary synthesis as a substitute for the underlying suite-specific evidence packages. |
-| G6_paper_section | Draftable Paper Section | Generated evaluation-section prose tied to the frozen synthesis. | Use as the starting point for writing the downstream validation subsection. | Do not edit this prose into stronger claims without updating evidence and assertions. |
+| G6_paper_section | Draftable Paper Section | Generated evaluation-section prose tied to the frozen three-boundary synthesis. | Use as the starting point for writing the downstream validation subsection. | Do not edit this prose into stronger claims without updating evidence and assertions. |
 | G7_claim_defense | Claim Defense Matrix | Reviewer-facing claim-by-claim evidence map and forbidden wording ledger. | Use during paper revision and reviewer response drafting. | Do not treat reviewer-response wording as new experimental evidence. |
 | G8_reporting_handoff | Reporting and Handoff | Human-readable state tracking and cross-session recovery anchors. | Use to recover the current project state and avoid repeating frozen experiments. | Do not cite progress logs as primary empirical evidence when paper-facing tables exist. |
 | G9_hard_v4_scaffold | Hard v4 Scaffold | Frozen task scaffold and deterministic verifier boundary for hard_v4. | Use to document the frozen hard_v4 task boundary and hidden-verifier design. | Do not cite scaffold mechanics as model-performance evidence. |
@@ -58,8 +58,8 @@ One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the corre
 | primary | `benchmark/reports/v7_admission_baselines.json` | True | `ed051957b16aa28f` | 44474 |
 | primary | `benchmark/reports/llm_cost_summary.md` | True | `6180b9f1ff9021ff` | 1661 |
 | primary | `benchmark/reports/llm_cost_summary.json` | True | `ef312b1019006778` | 3568 |
-| support | `docs/paper_eval_status.md` | True | `cd5698c310c3b88f` | 29071 |
-| support | `docs/experiment_handoff.md` | True | `90f8909b393cc58f` | 46050 |
+| support | `docs/paper_eval_status.md` | True | `ce4292f66b5da5d5` | 30984 |
+| support | `docs/experiment_handoff.md` | True | `3cd133ba0f35c8bb` | 48054 |
 
 Regeneration commands:
 - `python scripts/run_admission_regression.py`
@@ -73,7 +73,7 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/hard_v2_paper_tables.tex` | True | `8af23c87a828d9ea` | 1670 |
 | support | `benchmark/downstream/reports/hard_v2_strategy_matrix.md` | True | `1e2d6d716b8f0428` | 37490 |
 | support | `benchmark/downstream/reports/hard_v2_strategy_matrix.json` | True | `daf5030589d26ad4` | 154134 |
-| support | `docs/paper_eval_status.md` | True | `cd5698c310c3b88f` | 29071 |
+| support | `docs/paper_eval_status.md` | True | `ce4292f66b5da5d5` | 30984 |
 
 Regeneration commands:
 - `python scripts/check_downstream_hard_v2_tasks.py`
@@ -89,7 +89,7 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/hard_v3_paper_tables.tex` | True | `bd6187913ca355f8` | 2067 |
 | support | `benchmark/downstream/reports/hard_v3_strategy_matrix.md` | True | `bceafdf069b46393` | 30895 |
 | support | `benchmark/downstream/reports/hard_v3_strategy_matrix.json` | True | `b4c670caf50341c9` | 137329 |
-| support | `docs/paper_eval_status.md` | True | `cd5698c310c3b88f` | 29071 |
+| support | `docs/paper_eval_status.md` | True | `ce4292f66b5da5d5` | 30984 |
 
 Regeneration commands:
 - `python scripts/check_downstream_hard_v3_tasks.py`
@@ -105,7 +105,7 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/downstream_cross_version_synthesis.tex` | True | `9104d43051644fa1` | 4055 |
 | support | `benchmark/downstream/reports/hard_v2_evidence_package.json` | True | `7deb038d4adfc285` | 18140 |
 | support | `benchmark/downstream/reports/hard_v3_evidence_package.json` | True | `894b8f7a1f7ac296` | 27042 |
-| support | `docs/paper_eval_status.md` | True | `cd5698c310c3b88f` | 29071 |
+| support | `docs/paper_eval_status.md` | True | `ce4292f66b5da5d5` | 30984 |
 
 Regeneration commands:
 - `python scripts/export_downstream_cross_version_synthesis.py --assert-current-synthesis`
@@ -128,11 +128,11 @@ Regeneration commands:
 
 | role | path | exists | sha256 | bytes |
 | --- | --- | --- | --- | --- |
-| primary | `benchmark/downstream/reports/downstream_paper_eval_section.json` | True | `c2349ccafc9043d5` | 6198 |
-| primary | `benchmark/downstream/reports/downstream_paper_eval_section.md` | True | `8340e942b14b20a8` | 5869 |
-| primary | `benchmark/downstream/reports/downstream_paper_eval_section.tex` | True | `901dbd57826a0117` | 5624 |
-| support | `benchmark/downstream/reports/downstream_cross_version_synthesis.json` | True | `e5d5bf0e8545fb09` | 19857 |
-| support | `benchmark/downstream/reports/downstream_claim_defense_matrix.md` | True | `475f21c18415f998` | 21198 |
+| primary | `benchmark/downstream/reports/downstream_paper_eval_section.json` | True | `d670f1ff13a95fa6` | 7062 |
+| primary | `benchmark/downstream/reports/downstream_paper_eval_section.md` | True | `5eee30c20fb728d2` | 6712 |
+| primary | `benchmark/downstream/reports/downstream_paper_eval_section.tex` | True | `a1a1361a512173e9` | 6491 |
+| support | `benchmark/downstream/reports/downstream_boundary_synthesis.json` | True | `b5e58a54217563fb` | 45450 |
+| support | `benchmark/downstream/reports/downstream_claim_defense_matrix.md` | True | `d1dc1123446e988a` | 24680 |
 
 Regeneration commands:
 - `python scripts/export_downstream_paper_section.py --assert-current-paper-section`
@@ -141,11 +141,11 @@ Regeneration commands:
 
 | role | path | exists | sha256 | bytes |
 | --- | --- | --- | --- | --- |
-| primary | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | True | `12fda3af24f4bd40` | 31094 |
-| primary | `benchmark/downstream/reports/downstream_claim_defense_matrix.md` | True | `475f21c18415f998` | 21198 |
-| primary | `benchmark/downstream/reports/downstream_claim_defense_matrix.tex` | True | `c15b10f10386d5e4` | 3038 |
-| support | `benchmark/downstream/reports/downstream_cross_version_synthesis.json` | True | `e5d5bf0e8545fb09` | 19857 |
-| support | `benchmark/downstream/reports/downstream_paper_eval_section.json` | True | `c2349ccafc9043d5` | 6198 |
+| primary | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | True | `22c3e5685b9335fe` | 41180 |
+| primary | `benchmark/downstream/reports/downstream_claim_defense_matrix.md` | True | `d1dc1123446e988a` | 24680 |
+| primary | `benchmark/downstream/reports/downstream_claim_defense_matrix.tex` | True | `8c4cb516baba4ccc` | 3063 |
+| support | `benchmark/downstream/reports/downstream_boundary_synthesis.json` | True | `b5e58a54217563fb` | 45450 |
+| support | `benchmark/downstream/reports/downstream_paper_eval_section.json` | True | `d670f1ff13a95fa6` | 7062 |
 
 Regeneration commands:
 - `python scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-defense`
@@ -154,9 +154,9 @@ Regeneration commands:
 
 | role | path | exists | sha256 | bytes |
 | --- | --- | --- | --- | --- |
-| primary | `docs/paper_eval_status.md` | True | `cd5698c310c3b88f` | 29071 |
-| primary | `docs/experiment_handoff.md` | True | `90f8909b393cc58f` | 46050 |
-| primary | `docs/progress_log.md` | True | `b4bbbfdf1ca62fe9` | 94198 |
+| primary | `docs/paper_eval_status.md` | True | `ce4292f66b5da5d5` | 30984 |
+| primary | `docs/experiment_handoff.md` | True | `3cd133ba0f35c8bb` | 48054 |
+| primary | `docs/progress_log.md` | True | `ad5a5112011a5c33` | 96971 |
 
 ### G9_hard_v4_scaffold - Hard v4 Scaffold
 
@@ -166,8 +166,8 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/hard_v4_scaffold_manifest.md` | True | `02e98f97171e796e` | 5034 |
 | primary | `benchmark/downstream/reports/hard_v4_scaffold_manifest.tex` | True | `8871fc0df34cab6f` | 496 |
 | support | `docs/llm_downstream_hard_v4.md` | True | `c682a7c91829b412` | 12262 |
-| support | `docs/paper_eval_status.md` | True | `cd5698c310c3b88f` | 29071 |
-| support | `docs/experiment_handoff.md` | True | `90f8909b393cc58f` | 46050 |
+| support | `docs/paper_eval_status.md` | True | `ce4292f66b5da5d5` | 30984 |
+| support | `docs/experiment_handoff.md` | True | `3cd133ba0f35c8bb` | 48054 |
 
 Regeneration commands:
 - `python scripts/build_downstream_hard_v4_tasks.py`
@@ -196,20 +196,20 @@ Regeneration commands:
 | --- | --- | --- | --- |
 | 1 | check_hard_v2 | `python scripts/check_downstream_hard_v2_tasks.py` | True |
 | 2 | check_hard_v3 | `python scripts/check_downstream_hard_v3_tasks.py` | True |
-| 3 | admission_regression | `python scripts/run_admission_regression.py` | True |
-| 4 | summarize_hard_v2 | `python scripts/summarize_hard_v2_results.py --assert-current-hard-v2` | True |
-| 5 | export_hard_v2 | `python scripts/export_hard_v2_evidence_package.py --assert-current-hard-v2` | True |
-| 6 | summarize_hard_v3 | `python scripts/summarize_hard_v3_results.py --assert-current-hard-v3` | True |
-| 7 | export_hard_v3 | `python scripts/export_hard_v3_evidence_package.py --assert-current-hard-v3` | True |
-| 8 | export_cross_synthesis | `python scripts/export_downstream_cross_version_synthesis.py --assert-current-synthesis` | True |
-| 9 | export_boundary_synthesis | `python scripts/export_downstream_boundary_synthesis.py --assert-current-boundary-synthesis` | True |
-| 10 | export_paper_section | `python scripts/export_downstream_paper_section.py --assert-current-paper-section` | True |
-| 11 | export_claim_defense | `python scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-defense` | True |
-| 12 | build_hard_v4 | `python scripts/build_downstream_hard_v4_tasks.py` | True |
-| 13 | check_hard_v4 | `python scripts/check_downstream_hard_v4_tasks.py` | True |
-| 14 | export_hard_v4_scaffold | `python scripts/export_hard_v4_scaffold_manifest.py --run-checker --assert-current-hard-v4-scaffold` | True |
-| 15 | summarize_hard_v4 | `python scripts/summarize_hard_v4_results.py --assert-current-hard-v4` | True |
-| 16 | export_hard_v4 | `python scripts/export_hard_v4_evidence_package.py --assert-current-hard-v4` | True |
+| 3 | build_hard_v4 | `python scripts/build_downstream_hard_v4_tasks.py` | True |
+| 4 | check_hard_v4 | `python scripts/check_downstream_hard_v4_tasks.py` | True |
+| 5 | admission_regression | `python scripts/run_admission_regression.py` | True |
+| 6 | summarize_hard_v2 | `python scripts/summarize_hard_v2_results.py --assert-current-hard-v2` | True |
+| 7 | export_hard_v2 | `python scripts/export_hard_v2_evidence_package.py --assert-current-hard-v2` | True |
+| 8 | summarize_hard_v3 | `python scripts/summarize_hard_v3_results.py --assert-current-hard-v3` | True |
+| 9 | export_hard_v3 | `python scripts/export_hard_v3_evidence_package.py --assert-current-hard-v3` | True |
+| 10 | export_hard_v4_scaffold | `python scripts/export_hard_v4_scaffold_manifest.py --run-checker --assert-current-hard-v4-scaffold` | True |
+| 11 | summarize_hard_v4 | `python scripts/summarize_hard_v4_results.py --assert-current-hard-v4` | True |
+| 12 | export_hard_v4 | `python scripts/export_hard_v4_evidence_package.py --assert-current-hard-v4` | True |
+| 13 | export_cross_synthesis | `python scripts/export_downstream_cross_version_synthesis.py --assert-current-synthesis` | True |
+| 14 | export_boundary_synthesis | `python scripts/export_downstream_boundary_synthesis.py --assert-current-boundary-synthesis` | True |
+| 15 | export_paper_section | `python scripts/export_downstream_paper_section.py --assert-current-paper-section` | True |
+| 16 | export_claim_defense | `python scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-defense` | True |
 | 17 | export_artifacts_index | `python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index` | True |
 
 ## Table Index
@@ -228,16 +228,16 @@ Regeneration commands:
 
 | claim | status | primary artifact | supporting artifacts | allowed wording | forbidden wording |
 | --- | --- | --- | --- | --- | --- |
-| C1_downstream_hidden_verifier_is_required | supported_design_claim | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | `benchmark/downstream/reports/hard_v2_evidence_package.json`<br>`benchmark/downstream/reports/hard_v3_evidence_package.json` | We complement admission accuracy with downstream hidden-verifier validation. | Admission accuracy alone proves downstream utility. |
+| C1_downstream_hidden_verifier_is_required | supported_design_claim | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | `benchmark/downstream/reports/hard_v2_evidence_package.json`<br>`benchmark/downstream/reports/hard_v3_evidence_package.json`<br>`benchmark/downstream/reports/hard_v4_evidence_package.json` | We complement admission accuracy with downstream hidden-verifier validation. | Admission accuracy alone proves downstream utility. |
 | C2_hard_v2_tree_selected_positive | supported_conditional_claim | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | `benchmark/downstream/reports/hard_v2_evidence_package.json` | On hard_v2 with repo-tree context, SkillAdmit-selected reached 25/25 versus 23/25 for no_experience. | SkillAdmit-selected universally beats no_experience. |
 | C3_hard_v2_strict_visible_boundary | boundary_claim | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | `benchmark/downstream/reports/hard_v2_evidence_package.json` | Strict visible-file hard_v2 is a boundary where selected-only context is insufficient. | SkillAdmit-selected wins hard_v2 overall. |
-| C4_hard_v3_generalization_boundary | boundary_claim | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | `benchmark/downstream/reports/hard_v3_evidence_package.json` | hard_v3 is a generalization boundary for the selected-superiority claim. | hard_v3 proves SkillAdmit-selected superiority. |
-| C5_repo_tree_and_preconditions_are_context_variables | conditional_claim | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | `benchmark/downstream/reports/hard_v2_evidence_package.json`<br>`benchmark/downstream/reports/hard_v3_evidence_package.json` | Repo tree and preconditions should be treated as task-context variables. | Precondition-only replaces repository tree. |
-| C6_forced_bad_artifacts_negative_transfer | strong_supported_claim | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | `benchmark/downstream/reports/hard_v2_evidence_package.json`<br>`benchmark/downstream/reports/hard_v3_evidence_package.json`<br>`benchmark/downstream/reports/downstream_cross_version_synthesis.json` | Forced harmful artifacts produce systematic negative transfer: 0/85 success with 85 public-pass/hidden-fail cases. | SkillAdmit proves all admitted artifacts are safe. |
-| C7_bad_dependency_rule_is_not_safe | caveat_claim | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | `benchmark/downstream/reports/hard_v3_evidence_package.json`<br>`benchmark/downstream/reports/hard_v2_evidence_package.json` | The model often succeeds by ignoring harmful advice. | Bad dependency advice is safe. |
-| C8_raw_memory_is_a_serious_baseline_not_a_policy | boundary_claim | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | `benchmark/downstream/reports/hard_v2_evidence_package.json`<br>`benchmark/downstream/reports/hard_v3_evidence_package.json` | Raw memory must be reported as a serious comparison condition. | Raw memory is safe because it reaches 30/30 on hard_v3. |
-| C9_selected_token_savings_not_supported | not_supported_claim | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | `benchmark/downstream/reports/downstream_cross_version_synthesis.json` | Token savings are not a supported paper claim. | SkillAdmit-selected reduces token cost. |
-| C10_all_skills_is_strong_but_not_the_target_policy | boundary_claim | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | `benchmark/downstream/reports/hard_v2_evidence_package.json`<br>`benchmark/downstream/reports/hard_v3_evidence_package.json` | All-skills is a strong upper-context comparison and should be reported. | Selection always beats all-skills. |
+| C4_hard_v3_generalization_boundary | boundary_claim | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | `benchmark/downstream/reports/hard_v3_evidence_package.json`<br>`benchmark/downstream/reports/hard_v4_evidence_package.json` | hard_v3 and hard_v4 are generalization boundaries for the selected-superiority claim. | hard_v3 proves SkillAdmit-selected superiority. |
+| C5_repo_tree_and_preconditions_are_context_variables | conditional_claim | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | `benchmark/downstream/reports/hard_v2_evidence_package.json`<br>`benchmark/downstream/reports/hard_v3_evidence_package.json`<br>`benchmark/downstream/reports/hard_v4_evidence_package.json`<br>`benchmark/downstream/reports/downstream_boundary_synthesis.json` | Repo tree and preconditions should be treated as task-context variables. | Precondition-only replaces repository tree. |
+| C6_forced_bad_artifacts_negative_transfer | strong_supported_claim | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | `benchmark/downstream/reports/hard_v2_evidence_package.json`<br>`benchmark/downstream/reports/hard_v3_evidence_package.json`<br>`benchmark/downstream/reports/hard_v4_evidence_package.json`<br>`benchmark/downstream/reports/downstream_boundary_synthesis.json` | Forced harmful artifacts produce systematic negative transfer: 0/133 success with 133 public-pass/hidden-fail cases. | SkillAdmit proves all admitted artifacts are safe. |
+| C7_bad_dependency_rule_is_not_safe | caveat_claim | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | `benchmark/downstream/reports/hard_v3_evidence_package.json`<br>`benchmark/downstream/reports/hard_v2_evidence_package.json`<br>`benchmark/downstream/reports/hard_v4_evidence_package.json` | The model often succeeds by ignoring harmful advice. | Bad dependency advice is safe. |
+| C8_raw_memory_is_a_serious_baseline_not_a_policy | boundary_claim | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | `benchmark/downstream/reports/hard_v2_evidence_package.json`<br>`benchmark/downstream/reports/hard_v3_evidence_package.json`<br>`benchmark/downstream/reports/hard_v4_evidence_package.json` | Raw memory must be reported as a serious comparison condition. | Raw memory is safe because it reaches 30/30 on hard_v3. |
+| C9_selected_token_savings_not_supported | not_supported_claim | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | `benchmark/downstream/reports/downstream_boundary_synthesis.json` | Token savings are not a supported paper claim. | SkillAdmit-selected reduces token cost. |
+| C10_all_skills_is_strong_but_not_the_target_policy | boundary_claim | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | `benchmark/downstream/reports/hard_v2_evidence_package.json`<br>`benchmark/downstream/reports/hard_v3_evidence_package.json`<br>`benchmark/downstream/reports/hard_v4_evidence_package.json` | All-skills is a strong upper-context comparison and should be reported. | Selection always beats all-skills. |
 
 ## Do Not Cite As Primary Evidence
 
@@ -266,6 +266,6 @@ Avoid: Do not tune hard_v2/hard_v3/hard_v4 prompts or strategies from observed f
 | hard_v4_evidence_package | `benchmark/downstream/reports/hard_v4_evidence_package.json` | True | `c7e729993e44503b` | `2026-05-23T04:55:41.380270+00:00` |
 | downstream_cross_version_synthesis | `benchmark/downstream/reports/downstream_cross_version_synthesis.json` | True | `e5d5bf0e8545fb09` | `2026-05-22T13:23:18.827390+00:00` |
 | downstream_boundary_synthesis | `benchmark/downstream/reports/downstream_boundary_synthesis.json` | True | `b5e58a54217563fb` | `2026-05-23T05:33:33.739619+00:00` |
-| downstream_paper_eval_section | `benchmark/downstream/reports/downstream_paper_eval_section.json` | True | `c2349ccafc9043d5` | `2026-05-22T13:56:02.404103+00:00` |
-| downstream_claim_defense_matrix | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | True | `12fda3af24f4bd40` | `2026-05-22T13:56:02.456157+00:00` |
+| downstream_paper_eval_section | `benchmark/downstream/reports/downstream_paper_eval_section.json` | True | `d670f1ff13a95fa6` | `2026-05-23T06:09:05.254849+00:00` |
+| downstream_claim_defense_matrix | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | True | `22c3e5685b9335fe` | `2026-05-23T06:12:44.291834+00:00` |
 | hard_v4_scaffold_manifest | `benchmark/downstream/reports/hard_v4_scaffold_manifest.json` | True | `1e7d9adb0b9e9dc9` | `2026-05-22T15:03:42.737147+00:00` |

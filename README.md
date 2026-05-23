@@ -14,6 +14,7 @@ The current repo contains:
 - hard_v3 deterministic downstream task scaffold, LLM matrix runs, and reports;
 - hard_v4 frozen scaffold, LLM matrix runs, and paper-facing evidence exports;
 - hard_v2/hard_v3/hard_v4 boundary synthesis reports;
+- generated downstream paper section, claim-defense matrix, and paper artifact index;
 - experiment handoff and paper-facing status notes.
 
 Key entry points:

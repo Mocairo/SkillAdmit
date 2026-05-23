@@ -2,8 +2,8 @@
 """Export a downstream claim-defense matrix for SkillAdmit.
 
 What this file does:
-  Reads the paper-facing hard_v2/hard_v3 evidence packages, the cross-version
-  synthesis, and the generated downstream paper section. It exports a
+  Reads the paper-facing hard_v2/hard_v3/hard_v4 evidence packages, the
+  three-boundary synthesis, and the generated downstream paper section. It exports a
   claim-by-claim defense matrix: what can be claimed, what evidence supports
   it, what wording is allowed, what wording is forbidden, and how to answer a
   likely reviewer objection.
@@ -11,14 +11,16 @@ What this file does:
 Why it is needed:
   SkillAdmit's current downstream result is conditional. hard_v2 supports
   tree-aware selected utility, hard_v3 limits universal selected-superiority
-  claims, and forced bad artifacts provide the strongest negative-transfer
-  signal. A defense matrix makes these boundaries explicit so a paper draft
-  cannot accidentally turn conditional evidence into an absolute claim.
+  claims, hard_v4 adds a stricter boundary, and forced bad artifacts provide
+  the strongest negative-transfer signal. A defense matrix makes these
+  boundaries explicit so a paper draft cannot accidentally turn conditional
+  evidence into an absolute claim.
 
 Inputs:
   benchmark/downstream/reports/hard_v2_evidence_package.json
   benchmark/downstream/reports/hard_v3_evidence_package.json
-  benchmark/downstream/reports/downstream_cross_version_synthesis.json
+  benchmark/downstream/reports/hard_v4_evidence_package.json
+  benchmark/downstream/reports/downstream_boundary_synthesis.json
   benchmark/downstream/reports/downstream_paper_eval_section.json
 
 Outputs:
@@ -46,7 +48,8 @@ REPORT_DIR = ROOT / "benchmark" / "downstream" / "reports"
 
 DEFAULT_HARD_V2 = REPORT_DIR / "hard_v2_evidence_package.json"
 DEFAULT_HARD_V3 = REPORT_DIR / "hard_v3_evidence_package.json"
-DEFAULT_SYNTHESIS = REPORT_DIR / "downstream_cross_version_synthesis.json"
+DEFAULT_HARD_V4 = REPORT_DIR / "hard_v4_evidence_package.json"
+DEFAULT_SYNTHESIS = REPORT_DIR / "downstream_boundary_synthesis.json"
 DEFAULT_PAPER_SECTION = REPORT_DIR / "downstream_paper_eval_section.json"
 DEFAULT_JSON = REPORT_DIR / "downstream_claim_defense_matrix.json"
 DEFAULT_MD = REPORT_DIR / "downstream_claim_defense_matrix.md"
@@ -165,7 +168,12 @@ def claim(
     }
 
 
-def build_claims(hard_v2: dict[str, Any], hard_v3: dict[str, Any], synthesis: dict[str, Any]) -> list[dict[str, Any]]:
+def build_claims(
+    hard_v2: dict[str, Any],
+    hard_v3: dict[str, Any],
+    hard_v4: dict[str, Any],
+    synthesis: dict[str, Any],
+) -> list[dict[str, Any]]:
     v2_tree_no = get_primary(hard_v2, "llm_downstream_hard_v2_tree_25x2", "no_experience")
     v2_tree_selected = get_primary(hard_v2, "llm_downstream_hard_v2_tree_25x2", "skilladmit_selected")
     v2_tree_pre = get_primary(
@@ -210,9 +218,34 @@ def build_claims(hard_v2: dict[str, Any], hard_v3: dict[str, Any], synthesis: di
     v3_strict_bad_rule = get_primary(hard_v3, "llm_downstream_hard_v3_strict_30x8", "bad_dependency_rule")
     v3_strict_forced = get_primary(hard_v3, "llm_downstream_hard_v3_strict_30x8", "forced_bad_artifact")
 
-    derived = synthesis["derived_synthesis"]
-    forced_bad = f"{derived['forced_bad_total_successes']}/{derived['forced_bad_total_tasks']}"
+    v4_tree_no = get_primary(hard_v4, "llm_downstream_hard_v4_tree_24x8", "no_experience")
+    v4_tree_selected = get_primary(hard_v4, "llm_downstream_hard_v4_tree_24x8", "skilladmit_selected")
+    v4_tree_pre = get_primary(
+        hard_v4,
+        "llm_downstream_hard_v4_tree_24x8",
+        "skilladmit_selected_with_precondition_context",
+    )
+    v4_tree_raw = get_primary(hard_v4, "llm_downstream_hard_v4_tree_24x8", "raw_memory")
+    v4_tree_all = get_primary(hard_v4, "llm_downstream_hard_v4_tree_24x8", "distilled_skills_all")
+    v4_tree_bad_rule = get_primary(hard_v4, "llm_downstream_hard_v4_tree_24x8", "bad_dependency_rule")
+    v4_tree_forced = get_primary(hard_v4, "llm_downstream_hard_v4_tree_24x8", "forced_bad_artifact")
+    v4_strict_no = get_primary(hard_v4, "llm_downstream_hard_v4_strict_24x8", "no_experience")
+    v4_strict_selected = get_primary(hard_v4, "llm_downstream_hard_v4_strict_24x8", "skilladmit_selected")
+    v4_strict_pre = get_primary(
+        hard_v4,
+        "llm_downstream_hard_v4_strict_24x8",
+        "skilladmit_selected_with_precondition_only",
+    )
+    v4_strict_raw = get_primary(hard_v4, "llm_downstream_hard_v4_strict_24x8", "raw_memory")
+    v4_strict_all = get_primary(hard_v4, "llm_downstream_hard_v4_strict_24x8", "distilled_skills_all")
+    v4_strict_bad_rule = get_primary(hard_v4, "llm_downstream_hard_v4_strict_24x8", "bad_dependency_rule")
+    v4_strict_forced = get_primary(hard_v4, "llm_downstream_hard_v4_strict_24x8", "forced_bad_artifact")
+
+    derived = synthesis["derived_claims"]
+    forced_bad = derived["forced_bad_total_success"]
     forced_public_hidden = derived["forced_bad_total_public_passed_hidden_failed"]
+    forced_total_tasks = derived["forced_bad_total_tasks"]
+    selected_token_deltas = derived["selected_token_delta_values"]
 
     claims = [
         claim(
@@ -220,13 +253,15 @@ def build_claims(hard_v2: dict[str, Any], hard_v3: dict[str, Any], synthesis: di
             "supported_design_claim",
             "SkillAdmit should be evaluated with downstream hidden-verifier tasks, not admission labels alone.",
             (
-                "Both hard_v2 and hard_v3 use hidden verifiers, and forced bad artifacts create "
-                f"{forced_public_hidden} public-pass/hidden-fail cases across {derived['forced_bad_total_tasks']} tasks."
+                "hard_v2, hard_v3, and hard_v4 use hidden verifiers, and forced bad artifacts create "
+                f"{forced_public_hidden} public-pass/hidden-fail cases across {forced_total_tasks} tasks."
             ),
             [
                 evidence_row("hard_v2_evidence_package", v2_forced, "forced harmful artifact control"),
                 evidence_row("hard_v3_evidence_package", v3_tree_forced, "tree-aware forced harmful artifact control"),
                 evidence_row("hard_v3_evidence_package", v3_strict_forced, "strict visible-file forced harmful artifact control"),
+                evidence_row("hard_v4_evidence_package", v4_tree_forced, "tree-aware hard_v4 forced harmful artifact control"),
+                evidence_row("hard_v4_evidence_package", v4_strict_forced, "strict hard_v4 forced harmful artifact control"),
             ],
             [
                 "We complement admission accuracy with downstream hidden-verifier validation.",
@@ -318,11 +353,13 @@ def build_claims(hard_v2: dict[str, Any], hard_v3: dict[str, Any], synthesis: di
         claim(
             "C4_hard_v3_generalization_boundary",
             "boundary_claim",
-            "hard_v3 does not support universal SkillAdmit-selected superiority.",
+            "hard_v3 and hard_v4 do not support universal SkillAdmit-selected superiority.",
             (
                 f"In hard_v3 tree-aware, selected and no_experience are both {success(v3_tree_selected)}. "
                 f"In strict visible-file hard_v3, selected is {success(v3_strict_selected)} while "
-                f"precondition-only and raw memory are {success(v3_strict_pre)}."
+                f"precondition-only and raw memory are {success(v3_strict_pre)}. "
+                f"In hard_v4 strict visible-file, selected is {success(v4_strict_selected)} while "
+                f"no_experience is {success(v4_strict_no)}."
             ),
             [
                 evidence_row("hard_v3_evidence_package", v3_tree_selected, "tree-aware selected"),
@@ -330,20 +367,25 @@ def build_claims(hard_v2: dict[str, Any], hard_v3: dict[str, Any], synthesis: di
                 evidence_row("hard_v3_evidence_package", v3_strict_selected, "strict visible-file selected"),
                 evidence_row("hard_v3_evidence_package", v3_strict_pre, "strict precondition-only"),
                 evidence_row("hard_v3_evidence_package", v3_strict_raw, "strict raw memory"),
+                evidence_row("hard_v4_evidence_package", v4_tree_selected, "hard_v4 tree-aware selected"),
+                evidence_row("hard_v4_evidence_package", v4_tree_no, "hard_v4 tree-aware no_experience"),
+                evidence_row("hard_v4_evidence_package", v4_strict_selected, "hard_v4 strict selected"),
+                evidence_row("hard_v4_evidence_package", v4_strict_no, "hard_v4 strict no_experience"),
             ],
             [
-                "hard_v3 is a generalization boundary for the selected-superiority claim.",
-                "SkillAdmit-selected can help in some settings, but hard_v3 does not make it universally best.",
+                "hard_v3 and hard_v4 are generalization boundaries for the selected-superiority claim.",
+                "SkillAdmit-selected can help in some settings, but the current evidence does not make it universally best.",
             ],
             [
                 "hard_v3 proves SkillAdmit-selected superiority.",
+                "hard_v4 proves SkillAdmit-selected superiority.",
                 "SkillAdmit-selected is the best hard_v3 condition.",
             ],
             [
-                "State that hard_v3 weakens the universal claim.",
-                "Mention tree-aware tie and strict non-best result.",
+                "State that hard_v3 and hard_v4 weaken the universal claim.",
+                "Mention tree-aware ties, strict non-best results, and hard_v4 strict underperformance.",
             ],
-            "A reviewer may ask why hard_v3 is included if selected does not win.",
+            "A reviewer may ask why hard_v3 or hard_v4 is included if selected does not win.",
             (
                 "It is included exactly as a clean downstream boundary. A credible evaluation should report where "
                 "the mechanism generalizes and where it does not."
@@ -355,7 +397,9 @@ def build_claims(hard_v2: dict[str, Any], hard_v3: dict[str, Any], synthesis: di
             "Repository tree and precondition context are important variables, but neither is universally sufficient or necessary.",
             (
                 f"hard_v2 strict precondition-only is unstable with success values {v2_pre_stability['success_values']}; "
-                f"hard_v3 strict precondition-only reaches {success(v3_strict_pre)}."
+                f"hard_v3 strict precondition-only reaches {success(v3_strict_pre)}, while "
+                f"hard_v4 strict precondition-only reaches {success(v4_strict_pre)} and still trails "
+                f"no_experience at {success(v4_strict_no)}."
             ),
             [
                 evidence_row("hard_v2_evidence_package", v2_tree_selected, "hard_v2 tree-aware selected"),
@@ -368,10 +412,19 @@ def build_claims(hard_v2: dict[str, Any], hard_v3: dict[str, Any], synthesis: di
                     "note": "precondition-only stability group",
                 },
                 evidence_row("hard_v3_evidence_package", v3_strict_pre, "hard_v3 strict precondition-only"),
+                evidence_row("hard_v4_evidence_package", v4_tree_pre, "hard_v4 tree-aware selected + preconditions"),
+                evidence_row("hard_v4_evidence_package", v4_strict_pre, "hard_v4 strict precondition-only"),
+                {
+                    "source": "downstream_boundary_synthesis",
+                    "context_success_delta_values": derived[
+                        "strict_precondition_only_success_delta_vs_no_experience_values"
+                    ],
+                    "note": "precondition-only is suite-dependent versus no_experience",
+                },
             ],
             [
                 "Repo tree and preconditions should be treated as task-context variables.",
-                "hard_v2 suggests tree-aware context can be more reliable than precondition text alone; hard_v3 shows precondition-only can be sufficient on another suite.",
+                "hard_v2 suggests tree-aware context can be more reliable than precondition text alone; hard_v3 shows precondition-only can be sufficient on another suite; hard_v4 shows it can still trail no_experience.",
             ],
             [
                 "Precondition-only replaces repository tree.",
@@ -379,7 +432,7 @@ def build_claims(hard_v2: dict[str, Any], hard_v3: dict[str, Any], synthesis: di
             ],
             [
                 "Report suite-specific differences.",
-                "Do not turn hard_v2 or hard_v3 alone into a universal context rule.",
+                "Do not turn hard_v2, hard_v3, or hard_v4 alone into a universal context rule.",
             ],
             "A reviewer may ask whether the mechanism is really SkillAdmit or just extra context.",
             (
@@ -392,24 +445,25 @@ def build_claims(hard_v2: dict[str, Any], hard_v3: dict[str, Any], synthesis: di
             "strong_supported_claim",
             "When harmful admitted artifacts are forced into execution, they cause systematic negative transfer.",
             (
-                f"Forced bad artifacts are {forced_bad} success across hard_v2 and hard_v3, with "
+                f"Forced bad artifacts are {forced_bad} success across hard_v2, hard_v3, and hard_v4, with "
                 f"{forced_public_hidden} public-pass/hidden-fail cases."
             ),
             [
                 evidence_row("hard_v2_evidence_package", v2_forced, "hard_v2 forced bad artifact"),
                 evidence_row("hard_v3_evidence_package", v3_tree_forced, "hard_v3 tree-aware forced bad artifact"),
                 evidence_row("hard_v3_evidence_package", v3_strict_forced, "hard_v3 strict forced bad artifact"),
+                evidence_row("hard_v4_evidence_package", v4_tree_forced, "hard_v4 tree-aware forced bad artifact"),
+                evidence_row("hard_v4_evidence_package", v4_strict_forced, "hard_v4 strict forced bad artifact"),
                 {
-                    "source": "downstream_cross_version_synthesis",
-                    "forced_bad_total_tasks": derived["forced_bad_total_tasks"],
-                    "forced_bad_total_successes": derived["forced_bad_total_successes"],
+                    "source": "downstream_boundary_synthesis",
+                    "forced_bad_total_tasks": forced_total_tasks,
+                    "forced_bad_total_success": forced_bad,
                     "forced_bad_total_public_passed_hidden_failed": forced_public_hidden,
-                    "forced_bad_total_negative_transfer": derived["forced_bad_total_negative_transfer"],
-                    "note": "cross-version forced bad aggregate",
+                    "note": "three-boundary forced bad aggregate",
                 },
             ],
             [
-                "Forced harmful artifacts produce systematic negative transfer: 0/85 success with 85 public-pass/hidden-fail cases.",
+                "Forced harmful artifacts produce systematic negative transfer: 0/133 success with 133 public-pass/hidden-fail cases.",
                 "The negative-transfer control supports the need for admission hygiene.",
             ],
             [
@@ -423,18 +477,20 @@ def build_claims(hard_v2: dict[str, Any], hard_v3: dict[str, Any], synthesis: di
             "A reviewer may ask whether negative transfer is deterministic or model-specific.",
             (
                 "The forced artifact is a controlled downstream condition: it demonstrates the behavioral hazard "
-                "of executing known-bad experience. It complements, rather than replaces, stochastic LLM strategy rows."
+                "of executing known-bad experience. It now holds across hard_v2, hard_v3, and hard_v4."
             ),
         ),
         claim(
             "C7_bad_dependency_rule_is_not_safe",
             "caveat_claim",
-            "Ordinary bad_dependency_rule success does not prove bad advice is safe, because adherence is low on hard_v3.",
+            "Ordinary bad_dependency_rule success does not prove bad advice is safe, because adherence is low on hard_v3 and hard_v4.",
             (
                 f"hard_v3 bad_dependency_rule succeeds at {success(v3_tree_bad_rule)} and "
                 f"{success(v3_strict_bad_rule)}, but artifact adherence is "
                 f"{v3_tree_bad_rule['artifact_adherence']}/{v3_tree_bad_rule['tasks']} and "
-                f"{v3_strict_bad_rule['artifact_adherence']}/{v3_strict_bad_rule['tasks']}."
+                f"{v3_strict_bad_rule['artifact_adherence']}/{v3_strict_bad_rule['tasks']}. "
+                f"hard_v4 adherence is {v4_tree_bad_rule['artifact_adherence']}/{v4_tree_bad_rule['tasks']} "
+                f"and {v4_strict_bad_rule['artifact_adherence']}/{v4_strict_bad_rule['tasks']}."
             ),
             [
                 evidence_row(
@@ -451,6 +507,19 @@ def build_claims(hard_v2: dict[str, Any], hard_v3: dict[str, Any], synthesis: di
                 ),
                 evidence_row("hard_v2_evidence_package", v2_bad_rule, "hard_v2 strict bad_dependency_rule"),
                 evidence_row("hard_v3_evidence_package", v3_tree_forced, "forced control remains harmful"),
+                evidence_row(
+                    "hard_v4_evidence_package",
+                    v4_tree_bad_rule,
+                    "hard_v4 tree-aware bad_dependency_rule with low adherence",
+                    ["success", "artifact_adherence", "tasks", "total_tokens"],
+                ),
+                evidence_row(
+                    "hard_v4_evidence_package",
+                    v4_strict_bad_rule,
+                    "hard_v4 strict bad_dependency_rule with low adherence",
+                    ["success", "artifact_adherence", "tasks", "total_tokens"],
+                ),
+                evidence_row("hard_v4_evidence_package", v4_tree_forced, "hard_v4 forced control remains harmful"),
             ],
             [
                 "The model often succeeds by ignoring harmful advice.",
@@ -467,7 +536,7 @@ def build_claims(hard_v2: dict[str, Any], hard_v3: dict[str, Any], synthesis: di
             "A reviewer may argue that bad_dependency_rule success weakens the negative-transfer story.",
             (
                 "It does not: low adherence means the condition often did not execute the bad advice. The forced "
-                "condition answers the causal question and fails 0/85."
+                "condition answers the causal question and fails 0/133."
             ),
         ),
         claim(
@@ -476,12 +545,15 @@ def build_claims(hard_v2: dict[str, Any], hard_v3: dict[str, Any], synthesis: di
             "Raw memory is a serious downstream baseline, but current evidence does not make it a safe admission policy.",
             (
                 f"Raw memory is {success(v2_strict_raw)} in hard_v2 strict visible-file, but "
-                f"{success(v3_tree_raw)} and {success(v3_strict_raw)} in hard_v3."
+                f"{success(v3_tree_raw)} and {success(v3_strict_raw)} in hard_v3, and "
+                f"{success(v4_tree_raw)} / {success(v4_strict_raw)} in hard_v4."
             ),
             [
                 evidence_row("hard_v2_evidence_package", v2_strict_raw, "hard_v2 strict raw memory"),
                 evidence_row("hard_v3_evidence_package", v3_tree_raw, "hard_v3 tree-aware raw memory"),
                 evidence_row("hard_v3_evidence_package", v3_strict_raw, "hard_v3 strict raw memory"),
+                evidence_row("hard_v4_evidence_package", v4_tree_raw, "hard_v4 tree-aware raw memory"),
+                evidence_row("hard_v4_evidence_package", v4_strict_raw, "hard_v4 strict raw memory"),
             ],
             [
                 "Raw memory must be reported as a serious comparison condition.",
@@ -504,20 +576,22 @@ def build_claims(hard_v2: dict[str, Any], hard_v3: dict[str, Any], synthesis: di
         claim(
             "C9_selected_token_savings_not_supported",
             "not_supported_claim",
-            "The current cross-version evidence does not support SkillAdmit-selected token savings.",
+            "The current three-boundary evidence does not support SkillAdmit-selected token savings.",
             (
-                "Selected token deltas are mixed: "
-                f"hard_v2 tree +{derived['hard_v2_tree_selected_token_delta_vs_no_experience']}, "
-                f"hard_v2 strict +{derived['hard_v2_strict_selected_token_delta_vs_no_experience']}, "
-                f"hard_v3 tree {derived['hard_v3_tree_selected_token_delta_vs_no_experience']}, and "
-                f"hard_v3 strict {derived['hard_v3_strict_selected_token_delta_vs_no_experience']}."
+                "Selected token deltas versus no_experience are mixed across the six hard_v2/hard_v3/hard_v4 "
+                f"comparisons: hard_v2 tree {selected_token_deltas['hard_v2_tree-aware_selected_token_delta_vs_no_experience']:+d}, "
+                f"hard_v2 strict {selected_token_deltas['hard_v2_strict_visible_selected_token_delta_vs_no_experience']:+d}, "
+                f"hard_v3 tree {selected_token_deltas['hard_v3_tree-aware_selected_token_delta_vs_no_experience']:+d}, "
+                f"hard_v3 strict {selected_token_deltas['hard_v3_strict_visible_selected_token_delta_vs_no_experience']:+d}, "
+                f"hard_v4 tree {selected_token_deltas['hard_v4_tree-aware_selected_token_delta_vs_no_experience']:+d}, and "
+                f"hard_v4 strict {selected_token_deltas['hard_v4_strict_visible_selected_token_delta_vs_no_experience']:+d}."
             ),
             [
                 {
-                    "source": "downstream_cross_version_synthesis",
-                    "selected_token_delta_values": derived["selected_token_delta_values"],
-                    "selected_token_savings_supported": derived["selected_token_savings_supported"],
-                    "note": "cross-version selected token delta summary",
+                    "source": "downstream_boundary_synthesis",
+                    "selected_token_delta_values": selected_token_deltas,
+                    "selected_token_savings_consistent": derived["selected_token_savings_consistent"],
+                    "note": "three-boundary selected token delta summary",
                 }
             ],
             [
@@ -544,8 +618,9 @@ def build_claims(hard_v2: dict[str, Any], hard_v3: dict[str, Any], synthesis: di
             "All-skills context is a strong comparison condition, but it is not the same as an admitted selected artifact policy.",
             (
                 f"All-skills reaches {success(v2_strict_all)} in hard_v2 strict and "
-                f"{success(v3_tree_all)} in hard_v3 tree-aware; selected reaches "
-                f"{success(v2_strict_selected)} and {success(v3_tree_selected)} in those rows."
+                f"{success(v3_tree_all)} in hard_v3 tree-aware. In hard_v4, all-skills reaches "
+                f"{success(v4_tree_all)} tree-aware and {success(v4_strict_all)} strict, while selected reaches "
+                f"{success(v4_tree_selected)} and {success(v4_strict_selected)}."
             ),
             [
                 evidence_row("hard_v2_evidence_package", v2_strict_all, "hard_v2 strict all distilled skills"),
@@ -554,6 +629,10 @@ def build_claims(hard_v2: dict[str, Any], hard_v3: dict[str, Any], synthesis: di
                 evidence_row("hard_v3_evidence_package", v3_tree_selected, "hard_v3 tree-aware selected"),
                 evidence_row("hard_v3_evidence_package", v3_strict_all, "hard_v3 strict all distilled skills"),
                 evidence_row("hard_v3_evidence_package", v3_strict_selected, "hard_v3 strict selected"),
+                evidence_row("hard_v4_evidence_package", v4_tree_all, "hard_v4 tree-aware all distilled skills"),
+                evidence_row("hard_v4_evidence_package", v4_tree_selected, "hard_v4 tree-aware selected"),
+                evidence_row("hard_v4_evidence_package", v4_strict_all, "hard_v4 strict all distilled skills"),
+                evidence_row("hard_v4_evidence_package", v4_strict_selected, "hard_v4 strict selected"),
             ],
             [
                 "All-skills is a strong upper-context comparison and should be reported.",
@@ -580,11 +659,12 @@ def build_claims(hard_v2: dict[str, Any], hard_v3: dict[str, Any], synthesis: di
 def build_matrix(
     hard_v2: dict[str, Any],
     hard_v3: dict[str, Any],
+    hard_v4: dict[str, Any],
     synthesis: dict[str, Any],
     paper_section: dict[str, Any],
     paths: dict[str, Path],
 ) -> dict[str, Any]:
-    claims = build_claims(hard_v2, hard_v3, synthesis)
+    claims = build_claims(hard_v2, hard_v3, hard_v4, synthesis)
     return {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "source_packages": [
@@ -597,7 +677,8 @@ def build_matrix(
             for name, path, package in [
                 ("hard_v2_evidence_package", paths["hard_v2"], hard_v2),
                 ("hard_v3_evidence_package", paths["hard_v3"], hard_v3),
-                ("downstream_cross_version_synthesis", paths["synthesis"], synthesis),
+                ("hard_v4_evidence_package", paths["hard_v4"], hard_v4),
+                ("downstream_boundary_synthesis", paths["synthesis"], synthesis),
                 ("downstream_paper_eval_section", paths["paper_section"], paper_section),
             ]
         ],
@@ -609,12 +690,13 @@ def build_matrix(
             "Do not claim precondition-only generally replaces repository-tree context.",
             "Do not claim raw memory is a safe admission policy from hard_v3 success alone.",
             "Do not claim bad dependency advice is safe when the model often ignored it.",
-            "Do not tune hard_v2 or hard_v3 failures while treating them as clean evidence.",
+            "Do not tune hard_v2, hard_v3, or hard_v4 failures while treating them as clean evidence.",
         ],
         "global_positive_claim": (
             "SkillAdmit has conditional downstream utility evidence and strong negative-transfer evidence: "
             "hard_v2 supports tree-aware selected utility, hard_v3 bounds universal selected-superiority claims, "
-            "and forced bad artifacts fail 0/85 with 85 public-pass/hidden-fail cases."
+            "hard_v4 adds a stricter boundary, and forced bad artifacts fail 0/133 with "
+            "133 public-pass/hidden-fail cases."
         ),
     }
 
@@ -639,20 +721,24 @@ def assert_matrix(matrix: dict[str, Any], synthesis: dict[str, Any], hard_v2: di
     if missing:
         raise AssertionError(f"missing claim ids: {sorted(missing)}")
 
-    derived = synthesis["derived_synthesis"]
+    derived = synthesis["derived_claims"]
+    forced_summary = synthesis["forced_bad_summary"]
     required_derived = {
-        "forced_bad_total_tasks": 85,
-        "forced_bad_total_successes": 0,
-        "forced_bad_total_public_passed_hidden_failed": 85,
-        "forced_bad_total_negative_transfer": 85,
+        "forced_bad_total_success": "0/133",
+        "forced_bad_total_tasks": 133,
+        "forced_bad_total_public_passed_hidden_failed": 133,
+        "forced_bad_negative_transfer_consistent": True,
         "selected_superiority_consistent": False,
-        "selected_token_savings_supported": False,
-        "repo_tree_necessity_universal": False,
+        "selected_token_savings_consistent": False,
     }
     for key, expected in required_derived.items():
         actual = derived[key]
         if actual != expected:
             raise AssertionError(f"{key}: expected {expected}, got {actual}")
+    if forced_summary["total_successes"] != 0:
+        raise AssertionError(f"forced bad successes changed: {forced_summary['total_successes']}")
+    if forced_summary["total_negative_transfer"] != 133:
+        raise AssertionError(f"forced bad negative transfer changed: {forced_summary['total_negative_transfer']}")
 
     groups = {row["group"]: row for row in hard_v2["stability_table"]}
     if groups["tree_aware_skilladmit_selected"]["success_values"] != [25, 25]:
@@ -662,12 +748,13 @@ def assert_matrix(matrix: dict[str, Any], synthesis: dict[str, Any], hard_v2: di
 
     rendered = render_markdown(matrix)
     required_phrases = [
-        "0/85",
-        "85 public-pass/hidden-fail",
+        "0/133",
+        "133 public-pass/hidden-fail",
         "25/25 versus 23/25",
         "29/30",
-        "4/30",
-        "11/30",
+        "22/24",
+        "7/24",
+        "4/24",
         "Do not claim universal SkillAdmit-selected superiority",
         "Token savings are not a supported paper claim",
     ]
@@ -849,6 +936,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--hard-v2-package", type=Path, default=DEFAULT_HARD_V2)
     parser.add_argument("--hard-v3-package", type=Path, default=DEFAULT_HARD_V3)
+    parser.add_argument("--hard-v4-package", type=Path, default=DEFAULT_HARD_V4)
     parser.add_argument("--synthesis", type=Path, default=DEFAULT_SYNTHESIS)
     parser.add_argument("--paper-section", type=Path, default=DEFAULT_PAPER_SECTION)
     parser.add_argument("--json-out", type=Path, default=DEFAULT_JSON)
@@ -867,14 +955,16 @@ def main() -> None:
     paths = {
         "hard_v2": resolve(args.hard_v2_package),
         "hard_v3": resolve(args.hard_v3_package),
+        "hard_v4": resolve(args.hard_v4_package),
         "synthesis": resolve(args.synthesis),
         "paper_section": resolve(args.paper_section),
     }
     hard_v2 = load_json(paths["hard_v2"])
     hard_v3 = load_json(paths["hard_v3"])
+    hard_v4 = load_json(paths["hard_v4"])
     synthesis = load_json(paths["synthesis"])
     paper_section = load_json(paths["paper_section"])
-    matrix = build_matrix(hard_v2, hard_v3, synthesis, paper_section, paths)
+    matrix = build_matrix(hard_v2, hard_v3, hard_v4, synthesis, paper_section, paths)
     if args.assert_current_claim_defense:
         assert_matrix(matrix, synthesis, hard_v2)
     write_outputs(matrix, resolve(args.json_out), resolve(args.md_out), resolve(args.tex_out))

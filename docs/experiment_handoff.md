@@ -1778,7 +1778,74 @@ downstream-validation claim.
 Use this for high-level paper positioning. Use the suite-specific evidence
 packages for exact per-suite tables.
 
-## 20. Rule for Future Work
+## 20. Three-Boundary Paper Reporting Layer
+
+The downstream paper section, claim-defense matrix, and paper artifact index now
+use the hard_v2/hard_v3/hard_v4 boundary synthesis as their high-level source.
+The older hard_v2/hard_v3 cross-version synthesis is still retained as a legacy
+two-suite artifact, but it is no longer the main source for generated paper
+wording.
+
+Updated scripts:
+
+```text
+scripts/export_downstream_paper_section.py
+scripts/export_downstream_claim_defense_matrix.py
+scripts/export_paper_artifacts_index.py
+```
+
+Updated outputs:
+
+```text
+benchmark/downstream/reports/downstream_paper_eval_section.json
+benchmark/downstream/reports/downstream_paper_eval_section.md
+benchmark/downstream/reports/downstream_paper_eval_section.tex
+benchmark/downstream/reports/downstream_claim_defense_matrix.json
+benchmark/downstream/reports/downstream_claim_defense_matrix.md
+benchmark/downstream/reports/downstream_claim_defense_matrix.tex
+benchmark/downstream/reports/paper_artifacts_index.json
+benchmark/downstream/reports/paper_artifacts_index.md
+benchmark/downstream/reports/paper_artifacts_index.tex
+```
+
+Current export facts:
+
+```text
+paper_section:
+  research_questions: 3
+  result_paragraphs: 6
+  claim_limits: 7
+  forced_bad_total_tasks: 133
+
+claim_defense:
+  claim_count: 10
+  global_red_lines: 6
+  forced_bad: 0/133
+
+paper_artifacts_index:
+  artifact_groups: 10
+  table_index: 7
+  claim_map: 10
+  paper_section_result_paragraphs: 6
+```
+
+Current paper-facing story:
+
+```text
+Do claim:
+  SkillAdmit-selected has conditional downstream utility evidence.
+  hard_v2 tree-aware is the clearest positive selected result.
+  hard_v3 and hard_v4 bound universal selected-superiority claims.
+  forced harmful artifacts create systematic negative transfer: 0/133.
+
+Do not claim:
+  selected universally dominates no_experience.
+  selected saves tokens across downstream tasks.
+  precondition-only generally replaces repository-tree context.
+  raw memory or all-skills is a safe admission policy.
+```
+
+## 21. Rule for Future Work
 
 Every new code file should be documented when created:
 

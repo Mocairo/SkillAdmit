@@ -276,9 +276,9 @@ def build_artifact_groups() -> list[dict[str, Any]]:
         build_artifact_group(
             "G6_paper_section",
             "Draftable Paper Section",
-            "Generated evaluation-section prose tied to the frozen synthesis.",
+            "Generated evaluation-section prose tied to the frozen three-boundary synthesis.",
             ["paper_section_json", "paper_section_md", "paper_section_tex"],
-            ["cross_synthesis_json", "claim_defense_md"],
+            ["boundary_synthesis_json", "claim_defense_md"],
             ["python scripts/export_downstream_paper_section.py --assert-current-paper-section"],
             "Use as the starting point for writing the downstream validation subsection.",
             "Do not edit this prose into stronger claims without updating evidence and assertions.",
@@ -288,7 +288,7 @@ def build_artifact_groups() -> list[dict[str, Any]]:
             "Claim Defense Matrix",
             "Reviewer-facing claim-by-claim evidence map and forbidden wording ledger.",
             ["claim_defense_json", "claim_defense_md", "claim_defense_tex"],
-            ["cross_synthesis_json", "paper_section_json"],
+            ["boundary_synthesis_json", "paper_section_json"],
             ["python scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-defense"],
             "Use during paper revision and reviewer response drafting.",
             "Do not treat reviewer-response wording as new experimental evidence.",
@@ -338,23 +338,23 @@ def build_regeneration_order() -> list[dict[str, str]]:
     commands = [
         ("check_hard_v2", "python scripts/check_downstream_hard_v2_tasks.py"),
         ("check_hard_v3", "python scripts/check_downstream_hard_v3_tasks.py"),
+        ("build_hard_v4", "python scripts/build_downstream_hard_v4_tasks.py"),
+        ("check_hard_v4", "python scripts/check_downstream_hard_v4_tasks.py"),
         ("admission_regression", "python scripts/run_admission_regression.py"),
         ("summarize_hard_v2", "python scripts/summarize_hard_v2_results.py --assert-current-hard-v2"),
         ("export_hard_v2", "python scripts/export_hard_v2_evidence_package.py --assert-current-hard-v2"),
         ("summarize_hard_v3", "python scripts/summarize_hard_v3_results.py --assert-current-hard-v3"),
         ("export_hard_v3", "python scripts/export_hard_v3_evidence_package.py --assert-current-hard-v3"),
-        ("export_cross_synthesis", "python scripts/export_downstream_cross_version_synthesis.py --assert-current-synthesis"),
-        ("export_boundary_synthesis", "python scripts/export_downstream_boundary_synthesis.py --assert-current-boundary-synthesis"),
-        ("export_paper_section", "python scripts/export_downstream_paper_section.py --assert-current-paper-section"),
-        ("export_claim_defense", "python scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-defense"),
-        ("build_hard_v4", "python scripts/build_downstream_hard_v4_tasks.py"),
-        ("check_hard_v4", "python scripts/check_downstream_hard_v4_tasks.py"),
         (
             "export_hard_v4_scaffold",
             "python scripts/export_hard_v4_scaffold_manifest.py --run-checker --assert-current-hard-v4-scaffold",
         ),
         ("summarize_hard_v4", "python scripts/summarize_hard_v4_results.py --assert-current-hard-v4"),
         ("export_hard_v4", "python scripts/export_hard_v4_evidence_package.py --assert-current-hard-v4"),
+        ("export_cross_synthesis", "python scripts/export_downstream_cross_version_synthesis.py --assert-current-synthesis"),
+        ("export_boundary_synthesis", "python scripts/export_downstream_boundary_synthesis.py --assert-current-boundary-synthesis"),
+        ("export_paper_section", "python scripts/export_downstream_paper_section.py --assert-current-paper-section"),
+        ("export_claim_defense", "python scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-defense"),
         ("export_artifacts_index", "python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index"),
     ]
     return [
@@ -453,7 +453,9 @@ def build_claim_to_artifact_map(claim_defense: dict[str, Any]) -> list[dict[str,
     source_to_artifacts = {
         "hard_v2_evidence_package": [display_path(ARTIFACT_PATHS["hard_v2_evidence_json"])],
         "hard_v3_evidence_package": [display_path(ARTIFACT_PATHS["hard_v3_evidence_json"])],
+        "hard_v4_evidence_package": [display_path(ARTIFACT_PATHS["hard_v4_evidence_json"])],
         "downstream_cross_version_synthesis": [display_path(ARTIFACT_PATHS["cross_synthesis_json"])],
+        "downstream_boundary_synthesis": [display_path(ARTIFACT_PATHS["boundary_synthesis_json"])],
     }
     rows = []
     for claim in claim_defense["claims"]:
@@ -613,7 +615,7 @@ def assert_index(index: dict[str, Any]) -> None:
         "selected_superiority_consistent": False,
         "selected_token_savings_supported": False,
         "claim_count": 10,
-        "paper_section_result_paragraphs": 5,
+        "paper_section_result_paragraphs": 6,
     }
     for key, value in expected.items():
         actual = facts[key]

@@ -3778,3 +3778,99 @@ Do not use the boundary synthesis as a substitute for suite-specific evidence
 packages.
 Do not claim token savings or universal selected superiority.
 ```
+
+### 59. Three-Boundary Paper Section and Claim Defense
+
+Updated:
+
+```text
+scripts/export_downstream_paper_section.py
+scripts/export_downstream_claim_defense_matrix.py
+scripts/export_paper_artifacts_index.py
+benchmark/downstream/reports/downstream_paper_eval_section.json
+benchmark/downstream/reports/downstream_paper_eval_section.md
+benchmark/downstream/reports/downstream_paper_eval_section.tex
+benchmark/downstream/reports/downstream_claim_defense_matrix.json
+benchmark/downstream/reports/downstream_claim_defense_matrix.md
+benchmark/downstream/reports/downstream_claim_defense_matrix.tex
+benchmark/downstream/reports/paper_artifacts_index.json
+benchmark/downstream/reports/paper_artifacts_index.md
+benchmark/downstream/reports/paper_artifacts_index.tex
+```
+
+What changed:
+
+```text
+The paper-section exporter now reads downstream_boundary_synthesis.json instead
+of the older hard_v2/hard_v3 cross-version synthesis. The draft section reports
+hard_v2, hard_v3, and hard_v4 as separate downstream boundaries and keeps the
+forced_bad_artifact aggregate at 0/133 with 133 public-pass/hidden-fail cases.
+
+The claim-defense matrix now includes hard_v4 evidence rows and uses the
+three-boundary synthesis for forced-bad aggregation and selected-token deltas.
+It still exports 10 claims and 6 global red lines, but the red lines now cover
+hard_v2, hard_v3, and hard_v4.
+
+The paper artifacts index now maps paper-section and claim-defense support to
+downstream_boundary_synthesis.json, and its paper_section_result_paragraphs
+value is 6.
+```
+
+Current paper-section export:
+
+```text
+research_questions: 3
+result_paragraphs: 6
+claim_limits: 7
+forced_bad_total_tasks: 133
+```
+
+Current claim-defense export:
+
+```text
+claim_count: 10
+global_red_lines: 6
+forced_bad: 0/133
+public-pass/hidden-fail: 133
+```
+
+Current artifact index export:
+
+```text
+artifact_groups: 10
+table_index: 7
+claim_map: 10
+forced_bad_total_tasks: 85
+hard_v4_forced_bad_total_tasks: 48
+boundary_forced_bad_total_tasks: 133
+paper_section_result_paragraphs: 6
+```
+
+Interpretation:
+
+```text
+This round did not create new downstream evidence and did not tune any strategy.
+It upgrades the reporting layer so the paper-facing text, claim-defense matrix,
+and artifact index all use the same three-boundary story:
+
+hard_v2:
+  conditional positive evidence under tree-aware context
+
+hard_v3:
+  generalization boundary
+
+hard_v4:
+  stricter boundary against universal selected utility
+
+forced_bad_artifact:
+  strongest stable negative-transfer evidence, 0/133
+```
+
+Boundary:
+
+```text
+Do not use the generated paper section to strengthen claims beyond the evidence.
+Do not replace suite-specific tables with the synthesis when exact numbers are
+needed.
+Do not tune hard_v2, hard_v3, or hard_v4 from this reporting pass.
+```

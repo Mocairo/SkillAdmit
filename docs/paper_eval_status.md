@@ -1059,4 +1059,74 @@ forced_bad_artifact:
 
 This is now the strongest high-level downstream claim boundary. It should be
 used to discipline paper wording, not to claim universal selected superiority.
+
+## 17. Three-Boundary Paper Reporting Layer
+
+The generated downstream paper section and claim-defense matrix now read the
+hard_v2/hard_v3/hard_v4 boundary synthesis instead of the older hard_v2/hard_v3
+cross-version synthesis.
+
+Updated scripts:
+
+```text
+scripts/export_downstream_paper_section.py --assert-current-paper-section
+scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-defense
+scripts/export_paper_artifacts_index.py --assert-current-artifacts-index
+```
+
+Updated paper-facing artifacts:
+
+```text
+benchmark/downstream/reports/downstream_paper_eval_section.json
+benchmark/downstream/reports/downstream_paper_eval_section.md
+benchmark/downstream/reports/downstream_paper_eval_section.tex
+benchmark/downstream/reports/downstream_claim_defense_matrix.json
+benchmark/downstream/reports/downstream_claim_defense_matrix.md
+benchmark/downstream/reports/downstream_claim_defense_matrix.tex
+benchmark/downstream/reports/paper_artifacts_index.json
+benchmark/downstream/reports/paper_artifacts_index.md
+benchmark/downstream/reports/paper_artifacts_index.tex
+```
+
+Current exports:
+
+```text
+paper_section:
+  research_questions: 3
+  result_paragraphs: 6
+  claim_limits: 7
+  forced_bad_total_tasks: 133
+
+claim_defense:
+  claim_count: 10
+  global_red_lines: 6
+  forced_bad: 0/133
+  public-pass/hidden-fail: 133
+
+paper_artifacts_index:
+  artifact_groups: 10
+  table_index: 7
+  claim_map: 10
+  paper_section_result_paragraphs: 6
+```
+
+Paper-facing boundary:
+
+```text
+The paper can now use a single generated section for the three-boundary
+downstream story:
+
+hard_v2:
+  positive conditional evidence under tree-aware context
+
+hard_v3:
+  generalization boundary
+
+hard_v4:
+  stricter boundary against universal selected utility
+
+forced_bad_artifact:
+  systematic negative transfer, 0/133 with 133 public-pass/hidden-fail cases
+
+The section must not be edited into a selected-wins or token-savings claim.
 ```
