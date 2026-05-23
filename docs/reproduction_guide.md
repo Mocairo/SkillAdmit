@@ -49,6 +49,7 @@ python scripts/audit_paper_claim_consistency.py --assert-current-audit
 python scripts/audit_reporting_hygiene.py --assert-current-hygiene
 python scripts/audit_public_release_readiness.py --assert-current-release
 python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide
+python scripts/audit_release_candidate.py --assert-current-release-candidate
 ```
 
 These checks verify that the evidence index is current, paper-facing claims are
@@ -86,7 +87,11 @@ python scripts/audit_paper_claim_consistency.py --assert-current-audit
 python scripts/audit_reporting_hygiene.py --assert-current-hygiene
 python scripts/audit_public_release_readiness.py --assert-current-release
 python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide
+python scripts/audit_release_candidate.py --assert-current-release-candidate
 ```
+
+The release-candidate audit is not new empirical evidence. It aggregates the
+public checks above immediately before a public push or release tag.
 
 ## Evidence Boundaries
 

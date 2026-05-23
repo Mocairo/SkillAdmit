@@ -1,6 +1,6 @@
 # Paper Artifacts Index
 
-Generated at UTC: `2026-05-23T13:09:04.150707+00:00`
+Generated at UTC: `2026-05-23T13:24:59.357077+00:00`
 
 One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the correct evidence, table, script, and claim boundary for downstream validation writing.
 
@@ -74,8 +74,8 @@ One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the corre
 | primary | `benchmark/reports/v7_admission_baselines.json` | True | `ed051957b16aa28f` | 44474 |
 | primary | `benchmark/reports/llm_cost_summary.md` | True | `6180b9f1ff9021ff` | 1661 |
 | primary | `benchmark/reports/llm_cost_summary.json` | True | `ef312b1019006778` | 3568 |
-| support | `docs/paper_eval_status.md` | True | `f2566eee9cedc5da` | 41448 |
-| support | `docs/experiment_handoff.md` | True | `85182687ee630c6b` | 59755 |
+| support | `docs/paper_eval_status.md` | True | `62039af9cec2dec9` | 42478 |
+| support | `docs/experiment_handoff.md` | True | `9d814c47db2a93d1` | 60877 |
 
 Regeneration commands:
 - `python scripts/run_admission_regression.py`
@@ -89,7 +89,7 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/hard_v2_paper_tables.tex` | True | `8af23c87a828d9ea` | 1670 |
 | support | `benchmark/downstream/reports/hard_v2_strategy_matrix.md` | True | `1e2d6d716b8f0428` | 37490 |
 | support | `benchmark/downstream/reports/hard_v2_strategy_matrix.json` | True | `daf5030589d26ad4` | 154134 |
-| support | `docs/paper_eval_status.md` | True | `f2566eee9cedc5da` | 41448 |
+| support | `docs/paper_eval_status.md` | True | `62039af9cec2dec9` | 42478 |
 
 Regeneration commands:
 - `python scripts/check_downstream_hard_v2_tasks.py`
@@ -105,7 +105,7 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/hard_v3_paper_tables.tex` | True | `bd6187913ca355f8` | 2067 |
 | support | `benchmark/downstream/reports/hard_v3_strategy_matrix.md` | True | `bceafdf069b46393` | 30895 |
 | support | `benchmark/downstream/reports/hard_v3_strategy_matrix.json` | True | `b4c670caf50341c9` | 137329 |
-| support | `docs/paper_eval_status.md` | True | `f2566eee9cedc5da` | 41448 |
+| support | `docs/paper_eval_status.md` | True | `62039af9cec2dec9` | 42478 |
 
 Regeneration commands:
 - `python scripts/check_downstream_hard_v3_tasks.py`
@@ -121,7 +121,7 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/downstream_cross_version_synthesis.tex` | True | `9104d43051644fa1` | 4055 |
 | support | `benchmark/downstream/reports/hard_v2_evidence_package.json` | True | `7deb038d4adfc285` | 18140 |
 | support | `benchmark/downstream/reports/hard_v3_evidence_package.json` | True | `894b8f7a1f7ac296` | 27042 |
-| support | `docs/paper_eval_status.md` | True | `f2566eee9cedc5da` | 41448 |
+| support | `docs/paper_eval_status.md` | True | `62039af9cec2dec9` | 42478 |
 
 Regeneration commands:
 - `python scripts/export_downstream_cross_version_synthesis.py --assert-current-synthesis`
@@ -170,9 +170,9 @@ Regeneration commands:
 
 | role | path | exists | sha256 | bytes |
 | --- | --- | --- | --- | --- |
-| primary | `docs/paper_eval_status.md` | True | `f2566eee9cedc5da` | 41448 |
-| primary | `docs/experiment_handoff.md` | True | `85182687ee630c6b` | 59755 |
-| primary | `docs/progress_log.md` | True | `13c21a3606177f83` | 113250 |
+| primary | `docs/paper_eval_status.md` | True | `62039af9cec2dec9` | 42478 |
+| primary | `docs/experiment_handoff.md` | True | `9d814c47db2a93d1` | 60877 |
+| primary | `docs/progress_log.md` | True | `64522aefb1a07d5b` | 114731 |
 
 ### G9_hard_v4_scaffold - Hard v4 Scaffold
 
@@ -182,8 +182,8 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/hard_v4_scaffold_manifest.md` | True | `02e98f97171e796e` | 5034 |
 | primary | `benchmark/downstream/reports/hard_v4_scaffold_manifest.tex` | True | `8871fc0df34cab6f` | 496 |
 | support | `docs/llm_downstream_hard_v4.md` | True | `c682a7c91829b412` | 12262 |
-| support | `docs/paper_eval_status.md` | True | `f2566eee9cedc5da` | 41448 |
-| support | `docs/experiment_handoff.md` | True | `85182687ee630c6b` | 59755 |
+| support | `docs/paper_eval_status.md` | True | `62039af9cec2dec9` | 42478 |
+| support | `docs/experiment_handoff.md` | True | `9d814c47db2a93d1` | 60877 |
 
 Regeneration commands:
 - `python scripts/build_downstream_hard_v4_tasks.py`
@@ -244,7 +244,7 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/model_transfer_paper_addendum.tex` | True | `2d3ea6d8f8ccdd3b` | 1032 |
 | support | `benchmark/downstream/reports/model_transfer_cross_model_synthesis.json` | True | `4e6df53551a1e8f2` | 68222 |
 | support | `benchmark/downstream/reports/model_transfer_evidence_package.json` | True | `282d7bfd51df5176` | 58893 |
-| support | `docs/paper_eval_status.md` | True | `f2566eee9cedc5da` | 41448 |
+| support | `docs/paper_eval_status.md` | True | `62039af9cec2dec9` | 42478 |
 
 Regeneration commands:
 - `python scripts/export_model_transfer_paper_addendum.py --assert-current-addendum`
@@ -253,10 +253,10 @@ Regeneration commands:
 
 | role | path | exists | sha256 | bytes |
 | --- | --- | --- | --- | --- |
-| primary | `docs/reproduction_guide.md` | True | `7baf6a11834a96f8` | 6552 |
+| primary | `docs/reproduction_guide.md` | True | `0918a129516c446c` | 6853 |
 | support | `benchmark/downstream/reports/downstream_boundary_synthesis.json` | True | `b5e58a54217563fb` | 45450 |
 | support | `benchmark/downstream/reports/model_transfer_cross_model_synthesis.json` | True | `4e6df53551a1e8f2` | 68222 |
-| support | `docs/paper_eval_status.md` | True | `f2566eee9cedc5da` | 41448 |
+| support | `docs/paper_eval_status.md` | True | `62039af9cec2dec9` | 42478 |
 
 Regeneration commands:
 - `python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide`
@@ -290,6 +290,7 @@ Regeneration commands:
 | 23 | audit_reporting_hygiene | `python scripts/audit_reporting_hygiene.py --assert-current-hygiene` | True |
 | 24 | audit_public_release_readiness | `python scripts/audit_public_release_readiness.py --assert-current-release` | True |
 | 25 | audit_reproduction_guide | `python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide` | True |
+| 26 | audit_release_candidate | `python scripts/audit_release_candidate.py --assert-current-release-candidate` | True |
 
 ## Table Index
 

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T13:09:04.174482+00:00",
+  "generated_at_utc": "2026-05-23T13:25:26.479760+00:00",
   "purpose": "Public reproduction-guide audit for SkillAdmit. It checks that the public entry guide matches the generated downstream evidence boundary and avoids unsupported claims.",
   "summary": {
     "total_checks": 13,
@@ -157,6 +157,12 @@
       "present_in_guide": true,
       "script": "scripts/audit_reproduction_guide.py",
       "script_exists": true
+    },
+    {
+      "command": "python scripts/audit_release_candidate.py --assert-current-release-candidate",
+      "present_in_guide": true,
+      "script": "scripts/audit_release_candidate.py",
+      "script_exists": true
     }
   ],
   "aggregate_roles": {
@@ -277,22 +283,22 @@
       "name": "reproduction_guide",
       "path": "docs/reproduction_guide.md",
       "exists": true,
-      "sha256": "7baf6a11834a96f84fe97f13709143aecdf1e6ff03a0728d5b1a3855018d5a34",
-      "size_bytes": 6552
+      "sha256": "0918a129516c446c09bf0e5d2e06429ac74522deff42e947769f8c764e89050b",
+      "size_bytes": 6853
     },
     {
       "name": "readme",
       "path": "README.md",
       "exists": true,
-      "sha256": "ca1b0af706beef0bf2bf787b4cfd96471da5bfdd2efeb813267698071bb89c51",
-      "size_bytes": 4927
+      "sha256": "d6657d08f67fd06db948b3312ee64b5bdd5a52d7eb0c4befbb567f56edbb235e",
+      "size_bytes": 5210
     },
     {
       "name": "artifact_index",
       "path": "benchmark/downstream/reports/paper_artifacts_index.json",
       "exists": true,
-      "sha256": "d3a8f372d5b74ead8708627f5db67ce35bc94904c52867aaab2a49bbfb502f31",
-      "size_bytes": 52639
+      "sha256": "3aed8b46ba5c98710c65c307c0cdf313ae81cba3759e97d3ac0f1446b4e0eeb9",
+      "size_bytes": 52836
     },
     {
       "name": "boundary_synthesis",

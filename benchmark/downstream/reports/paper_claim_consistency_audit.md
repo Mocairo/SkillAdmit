@@ -1,6 +1,6 @@
 # Paper Claim Consistency Audit
 
-Generated at UTC: `2026-05-23T13:09:04.168295+00:00`
+Generated at UTC: `2026-05-23T13:25:26.276055+00:00`
 
 Consistency audit for the paper-facing hard_v2/hard_v3/hard_v4 downstream claim layer. This is a reporting-hygiene artifact, not new empirical evidence.
 
@@ -71,14 +71,14 @@ If continuing experiments, use model-transfer reporting hygiene or a new predecl
 | boundary_synthesis | `benchmark/downstream/reports/downstream_boundary_synthesis.json` | True | `b5e58a54217563fb` | 45450 |
 | paper_section | `benchmark/downstream/reports/downstream_paper_eval_section.json` | True | `f026bad7830e2a84` | 7062 |
 | claim_defense | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | True | `09f38bb09aa273ea` | 41180 |
-| artifacts_index | `benchmark/downstream/reports/paper_artifacts_index.json` | True | `d3a8f372d5b74ead` | 52639 |
+| artifacts_index | `benchmark/downstream/reports/paper_artifacts_index.json` | True | `3aed8b46ba5c9871` | 52836 |
 | model_transfer_addendum | `benchmark/downstream/reports/model_transfer_paper_addendum.json` | True | `56594365d4feb838` | 8044 |
 | boundary_synthesis_md | `benchmark/downstream/reports/downstream_boundary_synthesis.md` | True | `a9360eea565f3f41` | 12399 |
 | paper_section_md | `benchmark/downstream/reports/downstream_paper_eval_section.md` | True | `19df606b4bd5459b` | 6712 |
 | claim_defense_md | `benchmark/downstream/reports/downstream_claim_defense_matrix.md` | True | `67b226ce7fb63072` | 24680 |
-| artifacts_index_md | `benchmark/downstream/reports/paper_artifacts_index.md` | True | `b9b0a0489bf9ed18` | 33846 |
+| artifacts_index_md | `benchmark/downstream/reports/paper_artifacts_index.md` | True | `26e10926e119715a` | 33967 |
 | model_transfer_addendum_md | `benchmark/downstream/reports/model_transfer_paper_addendum.md` | True | `b03471c40abfc7bb` | 5668 |
-| experiment_handoff | `docs/experiment_handoff.md` | True | `85182687ee630c6b` | 59755 |
-| paper_eval_status | `docs/paper_eval_status.md` | True | `f2566eee9cedc5da` | 41448 |
-| progress_log | `docs/progress_log.md` | True | `13c21a3606177f83` | 113250 |
-| readme | `README.md` | True | `ca1b0af706beef0b` | 4927 |
+| experiment_handoff | `docs/experiment_handoff.md` | True | `9d814c47db2a93d1` | 60877 |
+| paper_eval_status | `docs/paper_eval_status.md` | True | `62039af9cec2dec9` | 42478 |
+| progress_log | `docs/progress_log.md` | True | `64522aefb1a07d5b` | 114731 |
+| readme | `README.md` | True | `d6657d08f67fd06d` | 5210 |

@@ -42,6 +42,7 @@ The current repo contains:
 - public reporting hygiene audit for aggregate and overclaim separation;
 - public release-readiness audit for secrets, ignored artifacts, and regeneration commands;
 - public reproduction guide and audit for release-facing rerun instructions;
+- public release-candidate audit for the final aggregated pre-push check;
 - experiment handoff and paper-facing status notes.
 
 Unsupported public claims:
@@ -82,7 +83,10 @@ python scripts/export_model_transfer_paper_addendum.py --assert-current-addendum
 python scripts/audit_reporting_hygiene.py --assert-current-hygiene
 python scripts/audit_public_release_readiness.py --assert-current-release
 python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide
+python scripts/audit_release_candidate.py --assert-current-release-candidate
 ```
 
 Use the existing `skilladmit` conda environment for local reproduction. Runtime
 secrets belong in `.env`; the real `.env` file is intentionally ignored by Git.
+The release-candidate audit is not new empirical evidence; it only aggregates
+the public checks above before a push or release tag.

@@ -1,6 +1,6 @@
 # Reproduction Guide Audit
 
-Generated at UTC: `2026-05-23T13:09:04.174482+00:00`
+Generated at UTC: `2026-05-23T13:25:26.479760+00:00`
 
 Public reproduction-guide audit for SkillAdmit. It checks that the public entry guide matches the generated downstream evidence boundary and avoids unsupported claims.
 
@@ -68,6 +68,7 @@ Public reproduction-guide audit for SkillAdmit. It checks that the public entry 
 | `python scripts/audit_reporting_hygiene.py --assert-current-hygiene` | True | True |
 | `python scripts/audit_public_release_readiness.py --assert-current-release` | True | True |
 | `python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide` | True | True |
+| `python scripts/audit_release_candidate.py --assert-current-release-candidate` | True | True |
 
 ## Next Recommended Step
 
@@ -77,9 +78,9 @@ Use this audit with the claim, reporting, and release audits before public READM
 
 | name | path | exists | sha256 | bytes |
 | --- | --- | --- | --- | --- |
-| reproduction_guide | `docs/reproduction_guide.md` | True | `7baf6a11834a96f8` | 6552 |
-| readme | `README.md` | True | `ca1b0af706beef0b` | 4927 |
-| artifact_index | `benchmark/downstream/reports/paper_artifacts_index.json` | True | `d3a8f372d5b74ead` | 52639 |
+| reproduction_guide | `docs/reproduction_guide.md` | True | `0918a129516c446c` | 6853 |
+| readme | `README.md` | True | `d6657d08f67fd06d` | 5210 |
+| artifact_index | `benchmark/downstream/reports/paper_artifacts_index.json` | True | `3aed8b46ba5c9871` | 52836 |
 | boundary_synthesis | `benchmark/downstream/reports/downstream_boundary_synthesis.json` | True | `b5e58a54217563fb` | 45450 |
 | cross_model_synthesis | `benchmark/downstream/reports/model_transfer_cross_model_synthesis.json` | True | `4e6df53551a1e8f2` | 68222 |
 

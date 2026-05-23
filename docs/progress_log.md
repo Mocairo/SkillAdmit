@@ -4374,6 +4374,7 @@ python scripts/audit_paper_claim_consistency.py --assert-current-audit
 python scripts/audit_reporting_hygiene.py --assert-current-hygiene
 python scripts/audit_public_release_readiness.py --assert-current-release
 python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide
+python scripts/audit_release_candidate.py --assert-current-release-candidate
 ```
 
 ### 67. README Public Reader Path
@@ -4483,4 +4484,62 @@ Boundary:
 ```text
 This is a public-release hygiene change only. It does not change any downstream
 task, strategy, run, checker, or claim.
+```
+
+### 69. Release Candidate Audit
+
+Added a final aggregated release-candidate audit. This is not new empirical
+evidence; it is the last public pre-push check over the existing audit stack.
+
+Created:
+
+```text
+scripts/audit_release_candidate.py
+benchmark/downstream/reports/release_candidate_audit.json
+benchmark/downstream/reports/release_candidate_audit.md
+benchmark/downstream/reports/release_candidate_audit.tex
+```
+
+The audit aggregates:
+
+```text
+paper_claim_consistency_audit: 13/13
+reporting_hygiene_audit: 8/8
+public_release_readiness_audit: 7/7
+reproduction_guide_audit: 13/13
+```
+
+It also checks:
+
+```text
+main boundary remains 0/133
+model-transfer addendum remains 0/216
+historical hard_v2/hard_v3 synthesis remains 0/85
+artifact index registers audit_release_candidate.py
+public docs avoid machine-specific paths
+Git status does not include sensitive/local paths
+Git status does not include frozen eval task suites, LLM run workspaces, or agent runs
+the release-candidate audit is not framed as evidence
+```
+
+Current result:
+
+```text
+total_checks: 10
+passed_checks: 10
+failed_checks: 0
+status: pass
+```
+
+Release-candidate command:
+
+```bash
+python scripts/audit_release_candidate.py --assert-current-release-candidate
+```
+
+Boundary:
+
+```text
+If this audit and the deterministic downstream checkers pass, the next step is
+a public push or release tag, not more hard_v2/hard_v3/hard_v4 tuning.
 ```

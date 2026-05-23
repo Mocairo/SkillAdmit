@@ -2337,6 +2337,64 @@ failed_checks: 0
 status: pass
 ```
 
+## 31. Release Candidate Audit
+
+The repository now has a final aggregated release-candidate audit. It is a
+public pre-push check, not downstream evidence.
+
+Script:
+
+```text
+scripts/audit_release_candidate.py --assert-current-release-candidate
+```
+
+Outputs:
+
+```text
+benchmark/downstream/reports/release_candidate_audit.json
+benchmark/downstream/reports/release_candidate_audit.md
+benchmark/downstream/reports/release_candidate_audit.tex
+```
+
+Current result:
+
+```text
+total_checks: 10
+passed_checks: 10
+failed_checks: 0
+status: pass
+```
+
+It aggregates:
+
+```text
+paper_claim_consistency_audit: 13/13
+reporting_hygiene_audit: 8/8
+public_release_readiness_audit: 7/7
+reproduction_guide_audit: 13/13
+```
+
+It preserves these evidence roles:
+
+```text
+0/133:
+  current hard_v2/hard_v3/hard_v4 main downstream boundary
+
+0/216:
+  model-transfer hard_v3/hard_v4 addendum
+
+0/85:
+  historical hard_v2/hard_v3 synthesis only
+```
+
+Important next-step rule:
+
+```text
+If release_candidate_audit and deterministic downstream checkers pass, the next
+step is public push/release-tag preparation, not more hard_v2/hard_v3/hard_v4
+tuning.
+```
+
 ## 23. Rule for Future Work
 
 Every new code file should be documented when created:

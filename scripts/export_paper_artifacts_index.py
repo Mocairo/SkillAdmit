@@ -8,9 +8,9 @@ What this file does:
   paper-section draft, claim-defense matrix, model-transfer evidence,
   model-transfer paper addendum, the paper-claim consistency audit command, the
   public reporting hygiene audit command, public release-readiness audit
-  command, public reproduction-guide audit command, and the model-transfer
-  replication protocol command. The index records each artifact's role, path,
-  regeneration command, and claim boundary.
+  command, public reproduction-guide audit command, release-candidate audit
+  command, and the model-transfer replication protocol command. The index
+  records each artifact's role, path, regeneration command, and claim boundary.
 
 Why it is needed:
   The repository now contains many summaries, tables, evidence packages, and
@@ -157,6 +157,7 @@ SCRIPT_PATHS = {
     "audit_reporting_hygiene": ROOT / "scripts" / "audit_reporting_hygiene.py",
     "audit_public_release_readiness": ROOT / "scripts" / "audit_public_release_readiness.py",
     "audit_reproduction_guide": ROOT / "scripts" / "audit_reproduction_guide.py",
+    "audit_release_candidate": ROOT / "scripts" / "audit_release_candidate.py",
     "export_model_transfer_protocol": ROOT / "scripts" / "export_model_transfer_replication_protocol.py",
     "export_model_transfer_evidence": ROOT / "scripts" / "export_model_transfer_evidence_package.py",
     "export_model_transfer_cross_model": ROOT / "scripts" / "export_model_transfer_cross_model_synthesis.py",
@@ -499,6 +500,10 @@ def build_regeneration_order() -> list[dict[str, str]]:
         (
             "audit_reproduction_guide",
             "python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide",
+        ),
+        (
+            "audit_release_candidate",
+            "python scripts/audit_release_candidate.py --assert-current-release-candidate",
         ),
     ]
     return [
@@ -880,6 +885,7 @@ def assert_index(index: dict[str, Any]) -> None:
         "audit_reporting_hygiene.py",
         "audit_public_release_readiness.py",
         "audit_reproduction_guide.py",
+        "audit_release_candidate.py",
         "G14_reproduction_guide",
         "docs/reproduction_guide.md",
         "export_model_transfer_replication_protocol.py",

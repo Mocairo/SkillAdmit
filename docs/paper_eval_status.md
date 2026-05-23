@@ -1588,3 +1588,51 @@ Paper-facing boundary:
 ```text
 This is a public-release cleanup only. It is not new evidence.
 ```
+
+## 27. Release Candidate Audit
+
+A final release-candidate audit now aggregates the public-facing checks before a
+push or release tag. It is not new empirical evidence.
+
+Script:
+
+```text
+scripts/audit_release_candidate.py --assert-current-release-candidate
+```
+
+Artifacts:
+
+```text
+benchmark/downstream/reports/release_candidate_audit.json
+benchmark/downstream/reports/release_candidate_audit.md
+benchmark/downstream/reports/release_candidate_audit.tex
+```
+
+Current result:
+
+```text
+total_checks: 10
+passed_checks: 10
+failed_checks: 0
+status: pass
+```
+
+It checks:
+
+```text
+paper_claim_consistency_audit: 13/13
+reporting_hygiene_audit: 8/8
+public_release_readiness_audit: 7/7
+reproduction_guide_audit: 13/13
+main boundary: 0/133
+model-transfer addendum: 0/216
+historical hard_v2/hard_v3 synthesis: 0/85
+no sensitive/local paths in Git status
+no frozen eval task-suite or LLM-run workspace changes in Git status
+```
+
+Paper-facing boundary:
+
+```text
+This is public-release hygiene only. It does not strengthen downstream claims.
+```

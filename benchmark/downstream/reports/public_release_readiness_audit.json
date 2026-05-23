@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T13:09:31.739475+00:00",
+  "generated_at_utc": "2026-05-23T13:26:29.090219+00:00",
   "purpose": "Public-release readiness audit for repository hygiene. This is not new empirical evidence; it checks whether the repo is safe and recoverable to publish.",
   "source_files": [
     {
@@ -10,12 +10,12 @@
     {
       "name": "readme",
       "path": "README.md",
-      "sha256": "ca1b0af706beef0bf2bf787b4cfd96471da5bfdd2efeb813267698071bb89c51"
+      "sha256": "d6657d08f67fd06db948b3312ee64b5bdd5a52d7eb0c4befbb567f56edbb235e"
     },
     {
       "name": "artifact_index",
       "path": "benchmark/downstream/reports/paper_artifacts_index.json",
-      "sha256": "d3a8f372d5b74ead8708627f5db67ce35bc94904c52867aaab2a49bbfb502f31"
+      "sha256": "3aed8b46ba5c98710c65c307c0cdf313ae81cba3759e97d3ac0f1446b4e0eeb9"
     }
   ],
   "summary": {
@@ -31,7 +31,7 @@
       "summary": "Git status does not expose dirty sensitive, cache, local agent-run, or LLM workspace paths.",
       "details": {
         "dirty_risk_lines": [],
-        "status_line_count": 14
+        "status_line_count": 23
       }
     },
     {
@@ -361,6 +361,13 @@
       "command": "python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide",
       "script": "scripts/audit_reproduction_guide.py",
       "script_exists": true
+    },
+    {
+      "step": 26,
+      "name": "audit_release_candidate",
+      "command": "python scripts/audit_release_candidate.py --assert-current-release-candidate",
+      "script": "scripts/audit_release_candidate.py",
+      "script_exists": true
     }
   ],
   "release_notes": {
@@ -376,7 +383,8 @@
       "python scripts/audit_paper_claim_consistency.py --assert-current-audit",
       "python scripts/audit_reporting_hygiene.py --assert-current-hygiene",
       "python scripts/audit_public_release_readiness.py --assert-current-release",
-      "python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide"
+      "python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide",
+      "python scripts/audit_release_candidate.py --assert-current-release-candidate"
     ]
   }
 }

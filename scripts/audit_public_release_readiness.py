@@ -389,6 +389,7 @@ def build_audit(artifact_index_path: Path) -> dict[str, Any]:
                 "python scripts/audit_reporting_hygiene.py --assert-current-hygiene",
                 "python scripts/audit_public_release_readiness.py --assert-current-release",
                 "python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide",
+                "python scripts/audit_release_candidate.py --assert-current-release-candidate",
             ],
         },
     }

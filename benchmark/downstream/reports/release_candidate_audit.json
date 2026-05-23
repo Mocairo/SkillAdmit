@@ -1,0 +1,219 @@
+{
+  "generated_at_utc": "2026-05-23T13:26:27.567687+00:00",
+  "purpose": "Final public release-candidate audit for SkillAdmit. This audit is not new empirical evidence; it aggregates existing public checks and verifies that the release surface stays inside the frozen downstream claim boundary.",
+  "summary": {
+    "total_checks": 10,
+    "passed_checks": 10,
+    "failed_checks": 0,
+    "status": "pass"
+  },
+  "aggregate_roles": {
+    "current_main_boundary": "0/133 hard_v2/hard_v3/hard_v4 forced_bad_artifact",
+    "model_transfer_addendum": "0/216 hard_v3/hard_v4 two-model forced_bad_artifact",
+    "historical_two_boundary": "0/85 hard_v2/hard_v3 forced_bad_artifact"
+  },
+  "source_audit_rows": [
+    {
+      "name": "paper_claim_consistency",
+      "total_checks": 13,
+      "passed_checks": 13,
+      "failed_checks": 0,
+      "status": "pass"
+    },
+    {
+      "name": "reporting_hygiene",
+      "total_checks": 8,
+      "passed_checks": 8,
+      "failed_checks": 0,
+      "status": "pass"
+    },
+    {
+      "name": "public_release_readiness",
+      "total_checks": 7,
+      "passed_checks": 7,
+      "failed_checks": 0,
+      "status": "pass"
+    },
+    {
+      "name": "reproduction_guide",
+      "total_checks": 13,
+      "passed_checks": 13,
+      "failed_checks": 0,
+      "status": "pass"
+    }
+  ],
+  "git_status_line_count": 23,
+  "checks": [
+    {
+      "check_id": "RC1_source_audits_pass",
+      "status": "pass",
+      "summary": "All source audits pass with the expected check counts.",
+      "details": {
+        "audit_rows": [
+          {
+            "name": "paper_claim_consistency",
+            "total_checks": 13,
+            "passed_checks": 13,
+            "failed_checks": 0,
+            "status": "pass"
+          },
+          {
+            "name": "reporting_hygiene",
+            "total_checks": 8,
+            "passed_checks": 8,
+            "failed_checks": 0,
+            "status": "pass"
+          },
+          {
+            "name": "public_release_readiness",
+            "total_checks": 7,
+            "passed_checks": 7,
+            "failed_checks": 0,
+            "status": "pass"
+          },
+          {
+            "name": "reproduction_guide",
+            "total_checks": 13,
+            "passed_checks": 13,
+            "failed_checks": 0,
+            "status": "pass"
+          }
+        ],
+        "expected_totals": {
+          "paper_claim_consistency": 13,
+          "reporting_hygiene": 8,
+          "public_release_readiness": 7,
+          "reproduction_guide": 13
+        }
+      }
+    },
+    {
+      "check_id": "RC2_boundary_facts_stable",
+      "status": "pass",
+      "summary": "Main boundary, model-transfer addendum, and historical aggregate facts remain separated.",
+      "details": {
+        "boundary": "0/133",
+        "cross_model": "0/216",
+        "historical_tasks": 85,
+        "selected_superiority_consistent": false,
+        "selected_token_savings_consistent": false
+      }
+    },
+    {
+      "check_id": "RC3_artifact_index_registers_release_candidate",
+      "status": "pass",
+      "summary": "Artifact index keeps the evidence groups stable and registers the release-candidate audit command.",
+      "details": {
+        "artifact_group_count": 14,
+        "has_release_candidate_command": true
+      }
+    },
+    {
+      "check_id": "RC4_public_docs_explain_entrypoints_and_boundaries",
+      "status": "pass",
+      "summary": "README and reproduction guide expose entry points and aggregate roles.",
+      "details": {}
+    },
+    {
+      "check_id": "RC5_public_surface_has_no_local_paths",
+      "status": "pass",
+      "summary": "Public entry files do not contain machine-specific local paths.",
+      "details": {
+        "public_surface_hits": []
+      }
+    },
+    {
+      "check_id": "RC6_git_status_has_no_sensitive_or_local_paths",
+      "status": "pass",
+      "summary": "Git status does not expose dirty sensitive, local-run, cache, or workspace paths.",
+      "details": {
+        "dirty_risk_lines": [],
+        "status_line_count": 23
+      }
+    },
+    {
+      "check_id": "RC7_no_frozen_eval_boundary_files_changed",
+      "status": "pass",
+      "summary": "Git status does not include frozen task suites, LLM run workspaces, or local agent runs.",
+      "details": {
+        "frozen_status_lines": []
+      }
+    },
+    {
+      "check_id": "RC8_no_forbidden_tracked_paths",
+      "status": "pass",
+      "summary": "No tracked .env, cache, workspace, or local agent-run paths.",
+      "details": {
+        "forbidden_tracked_paths": []
+      }
+    },
+    {
+      "check_id": "RC9_final_release_command_registered",
+      "status": "pass",
+      "summary": "Final release-candidate command is visible in README, reproduction guide, and release notes.",
+      "details": {
+        "readme": true,
+        "guide": true,
+        "release_notes": true
+      }
+    },
+    {
+      "check_id": "RC10_release_candidate_is_not_evidence",
+      "status": "pass",
+      "summary": "Release-candidate audit is framed as public-release hygiene, not empirical evidence.",
+      "details": {}
+    }
+  ],
+  "source_files": [
+    {
+      "name": "readme",
+      "path": "README.md",
+      "exists": true,
+      "sha256": "d6657d08f67fd06db948b3312ee64b5bdd5a52d7eb0c4befbb567f56edbb235e",
+      "size_bytes": 5210
+    },
+    {
+      "name": "reproduction_guide",
+      "path": "docs/reproduction_guide.md",
+      "exists": true,
+      "sha256": "0918a129516c446c09bf0e5d2e06429ac74522deff42e947769f8c764e89050b",
+      "size_bytes": 6853
+    },
+    {
+      "name": "artifact_index",
+      "path": "benchmark/downstream/reports/paper_artifacts_index.json",
+      "exists": true,
+      "sha256": "3aed8b46ba5c98710c65c307c0cdf313ae81cba3759e97d3ac0f1446b4e0eeb9",
+      "size_bytes": 52836
+    },
+    {
+      "name": "paper_claim_consistency_audit",
+      "path": "benchmark/downstream/reports/paper_claim_consistency_audit.json",
+      "exists": true,
+      "sha256": "dc57b94ee82a2fa6a5a1db24a282d0dd3b24ada35f4b5cba48a9b1448160ea0e",
+      "size_bytes": 12492
+    },
+    {
+      "name": "reporting_hygiene_audit",
+      "path": "benchmark/downstream/reports/reporting_hygiene_audit.json",
+      "exists": true,
+      "sha256": "6c3b4060bcc6d4b032cc9524dc459c8a42a137dbda2490731cec53855d53e6b8",
+      "size_bytes": 8156
+    },
+    {
+      "name": "public_release_readiness_audit",
+      "path": "benchmark/downstream/reports/public_release_readiness_audit.json",
+      "exists": true,
+      "sha256": "917f56b44c8888da3ffeb0c8f55e23f89c8cc99382d8a0535bd7076768c61689",
+      "size_bytes": 13663
+    },
+    {
+      "name": "reproduction_guide_audit",
+      "path": "benchmark/downstream/reports/reproduction_guide_audit.json",
+      "exists": true,
+      "sha256": "40778fcbc0d2b5a2eb18e2625611b2399e6b59b8a394dba1273c1d7970c47640",
+      "size_bytes": 11304
+    }
+  ],
+  "next_recommended_step": "If this audit and the deterministic downstream checkers pass, the next step is a public push or release tag, not more hard_v2/hard_v3/hard_v4 tuning."
+}
