@@ -1,6 +1,6 @@
 # Downstream Claim Defense Matrix
 
-Generated at UTC: `2026-05-23T06:29:33.434910+00:00`
+Generated at UTC: `2026-05-23T06:49:54.699347+00:00`
 
 SkillAdmit has conditional downstream utility evidence and strong negative-transfer evidence: hard_v2 supports tree-aware selected utility, hard_v3 bounds universal selected-superiority claims, hard_v4 adds a stricter boundary, and forced bad artifacts fail 0/133 with 133 public-pass/hidden-fail cases.
 
@@ -385,4 +385,4 @@ Evidence rows:
 | hard_v3_evidence_package | `benchmark/downstream/reports/hard_v3_evidence_package.json` | `894b8f7a1f7ac296` | `2026-05-22T13:03:52.487189+00:00` |
 | hard_v4_evidence_package | `benchmark/downstream/reports/hard_v4_evidence_package.json` | `c7e729993e44503b` | `2026-05-23T04:55:41.380270+00:00` |
 | downstream_boundary_synthesis | `benchmark/downstream/reports/downstream_boundary_synthesis.json` | `b5e58a54217563fb` | `2026-05-23T05:33:33.739619+00:00` |
-| downstream_paper_eval_section | `benchmark/downstream/reports/downstream_paper_eval_section.json` | `bf3706acb179a666` | `2026-05-23T06:29:33.369770+00:00` |
+| downstream_paper_eval_section | `benchmark/downstream/reports/downstream_paper_eval_section.json` | `f026bad7830e2a84` | `2026-05-23T06:49:54.471664+00:00` |

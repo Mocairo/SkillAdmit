@@ -1177,3 +1177,49 @@ section, claim-defense matrix, artifact index, and boundary synthesis remain
 consistent with the current three-boundary evidence. It is not additional model
 evidence and should not be cited as a downstream performance result.
 ```
+
+## 19. Model-Transfer Replication Protocol
+
+The next clean experimental step is a predeclared model-transfer replication,
+not another hard_v3/hard_v4 prompt or strategy pass.
+
+Script:
+
+```text
+scripts/export_model_transfer_replication_protocol.py --assert-current-protocol
+```
+
+Outputs:
+
+```text
+benchmark/downstream/reports/model_transfer_replication_protocol.json
+benchmark/downstream/reports/model_transfer_replication_protocol.md
+benchmark/downstream/reports/model_transfer_replication_protocol.tex
+```
+
+Current protocol:
+
+```text
+protocol_id: model_transfer_replication_v0
+run_specs: 4
+expected_total_rows: 864
+transfer_model_env: SKILLADMIT_TRANSFER_MODEL
+baseline_model_label: mimo-v2.5-pro
+```
+
+Run matrix:
+
+```text
+hard_v3 tree-aware:          240 rows
+hard_v3 strict visible-file: 240 rows
+hard_v4 tree-aware:          192 rows
+hard_v4 strict visible-file: 192 rows
+```
+
+Key boundary:
+
+```text
+The protocol is allowed to test model sensitivity, but it must not be used to
+claim model-general SkillAdmit-selected superiority or selected token savings.
+It is a pre-run registration artifact, not evidence.
+```

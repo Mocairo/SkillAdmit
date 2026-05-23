@@ -16,6 +16,7 @@ The current repo contains:
 - hard_v2/hard_v3/hard_v4 boundary synthesis reports;
 - generated downstream paper section, claim-defense matrix, and paper artifact index;
 - paper-facing claim consistency audit;
+- predeclared model-transfer replication protocol;
 - experiment handoff and paper-facing status notes.
 
 Key entry points:
@@ -40,6 +41,7 @@ python scripts/export_downstream_paper_section.py --assert-current-paper-section
 python scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-defense
 python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index
 python scripts/audit_paper_claim_consistency.py --assert-current-audit
+python scripts/export_model_transfer_replication_protocol.py --assert-current-protocol
 ```
 
 Use the existing `skilladmit` conda environment for local reproduction. Runtime

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T06:29:33.562545+00:00",
+  "generated_at_utc": "2026-05-23T06:49:54.964692+00:00",
   "purpose": "Consistency audit for the paper-facing hard_v2/hard_v3/hard_v4 downstream claim layer. This is a reporting-hygiene artifact, not new empirical evidence.",
   "source_files": [
     {
@@ -13,22 +13,22 @@
       "name": "paper_section",
       "path": "benchmark/downstream/reports/downstream_paper_eval_section.json",
       "exists": true,
-      "sha256": "bf3706acb179a66652ce189c1e871492c1608abdbf70b26ec044a816fc843ee4",
+      "sha256": "f026bad7830e2a84290627744a22309c0f3f446bc53b42a58903bcc14c2b5251",
       "size_bytes": 7062
     },
     {
       "name": "claim_defense",
       "path": "benchmark/downstream/reports/downstream_claim_defense_matrix.json",
       "exists": true,
-      "sha256": "d371708428eba98d08e7c717bd571126a8d0d40a268177fef277aca8bae64ba4",
+      "sha256": "09f38bb09aa273ea425b9aa187d31e8d64a498ae78e21fd1261fa99cc720c5de",
       "size_bytes": 41180
     },
     {
       "name": "artifacts_index",
       "path": "benchmark/downstream/reports/paper_artifacts_index.json",
       "exists": true,
-      "sha256": "d207e0a4dc79301c1edaff1e768f5945103b1e17eb2da74b37dde65791a18c96",
-      "size_bytes": 39272
+      "sha256": "0b9ca1b54ad71c4366eeb1054923780298ad15c7dbeb4150c218480d9eb8c0fa",
+      "size_bytes": 39714
     },
     {
       "name": "boundary_synthesis_md",
@@ -41,50 +41,50 @@
       "name": "paper_section_md",
       "path": "benchmark/downstream/reports/downstream_paper_eval_section.md",
       "exists": true,
-      "sha256": "e51e2dd719d1bb9edca8fef64cf166a6e6e9969af858c77d4d76662b75aed8a3",
+      "sha256": "19df606b4bd5459b0a648a3b791b93dc6038977e23edadc21e9505cac4350ea4",
       "size_bytes": 6712
     },
     {
       "name": "claim_defense_md",
       "path": "benchmark/downstream/reports/downstream_claim_defense_matrix.md",
       "exists": true,
-      "sha256": "8c952c1ce8996cc1215874af8f129ba8d4872aa995a18dfb6e237e4bd78940bd",
+      "sha256": "67b226ce7fb63072ef0407fe186496678cd677ca628ba24cc4089b119aa50d7e",
       "size_bytes": 24680
     },
     {
       "name": "artifacts_index_md",
       "path": "benchmark/downstream/reports/paper_artifacts_index.md",
       "exists": true,
-      "sha256": "9db3dfd7e92e3e2f8a4fb1e3e957e79a07c33626319834e357057b189e6031a5",
-      "size_bytes": 25217
+      "sha256": "2b629ec00d1498a53123228134c2a36196e821046eaf191831932143fc546bdb",
+      "size_bytes": 25529
     },
     {
       "name": "experiment_handoff",
       "path": "docs/experiment_handoff.md",
       "exists": true,
-      "sha256": "068439eaea99ef10cc8404319382c996940ee361b42c0f051d99ac0d8dddfa77",
-      "size_bytes": 49370
+      "sha256": "57a25ffd18e991b86dc9f7c718e0beefbc943e03c0c8e2a60a397f3a2add96bd",
+      "size_bytes": 51320
     },
     {
       "name": "paper_eval_status",
       "path": "docs/paper_eval_status.md",
       "exists": true,
-      "sha256": "9c07f6ebb533965972c1be5ae8be8abb3a8976c0c4ba2d921e4929b65fd30a2f",
-      "size_bytes": 32069
+      "sha256": "53d8755f9f258cfa2ded177fe45f888cfec6ece4bdbd483c76fd1ea37ec31e5a",
+      "size_bytes": 33188
     },
     {
       "name": "progress_log",
       "path": "docs/progress_log.md",
       "exists": true,
-      "sha256": "31ef675c46cc4069a4a6d39f2cb3c77963e30f6f4332b217efa832ca88a97b40",
-      "size_bytes": 99665
+      "sha256": "bf2f9910ca9be050538be9699eae08312874177d2678e780f58689639f90a54a",
+      "size_bytes": 102810
     },
     {
       "name": "readme",
       "path": "README.md",
       "exists": true,
-      "sha256": "b6a865ebc6af0adaf497ce791658f38a8ffe5641aa79fd7b8bc9019f5e1dc464",
-      "size_bytes": 2476
+      "sha256": "c0a78369f2aebc243914644f04fabf93a8a70fe010631bfdb912b189796b879f",
+      "size_bytes": 2614
     }
   ],
   "summary": {

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T06:29:33.501635+00:00",
+  "generated_at_utc": "2026-05-23T06:49:54.880854+00:00",
   "purpose": "One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the correct evidence, table, script, and claim boundary for downstream validation writing.",
   "source_inputs": [
     {
@@ -62,17 +62,17 @@
       "name": "downstream_paper_eval_section",
       "path": "benchmark/downstream/reports/downstream_paper_eval_section.json",
       "exists": true,
-      "sha256": "bf3706acb179a66652ce189c1e871492c1608abdbf70b26ec044a816fc843ee4",
+      "sha256": "f026bad7830e2a84290627744a22309c0f3f446bc53b42a58903bcc14c2b5251",
       "size_bytes": 7062,
-      "generated_at_utc": "2026-05-23T06:29:33.369770+00:00"
+      "generated_at_utc": "2026-05-23T06:49:54.471664+00:00"
     },
     {
       "name": "downstream_claim_defense_matrix",
       "path": "benchmark/downstream/reports/downstream_claim_defense_matrix.json",
       "exists": true,
-      "sha256": "d371708428eba98d08e7c717bd571126a8d0d40a268177fef277aca8bae64ba4",
+      "sha256": "09f38bb09aa273ea425b9aa187d31e8d64a498ae78e21fd1261fa99cc720c5de",
       "size_bytes": 41180,
-      "generated_at_utc": "2026-05-23T06:29:33.434910+00:00"
+      "generated_at_utc": "2026-05-23T06:49:54.699347+00:00"
     },
     {
       "name": "hard_v4_scaffold_manifest",
@@ -144,14 +144,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "9c07f6ebb533965972c1be5ae8be8abb3a8976c0c4ba2d921e4929b65fd30a2f",
-          "size_bytes": 32069
+          "sha256": "53d8755f9f258cfa2ded177fe45f888cfec6ece4bdbd483c76fd1ea37ec31e5a",
+          "size_bytes": 33188
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "068439eaea99ef10cc8404319382c996940ee361b42c0f051d99ac0d8dddfa77",
-          "size_bytes": 49370
+          "sha256": "57a25ffd18e991b86dc9f7c718e0beefbc943e03c0c8e2a60a397f3a2add96bd",
+          "size_bytes": 51320
         }
       ],
       "regeneration_commands": [
@@ -200,8 +200,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "9c07f6ebb533965972c1be5ae8be8abb3a8976c0c4ba2d921e4929b65fd30a2f",
-          "size_bytes": 32069
+          "sha256": "53d8755f9f258cfa2ded177fe45f888cfec6ece4bdbd483c76fd1ea37ec31e5a",
+          "size_bytes": 33188
         }
       ],
       "regeneration_commands": [
@@ -252,8 +252,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "9c07f6ebb533965972c1be5ae8be8abb3a8976c0c4ba2d921e4929b65fd30a2f",
-          "size_bytes": 32069
+          "sha256": "53d8755f9f258cfa2ded177fe45f888cfec6ece4bdbd483c76fd1ea37ec31e5a",
+          "size_bytes": 33188
         }
       ],
       "regeneration_commands": [
@@ -304,8 +304,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "9c07f6ebb533965972c1be5ae8be8abb3a8976c0c4ba2d921e4929b65fd30a2f",
-          "size_bytes": 32069
+          "sha256": "53d8755f9f258cfa2ded177fe45f888cfec6ece4bdbd483c76fd1ea37ec31e5a",
+          "size_bytes": 33188
         }
       ],
       "regeneration_commands": [
@@ -372,13 +372,13 @@
         {
           "path": "benchmark/downstream/reports/downstream_paper_eval_section.json",
           "exists": true,
-          "sha256": "bf3706acb179a66652ce189c1e871492c1608abdbf70b26ec044a816fc843ee4",
+          "sha256": "f026bad7830e2a84290627744a22309c0f3f446bc53b42a58903bcc14c2b5251",
           "size_bytes": 7062
         },
         {
           "path": "benchmark/downstream/reports/downstream_paper_eval_section.md",
           "exists": true,
-          "sha256": "e51e2dd719d1bb9edca8fef64cf166a6e6e9969af858c77d4d76662b75aed8a3",
+          "sha256": "19df606b4bd5459b0a648a3b791b93dc6038977e23edadc21e9505cac4350ea4",
           "size_bytes": 6712
         },
         {
@@ -398,7 +398,7 @@
         {
           "path": "benchmark/downstream/reports/downstream_claim_defense_matrix.md",
           "exists": true,
-          "sha256": "8c952c1ce8996cc1215874af8f129ba8d4872aa995a18dfb6e237e4bd78940bd",
+          "sha256": "67b226ce7fb63072ef0407fe186496678cd677ca628ba24cc4089b119aa50d7e",
           "size_bytes": 24680
         }
       ],
@@ -416,13 +416,13 @@
         {
           "path": "benchmark/downstream/reports/downstream_claim_defense_matrix.json",
           "exists": true,
-          "sha256": "d371708428eba98d08e7c717bd571126a8d0d40a268177fef277aca8bae64ba4",
+          "sha256": "09f38bb09aa273ea425b9aa187d31e8d64a498ae78e21fd1261fa99cc720c5de",
           "size_bytes": 41180
         },
         {
           "path": "benchmark/downstream/reports/downstream_claim_defense_matrix.md",
           "exists": true,
-          "sha256": "8c952c1ce8996cc1215874af8f129ba8d4872aa995a18dfb6e237e4bd78940bd",
+          "sha256": "67b226ce7fb63072ef0407fe186496678cd677ca628ba24cc4089b119aa50d7e",
           "size_bytes": 24680
         },
         {
@@ -442,7 +442,7 @@
         {
           "path": "benchmark/downstream/reports/downstream_paper_eval_section.json",
           "exists": true,
-          "sha256": "bf3706acb179a66652ce189c1e871492c1608abdbf70b26ec044a816fc843ee4",
+          "sha256": "f026bad7830e2a84290627744a22309c0f3f446bc53b42a58903bcc14c2b5251",
           "size_bytes": 7062
         }
       ],
@@ -460,20 +460,20 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "9c07f6ebb533965972c1be5ae8be8abb3a8976c0c4ba2d921e4929b65fd30a2f",
-          "size_bytes": 32069
+          "sha256": "53d8755f9f258cfa2ded177fe45f888cfec6ece4bdbd483c76fd1ea37ec31e5a",
+          "size_bytes": 33188
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "068439eaea99ef10cc8404319382c996940ee361b42c0f051d99ac0d8dddfa77",
-          "size_bytes": 49370
+          "sha256": "57a25ffd18e991b86dc9f7c718e0beefbc943e03c0c8e2a60a397f3a2add96bd",
+          "size_bytes": 51320
         },
         {
           "path": "docs/progress_log.md",
           "exists": true,
-          "sha256": "31ef675c46cc4069a4a6d39f2cb3c77963e30f6f4332b217efa832ca88a97b40",
-          "size_bytes": 99665
+          "sha256": "bf2f9910ca9be050538be9699eae08312874177d2678e780f58689639f90a54a",
+          "size_bytes": 102810
         }
       ],
       "support_files": [],
@@ -515,14 +515,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "9c07f6ebb533965972c1be5ae8be8abb3a8976c0c4ba2d921e4929b65fd30a2f",
-          "size_bytes": 32069
+          "sha256": "53d8755f9f258cfa2ded177fe45f888cfec6ece4bdbd483c76fd1ea37ec31e5a",
+          "size_bytes": 33188
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "068439eaea99ef10cc8404319382c996940ee361b42c0f051d99ac0d8dddfa77",
-          "size_bytes": 49370
+          "sha256": "57a25ffd18e991b86dc9f7c718e0beefbc943e03c0c8e2a60a397f3a2add96bd",
+          "size_bytes": 51320
         }
       ],
       "regeneration_commands": [
@@ -693,6 +693,12 @@
       "step": 18,
       "name": "audit_paper_claim_consistency",
       "command": "python scripts/audit_paper_claim_consistency.py --assert-current-audit",
+      "script_exists": true
+    },
+    {
+      "step": 19,
+      "name": "export_model_transfer_protocol",
+      "command": "python scripts/export_model_transfer_replication_protocol.py --assert-current-protocol",
       "script_exists": true
     }
   ],
@@ -915,6 +921,10 @@
     {
       "artifact_pattern": "benchmark/downstream/reports/paper_claim_consistency_audit.*",
       "reason": "Consistency audit reports are reporting-hygiene checks, not additional downstream evidence."
+    },
+    {
+      "artifact_pattern": "benchmark/downstream/reports/model_transfer_replication_protocol.*",
+      "reason": "Model-transfer protocol reports are pre-run registration artifacts, not model-performance evidence."
     }
   ],
   "next_experimental_boundary": {

@@ -3960,3 +3960,116 @@ This audit is not new evidence.
 Do not cite it as a model-performance result.
 Use it before paper drafting or reviewer-response editing to catch claim drift.
 ```
+
+### 61. Model-Transfer Replication Protocol
+
+Created:
+
+```text
+scripts/export_model_transfer_replication_protocol.py
+benchmark/downstream/reports/model_transfer_replication_protocol.json
+benchmark/downstream/reports/model_transfer_replication_protocol.md
+benchmark/downstream/reports/model_transfer_replication_protocol.tex
+```
+
+Updated:
+
+```text
+scripts/run_llm_downstream_validation.py
+scripts/export_paper_artifacts_index.py
+README.md
+```
+
+What the new script does:
+
+```text
+export_model_transfer_replication_protocol.py reads the current downstream
+boundary synthesis and the paper-claim consistency audit, then exports a
+predeclared protocol for running hard_v3 and hard_v4 with a second model. It
+does not run API calls and does not inspect failure cases.
+```
+
+Why it is needed:
+
+```text
+The current downstream evidence comes from one main model/backend. The next
+clean scientific step is model-transfer replication, not prompt tuning on
+hard_v3 or hard_v4. The protocol freezes which suites, settings, strategies,
+commands, stop rules, and claim boundaries are allowed before any transfer-model
+outcome is observed.
+```
+
+Runner update:
+
+```text
+scripts/run_llm_downstream_validation.py now accepts:
+
+--model
+--base-url
+
+This lets transfer runs use a second model without editing .env or overwriting
+the baseline model setting. Existing default behavior still reads
+SKILLADMIT_MODEL and OPENAI_BASE_URL from .env.
+```
+
+Current protocol export:
+
+```text
+protocol_id: model_transfer_replication_v0
+run_specs: 4
+expected_total_rows: 864
+transfer_model_env: SKILLADMIT_TRANSFER_MODEL
+baseline_model_label: mimo-v2.5-pro
+```
+
+Run matrix:
+
+```text
+MT1 hard_v3 tree-aware:          30 tasks x 8 strategies = 240 rows
+MT2 hard_v3 strict visible-file: 30 tasks x 8 strategies = 240 rows
+MT3 hard_v4 tree-aware:          24 tasks x 8 strategies = 192 rows
+MT4 hard_v4 strict visible-file: 24 tasks x 8 strategies = 192 rows
+```
+
+Predeclared command shape:
+
+```bash
+SKILLADMIT_TRANSFER_MODEL=<second-model-id>
+
+PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
+/home/lijx/anaconda3/envs/skilladmit/bin/python scripts/export_model_transfer_replication_protocol.py \
+  --model-slug <model_slug> \
+  --transfer-model-expr '$SKILLADMIT_TRANSFER_MODEL' \
+  --assert-current-protocol
+```
+
+Then run the four commands listed in:
+
+```text
+benchmark/downstream/reports/model_transfer_replication_protocol.md
+```
+
+Stop rules:
+
+```text
+Use --resume only to recover interrupted rows.
+Do not selectively rerun failed rows.
+Do not change prompts, strategies, task files, visible-file settings, repo-tree
+settings, or hidden verifiers after seeing transfer-model outcomes.
+If any adjustment is needed, create a new protocol id.
+```
+
+Claim boundary:
+
+```text
+Allowed after the run:
+  report whether hard_v3/hard_v4 boundary patterns replicated, weakened, or
+  reversed under the second model.
+
+Forbidden after the run:
+  do not claim model-general SkillAdmit-selected superiority from one transfer
+  model.
+  do not claim selected token savings without a separate cost-controlled
+  protocol.
+  do not treat the protocol itself as model-performance evidence.
+```

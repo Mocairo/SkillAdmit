@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T06:29:33.434910+00:00",
+  "generated_at_utc": "2026-05-23T06:49:54.699347+00:00",
   "source_packages": [
     {
       "name": "hard_v2_evidence_package",
@@ -28,8 +28,8 @@
     {
       "name": "downstream_paper_eval_section",
       "path": "benchmark/downstream/reports/downstream_paper_eval_section.json",
-      "sha256": "bf3706acb179a66652ce189c1e871492c1608abdbf70b26ec044a816fc843ee4",
-      "generated_at_utc": "2026-05-23T06:29:33.369770+00:00"
+      "sha256": "f026bad7830e2a84290627744a22309c0f3f446bc53b42a58903bcc14c2b5251",
+      "generated_at_utc": "2026-05-23T06:49:54.471664+00:00"
     }
   ],
   "claim_count": 10,

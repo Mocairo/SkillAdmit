@@ -1,0 +1,158 @@
+{
+  "generated_at_utc": "2026-05-23T06:49:55.015990+00:00",
+  "protocol_id": "model_transfer_replication_v0",
+  "purpose": "Predeclare the next clean downstream validation boundary: replicate the frozen hard_v3/hard_v4 matrices with a second model, without tuning prompts, strategies, task files, or hidden verifiers from observed failures.",
+  "source_files": [
+    {
+      "name": "downstream_boundary_synthesis",
+      "path": "benchmark/downstream/reports/downstream_boundary_synthesis.json",
+      "sha256": "b5e58a54217563fbe2a24e3b4d63090b66d5d0ded6d9872ccb5e57e6bd1237aa",
+      "generated_at_utc": "2026-05-23T05:33:33.739619+00:00"
+    },
+    {
+      "name": "paper_claim_consistency_audit",
+      "path": "benchmark/downstream/reports/paper_claim_consistency_audit.json",
+      "sha256": "8cb50a50ad78752b48eac4585ecf4de51d59d725497a5903ed0961e4656544ec",
+      "generated_at_utc": "2026-05-23T06:49:54.964692+00:00"
+    }
+  ],
+  "prerequisites": [
+    "Run paper claim consistency audit and require 12/12 checks passing.",
+    "Choose one transfer model before starting; record its exact provider model id.",
+    "Set SKILLADMIT_TRANSFER_MODEL or pass --model explicitly; do not overwrite baseline evidence.",
+    "Run hard_v3 and hard_v4 deterministic checkers before any model calls.",
+    "Do not inspect failures to change prompts, artifacts, strategies, or tasks."
+  ],
+  "transfer_model": {
+    "environment_variable": "SKILLADMIT_TRANSFER_MODEL",
+    "model_expression": "$SKILLADMIT_TRANSFER_MODEL",
+    "model_slug": "transfer_model",
+    "must_differ_from_baseline": true,
+    "baseline_model_label": "mimo-v2.5-pro"
+  },
+  "frozen_current_boundary": {
+    "forced_bad_total_success": "0/133",
+    "forced_bad_total_tasks": 133,
+    "forced_bad_total_public_passed_hidden_failed": 133,
+    "selected_superiority_consistent": false,
+    "selected_token_savings_consistent": false,
+    "hard_v4_strict_selected_delta_vs_no_experience": -2
+  },
+  "run_matrix": [
+    {
+      "run_id": "MT1_hard_v3_tree",
+      "suite": "hard_v3",
+      "setting": "tree-aware",
+      "tasks_dir": "benchmark/downstream_hard_v3/tasks",
+      "run_name": "llm_downstream_hard_v3_transfer_transfer_model_tree_30x8",
+      "strategies": [
+        "no_experience",
+        "skilladmit_selected",
+        "skilladmit_selected_with_precondition_context",
+        "raw_memory",
+        "distilled_skills_all",
+        "promoted_rules",
+        "bad_dependency_rule",
+        "forced_bad_artifact"
+      ],
+      "include_repo_tree": true,
+      "use_task_visible_files": true,
+      "expected_rows": 240,
+      "command": "python scripts/run_llm_downstream_validation.py --model \"$SKILLADMIT_TRANSFER_MODEL\" --run-name llm_downstream_hard_v3_transfer_transfer_model_tree_30x8 --tasks-dir benchmark/downstream_hard_v3/tasks --strategy no_experience --strategy skilladmit_selected --strategy skilladmit_selected_with_precondition_context --strategy raw_memory --strategy distilled_skills_all --strategy promoted_rules --strategy bad_dependency_rule --strategy forced_bad_artifact --use-task-visible-files --include-repo-tree --resume"
+    },
+    {
+      "run_id": "MT2_hard_v3_strict",
+      "suite": "hard_v3",
+      "setting": "strict visible-file",
+      "tasks_dir": "benchmark/downstream_hard_v3/tasks",
+      "run_name": "llm_downstream_hard_v3_transfer_transfer_model_strict_30x8",
+      "strategies": [
+        "no_experience",
+        "skilladmit_selected",
+        "skilladmit_selected_with_precondition_only",
+        "raw_memory",
+        "distilled_skills_all",
+        "promoted_rules",
+        "bad_dependency_rule",
+        "forced_bad_artifact"
+      ],
+      "include_repo_tree": false,
+      "use_task_visible_files": true,
+      "expected_rows": 240,
+      "command": "python scripts/run_llm_downstream_validation.py --model \"$SKILLADMIT_TRANSFER_MODEL\" --run-name llm_downstream_hard_v3_transfer_transfer_model_strict_30x8 --tasks-dir benchmark/downstream_hard_v3/tasks --strategy no_experience --strategy skilladmit_selected --strategy skilladmit_selected_with_precondition_only --strategy raw_memory --strategy distilled_skills_all --strategy promoted_rules --strategy bad_dependency_rule --strategy forced_bad_artifact --use-task-visible-files --resume"
+    },
+    {
+      "run_id": "MT3_hard_v4_tree",
+      "suite": "hard_v4",
+      "setting": "tree-aware",
+      "tasks_dir": "benchmark/downstream_hard_v4/tasks",
+      "run_name": "llm_downstream_hard_v4_transfer_transfer_model_tree_24x8",
+      "strategies": [
+        "no_experience",
+        "skilladmit_selected",
+        "skilladmit_selected_with_precondition_context",
+        "raw_memory",
+        "distilled_skills_all",
+        "promoted_rules",
+        "bad_dependency_rule",
+        "forced_bad_artifact"
+      ],
+      "include_repo_tree": true,
+      "use_task_visible_files": true,
+      "expected_rows": 192,
+      "command": "python scripts/run_llm_downstream_validation.py --model \"$SKILLADMIT_TRANSFER_MODEL\" --run-name llm_downstream_hard_v4_transfer_transfer_model_tree_24x8 --tasks-dir benchmark/downstream_hard_v4/tasks --strategy no_experience --strategy skilladmit_selected --strategy skilladmit_selected_with_precondition_context --strategy raw_memory --strategy distilled_skills_all --strategy promoted_rules --strategy bad_dependency_rule --strategy forced_bad_artifact --use-task-visible-files --include-repo-tree --resume"
+    },
+    {
+      "run_id": "MT4_hard_v4_strict",
+      "suite": "hard_v4",
+      "setting": "strict visible-file",
+      "tasks_dir": "benchmark/downstream_hard_v4/tasks",
+      "run_name": "llm_downstream_hard_v4_transfer_transfer_model_strict_24x8",
+      "strategies": [
+        "no_experience",
+        "skilladmit_selected",
+        "skilladmit_selected_with_precondition_only",
+        "raw_memory",
+        "distilled_skills_all",
+        "promoted_rules",
+        "bad_dependency_rule",
+        "forced_bad_artifact"
+      ],
+      "include_repo_tree": false,
+      "use_task_visible_files": true,
+      "expected_rows": 192,
+      "command": "python scripts/run_llm_downstream_validation.py --model \"$SKILLADMIT_TRANSFER_MODEL\" --run-name llm_downstream_hard_v4_transfer_transfer_model_strict_24x8 --tasks-dir benchmark/downstream_hard_v4/tasks --strategy no_experience --strategy skilladmit_selected --strategy skilladmit_selected_with_precondition_only --strategy raw_memory --strategy distilled_skills_all --strategy promoted_rules --strategy bad_dependency_rule --strategy forced_bad_artifact --use-task-visible-files --resume"
+    }
+  ],
+  "expected_total_rows": 864,
+  "stop_rules": [
+    "Use --resume only to recover interrupted rows; do not selectively rerun failed rows.",
+    "If API outage or parser failure affects many rows, pause and document infrastructure status before rerunning.",
+    "After the first full transfer run, freeze it as evidence. Any prompt or strategy adjustment must create a new protocol id.",
+    "Do not add or remove tasks after seeing transfer-model outcomes."
+  ],
+  "primary_comparisons": [
+    "selected vs no_experience in hard_v3 tree-aware and strict settings",
+    "selected vs no_experience in hard_v4 tree-aware and strict settings",
+    "selected + precondition context vs selected in tree-aware settings",
+    "precondition-only vs selected and no_experience in strict settings",
+    "forced_bad_artifact aggregate across hard_v3 and hard_v4",
+    "bad_dependency_rule artifact adherence vs forced_bad_artifact negative transfer"
+  ],
+  "allowed_claims_after_run": [
+    "The hard_v3/hard_v4 boundary pattern replicated, weakened, or reversed under a second model.",
+    "Forced harmful artifacts did or did not remain systematic negative-transfer controls under the transfer model.",
+    "Repo tree and precondition context remained, weakened, or changed as context variables under the transfer model."
+  ],
+  "forbidden_claims_after_run": [
+    "Do not claim model-general SkillAdmit-selected superiority from one transfer model.",
+    "Do not claim selected token savings unless a separate cost-controlled protocol is run.",
+    "Do not compare transfer results to baseline after changing prompts, task visibility, or hidden verifiers.",
+    "Do not treat forced_bad_artifact as a normal LLM-choice strategy; it is a deterministic negative-transfer control."
+  ],
+  "post_run_required_exports": [
+    "Inspect raw run summaries for completeness only, not for prompt tuning.",
+    "Create a model-transfer evidence package before adding paper claims.",
+    "Rerun paper claim consistency audit after adding any transfer-facing report."
+  ]
+}

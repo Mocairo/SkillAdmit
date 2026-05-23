@@ -658,6 +658,7 @@ def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
     grouped: dict[str, list[dict[str, Any]]] = {}
     for row in rows:
         grouped.setdefault(row["strategy"], []).append(row)
+    models = sorted({str(row.get("model", "")) for row in rows if row.get("model")})
 
     strategies = {}
     for strategy, items in sorted(grouped.items()):
@@ -678,6 +679,7 @@ def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
         }
     return {
         "total_rows": len(rows),
+        "models": models,
         "strategies": strategies,
     }
 
@@ -689,6 +691,8 @@ def render_markdown(summary: dict[str, Any], run_name: str, tasks_dir: Path) -> 
         f"Run name: `{run_name}`",
         "",
         f"Tasks directory: `{tasks_dir}`",
+        "",
+        f"Models: `{', '.join(summary.get('models') or ['unknown'])}`",
         "",
         f"Rows: {summary['total_rows']}",
         "",
@@ -737,6 +741,8 @@ def main() -> None:
     parser.add_argument("--max-files", type=int)
     parser.add_argument("--use-task-visible-files", action="store_true")
     parser.add_argument("--include-repo-tree", action="store_true")
+    parser.add_argument("--model", help="Override SKILLADMIT_MODEL for model-transfer replication runs.")
+    parser.add_argument("--base-url", help="Override OPENAI_BASE_URL without editing .env.")
     parser.add_argument("--resume", action="store_true")
     args = parser.parse_args()
 
@@ -745,8 +751,8 @@ def main() -> None:
     if not api_key:
         raise RuntimeError("Missing OPENAI_API_KEY in environment or .env")
 
-    base_url = os.getenv("OPENAI_BASE_URL", "https://token-plan-cn.xiaomimimo.com/v1")
-    model = os.getenv("SKILLADMIT_MODEL", "mimo-v2.5-pro")
+    base_url = args.base_url or os.getenv("OPENAI_BASE_URL", "https://token-plan-cn.xiaomimimo.com/v1")
+    model = args.model or os.getenv("SKILLADMIT_MODEL", "mimo-v2.5-pro")
     client = OpenAI(api_key=api_key, base_url=base_url)
 
     tasks_dir = args.tasks_dir

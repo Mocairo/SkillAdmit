@@ -1,6 +1,6 @@
 # Paper Claim Consistency Audit
 
-Generated at UTC: `2026-05-23T06:29:33.562545+00:00`
+Generated at UTC: `2026-05-23T06:49:54.964692+00:00`
 
 Consistency audit for the paper-facing hard_v2/hard_v3/hard_v4 downstream claim layer. This is a reporting-hygiene artifact, not new empirical evidence.
 
@@ -65,14 +65,14 @@ If continuing experiments, use a predeclared model-transfer replication or a new
 | name | path | exists | sha256 | bytes |
 | --- | --- | --- | --- | --- |
 | boundary_synthesis | `benchmark/downstream/reports/downstream_boundary_synthesis.json` | True | `b5e58a54217563fb` | 45450 |
-| paper_section | `benchmark/downstream/reports/downstream_paper_eval_section.json` | True | `bf3706acb179a666` | 7062 |
-| claim_defense | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | True | `d371708428eba98d` | 41180 |
-| artifacts_index | `benchmark/downstream/reports/paper_artifacts_index.json` | True | `d207e0a4dc79301c` | 39272 |
+| paper_section | `benchmark/downstream/reports/downstream_paper_eval_section.json` | True | `f026bad7830e2a84` | 7062 |
+| claim_defense | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | True | `09f38bb09aa273ea` | 41180 |
+| artifacts_index | `benchmark/downstream/reports/paper_artifacts_index.json` | True | `0b9ca1b54ad71c43` | 39714 |
 | boundary_synthesis_md | `benchmark/downstream/reports/downstream_boundary_synthesis.md` | True | `a9360eea565f3f41` | 12399 |
-| paper_section_md | `benchmark/downstream/reports/downstream_paper_eval_section.md` | True | `e51e2dd719d1bb9e` | 6712 |
-| claim_defense_md | `benchmark/downstream/reports/downstream_claim_defense_matrix.md` | True | `8c952c1ce8996cc1` | 24680 |
-| artifacts_index_md | `benchmark/downstream/reports/paper_artifacts_index.md` | True | `9db3dfd7e92e3e2f` | 25217 |
-| experiment_handoff | `docs/experiment_handoff.md` | True | `068439eaea99ef10` | 49370 |
-| paper_eval_status | `docs/paper_eval_status.md` | True | `9c07f6ebb5339659` | 32069 |
-| progress_log | `docs/progress_log.md` | True | `31ef675c46cc4069` | 99665 |
-| readme | `README.md` | True | `b6a865ebc6af0ada` | 2476 |
+| paper_section_md | `benchmark/downstream/reports/downstream_paper_eval_section.md` | True | `19df606b4bd5459b` | 6712 |
+| claim_defense_md | `benchmark/downstream/reports/downstream_claim_defense_matrix.md` | True | `67b226ce7fb63072` | 24680 |
+| artifacts_index_md | `benchmark/downstream/reports/paper_artifacts_index.md` | True | `2b629ec00d1498a5` | 25529 |
+| experiment_handoff | `docs/experiment_handoff.md` | True | `57a25ffd18e991b8` | 51320 |
+| paper_eval_status | `docs/paper_eval_status.md` | True | `53d8755f9f258cfa` | 33188 |
+| progress_log | `docs/progress_log.md` | True | `bf2f9910ca9be050` | 102810 |
+| readme | `README.md` | True | `c0a78369f2aebc24` | 2614 |
