@@ -2156,6 +2156,56 @@ Use downstream_boundary_synthesis for the main paper boundary.
 Use model_transfer_paper_addendum only for the optional second-model addendum.
 ```
 
+## 27. Public Release Readiness Audit
+
+The repository now has a release-readiness audit for public push hygiene. It is
+an engineering check, not a downstream-evidence artifact.
+
+Script:
+
+```text
+scripts/audit_public_release_readiness.py --assert-current-release
+```
+
+Outputs:
+
+```text
+benchmark/downstream/reports/public_release_readiness_audit.json
+benchmark/downstream/reports/public_release_readiness_audit.md
+benchmark/downstream/reports/public_release_readiness_audit.tex
+```
+
+Current checks:
+
+```text
+R1 no dirty sensitive/local paths in git status
+R2 expected local artifacts are ignored
+R3 no forbidden tracked paths
+R4 no obvious tracked credential patterns
+R5 no tracked file over 2,000,000 bytes
+R6 artifact-index regeneration scripts exist
+R7 docs state runtime secrets belong in ignored .env
+```
+
+Current result:
+
+```text
+total_checks: 7
+passed_checks: 7
+failed_checks: 0
+tracked_file_count: 1650
+```
+
+Public-release rule:
+
+```text
+Do not commit .env.
+Do not commit benchmark/downstream/llm_runs/*/workspaces/.
+Do not commit benchmark/agent_runs/.
+Do not commit __pycache__/ or .pytest_cache/.
+Run the release-readiness audit after regenerating artifact index and reporting audits.
+```
+
 ## 23. Rule for Future Work
 
 Every new code file should be documented when created:

@@ -1,0 +1,374 @@
+{
+  "generated_at_utc": "2026-05-23T12:01:48.387030+00:00",
+  "purpose": "Public-release readiness audit for repository hygiene. This is not new empirical evidence; it checks whether the repo is safe and recoverable to publish.",
+  "source_files": [
+    {
+      "name": "gitignore",
+      "path": ".gitignore",
+      "sha256": "19ca3946fd901b147c4c6ff6f32fb12df5a538c35c09d91d067ae4c70c176caa"
+    },
+    {
+      "name": "readme",
+      "path": "README.md",
+      "sha256": "1556126e8da5e061c45c0c3d17b7635891f7a761d14fd9d8f87951135d868d4d"
+    },
+    {
+      "name": "artifact_index",
+      "path": "benchmark/downstream/reports/paper_artifacts_index.json",
+      "sha256": "4fd37d050d87695554fe37e18c37a7a1e8be97af28d72767cf00c733d1773cb9"
+    }
+  ],
+  "summary": {
+    "total_checks": 7,
+    "passed_checks": 7,
+    "failed_checks": 0,
+    "status": "pass"
+  },
+  "checks": [
+    {
+      "check_id": "R1_no_dirty_sensitive_or_local_paths",
+      "status": "pass",
+      "summary": "Git status does not expose dirty sensitive, cache, local agent-run, or LLM workspace paths.",
+      "details": {
+        "dirty_risk_lines": [],
+        "status_line_count": 15
+      }
+    },
+    {
+      "check_id": "R2_expected_local_artifacts_ignored",
+      "status": "pass",
+      "summary": ".env, local agent runs, workspaces, and cache paths are ignored by Git.",
+      "details": {
+        "ignore_rows": [
+          {
+            "path": ".env",
+            "ignored": true,
+            "rule": ".gitignore:1:.env\t.env"
+          },
+          {
+            "path": "__pycache__/",
+            "ignored": true,
+            "rule": ".gitignore:2:__pycache__/\t__pycache__/"
+          },
+          {
+            "path": ".pytest_cache/",
+            "ignored": true,
+            "rule": ".gitignore:4:.pytest_cache/\t.pytest_cache/"
+          },
+          {
+            "path": "benchmark/agent_runs/heuristic_agent_v0/trajectories.jsonl",
+            "ignored": true,
+            "rule": ".gitignore:5:benchmark/agent_runs/\tbenchmark/agent_runs/heuristic_agent_v0/trajectories.jsonl"
+          },
+          {
+            "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v4_transfer_mimo_v2_5_strict_24x8/workspaces/",
+            "ignored": true,
+            "rule": ".gitignore:8:benchmark/downstream/llm_runs/*/workspaces/\tbenchmark/downstream/llm_runs/llm_downstream_hard_v4_transfer_mimo_v2_5_strict_24x8/workspaces/"
+          }
+        ]
+      }
+    },
+    {
+      "check_id": "R3_no_forbidden_tracked_paths",
+      "status": "pass",
+      "summary": "No tracked .env, pycache, pytest cache, local agent run, or LLM workspace paths.",
+      "details": {
+        "forbidden_tracked_paths": []
+      }
+    },
+    {
+      "check_id": "R4_no_obvious_tracked_secrets",
+      "status": "pass",
+      "summary": "No obvious credential patterns were found in tracked text files.",
+      "details": {
+        "secret_hits": [],
+        "hit_count": 0
+      }
+    },
+    {
+      "check_id": "R5_no_tracked_file_over_threshold",
+      "status": "pass",
+      "summary": "No tracked file exceeds 2000000 bytes.",
+      "details": {
+        "large_files": []
+      }
+    },
+    {
+      "check_id": "R6_regeneration_scripts_exist",
+      "status": "pass",
+      "summary": "All script paths referenced in the artifact-index regeneration order exist.",
+      "details": {
+        "missing_regen_scripts": []
+      }
+    },
+    {
+      "check_id": "R7_release_docs_name_local_secret_boundary",
+      "status": "pass",
+      "summary": "README and handoff docs explicitly keep runtime secrets in ignored local .env.",
+      "details": {}
+    }
+  ],
+  "tracked_file_count": 1650,
+  "top_tracked_files": [
+    {
+      "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v3_transfer_mimo_v2_5_tree_30x8/trajectories.jsonl",
+      "size_bytes": 1393917,
+      "size_mib": 1.329
+    },
+    {
+      "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v3_transfer_mimo_v2_5_strict_30x8/trajectories.jsonl",
+      "size_bytes": 1362786,
+      "size_mib": 1.3
+    },
+    {
+      "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v3_tree_core_30x2/trajectories.jsonl",
+      "size_bytes": 1351208,
+      "size_mib": 1.289
+    },
+    {
+      "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v3_strict_30x8/trajectories.jsonl",
+      "size_bytes": 1284469,
+      "size_mib": 1.225
+    },
+    {
+      "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v4_transfer_mimo_v2_5_strict_24x8/trajectories.jsonl",
+      "size_bytes": 1200834,
+      "size_mib": 1.145
+    },
+    {
+      "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v4_transfer_mimo_v2_5_tree_24x8/trajectories.jsonl",
+      "size_bytes": 1116894,
+      "size_mib": 1.065
+    },
+    {
+      "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v4_tree_24x8/trajectories.jsonl",
+      "size_bytes": 1067703,
+      "size_mib": 1.018
+    },
+    {
+      "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v4_strict_24x8/trajectories.jsonl",
+      "size_bytes": 1056579,
+      "size_mib": 1.008
+    },
+    {
+      "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_full_25x6/trajectories.jsonl",
+      "size_bytes": 921828,
+      "size_mib": 0.879
+    },
+    {
+      "path": "benchmark/downstream/results/downstream_validation_v0.jsonl",
+      "size_bytes": 523448,
+      "size_mib": 0.499
+    },
+    {
+      "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_tree_25x2/trajectories.jsonl",
+      "size_bytes": 278599,
+      "size_mib": 0.266
+    },
+    {
+      "path": "benchmark/downstream/reports/hard_v2_strategy_matrix.json",
+      "size_bytes": 154134,
+      "size_mib": 0.147
+    },
+    {
+      "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_replication_selected_precondition_25/trajectories.jsonl",
+      "size_bytes": 147508,
+      "size_mib": 0.141
+    },
+    {
+      "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_selected_precondition_25/trajectories.jsonl",
+      "size_bytes": 146859,
+      "size_mib": 0.14
+    },
+    {
+      "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v2_replication_tree_selected_25/trajectories.jsonl",
+      "size_bytes": 139687,
+      "size_mib": 0.133
+    }
+  ],
+  "regeneration_order": [
+    {
+      "step": 1,
+      "name": "check_hard_v2",
+      "command": "python scripts/check_downstream_hard_v2_tasks.py",
+      "script": "scripts/check_downstream_hard_v2_tasks.py",
+      "script_exists": true
+    },
+    {
+      "step": 2,
+      "name": "check_hard_v3",
+      "command": "python scripts/check_downstream_hard_v3_tasks.py",
+      "script": "scripts/check_downstream_hard_v3_tasks.py",
+      "script_exists": true
+    },
+    {
+      "step": 3,
+      "name": "build_hard_v4",
+      "command": "python scripts/build_downstream_hard_v4_tasks.py",
+      "script": "scripts/build_downstream_hard_v4_tasks.py",
+      "script_exists": true
+    },
+    {
+      "step": 4,
+      "name": "check_hard_v4",
+      "command": "python scripts/check_downstream_hard_v4_tasks.py",
+      "script": "scripts/check_downstream_hard_v4_tasks.py",
+      "script_exists": true
+    },
+    {
+      "step": 5,
+      "name": "admission_regression",
+      "command": "python scripts/run_admission_regression.py",
+      "script": "scripts/run_admission_regression.py",
+      "script_exists": true
+    },
+    {
+      "step": 6,
+      "name": "summarize_hard_v2",
+      "command": "python scripts/summarize_hard_v2_results.py --assert-current-hard-v2",
+      "script": "scripts/summarize_hard_v2_results.py",
+      "script_exists": true
+    },
+    {
+      "step": 7,
+      "name": "export_hard_v2",
+      "command": "python scripts/export_hard_v2_evidence_package.py --assert-current-hard-v2",
+      "script": "scripts/export_hard_v2_evidence_package.py",
+      "script_exists": true
+    },
+    {
+      "step": 8,
+      "name": "summarize_hard_v3",
+      "command": "python scripts/summarize_hard_v3_results.py --assert-current-hard-v3",
+      "script": "scripts/summarize_hard_v3_results.py",
+      "script_exists": true
+    },
+    {
+      "step": 9,
+      "name": "export_hard_v3",
+      "command": "python scripts/export_hard_v3_evidence_package.py --assert-current-hard-v3",
+      "script": "scripts/export_hard_v3_evidence_package.py",
+      "script_exists": true
+    },
+    {
+      "step": 10,
+      "name": "export_hard_v4_scaffold",
+      "command": "python scripts/export_hard_v4_scaffold_manifest.py --run-checker --assert-current-hard-v4-scaffold",
+      "script": "scripts/export_hard_v4_scaffold_manifest.py",
+      "script_exists": true
+    },
+    {
+      "step": 11,
+      "name": "summarize_hard_v4",
+      "command": "python scripts/summarize_hard_v4_results.py --assert-current-hard-v4",
+      "script": "scripts/summarize_hard_v4_results.py",
+      "script_exists": true
+    },
+    {
+      "step": 12,
+      "name": "export_hard_v4",
+      "command": "python scripts/export_hard_v4_evidence_package.py --assert-current-hard-v4",
+      "script": "scripts/export_hard_v4_evidence_package.py",
+      "script_exists": true
+    },
+    {
+      "step": 13,
+      "name": "export_cross_synthesis",
+      "command": "python scripts/export_downstream_cross_version_synthesis.py --assert-current-synthesis",
+      "script": "scripts/export_downstream_cross_version_synthesis.py",
+      "script_exists": true
+    },
+    {
+      "step": 14,
+      "name": "export_boundary_synthesis",
+      "command": "python scripts/export_downstream_boundary_synthesis.py --assert-current-boundary-synthesis",
+      "script": "scripts/export_downstream_boundary_synthesis.py",
+      "script_exists": true
+    },
+    {
+      "step": 15,
+      "name": "export_paper_section",
+      "command": "python scripts/export_downstream_paper_section.py --assert-current-paper-section",
+      "script": "scripts/export_downstream_paper_section.py",
+      "script_exists": true
+    },
+    {
+      "step": 16,
+      "name": "export_claim_defense",
+      "command": "python scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-defense",
+      "script": "scripts/export_downstream_claim_defense_matrix.py",
+      "script_exists": true
+    },
+    {
+      "step": 17,
+      "name": "export_model_transfer_protocol",
+      "command": "python scripts/export_model_transfer_replication_protocol.py --assert-current-protocol",
+      "script": "scripts/export_model_transfer_replication_protocol.py",
+      "script_exists": true
+    },
+    {
+      "step": 18,
+      "name": "export_model_transfer_evidence",
+      "command": "python scripts/export_model_transfer_evidence_package.py --assert-current-model-transfer",
+      "script": "scripts/export_model_transfer_evidence_package.py",
+      "script_exists": true
+    },
+    {
+      "step": 19,
+      "name": "export_model_transfer_cross_model",
+      "command": "python scripts/export_model_transfer_cross_model_synthesis.py --assert-current-cross-model",
+      "script": "scripts/export_model_transfer_cross_model_synthesis.py",
+      "script_exists": true
+    },
+    {
+      "step": 20,
+      "name": "export_model_transfer_addendum",
+      "command": "python scripts/export_model_transfer_paper_addendum.py --assert-current-addendum",
+      "script": "scripts/export_model_transfer_paper_addendum.py",
+      "script_exists": true
+    },
+    {
+      "step": 21,
+      "name": "export_artifacts_index",
+      "command": "python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index",
+      "script": "scripts/export_paper_artifacts_index.py",
+      "script_exists": true
+    },
+    {
+      "step": 22,
+      "name": "audit_paper_claim_consistency",
+      "command": "python scripts/audit_paper_claim_consistency.py --assert-current-audit",
+      "script": "scripts/audit_paper_claim_consistency.py",
+      "script_exists": true
+    },
+    {
+      "step": 23,
+      "name": "audit_reporting_hygiene",
+      "command": "python scripts/audit_reporting_hygiene.py --assert-current-hygiene",
+      "script": "scripts/audit_reporting_hygiene.py",
+      "script_exists": true
+    },
+    {
+      "step": 24,
+      "name": "audit_public_release_readiness",
+      "command": "python scripts/audit_public_release_readiness.py --assert-current-release",
+      "script": "scripts/audit_public_release_readiness.py",
+      "script_exists": true
+    }
+  ],
+  "release_notes": {
+    "commit_do_not_include": [
+      ".env",
+      "benchmark/downstream/llm_runs/*/workspaces/",
+      "benchmark/agent_runs/",
+      "__pycache__/",
+      ".pytest_cache/"
+    ],
+    "primary_reproduction_command": "python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index",
+    "final_release_checks": [
+      "python scripts/audit_paper_claim_consistency.py --assert-current-audit",
+      "python scripts/audit_reporting_hygiene.py --assert-current-hygiene",
+      "python scripts/audit_public_release_readiness.py --assert-current-release"
+    ]
+  }
+}

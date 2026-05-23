@@ -1407,3 +1407,43 @@ Use downstream_boundary_synthesis as the main paper evidence.
 Use model_transfer_paper_addendum only as a replication/sensitivity addendum.
 Treat downstream_cross_version_synthesis as a historical hard_v2/hard_v3 report.
 ```
+
+## 23. Public Release Readiness
+
+A repository-level release-readiness audit now checks publish hygiene for the
+public repo. This is separate from claim consistency and reporting hygiene.
+
+Script:
+
+```text
+scripts/audit_public_release_readiness.py --assert-current-release
+```
+
+Artifacts:
+
+```text
+benchmark/downstream/reports/public_release_readiness_audit.json
+benchmark/downstream/reports/public_release_readiness_audit.md
+benchmark/downstream/reports/public_release_readiness_audit.tex
+```
+
+Current result:
+
+```text
+total_checks: 7
+passed_checks: 7
+failed_checks: 0
+tracked_file_count: 1650
+```
+
+It checks:
+
+```text
+.env is ignored and untracked
+LLM workspaces are ignored and untracked
+benchmark/agent_runs is ignored and untracked
+pycache and pytest cache are ignored and untracked
+tracked text files do not contain obvious credential patterns
+tracked files stay below the current large-file threshold
+artifact-index regeneration scripts exist
+```

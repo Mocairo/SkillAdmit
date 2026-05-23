@@ -1,6 +1,6 @@
 # Reporting Hygiene Audit
 
-Generated at UTC: `2026-05-23T11:39:24.734269+00:00`
+Generated at UTC: `2026-05-23T12:01:47.262287+00:00`
 
 Public reporting hygiene audit for SkillAdmit downstream artifacts. It checks aggregate separation, legacy wording, overclaim guardrails, and handoff consistency.
 
@@ -46,14 +46,14 @@ Use the hygiene audit before public commits or paper edits. If a new experiment 
 | paper_section | `benchmark/downstream/reports/downstream_paper_eval_section.json` | True | `f026bad7830e2a84` | 7062 |
 | claim_defense | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | True | `09f38bb09aa273ea` | 41180 |
 | model_transfer_addendum | `benchmark/downstream/reports/model_transfer_paper_addendum.json` | True | `56594365d4feb838` | 8044 |
-| artifact_index | `benchmark/downstream/reports/paper_artifacts_index.json` | True | `5831022b8141dba4` | 50659 |
+| artifact_index | `benchmark/downstream/reports/paper_artifacts_index.json` | True | `4fd37d050d876955` | 50860 |
 | boundary_synthesis_md | `benchmark/downstream/reports/downstream_boundary_synthesis.md` | True | `a9360eea565f3f41` | 12399 |
 | paper_section_md | `benchmark/downstream/reports/downstream_paper_eval_section.md` | True | `19df606b4bd5459b` | 6712 |
 | claim_defense_md | `benchmark/downstream/reports/downstream_claim_defense_matrix.md` | True | `67b226ce7fb63072` | 24680 |
 | model_transfer_addendum_md | `benchmark/downstream/reports/model_transfer_paper_addendum.md` | True | `b03471c40abfc7bb` | 5668 |
-| artifact_index_md | `benchmark/downstream/reports/paper_artifacts_index.md` | True | `029f2674291553cd` | 32621 |
-| readme | `README.md` | True | `72a08cbf4e1e3735` | 3164 |
-| experiment_handoff | `docs/experiment_handoff.md` | True | `4af6fae986de5697` | 55963 |
-| paper_eval_status | `docs/paper_eval_status.md` | True | `306ceec14fe45a66` | 37657 |
-| progress_log | `docs/progress_log.md` | True | `2e5a1b93cad2bd8a` | 107625 |
+| artifact_index_md | `benchmark/downstream/reports/paper_artifacts_index.md` | True | `4a6867df6745cf00` | 32746 |
+| readme | `README.md` | True | `1556126e8da5e061` | 3330 |
+| experiment_handoff | `docs/experiment_handoff.md` | True | `e6d423ad6290ff79` | 57163 |
+| paper_eval_status | `docs/paper_eval_status.md` | True | `feea7e8374fd64d2` | 38611 |
+| progress_log | `docs/progress_log.md` | True | `28b4f1001e5ac5ef` | 108916 |
 

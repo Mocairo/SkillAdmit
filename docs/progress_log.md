@@ -4264,3 +4264,49 @@ Artifact-index wording was corrected:
 G4_cross_version_synthesis is now labeled as historical two-boundary synthesis,
 not the top-level downstream story.
 ```
+
+### 65. Public Release Readiness Audit
+
+Added a repository-level release audit for public push hygiene. This audit is
+not empirical evidence; it checks whether the repo is safe and recoverable to
+publish.
+
+Created:
+
+```text
+scripts/audit_public_release_readiness.py
+benchmark/downstream/reports/public_release_readiness_audit.json
+benchmark/downstream/reports/public_release_readiness_audit.md
+benchmark/downstream/reports/public_release_readiness_audit.tex
+```
+
+Current checks:
+
+```text
+R1: no dirty sensitive/local paths in git status
+R2: .env, agent_runs, workspaces, and caches are ignored
+R3: no forbidden tracked .env/cache/workspace/local-run paths
+R4: no obvious tracked credential patterns
+R5: no tracked file over 2,000,000 bytes
+R6: artifact-index regeneration scripts exist
+R7: docs state runtime secrets belong in ignored .env
+```
+
+Current result:
+
+```text
+total_checks: 7
+passed_checks: 7
+failed_checks: 0
+status: pass
+tracked_file_count: 1650
+```
+
+Release command tail:
+
+```bash
+python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index
+python scripts/audit_paper_claim_consistency.py --assert-current-audit
+python scripts/audit_reporting_hygiene.py --assert-current-hygiene
+python scripts/audit_public_release_readiness.py --assert-current-release
+```
