@@ -1356,3 +1356,54 @@ Forbidden:
   selected token savings across models
   replacing the main hard_v2/hard_v3/hard_v4 boundary synthesis
 ```
+
+## 22. Reporting Hygiene Audit
+
+The public reporting layer now has an executable hygiene audit. This is separate
+from the paper-claim consistency audit: it specifically checks that old,
+current, and model-transfer aggregates are not mixed into an over-strong paper
+claim.
+
+Script:
+
+```text
+scripts/audit_reporting_hygiene.py --assert-current-hygiene
+```
+
+Artifacts:
+
+```text
+benchmark/downstream/reports/reporting_hygiene_audit.json
+benchmark/downstream/reports/reporting_hygiene_audit.md
+benchmark/downstream/reports/reporting_hygiene_audit.tex
+```
+
+Aggregate roles:
+
+```text
+0/85:
+  historical hard_v2/hard_v3 cross-version synthesis only
+
+0/133:
+  current hard_v2/hard_v3/hard_v4 main downstream boundary
+
+0/216:
+  model-transfer hard_v3/hard_v4 addendum layer
+```
+
+Current result:
+
+```text
+total_checks: 8
+passed_checks: 8
+failed_checks: 0
+status: pass
+```
+
+Paper-facing implication:
+
+```text
+Use downstream_boundary_synthesis as the main paper evidence.
+Use model_transfer_paper_addendum only as a replication/sensitivity addendum.
+Treat downstream_cross_version_synthesis as a historical hard_v2/hard_v3 report.
+```

@@ -1,6 +1,6 @@
 # Paper Artifacts Index
 
-Generated at UTC: `2026-05-23T11:07:16.619132+00:00`
+Generated at UTC: `2026-05-23T11:38:54.898970+00:00`
 
 One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the correct evidence, table, script, and claim boundary for downstream validation writing.
 
@@ -52,7 +52,7 @@ One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the corre
 | G1_admission_context | Admission Context | Supporting context for admission benchmark status and baseline caveats. | Use to describe the frozen admission pipeline, v7 baseline caveat, and token accounting context. | Do not use v7 admission accuracy as the main downstream-utility proof. |
 | G2_hard_v2_evidence | Hard v2 Evidence | Primary downstream evidence for tree-aware selected utility and strict visible-file boundary. | Use for hard_v2 results, including 25/25 tree-aware selected and strict visible-file caveats. | Do not flatten strict visible-file and tree-aware hard_v2 into one selected-wins leaderboard. |
 | G3_hard_v3_evidence | Hard v3 Evidence | Fresh downstream boundary evidence and artifact-adherence caveats. | Use for hard_v3 boundary claims: selected ties no_experience in tree-aware and is not best in strict visible-file. | Do not use hard_v3 to claim universal SkillAdmit-selected superiority or selected token savings. |
-| G4_cross_version_synthesis | Cross-Version Synthesis | Primary paper-facing synthesis of hard_v2 and hard_v3 claim boundaries. | Use for the top-level downstream story and forced_bad_artifact aggregate. | Do not merge hard_v2 and hard_v3 into a single anonymous leaderboard. |
+| G4_cross_version_synthesis | Cross-Version Synthesis | Historical two-boundary synthesis of hard_v2 and hard_v3 claim boundaries. | Use only when discussing the earlier hard_v2/hard_v3 historical 0/85 synthesis. | Do not use this as the current top-level downstream story after hard_v4 and model-transfer reports. |
 | G5_boundary_synthesis | Boundary Synthesis | Three-boundary synthesis covering hard_v2, hard_v3, and hard_v4. | Use for the high-level paper boundary story: conditional positive, generalization boundary, stricter boundary, and 0/133 forced-bad evidence. | Do not use boundary synthesis as a substitute for the underlying suite-specific evidence packages. |
 | G6_paper_section | Draftable Paper Section | Generated evaluation-section prose tied to the frozen three-boundary synthesis. | Use as the starting point for writing the downstream validation subsection. | Do not edit this prose into stronger claims without updating evidence and assertions. |
 | G7_claim_defense | Claim Defense Matrix | Reviewer-facing claim-by-claim evidence map and forbidden wording ledger. | Use during paper revision and reviewer response drafting. | Do not treat reviewer-response wording as new experimental evidence. |
@@ -73,8 +73,8 @@ One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the corre
 | primary | `benchmark/reports/v7_admission_baselines.json` | True | `ed051957b16aa28f` | 44474 |
 | primary | `benchmark/reports/llm_cost_summary.md` | True | `6180b9f1ff9021ff` | 1661 |
 | primary | `benchmark/reports/llm_cost_summary.json` | True | `ef312b1019006778` | 3568 |
-| support | `docs/paper_eval_status.md` | True | `a92d56eeec38232d` | 36534 |
-| support | `docs/experiment_handoff.md` | True | `ff86591d230021f3` | 54796 |
+| support | `docs/paper_eval_status.md` | True | `306ceec14fe45a66` | 37657 |
+| support | `docs/experiment_handoff.md` | True | `4af6fae986de5697` | 55963 |
 
 Regeneration commands:
 - `python scripts/run_admission_regression.py`
@@ -88,7 +88,7 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/hard_v2_paper_tables.tex` | True | `8af23c87a828d9ea` | 1670 |
 | support | `benchmark/downstream/reports/hard_v2_strategy_matrix.md` | True | `1e2d6d716b8f0428` | 37490 |
 | support | `benchmark/downstream/reports/hard_v2_strategy_matrix.json` | True | `daf5030589d26ad4` | 154134 |
-| support | `docs/paper_eval_status.md` | True | `a92d56eeec38232d` | 36534 |
+| support | `docs/paper_eval_status.md` | True | `306ceec14fe45a66` | 37657 |
 
 Regeneration commands:
 - `python scripts/check_downstream_hard_v2_tasks.py`
@@ -104,7 +104,7 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/hard_v3_paper_tables.tex` | True | `bd6187913ca355f8` | 2067 |
 | support | `benchmark/downstream/reports/hard_v3_strategy_matrix.md` | True | `bceafdf069b46393` | 30895 |
 | support | `benchmark/downstream/reports/hard_v3_strategy_matrix.json` | True | `b4c670caf50341c9` | 137329 |
-| support | `docs/paper_eval_status.md` | True | `a92d56eeec38232d` | 36534 |
+| support | `docs/paper_eval_status.md` | True | `306ceec14fe45a66` | 37657 |
 
 Regeneration commands:
 - `python scripts/check_downstream_hard_v3_tasks.py`
@@ -120,7 +120,7 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/downstream_cross_version_synthesis.tex` | True | `9104d43051644fa1` | 4055 |
 | support | `benchmark/downstream/reports/hard_v2_evidence_package.json` | True | `7deb038d4adfc285` | 18140 |
 | support | `benchmark/downstream/reports/hard_v3_evidence_package.json` | True | `894b8f7a1f7ac296` | 27042 |
-| support | `docs/paper_eval_status.md` | True | `a92d56eeec38232d` | 36534 |
+| support | `docs/paper_eval_status.md` | True | `306ceec14fe45a66` | 37657 |
 
 Regeneration commands:
 - `python scripts/export_downstream_cross_version_synthesis.py --assert-current-synthesis`
@@ -169,9 +169,9 @@ Regeneration commands:
 
 | role | path | exists | sha256 | bytes |
 | --- | --- | --- | --- | --- |
-| primary | `docs/paper_eval_status.md` | True | `a92d56eeec38232d` | 36534 |
-| primary | `docs/experiment_handoff.md` | True | `ff86591d230021f3` | 54796 |
-| primary | `docs/progress_log.md` | True | `1be372fe7c7c0d50` | 106579 |
+| primary | `docs/paper_eval_status.md` | True | `306ceec14fe45a66` | 37657 |
+| primary | `docs/experiment_handoff.md` | True | `4af6fae986de5697` | 55963 |
+| primary | `docs/progress_log.md` | True | `2e5a1b93cad2bd8a` | 107625 |
 
 ### G9_hard_v4_scaffold - Hard v4 Scaffold
 
@@ -181,8 +181,8 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/hard_v4_scaffold_manifest.md` | True | `02e98f97171e796e` | 5034 |
 | primary | `benchmark/downstream/reports/hard_v4_scaffold_manifest.tex` | True | `8871fc0df34cab6f` | 496 |
 | support | `docs/llm_downstream_hard_v4.md` | True | `c682a7c91829b412` | 12262 |
-| support | `docs/paper_eval_status.md` | True | `a92d56eeec38232d` | 36534 |
-| support | `docs/experiment_handoff.md` | True | `ff86591d230021f3` | 54796 |
+| support | `docs/paper_eval_status.md` | True | `306ceec14fe45a66` | 37657 |
+| support | `docs/experiment_handoff.md` | True | `4af6fae986de5697` | 55963 |
 
 Regeneration commands:
 - `python scripts/build_downstream_hard_v4_tasks.py`
@@ -209,8 +209,8 @@ Regeneration commands:
 
 | role | path | exists | sha256 | bytes |
 | --- | --- | --- | --- | --- |
-| primary | `benchmark/downstream/reports/model_transfer_evidence_package.json` | True | `32505f40e1635dcf` | 58893 |
-| primary | `benchmark/downstream/reports/model_transfer_evidence_package.md` | True | `7d423d9b66e46b32` | 11645 |
+| primary | `benchmark/downstream/reports/model_transfer_evidence_package.json` | True | `282d7bfd51df5176` | 58893 |
+| primary | `benchmark/downstream/reports/model_transfer_evidence_package.md` | True | `b0298e898575d1cc` | 11645 |
 | primary | `benchmark/downstream/reports/model_transfer_evidence_package.tex` | True | `ec3fe8515ee6de01` | 4668 |
 | support | `benchmark/downstream/reports/model_transfer_replication_protocol.json` | True | `ae3893cb2d81b943` | 8593 |
 | support | `benchmark/downstream/reports/model_transfer_replication_protocol.md` | True | `b6f23a607ecb700a` | 6239 |
@@ -224,12 +224,12 @@ Regeneration commands:
 
 | role | path | exists | sha256 | bytes |
 | --- | --- | --- | --- | --- |
-| primary | `benchmark/downstream/reports/model_transfer_cross_model_synthesis.json` | True | `fc575fd01e288008` | 68222 |
-| primary | `benchmark/downstream/reports/model_transfer_cross_model_synthesis.md` | True | `f21e836c2239352d` | 9166 |
+| primary | `benchmark/downstream/reports/model_transfer_cross_model_synthesis.json` | True | `4e6df53551a1e8f2` | 68222 |
+| primary | `benchmark/downstream/reports/model_transfer_cross_model_synthesis.md` | True | `3ca33504b1f67557` | 9166 |
 | primary | `benchmark/downstream/reports/model_transfer_cross_model_synthesis.tex` | True | `c6389b9aa76b7f11` | 4149 |
 | support | `benchmark/downstream/reports/hard_v3_evidence_package.json` | True | `894b8f7a1f7ac296` | 27042 |
 | support | `benchmark/downstream/reports/hard_v4_evidence_package.json` | True | `c7e729993e44503b` | 22128 |
-| support | `benchmark/downstream/reports/model_transfer_evidence_package.json` | True | `32505f40e1635dcf` | 58893 |
+| support | `benchmark/downstream/reports/model_transfer_evidence_package.json` | True | `282d7bfd51df5176` | 58893 |
 
 Regeneration commands:
 - `python scripts/export_model_transfer_cross_model_synthesis.py --assert-current-cross-model`
@@ -238,12 +238,12 @@ Regeneration commands:
 
 | role | path | exists | sha256 | bytes |
 | --- | --- | --- | --- | --- |
-| primary | `benchmark/downstream/reports/model_transfer_paper_addendum.json` | True | `49fcf3b0475ce999` | 8044 |
-| primary | `benchmark/downstream/reports/model_transfer_paper_addendum.md` | True | `111baa7af63fafe7` | 5668 |
+| primary | `benchmark/downstream/reports/model_transfer_paper_addendum.json` | True | `56594365d4feb838` | 8044 |
+| primary | `benchmark/downstream/reports/model_transfer_paper_addendum.md` | True | `b03471c40abfc7bb` | 5668 |
 | primary | `benchmark/downstream/reports/model_transfer_paper_addendum.tex` | True | `2d3ea6d8f8ccdd3b` | 1032 |
-| support | `benchmark/downstream/reports/model_transfer_cross_model_synthesis.json` | True | `fc575fd01e288008` | 68222 |
-| support | `benchmark/downstream/reports/model_transfer_evidence_package.json` | True | `32505f40e1635dcf` | 58893 |
-| support | `docs/paper_eval_status.md` | True | `a92d56eeec38232d` | 36534 |
+| support | `benchmark/downstream/reports/model_transfer_cross_model_synthesis.json` | True | `4e6df53551a1e8f2` | 68222 |
+| support | `benchmark/downstream/reports/model_transfer_evidence_package.json` | True | `282d7bfd51df5176` | 58893 |
+| support | `docs/paper_eval_status.md` | True | `306ceec14fe45a66` | 37657 |
 
 Regeneration commands:
 - `python scripts/export_model_transfer_paper_addendum.py --assert-current-addendum`
@@ -274,6 +274,7 @@ Regeneration commands:
 | 20 | export_model_transfer_addendum | `python scripts/export_model_transfer_paper_addendum.py --assert-current-addendum` | True |
 | 21 | export_artifacts_index | `python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index` | True |
 | 22 | audit_paper_claim_consistency | `python scripts/audit_paper_claim_consistency.py --assert-current-audit` | True |
+| 23 | audit_reporting_hygiene | `python scripts/audit_reporting_hygiene.py --assert-current-hygiene` | True |
 
 ## Table Index
 
@@ -283,7 +284,7 @@ Regeneration commands:
 | T_hard_v2 | Hard v2 primary result table. | `benchmark/downstream/reports/hard_v2_paper_tables.md`<br>`benchmark/downstream/reports/hard_v2_paper_tables.tex`<br>`benchmark/downstream/reports/hard_v2_evidence_package.json` | hard_v2 supports tree-aware selected utility and exposes strict visible-file boundary. | Do not collapse hard_v2 settings into selected universally wins. |
 | T_hard_v3 | Hard v3 boundary and artifact-adherence table. | `benchmark/downstream/reports/hard_v3_paper_tables.md`<br>`benchmark/downstream/reports/hard_v3_paper_tables.tex`<br>`benchmark/downstream/reports/hard_v3_evidence_package.json` | hard_v3 bounds selected-superiority and strengthens negative-transfer evidence. | Do not claim hard_v3 proves selected superiority or token savings. |
 | T_hard_v4 | Hard v4 boundary table. | `benchmark/downstream/reports/hard_v4_paper_tables.md`<br>`benchmark/downstream/reports/hard_v4_paper_tables.tex`<br>`benchmark/downstream/reports/hard_v4_evidence_package.json` | hard_v4 shows tree-aware saturation, strict selected underperformance, and 0/48 forced-bad transfer. | Do not claim hard_v4 proves selected utility, selected token savings, or bad-advice safety. |
-| T_cross_version | Main downstream synthesis table. | `benchmark/downstream/reports/downstream_cross_version_synthesis.md`<br>`benchmark/downstream/reports/downstream_cross_version_synthesis.tex`<br>`benchmark/downstream/reports/downstream_cross_version_synthesis.json` | hard_v2 is positive tree-aware evidence; hard_v3 is generalization boundary; forced bad is 0/85. | Do not read the synthesis as a single global leaderboard. |
+| T_cross_version | Legacy two-boundary synthesis table. | `benchmark/downstream/reports/downstream_cross_version_synthesis.md`<br>`benchmark/downstream/reports/downstream_cross_version_synthesis.tex`<br>`benchmark/downstream/reports/downstream_cross_version_synthesis.json` | Historical hard_v2/hard_v3 synthesis: hard_v2 is positive tree-aware evidence; hard_v3 is a generalization boundary; forced bad is 0/85. | Do not use the legacy 0/85 synthesis as the current main downstream result after the 0/133 boundary synthesis exists. |
 | T_boundary_synthesis | Three-boundary synthesis table. | `benchmark/downstream/reports/downstream_boundary_synthesis.md`<br>`benchmark/downstream/reports/downstream_boundary_synthesis.tex`<br>`benchmark/downstream/reports/downstream_boundary_synthesis.json` | hard_v2/hard_v3/hard_v4 together show conditional positive evidence, generalization boundary, stricter boundary, and 0/133 forced-bad evidence. | Do not use the boundary synthesis as a selected-wins leaderboard or as a substitute for evidence packages. |
 | T_model_transfer | Optional model-transfer replication table. | `benchmark/downstream/reports/model_transfer_evidence_package.md`<br>`benchmark/downstream/reports/model_transfer_cross_model_synthesis.md`<br>`benchmark/downstream/reports/model_transfer_evidence_package.json`<br>`benchmark/downstream/reports/model_transfer_cross_model_synthesis.json` | mimo-v2.5 transfer replicates forced-bad negative transfer and reveals model-sensitive selected deltas. | Do not claim model-general selected superiority or selected token savings from one transfer model. |
 | T_model_transfer_addendum | Optional paper addendum text for model-transfer replication. | `benchmark/downstream/reports/model_transfer_paper_addendum.md`<br>`benchmark/downstream/reports/model_transfer_paper_addendum.tex`<br>`benchmark/downstream/reports/model_transfer_paper_addendum.json` | Use as draft text for replicated forced-bad negative transfer and model-sensitive selected behavior. | Do not paste the addendum as a stronger main result than the underlying cross-model synthesis supports. |
@@ -336,6 +337,6 @@ Avoid: Do not tune hard_v2/hard_v3/hard_v4 prompts or strategies from observed f
 | downstream_paper_eval_section | `benchmark/downstream/reports/downstream_paper_eval_section.json` | True | `f026bad7830e2a84` | `2026-05-23T06:49:54.471664+00:00` |
 | downstream_claim_defense_matrix | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | True | `09f38bb09aa273ea` | `2026-05-23T06:49:54.699347+00:00` |
 | hard_v4_scaffold_manifest | `benchmark/downstream/reports/hard_v4_scaffold_manifest.json` | True | `1e7d9adb0b9e9dc9` | `2026-05-22T15:03:42.737147+00:00` |
-| model_transfer_evidence_package | `benchmark/downstream/reports/model_transfer_evidence_package.json` | True | `32505f40e1635dcf` | `2026-05-23T10:22:44.498111+00:00` |
-| model_transfer_cross_model_synthesis | `benchmark/downstream/reports/model_transfer_cross_model_synthesis.json` | True | `fc575fd01e288008` | `2026-05-23T10:22:44.566296+00:00` |
-| model_transfer_paper_addendum | `benchmark/downstream/reports/model_transfer_paper_addendum.json` | True | `49fcf3b0475ce999` | `2026-05-23T11:07:09.681302+00:00` |
+| model_transfer_evidence_package | `benchmark/downstream/reports/model_transfer_evidence_package.json` | True | `282d7bfd51df5176` | `2026-05-23T11:37:24.226464+00:00` |
+| model_transfer_cross_model_synthesis | `benchmark/downstream/reports/model_transfer_cross_model_synthesis.json` | True | `4e6df53551a1e8f2` | `2026-05-23T11:37:24.118320+00:00` |
+| model_transfer_paper_addendum | `benchmark/downstream/reports/model_transfer_paper_addendum.json` | True | `56594365d4feb838` | `2026-05-23T11:37:24.064015+00:00` |

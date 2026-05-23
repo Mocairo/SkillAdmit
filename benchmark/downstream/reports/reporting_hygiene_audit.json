@@ -1,0 +1,205 @@
+{
+  "generated_at_utc": "2026-05-23T11:39:24.734269+00:00",
+  "purpose": "Public reporting hygiene audit for SkillAdmit downstream artifacts. It checks aggregate separation, legacy wording, overclaim guardrails, and handoff consistency.",
+  "source_files": [
+    {
+      "name": "boundary_synthesis",
+      "path": "benchmark/downstream/reports/downstream_boundary_synthesis.json",
+      "exists": true,
+      "sha256": "b5e58a54217563fbe2a24e3b4d63090b66d5d0ded6d9872ccb5e57e6bd1237aa",
+      "size_bytes": 45450
+    },
+    {
+      "name": "paper_section",
+      "path": "benchmark/downstream/reports/downstream_paper_eval_section.json",
+      "exists": true,
+      "sha256": "f026bad7830e2a84290627744a22309c0f3f446bc53b42a58903bcc14c2b5251",
+      "size_bytes": 7062
+    },
+    {
+      "name": "claim_defense",
+      "path": "benchmark/downstream/reports/downstream_claim_defense_matrix.json",
+      "exists": true,
+      "sha256": "09f38bb09aa273ea425b9aa187d31e8d64a498ae78e21fd1261fa99cc720c5de",
+      "size_bytes": 41180
+    },
+    {
+      "name": "model_transfer_addendum",
+      "path": "benchmark/downstream/reports/model_transfer_paper_addendum.json",
+      "exists": true,
+      "sha256": "56594365d4feb838c2313adf352e5d350d6a06af3ec5c39ad17cedbce079836f",
+      "size_bytes": 8044
+    },
+    {
+      "name": "artifact_index",
+      "path": "benchmark/downstream/reports/paper_artifacts_index.json",
+      "exists": true,
+      "sha256": "5831022b8141dba4f50b42b484a85072db73494516327ca88b2a479d590ff438",
+      "size_bytes": 50659
+    },
+    {
+      "name": "boundary_synthesis_md",
+      "path": "benchmark/downstream/reports/downstream_boundary_synthesis.md",
+      "exists": true,
+      "sha256": "a9360eea565f3f4188f5f0b0e176e6f8a2cea8ee4279249144a11ed449e8313b",
+      "size_bytes": 12399
+    },
+    {
+      "name": "paper_section_md",
+      "path": "benchmark/downstream/reports/downstream_paper_eval_section.md",
+      "exists": true,
+      "sha256": "19df606b4bd5459b0a648a3b791b93dc6038977e23edadc21e9505cac4350ea4",
+      "size_bytes": 6712
+    },
+    {
+      "name": "claim_defense_md",
+      "path": "benchmark/downstream/reports/downstream_claim_defense_matrix.md",
+      "exists": true,
+      "sha256": "67b226ce7fb63072ef0407fe186496678cd677ca628ba24cc4089b119aa50d7e",
+      "size_bytes": 24680
+    },
+    {
+      "name": "model_transfer_addendum_md",
+      "path": "benchmark/downstream/reports/model_transfer_paper_addendum.md",
+      "exists": true,
+      "sha256": "b03471c40abfc7bb5878e98f41f15906beca4543834073345fa46b7674782dc2",
+      "size_bytes": 5668
+    },
+    {
+      "name": "artifact_index_md",
+      "path": "benchmark/downstream/reports/paper_artifacts_index.md",
+      "exists": true,
+      "sha256": "029f2674291553cd186173d47c71803f40d5de8b38a34dc6968a8ca0bd07acda",
+      "size_bytes": 32621
+    },
+    {
+      "name": "readme",
+      "path": "README.md",
+      "exists": true,
+      "sha256": "72a08cbf4e1e3735355758cf971485b05f88fdef868edae73b6004f706a2981a",
+      "size_bytes": 3164
+    },
+    {
+      "name": "experiment_handoff",
+      "path": "docs/experiment_handoff.md",
+      "exists": true,
+      "sha256": "4af6fae986de5697c567d9a41f6f35c4a8d9f3554d84d4e4ec8dfc732116bab1",
+      "size_bytes": 55963
+    },
+    {
+      "name": "paper_eval_status",
+      "path": "docs/paper_eval_status.md",
+      "exists": true,
+      "sha256": "306ceec14fe45a665b7ba54c36a6b0dcf34c51fb12141057f4866586aba2c712",
+      "size_bytes": 37657
+    },
+    {
+      "name": "progress_log",
+      "path": "docs/progress_log.md",
+      "exists": true,
+      "sha256": "2e5a1b93cad2bd8a378b8acc9407489144abf3203f439d5ccea427126ba04520",
+      "size_bytes": 107625
+    }
+  ],
+  "summary": {
+    "total_checks": 8,
+    "passed_checks": 8,
+    "failed_checks": 0,
+    "status": "pass"
+  },
+  "aggregate_roles": {
+    "historical_two_boundary": {
+      "aggregate": "0/85",
+      "role": "legacy hard_v2/hard_v3 synthesis only"
+    },
+    "current_main_boundary": {
+      "aggregate": "0/133",
+      "role": "current hard_v2/hard_v3/hard_v4 downstream boundary"
+    },
+    "model_transfer_addendum": {
+      "aggregate": "0/216",
+      "role": "two-model hard_v3/hard_v4 replication/addendum layer"
+    }
+  },
+  "checks": [
+    {
+      "check_id": "H1_main_boundary_uses_0_133",
+      "status": "pass",
+      "summary": "Current main reporting layer is anchored to the hard_v2/hard_v3/hard_v4 0/133 boundary.",
+      "details": {
+        "boundary": "0/133",
+        "paper": "0/133",
+        "claim_positive_contains_0_133": true,
+        "index": "0/133"
+      }
+    },
+    {
+      "check_id": "H2_no_0_85_in_current_main_reports",
+      "status": "pass",
+      "summary": "Current main reports do not reuse the legacy hard_v2/hard_v3 0/85 aggregate.",
+      "details": {
+        "0/85_occurrences": 0
+      }
+    },
+    {
+      "check_id": "H3_model_transfer_stays_addendum",
+      "status": "pass",
+      "summary": "Model-transfer 0/216 evidence is present in the addendum and absent from the main three-boundary reports.",
+      "details": {
+        "addendum_forced_bad": "0/216",
+        "main_0_216_occurrences": 0,
+        "selected_superiority_model_general": false
+      }
+    },
+    {
+      "check_id": "H4_cross_version_marked_historical",
+      "status": "pass",
+      "summary": "Artifact index labels the 0/85 hard_v2/hard_v3 synthesis as historical, not current top-level evidence.",
+      "details": {
+        "cross_version_lines": [
+          "| G4_cross_version_synthesis | Cross-Version Synthesis | Historical two-boundary synthesis of hard_v2 and hard_v3 claim boundaries. | Use only when discussing the earlier hard_v2/hard_v3 historical 0/85 synthesis. | Do not use this as the current top-level downstream story after hard_v4 and model-transfer reports. |",
+          "### G4_cross_version_synthesis - Cross-Version Synthesis"
+        ]
+      }
+    },
+    {
+      "check_id": "H5_index_0_85_mentions_are_legacy",
+      "status": "pass",
+      "summary": "Any 0/85 mention in the artifact index is explicitly legacy or historical.",
+      "details": {
+        "0/85_lines": [
+          "| G4_cross_version_synthesis | Cross-Version Synthesis | Historical two-boundary synthesis of hard_v2 and hard_v3 claim boundaries. | Use only when discussing the earlier hard_v2/hard_v3 historical 0/85 synthesis. | Do not use this as the current top-level downstream story after hard_v4 and model-transfer reports. |",
+          "| T_cross_version | Legacy two-boundary synthesis table. | `benchmark/downstream/reports/downstream_cross_version_synthesis.md`<br>`benchmark/downstream/reports/downstream_cross_version_synthesis.tex`<br>`benchmark/downstream/reports/downstream_cross_version_synthesis.json` | Historical hard_v2/hard_v3 synthesis: hard_v2 is positive tree-aware evidence; hard_v3 is a generalization boundary; forced bad is 0/85. | Do not use the legacy 0/85 synthesis as the current main downstream result after the 0/133 boundary synthesis exists. |"
+        ]
+      }
+    },
+    {
+      "check_id": "H6_no_positive_token_or_model_general_overclaim",
+      "status": "pass",
+      "summary": "Current main/addendum reports do not positively claim token savings or model-general selected superiority.",
+      "details": {
+        "disallowed_hits": []
+      }
+    },
+    {
+      "check_id": "H7_no_retuning_guardrail_present",
+      "status": "pass",
+      "summary": "No-retuning guardrails are present for the main boundary and the transfer addendum.",
+      "details": {
+        "main_guardrail": true,
+        "addendum_forbidden_retuning": true
+      }
+    },
+    {
+      "check_id": "H8_handoff_records_three_layers",
+      "status": "pass",
+      "summary": "Handoff docs record the main boundary, model-transfer addendum, and their separation.",
+      "details": {
+        "mentions_0_133_boundary": true,
+        "mentions_0_216": true,
+        "mentions_addendum": true
+      }
+    }
+  ],
+  "next_recommended_step": "Use the hygiene audit before public commits or paper edits. If a new experiment is needed, predeclare a hard_v5 boundary instead of tuning hard_v3/hard_v4 failures."
+}

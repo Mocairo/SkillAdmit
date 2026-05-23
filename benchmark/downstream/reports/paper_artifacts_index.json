@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T11:07:16.619132+00:00",
+  "generated_at_utc": "2026-05-23T11:38:54.898970+00:00",
   "purpose": "One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the correct evidence, table, script, and claim boundary for downstream validation writing.",
   "source_inputs": [
     {
@@ -86,25 +86,25 @@
       "name": "model_transfer_evidence_package",
       "path": "benchmark/downstream/reports/model_transfer_evidence_package.json",
       "exists": true,
-      "sha256": "32505f40e1635dcf4f410fa88217becf3d4c0f381782c9d6b49f26fb64b6d2d1",
+      "sha256": "282d7bfd51df51764c08598e0bddccb8a3c7a580ab15e3ff371ee527a80b7942",
       "size_bytes": 58893,
-      "generated_at_utc": "2026-05-23T10:22:44.498111+00:00"
+      "generated_at_utc": "2026-05-23T11:37:24.226464+00:00"
     },
     {
       "name": "model_transfer_cross_model_synthesis",
       "path": "benchmark/downstream/reports/model_transfer_cross_model_synthesis.json",
       "exists": true,
-      "sha256": "fc575fd01e28800816b5285c9d580efb64fd1d8943e32263c2fe5b17c47d8f2b",
+      "sha256": "4e6df53551a1e8f2017c9e01646b483756ffdb10b21aab5e32ca544a37c74731",
       "size_bytes": 68222,
-      "generated_at_utc": "2026-05-23T10:22:44.566296+00:00"
+      "generated_at_utc": "2026-05-23T11:37:24.118320+00:00"
     },
     {
       "name": "model_transfer_paper_addendum",
       "path": "benchmark/downstream/reports/model_transfer_paper_addendum.json",
       "exists": true,
-      "sha256": "49fcf3b0475ce999c30472580c88b4b18c6cc9c0f3105e9ecf1b2fbd06db005b",
+      "sha256": "56594365d4feb838c2313adf352e5d350d6a06af3ec5c39ad17cedbce079836f",
       "size_bytes": 8044,
-      "generated_at_utc": "2026-05-23T11:07:09.681302+00:00"
+      "generated_at_utc": "2026-05-23T11:37:24.064015+00:00"
     }
   ],
   "key_current_facts": {
@@ -180,14 +180,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "a92d56eeec38232d5e245a4d1d3a6d8cc69320756d67275990a43a0cb1143ce6",
-          "size_bytes": 36534
+          "sha256": "306ceec14fe45a665b7ba54c36a6b0dcf34c51fb12141057f4866586aba2c712",
+          "size_bytes": 37657
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "ff86591d230021f30ee93bac02f8f4ac46d2a052a5f2451a36181de6602b969d",
-          "size_bytes": 54796
+          "sha256": "4af6fae986de5697c567d9a41f6f35c4a8d9f3554d84d4e4ec8dfc732116bab1",
+          "size_bytes": 55963
         }
       ],
       "regeneration_commands": [
@@ -236,8 +236,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "a92d56eeec38232d5e245a4d1d3a6d8cc69320756d67275990a43a0cb1143ce6",
-          "size_bytes": 36534
+          "sha256": "306ceec14fe45a665b7ba54c36a6b0dcf34c51fb12141057f4866586aba2c712",
+          "size_bytes": 37657
         }
       ],
       "regeneration_commands": [
@@ -288,8 +288,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "a92d56eeec38232d5e245a4d1d3a6d8cc69320756d67275990a43a0cb1143ce6",
-          "size_bytes": 36534
+          "sha256": "306ceec14fe45a665b7ba54c36a6b0dcf34c51fb12141057f4866586aba2c712",
+          "size_bytes": 37657
         }
       ],
       "regeneration_commands": [
@@ -303,7 +303,7 @@
     {
       "group_id": "G4_cross_version_synthesis",
       "title": "Cross-Version Synthesis",
-      "role": "Primary paper-facing synthesis of hard_v2 and hard_v3 claim boundaries.",
+      "role": "Historical two-boundary synthesis of hard_v2 and hard_v3 claim boundaries.",
       "primary_files": [
         {
           "path": "benchmark/downstream/reports/downstream_cross_version_synthesis.json",
@@ -340,15 +340,15 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "a92d56eeec38232d5e245a4d1d3a6d8cc69320756d67275990a43a0cb1143ce6",
-          "size_bytes": 36534
+          "sha256": "306ceec14fe45a665b7ba54c36a6b0dcf34c51fb12141057f4866586aba2c712",
+          "size_bytes": 37657
         }
       ],
       "regeneration_commands": [
         "python scripts/export_downstream_cross_version_synthesis.py --assert-current-synthesis"
       ],
-      "use_in_paper": "Use for the top-level downstream story and forced_bad_artifact aggregate.",
-      "do_not_use_for": "Do not merge hard_v2 and hard_v3 into a single anonymous leaderboard."
+      "use_in_paper": "Use only when discussing the earlier hard_v2/hard_v3 historical 0/85 synthesis.",
+      "do_not_use_for": "Do not use this as the current top-level downstream story after hard_v4 and model-transfer reports."
     },
     {
       "group_id": "G5_boundary_synthesis",
@@ -496,20 +496,20 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "a92d56eeec38232d5e245a4d1d3a6d8cc69320756d67275990a43a0cb1143ce6",
-          "size_bytes": 36534
+          "sha256": "306ceec14fe45a665b7ba54c36a6b0dcf34c51fb12141057f4866586aba2c712",
+          "size_bytes": 37657
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "ff86591d230021f30ee93bac02f8f4ac46d2a052a5f2451a36181de6602b969d",
-          "size_bytes": 54796
+          "sha256": "4af6fae986de5697c567d9a41f6f35c4a8d9f3554d84d4e4ec8dfc732116bab1",
+          "size_bytes": 55963
         },
         {
           "path": "docs/progress_log.md",
           "exists": true,
-          "sha256": "1be372fe7c7c0d50a217f709644c6729c34765c7f5442e85beb97ae96cdae8e5",
-          "size_bytes": 106579
+          "sha256": "2e5a1b93cad2bd8a378b8acc9407489144abf3203f439d5ccea427126ba04520",
+          "size_bytes": 107625
         }
       ],
       "support_files": [],
@@ -551,14 +551,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "a92d56eeec38232d5e245a4d1d3a6d8cc69320756d67275990a43a0cb1143ce6",
-          "size_bytes": 36534
+          "sha256": "306ceec14fe45a665b7ba54c36a6b0dcf34c51fb12141057f4866586aba2c712",
+          "size_bytes": 37657
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "ff86591d230021f30ee93bac02f8f4ac46d2a052a5f2451a36181de6602b969d",
-          "size_bytes": 54796
+          "sha256": "4af6fae986de5697c567d9a41f6f35c4a8d9f3554d84d4e4ec8dfc732116bab1",
+          "size_bytes": 55963
         }
       ],
       "regeneration_commands": [
@@ -629,13 +629,13 @@
         {
           "path": "benchmark/downstream/reports/model_transfer_evidence_package.json",
           "exists": true,
-          "sha256": "32505f40e1635dcf4f410fa88217becf3d4c0f381782c9d6b49f26fb64b6d2d1",
+          "sha256": "282d7bfd51df51764c08598e0bddccb8a3c7a580ab15e3ff371ee527a80b7942",
           "size_bytes": 58893
         },
         {
           "path": "benchmark/downstream/reports/model_transfer_evidence_package.md",
           "exists": true,
-          "sha256": "7d423d9b66e46b32af60bf5ab6371a5011ed0f6de3d7eab846d117f7a71c9ec1",
+          "sha256": "b0298e898575d1cceb9c56aa38c91a01b708bd3d52fa6baf07f32742b0be33fe",
           "size_bytes": 11645
         },
         {
@@ -685,13 +685,13 @@
         {
           "path": "benchmark/downstream/reports/model_transfer_cross_model_synthesis.json",
           "exists": true,
-          "sha256": "fc575fd01e28800816b5285c9d580efb64fd1d8943e32263c2fe5b17c47d8f2b",
+          "sha256": "4e6df53551a1e8f2017c9e01646b483756ffdb10b21aab5e32ca544a37c74731",
           "size_bytes": 68222
         },
         {
           "path": "benchmark/downstream/reports/model_transfer_cross_model_synthesis.md",
           "exists": true,
-          "sha256": "f21e836c2239352db7bebc92ad75a7d3841b47a1d95287a0c0035afed98aa3c6",
+          "sha256": "3ca33504b1f6755738e072689a8823e262c50896833e953e509b0e91b4ef74b7",
           "size_bytes": 9166
         },
         {
@@ -717,7 +717,7 @@
         {
           "path": "benchmark/downstream/reports/model_transfer_evidence_package.json",
           "exists": true,
-          "sha256": "32505f40e1635dcf4f410fa88217becf3d4c0f381782c9d6b49f26fb64b6d2d1",
+          "sha256": "282d7bfd51df51764c08598e0bddccb8a3c7a580ab15e3ff371ee527a80b7942",
           "size_bytes": 58893
         }
       ],
@@ -735,13 +735,13 @@
         {
           "path": "benchmark/downstream/reports/model_transfer_paper_addendum.json",
           "exists": true,
-          "sha256": "49fcf3b0475ce999c30472580c88b4b18c6cc9c0f3105e9ecf1b2fbd06db005b",
+          "sha256": "56594365d4feb838c2313adf352e5d350d6a06af3ec5c39ad17cedbce079836f",
           "size_bytes": 8044
         },
         {
           "path": "benchmark/downstream/reports/model_transfer_paper_addendum.md",
           "exists": true,
-          "sha256": "111baa7af63fafe7d8d58154160dce67afb3e1f7909e7c98cc9d8be324b3fb0a",
+          "sha256": "b03471c40abfc7bb5878e98f41f15906beca4543834073345fa46b7674782dc2",
           "size_bytes": 5668
         },
         {
@@ -755,20 +755,20 @@
         {
           "path": "benchmark/downstream/reports/model_transfer_cross_model_synthesis.json",
           "exists": true,
-          "sha256": "fc575fd01e28800816b5285c9d580efb64fd1d8943e32263c2fe5b17c47d8f2b",
+          "sha256": "4e6df53551a1e8f2017c9e01646b483756ffdb10b21aab5e32ca544a37c74731",
           "size_bytes": 68222
         },
         {
           "path": "benchmark/downstream/reports/model_transfer_evidence_package.json",
           "exists": true,
-          "sha256": "32505f40e1635dcf4f410fa88217becf3d4c0f381782c9d6b49f26fb64b6d2d1",
+          "sha256": "282d7bfd51df51764c08598e0bddccb8a3c7a580ab15e3ff371ee527a80b7942",
           "size_bytes": 58893
         },
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "a92d56eeec38232d5e245a4d1d3a6d8cc69320756d67275990a43a0cb1143ce6",
-          "size_bytes": 36534
+          "sha256": "306ceec14fe45a665b7ba54c36a6b0dcf34c51fb12141057f4866586aba2c712",
+          "size_bytes": 37657
         }
       ],
       "regeneration_commands": [
@@ -910,6 +910,12 @@
       "name": "audit_paper_claim_consistency",
       "command": "python scripts/audit_paper_claim_consistency.py --assert-current-audit",
       "script_exists": true
+    },
+    {
+      "step": 23,
+      "name": "audit_reporting_hygiene",
+      "command": "python scripts/audit_reporting_hygiene.py --assert-current-hygiene",
+      "script_exists": true
     }
   ],
   "table_index": [
@@ -958,14 +964,14 @@
     },
     {
       "table_id": "T_cross_version",
-      "paper_role": "Main downstream synthesis table.",
+      "paper_role": "Legacy two-boundary synthesis table.",
       "primary_artifacts": [
         "benchmark/downstream/reports/downstream_cross_version_synthesis.md",
         "benchmark/downstream/reports/downstream_cross_version_synthesis.tex",
         "benchmark/downstream/reports/downstream_cross_version_synthesis.json"
       ],
-      "allowed_claim": "hard_v2 is positive tree-aware evidence; hard_v3 is generalization boundary; forced bad is 0/85.",
-      "avoid": "Do not read the synthesis as a single global leaderboard."
+      "allowed_claim": "Historical hard_v2/hard_v3 synthesis: hard_v2 is positive tree-aware evidence; hard_v3 is a generalization boundary; forced bad is 0/85.",
+      "avoid": "Do not use the legacy 0/85 synthesis as the current main downstream result after the 0/133 boundary synthesis exists."
     },
     {
       "table_id": "T_boundary_synthesis",

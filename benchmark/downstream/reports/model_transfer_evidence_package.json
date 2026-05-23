@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T10:22:44.498111+00:00",
+  "generated_at_utc": "2026-05-23T11:37:24.226464+00:00",
   "purpose": "Model-transfer evidence package for the predeclared hard_v3/hard_v4 replication matrix. This is post-run evidence, not prompt tuning.",
   "transfer_model": "mimo-v2.5",
   "baseline_model_label": "mimo-v2.5-pro",

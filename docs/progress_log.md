@@ -4211,3 +4211,56 @@ Use the addendum to report model sensitivity and forced-bad replication.
 Do not use it to claim model-general SkillAdmit-selected superiority.
 Do not merge the addendum into the original 0/133 three-boundary aggregate.
 ```
+
+### 64. Public Reporting Hygiene Audit
+
+Added a public reporting hygiene audit to prevent aggregate and claim-boundary
+drift across the now-overlapping report layers.
+
+Created:
+
+```text
+scripts/audit_reporting_hygiene.py
+benchmark/downstream/reports/reporting_hygiene_audit.json
+benchmark/downstream/reports/reporting_hygiene_audit.md
+benchmark/downstream/reports/reporting_hygiene_audit.tex
+```
+
+Updated:
+
+```text
+scripts/export_paper_artifacts_index.py
+scripts/audit_paper_claim_consistency.py
+README.md
+docs/experiment_handoff.md
+docs/paper_eval_status.md
+```
+
+Hygiene roles:
+
+```text
+0/85:
+  historical hard_v2/hard_v3 synthesis only
+
+0/133:
+  current hard_v2/hard_v3/hard_v4 main downstream boundary
+
+0/216:
+  model-transfer hard_v3/hard_v4 replication/addendum layer
+```
+
+Current hygiene audit:
+
+```text
+total_checks: 8
+passed_checks: 8
+failed_checks: 0
+status: pass
+```
+
+Artifact-index wording was corrected:
+
+```text
+G4_cross_version_synthesis is now labeled as historical two-boundary synthesis,
+not the top-level downstream story.
+```

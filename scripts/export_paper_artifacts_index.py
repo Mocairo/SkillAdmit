@@ -6,9 +6,10 @@ What this file does:
   SkillAdmit experiment: admission context, hard_v2 evidence, hard_v3 evidence,
   hard_v4 boundary evidence, cross-version synthesis, three-boundary synthesis,
   paper-section draft, claim-defense matrix, model-transfer evidence,
-  model-transfer paper addendum, the paper-claim consistency audit command, and
-  the model-transfer replication protocol command. The index records each
-  artifact's role, path, regeneration command, and claim boundary.
+  model-transfer paper addendum, the paper-claim consistency audit command, the
+  public reporting hygiene audit command, and the model-transfer replication
+  protocol command. The index records each artifact's role, path, regeneration
+  command, and claim boundary.
 
 Why it is needed:
   The repository now contains many summaries, tables, evidence packages, and
@@ -151,6 +152,7 @@ SCRIPT_PATHS = {
     "export_hard_v4_scaffold": ROOT / "scripts" / "export_hard_v4_scaffold_manifest.py",
     "export_artifacts_index": ROOT / "scripts" / "export_paper_artifacts_index.py",
     "audit_paper_claim_consistency": ROOT / "scripts" / "audit_paper_claim_consistency.py",
+    "audit_reporting_hygiene": ROOT / "scripts" / "audit_reporting_hygiene.py",
     "export_model_transfer_protocol": ROOT / "scripts" / "export_model_transfer_replication_protocol.py",
     "export_model_transfer_evidence": ROOT / "scripts" / "export_model_transfer_evidence_package.py",
     "export_model_transfer_cross_model": ROOT / "scripts" / "export_model_transfer_cross_model_synthesis.py",
@@ -278,12 +280,12 @@ def build_artifact_groups() -> list[dict[str, Any]]:
         build_artifact_group(
             "G4_cross_version_synthesis",
             "Cross-Version Synthesis",
-            "Primary paper-facing synthesis of hard_v2 and hard_v3 claim boundaries.",
+            "Historical two-boundary synthesis of hard_v2 and hard_v3 claim boundaries.",
             ["cross_synthesis_json", "cross_synthesis_md", "cross_synthesis_tex"],
             ["hard_v2_evidence_json", "hard_v3_evidence_json", "paper_eval_status"],
             ["python scripts/export_downstream_cross_version_synthesis.py --assert-current-synthesis"],
-            "Use for the top-level downstream story and forced_bad_artifact aggregate.",
-            "Do not merge hard_v2 and hard_v3 into a single anonymous leaderboard.",
+            "Use only when discussing the earlier hard_v2/hard_v3 historical 0/85 synthesis.",
+            "Do not use this as the current top-level downstream story after hard_v4 and model-transfer reports.",
         ),
         build_artifact_group(
             "G5_boundary_synthesis",
@@ -470,6 +472,7 @@ def build_regeneration_order() -> list[dict[str, str]]:
         ),
         ("export_artifacts_index", "python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index"),
         ("audit_paper_claim_consistency", "python scripts/audit_paper_claim_consistency.py --assert-current-audit"),
+        ("audit_reporting_hygiene", "python scripts/audit_reporting_hygiene.py --assert-current-hygiene"),
     ]
     return [
         {
@@ -529,14 +532,14 @@ def build_table_index() -> list[dict[str, Any]]:
         },
         {
             "table_id": "T_cross_version",
-            "paper_role": "Main downstream synthesis table.",
+            "paper_role": "Legacy two-boundary synthesis table.",
             "primary_artifacts": [
                 display_path(ARTIFACT_PATHS["cross_synthesis_md"]),
                 display_path(ARTIFACT_PATHS["cross_synthesis_tex"]),
                 display_path(ARTIFACT_PATHS["cross_synthesis_json"]),
             ],
-            "allowed_claim": "hard_v2 is positive tree-aware evidence; hard_v3 is generalization boundary; forced bad is 0/85.",
-            "avoid": "Do not read the synthesis as a single global leaderboard.",
+            "allowed_claim": "Historical hard_v2/hard_v3 synthesis: hard_v2 is positive tree-aware evidence; hard_v3 is a generalization boundary; forced bad is 0/85.",
+            "avoid": "Do not use the legacy 0/85 synthesis as the current main downstream result after the 0/133 boundary synthesis exists.",
         },
         {
             "table_id": "T_boundary_synthesis",
@@ -847,6 +850,7 @@ def assert_index(index: dict[str, Any]) -> None:
         "model_transfer_cross_model_synthesis.json",
         "model_transfer_paper_addendum.json",
         "audit_paper_claim_consistency.py",
+        "audit_reporting_hygiene.py",
         "export_model_transfer_replication_protocol.py",
         "export_model_transfer_evidence_package.py",
         "export_model_transfer_cross_model_synthesis.py",

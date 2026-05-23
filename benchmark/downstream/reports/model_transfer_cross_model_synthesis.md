@@ -1,6 +1,6 @@
 # Model-Transfer Cross-Model Synthesis
 
-Generated at UTC: `2026-05-23T10:22:44.566296+00:00`
+Generated at UTC: `2026-05-23T11:37:24.118320+00:00`
 
 Cross-model synthesis over frozen hard_v3/hard_v4 downstream evidence. This report separates replicated findings from model-sensitive findings.
 

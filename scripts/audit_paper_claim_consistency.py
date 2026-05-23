@@ -481,8 +481,8 @@ def build_audit(data: dict[str, dict[str, Any]], texts: dict[str, str]) -> dict[
             ],
         },
         "next_recommended_step": (
-            "If continuing experiments, use a predeclared model-transfer replication or a new hard_v5 "
-            "boundary. Do not tune hard_v2, hard_v3, or hard_v4 from observed failures."
+            "If continuing experiments, use model-transfer reporting hygiene or a new predeclared "
+            "hard_v5 boundary. Do not tune hard_v2, hard_v3, or hard_v4 from observed failures."
         ),
     }
 

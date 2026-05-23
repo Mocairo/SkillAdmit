@@ -2105,6 +2105,57 @@ Do not use the addendum to claim model-general SkillAdmit-selected superiority
 or selected token savings.
 ```
 
+## 26. Public Reporting Hygiene Audit
+
+The reporting layer now has a separate hygiene audit for public-facing
+artifacts. Its purpose is to keep the old, current, and transfer aggregates from
+being mixed into one overstated result.
+
+Script:
+
+```text
+scripts/audit_reporting_hygiene.py --assert-current-hygiene
+```
+
+Outputs:
+
+```text
+benchmark/downstream/reports/reporting_hygiene_audit.json
+benchmark/downstream/reports/reporting_hygiene_audit.md
+benchmark/downstream/reports/reporting_hygiene_audit.tex
+```
+
+Aggregate roles:
+
+```text
+0/85:
+  legacy hard_v2/hard_v3 cross-version synthesis only
+
+0/133:
+  current hard_v2/hard_v3/hard_v4 main downstream boundary
+
+0/216:
+  model-transfer hard_v3/hard_v4 replication/addendum layer
+```
+
+Current audit:
+
+```text
+total_checks: 8
+passed_checks: 8
+failed_checks: 0
+status: pass
+```
+
+Important wording correction:
+
+```text
+G4_cross_version_synthesis in the artifact index is now explicitly historical.
+Do not call the 0/85 hard_v2/hard_v3 synthesis the current top-level story.
+Use downstream_boundary_synthesis for the main paper boundary.
+Use model_transfer_paper_addendum only for the optional second-model addendum.
+```
+
 ## 23. Rule for Future Work
 
 Every new code file should be documented when created:

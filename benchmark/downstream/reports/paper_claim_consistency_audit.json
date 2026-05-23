@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T11:07:32.816865+00:00",
+  "generated_at_utc": "2026-05-23T11:38:55.758708+00:00",
   "purpose": "Consistency audit for the paper-facing hard_v2/hard_v3/hard_v4 downstream claim layer. This is a reporting-hygiene artifact, not new empirical evidence.",
   "source_files": [
     {
@@ -27,14 +27,14 @@
       "name": "artifacts_index",
       "path": "benchmark/downstream/reports/paper_artifacts_index.json",
       "exists": true,
-      "sha256": "d6b0786a5a634951831d5e4e32455a226959398657fa6bb1db56df92072f7785",
-      "size_bytes": 50329
+      "sha256": "5831022b8141dba4f50b42b484a85072db73494516327ca88b2a479d590ff438",
+      "size_bytes": 50659
     },
     {
       "name": "model_transfer_addendum",
       "path": "benchmark/downstream/reports/model_transfer_paper_addendum.json",
       "exists": true,
-      "sha256": "49fcf3b0475ce999c30472580c88b4b18c6cc9c0f3105e9ecf1b2fbd06db005b",
+      "sha256": "56594365d4feb838c2313adf352e5d350d6a06af3ec5c39ad17cedbce079836f",
       "size_bytes": 8044
     },
     {
@@ -62,43 +62,43 @@
       "name": "artifacts_index_md",
       "path": "benchmark/downstream/reports/paper_artifacts_index.md",
       "exists": true,
-      "sha256": "81f74fd65a8cf38f262ef41b3d45bf7153bc3885cbc3ba5614e64490cd37f4a6",
-      "size_bytes": 32367
+      "sha256": "029f2674291553cd186173d47c71803f40d5de8b38a34dc6968a8ca0bd07acda",
+      "size_bytes": 32621
     },
     {
       "name": "model_transfer_addendum_md",
       "path": "benchmark/downstream/reports/model_transfer_paper_addendum.md",
       "exists": true,
-      "sha256": "111baa7af63fafe7d8d58154160dce67afb3e1f7909e7c98cc9d8be324b3fb0a",
+      "sha256": "b03471c40abfc7bb5878e98f41f15906beca4543834073345fa46b7674782dc2",
       "size_bytes": 5668
     },
     {
       "name": "experiment_handoff",
       "path": "docs/experiment_handoff.md",
       "exists": true,
-      "sha256": "ff86591d230021f30ee93bac02f8f4ac46d2a052a5f2451a36181de6602b969d",
-      "size_bytes": 54796
+      "sha256": "4af6fae986de5697c567d9a41f6f35c4a8d9f3554d84d4e4ec8dfc732116bab1",
+      "size_bytes": 55963
     },
     {
       "name": "paper_eval_status",
       "path": "docs/paper_eval_status.md",
       "exists": true,
-      "sha256": "a92d56eeec38232d5e245a4d1d3a6d8cc69320756d67275990a43a0cb1143ce6",
-      "size_bytes": 36534
+      "sha256": "306ceec14fe45a665b7ba54c36a6b0dcf34c51fb12141057f4866586aba2c712",
+      "size_bytes": 37657
     },
     {
       "name": "progress_log",
       "path": "docs/progress_log.md",
       "exists": true,
-      "sha256": "1be372fe7c7c0d50a217f709644c6729c34765c7f5442e85beb97ae96cdae8e5",
-      "size_bytes": 106579
+      "sha256": "2e5a1b93cad2bd8a378b8acc9407489144abf3203f439d5ccea427126ba04520",
+      "size_bytes": 107625
     },
     {
       "name": "readme",
       "path": "README.md",
       "exists": true,
-      "sha256": "5b811a7bc8aeca5eaefa394e6d5c413bacf413b564c08c275e86fb984e362e21",
-      "size_bytes": 3024
+      "sha256": "72a08cbf4e1e3735355758cf971485b05f88fdef868edae73b6004f706a2981a",
+      "size_bytes": 3164
     }
   ],
   "summary": {
@@ -275,5 +275,5 @@
       "hard_v4 selected utility"
     ]
   },
-  "next_recommended_step": "If continuing experiments, use a predeclared model-transfer replication or a new hard_v5 boundary. Do not tune hard_v2, hard_v3, or hard_v4 from observed failures."
+  "next_recommended_step": "If continuing experiments, use model-transfer reporting hygiene or a new predeclared hard_v5 boundary. Do not tune hard_v2, hard_v3, or hard_v4 from observed failures."
 }

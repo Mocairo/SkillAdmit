@@ -19,6 +19,7 @@ The current repo contains:
 - predeclared model-transfer replication protocol;
 - completed mimo-v2.5 model-transfer evidence package and cross-model synthesis;
 - model-transfer paper addendum for optional replication reporting;
+- public reporting hygiene audit for aggregate and overclaim separation;
 - experiment handoff and paper-facing status notes.
 
 Key entry points:
@@ -47,6 +48,7 @@ python scripts/export_model_transfer_replication_protocol.py --assert-current-pr
 python scripts/export_model_transfer_evidence_package.py --assert-current-model-transfer
 python scripts/export_model_transfer_cross_model_synthesis.py --assert-current-cross-model
 python scripts/export_model_transfer_paper_addendum.py --assert-current-addendum
+python scripts/audit_reporting_hygiene.py --assert-current-hygiene
 ```
 
 Use the existing `skilladmit` conda environment for local reproduction. Runtime

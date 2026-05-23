@@ -1,6 +1,6 @@
 # Model-Transfer Evidence Package
 
-Generated at UTC: `2026-05-23T10:22:44.498111+00:00`
+Generated at UTC: `2026-05-23T11:37:24.226464+00:00`
 
 Model-transfer evidence package for the predeclared hard_v3/hard_v4 replication matrix. This is post-run evidence, not prompt tuning.
 
