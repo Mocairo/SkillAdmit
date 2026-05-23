@@ -13,6 +13,7 @@ The current repo contains:
 - hard_v2 downstream reports with hidden-verifier and negative-transfer checks;
 - hard_v3 deterministic downstream task scaffold, LLM matrix runs, and reports;
 - hard_v4 frozen scaffold, LLM matrix runs, and paper-facing evidence exports;
+- hard_v2/hard_v3/hard_v4 boundary synthesis reports;
 - experiment handoff and paper-facing status notes.
 
 Key entry points:
@@ -32,6 +33,7 @@ python scripts/export_hard_v2_evidence_package.py --assert-current-hard-v2
 python scripts/summarize_hard_v3_results.py --assert-current-hard-v3
 python scripts/export_hard_v3_evidence_package.py --assert-current-hard-v3
 python scripts/export_downstream_cross_version_synthesis.py --assert-current-synthesis
+python scripts/export_downstream_boundary_synthesis.py --assert-current-boundary-synthesis
 python scripts/export_downstream_paper_section.py --assert-current-paper-section
 python scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-defense
 python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index

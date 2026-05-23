@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T04:57:36.286252+00:00",
+  "generated_at_utc": "2026-05-23T05:33:34.101423+00:00",
   "purpose": "One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the correct evidence, table, script, and claim boundary for downstream validation writing.",
   "source_inputs": [
     {
@@ -51,6 +51,14 @@
       "generated_at_utc": "2026-05-22T13:23:18.827390+00:00"
     },
     {
+      "name": "downstream_boundary_synthesis",
+      "path": "benchmark/downstream/reports/downstream_boundary_synthesis.json",
+      "exists": true,
+      "sha256": "b5e58a54217563fbe2a24e3b4d63090b66d5d0ded6d9872ccb5e57e6bd1237aa",
+      "size_bytes": 45450,
+      "generated_at_utc": "2026-05-23T05:33:33.739619+00:00"
+    },
+    {
       "name": "downstream_paper_eval_section",
       "path": "benchmark/downstream/reports/downstream_paper_eval_section.json",
       "exists": true,
@@ -88,6 +96,11 @@
     "hard_v4_forced_bad_total_successes": 0,
     "hard_v4_forced_bad_total_tasks": 48,
     "hard_v4_forced_bad_total_public_passed_hidden_failed": 48,
+    "boundary_forced_bad_total_success": "0/133",
+    "boundary_forced_bad_total_tasks": 133,
+    "boundary_forced_bad_total_public_passed_hidden_failed": 133,
+    "boundary_selected_superiority_consistent": false,
+    "boundary_selected_token_savings_consistent": false,
     "forced_bad_total_successes": 0,
     "forced_bad_total_tasks": 85,
     "forced_bad_total_public_passed_hidden_failed": 85,
@@ -131,14 +144,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "f4697b153ab84d9bf6b9b502f51a688bf1e28656bf796374e9920ba02e3c4c24",
-          "size_bytes": 27951
+          "sha256": "cd5698c310c3b88f81b054157f247e00da20330f6162aa6f68db5bbc600bc610",
+          "size_bytes": 29071
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "522cd0410e78c67e00dee44229c4b6cfd7beb635ea30bb31d860025ac37d38fa",
-          "size_bytes": 44042
+          "sha256": "90f8909b393cc58f2d164d7fa4178a6244fb8db96c93a647e8090f4c4c014e5d",
+          "size_bytes": 46050
         }
       ],
       "regeneration_commands": [
@@ -187,8 +200,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "f4697b153ab84d9bf6b9b502f51a688bf1e28656bf796374e9920ba02e3c4c24",
-          "size_bytes": 27951
+          "sha256": "cd5698c310c3b88f81b054157f247e00da20330f6162aa6f68db5bbc600bc610",
+          "size_bytes": 29071
         }
       ],
       "regeneration_commands": [
@@ -239,8 +252,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "f4697b153ab84d9bf6b9b502f51a688bf1e28656bf796374e9920ba02e3c4c24",
-          "size_bytes": 27951
+          "sha256": "cd5698c310c3b88f81b054157f247e00da20330f6162aa6f68db5bbc600bc610",
+          "size_bytes": 29071
         }
       ],
       "regeneration_commands": [
@@ -291,8 +304,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "f4697b153ab84d9bf6b9b502f51a688bf1e28656bf796374e9920ba02e3c4c24",
-          "size_bytes": 27951
+          "sha256": "cd5698c310c3b88f81b054157f247e00da20330f6162aa6f68db5bbc600bc610",
+          "size_bytes": 29071
         }
       ],
       "regeneration_commands": [
@@ -302,7 +315,57 @@
       "do_not_use_for": "Do not merge hard_v2 and hard_v3 into a single anonymous leaderboard."
     },
     {
-      "group_id": "G5_paper_section",
+      "group_id": "G5_boundary_synthesis",
+      "title": "Boundary Synthesis",
+      "role": "Three-boundary synthesis covering hard_v2, hard_v3, and hard_v4.",
+      "primary_files": [
+        {
+          "path": "benchmark/downstream/reports/downstream_boundary_synthesis.json",
+          "exists": true,
+          "sha256": "b5e58a54217563fbe2a24e3b4d63090b66d5d0ded6d9872ccb5e57e6bd1237aa",
+          "size_bytes": 45450
+        },
+        {
+          "path": "benchmark/downstream/reports/downstream_boundary_synthesis.md",
+          "exists": true,
+          "sha256": "a9360eea565f3f4188f5f0b0e176e6f8a2cea8ee4279249144a11ed449e8313b",
+          "size_bytes": 12399
+        },
+        {
+          "path": "benchmark/downstream/reports/downstream_boundary_synthesis.tex",
+          "exists": true,
+          "sha256": "f3381009be7d3ada3cb9711f073b71d7de65c65dc566c88de67f3584816474c4",
+          "size_bytes": 5205
+        }
+      ],
+      "support_files": [
+        {
+          "path": "benchmark/downstream/reports/hard_v2_evidence_package.json",
+          "exists": true,
+          "sha256": "7deb038d4adfc285d7ac4473a6b5d0a8704ca0b160715af57220f54d818f1edb",
+          "size_bytes": 18140
+        },
+        {
+          "path": "benchmark/downstream/reports/hard_v3_evidence_package.json",
+          "exists": true,
+          "sha256": "894b8f7a1f7ac29659bb5adbcee4323aa11294a6741057d145f4ff0feb4101ec",
+          "size_bytes": 27042
+        },
+        {
+          "path": "benchmark/downstream/reports/hard_v4_evidence_package.json",
+          "exists": true,
+          "sha256": "c7e729993e44503b99f074598d0197f636317582a7d6a86f5d4f7984b4d7a022",
+          "size_bytes": 22128
+        }
+      ],
+      "regeneration_commands": [
+        "python scripts/export_downstream_boundary_synthesis.py --assert-current-boundary-synthesis"
+      ],
+      "use_in_paper": "Use for the high-level paper boundary story: conditional positive, generalization boundary, stricter boundary, and 0/133 forced-bad evidence.",
+      "do_not_use_for": "Do not use boundary synthesis as a substitute for the underlying suite-specific evidence packages."
+    },
+    {
+      "group_id": "G6_paper_section",
       "title": "Draftable Paper Section",
       "role": "Generated evaluation-section prose tied to the frozen synthesis.",
       "primary_files": [
@@ -346,7 +409,7 @@
       "do_not_use_for": "Do not edit this prose into stronger claims without updating evidence and assertions."
     },
     {
-      "group_id": "G6_claim_defense",
+      "group_id": "G7_claim_defense",
       "title": "Claim Defense Matrix",
       "role": "Reviewer-facing claim-by-claim evidence map and forbidden wording ledger.",
       "primary_files": [
@@ -390,27 +453,27 @@
       "do_not_use_for": "Do not treat reviewer-response wording as new experimental evidence."
     },
     {
-      "group_id": "G7_reporting_handoff",
+      "group_id": "G8_reporting_handoff",
       "title": "Reporting and Handoff",
       "role": "Human-readable state tracking and cross-session recovery anchors.",
       "primary_files": [
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "f4697b153ab84d9bf6b9b502f51a688bf1e28656bf796374e9920ba02e3c4c24",
-          "size_bytes": 27951
+          "sha256": "cd5698c310c3b88f81b054157f247e00da20330f6162aa6f68db5bbc600bc610",
+          "size_bytes": 29071
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "522cd0410e78c67e00dee44229c4b6cfd7beb635ea30bb31d860025ac37d38fa",
-          "size_bytes": 44042
+          "sha256": "90f8909b393cc58f2d164d7fa4178a6244fb8db96c93a647e8090f4c4c014e5d",
+          "size_bytes": 46050
         },
         {
           "path": "docs/progress_log.md",
           "exists": true,
-          "sha256": "114a310685b349d04bad808040e667098acec83ab6b02f06c4e4c47521058f5a",
-          "size_bytes": 90779
+          "sha256": "b4bbbfdf1ca62fe9e994f0ef2e74a218d7bcd1056fa85ede0b76a97d2f93c6f3",
+          "size_bytes": 94198
         }
       ],
       "support_files": [],
@@ -419,7 +482,7 @@
       "do_not_use_for": "Do not cite progress logs as primary empirical evidence when paper-facing tables exist."
     },
     {
-      "group_id": "G8_hard_v4_scaffold",
+      "group_id": "G9_hard_v4_scaffold",
       "title": "Hard v4 Scaffold",
       "role": "Frozen task scaffold and deterministic verifier boundary for hard_v4.",
       "primary_files": [
@@ -452,14 +515,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "f4697b153ab84d9bf6b9b502f51a688bf1e28656bf796374e9920ba02e3c4c24",
-          "size_bytes": 27951
+          "sha256": "cd5698c310c3b88f81b054157f247e00da20330f6162aa6f68db5bbc600bc610",
+          "size_bytes": 29071
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "522cd0410e78c67e00dee44229c4b6cfd7beb635ea30bb31d860025ac37d38fa",
-          "size_bytes": 44042
+          "sha256": "90f8909b393cc58f2d164d7fa4178a6244fb8db96c93a647e8090f4c4c014e5d",
+          "size_bytes": 46050
         }
       ],
       "regeneration_commands": [
@@ -471,7 +534,7 @@
       "do_not_use_for": "Do not cite scaffold mechanics as model-performance evidence."
     },
     {
-      "group_id": "G9_hard_v4_evidence",
+      "group_id": "G10_hard_v4_evidence",
       "title": "Hard v4 Evidence",
       "role": "Fresh downstream boundary evidence that narrows selected-utility claims.",
       "primary_files": [
@@ -574,48 +637,54 @@
     },
     {
       "step": 9,
+      "name": "export_boundary_synthesis",
+      "command": "python scripts/export_downstream_boundary_synthesis.py --assert-current-boundary-synthesis",
+      "script_exists": true
+    },
+    {
+      "step": 10,
       "name": "export_paper_section",
       "command": "python scripts/export_downstream_paper_section.py --assert-current-paper-section",
       "script_exists": true
     },
     {
-      "step": 10,
+      "step": 11,
       "name": "export_claim_defense",
       "command": "python scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-defense",
       "script_exists": true
     },
     {
-      "step": 11,
+      "step": 12,
       "name": "build_hard_v4",
       "command": "python scripts/build_downstream_hard_v4_tasks.py",
       "script_exists": true
     },
     {
-      "step": 12,
+      "step": 13,
       "name": "check_hard_v4",
       "command": "python scripts/check_downstream_hard_v4_tasks.py",
       "script_exists": true
     },
     {
-      "step": 13,
+      "step": 14,
       "name": "export_hard_v4_scaffold",
       "command": "python scripts/export_hard_v4_scaffold_manifest.py --run-checker --assert-current-hard-v4-scaffold",
       "script_exists": true
     },
     {
-      "step": 14,
+      "step": 15,
       "name": "summarize_hard_v4",
       "command": "python scripts/summarize_hard_v4_results.py --assert-current-hard-v4",
       "script_exists": true
     },
     {
-      "step": 15,
+      "step": 16,
       "name": "export_hard_v4",
       "command": "python scripts/export_hard_v4_evidence_package.py --assert-current-hard-v4",
       "script_exists": true
     },
     {
-      "step": 16,
+      "step": 17,
       "name": "export_artifacts_index",
       "command": "python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index",
       "script_exists": true
@@ -675,6 +744,17 @@
       ],
       "allowed_claim": "hard_v2 is positive tree-aware evidence; hard_v3 is generalization boundary; forced bad is 0/85.",
       "avoid": "Do not read the synthesis as a single global leaderboard."
+    },
+    {
+      "table_id": "T_boundary_synthesis",
+      "paper_role": "Three-boundary synthesis table.",
+      "primary_artifacts": [
+        "benchmark/downstream/reports/downstream_boundary_synthesis.md",
+        "benchmark/downstream/reports/downstream_boundary_synthesis.tex",
+        "benchmark/downstream/reports/downstream_boundary_synthesis.json"
+      ],
+      "allowed_claim": "hard_v2/hard_v3/hard_v4 together show conditional positive evidence, generalization boundary, stricter boundary, and 0/133 forced-bad evidence.",
+      "avoid": "Do not use the boundary synthesis as a selected-wins leaderboard or as a substitute for evidence packages."
     },
     {
       "table_id": "T_claim_defense_appendix",
@@ -820,7 +900,7 @@
     }
   ],
   "next_experimental_boundary": {
-    "recommended": "hard_v4-aware cross-boundary synthesis, model-transfer replication, or a predeclared hard_v5 boundary.",
+    "recommended": "boundary-synthesis-driven paper revision, model-transfer replication, or a predeclared hard_v5 boundary.",
     "avoid": "Do not tune hard_v2/hard_v3/hard_v4 prompts or strategies from observed failures while still treating them as clean evidence."
   }
 }

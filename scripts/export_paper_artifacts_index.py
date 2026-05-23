@@ -4,9 +4,9 @@
 What this file does:
   Builds a compact index of the paper-facing artifacts produced by the
   SkillAdmit experiment: admission context, hard_v2 evidence, hard_v3 evidence,
-  hard_v4 boundary evidence, cross-version synthesis, paper-section draft, and
-  claim-defense matrix. The index records each artifact's role, path,
-  regeneration command, and claim boundary.
+  hard_v4 boundary evidence, cross-version synthesis, three-boundary synthesis,
+  paper-section draft, and claim-defense matrix. The index records each
+  artifact's role, path, regeneration command, and claim boundary.
 
 Why it is needed:
   The repository now contains many summaries, tables, evidence packages, and
@@ -23,6 +23,7 @@ Inputs:
   benchmark/downstream/reports/hard_v3_evidence_package.json
   benchmark/downstream/reports/hard_v4_evidence_package.json
   benchmark/downstream/reports/downstream_cross_version_synthesis.json
+  benchmark/downstream/reports/downstream_boundary_synthesis.json
   benchmark/downstream/reports/downstream_paper_eval_section.json
   benchmark/downstream/reports/downstream_claim_defense_matrix.json
   benchmark/downstream/reports/hard_v4_scaffold_manifest.json
@@ -62,6 +63,7 @@ INPUTS = {
     "hard_v3_evidence_package": REPORT_DIR / "hard_v3_evidence_package.json",
     "hard_v4_evidence_package": REPORT_DIR / "hard_v4_evidence_package.json",
     "downstream_cross_version_synthesis": REPORT_DIR / "downstream_cross_version_synthesis.json",
+    "downstream_boundary_synthesis": REPORT_DIR / "downstream_boundary_synthesis.json",
     "downstream_paper_eval_section": REPORT_DIR / "downstream_paper_eval_section.json",
     "downstream_claim_defense_matrix": REPORT_DIR / "downstream_claim_defense_matrix.json",
     "hard_v4_scaffold_manifest": REPORT_DIR / "hard_v4_scaffold_manifest.json",
@@ -86,6 +88,9 @@ ARTIFACT_PATHS = {
     "cross_synthesis_json": REPORT_DIR / "downstream_cross_version_synthesis.json",
     "cross_synthesis_md": REPORT_DIR / "downstream_cross_version_synthesis.md",
     "cross_synthesis_tex": REPORT_DIR / "downstream_cross_version_synthesis.tex",
+    "boundary_synthesis_json": REPORT_DIR / "downstream_boundary_synthesis.json",
+    "boundary_synthesis_md": REPORT_DIR / "downstream_boundary_synthesis.md",
+    "boundary_synthesis_tex": REPORT_DIR / "downstream_boundary_synthesis.tex",
     "paper_section_json": REPORT_DIR / "downstream_paper_eval_section.json",
     "paper_section_md": REPORT_DIR / "downstream_paper_eval_section.md",
     "paper_section_tex": REPORT_DIR / "downstream_paper_eval_section.tex",
@@ -120,6 +125,7 @@ SCRIPT_PATHS = {
     "summarize_hard_v4": ROOT / "scripts" / "summarize_hard_v4_results.py",
     "export_hard_v4": ROOT / "scripts" / "export_hard_v4_evidence_package.py",
     "export_cross_synthesis": ROOT / "scripts" / "export_downstream_cross_version_synthesis.py",
+    "export_boundary_synthesis": ROOT / "scripts" / "export_downstream_boundary_synthesis.py",
     "export_paper_section": ROOT / "scripts" / "export_downstream_paper_section.py",
     "export_claim_defense": ROOT / "scripts" / "export_downstream_claim_defense_matrix.py",
     "export_hard_v4_scaffold": ROOT / "scripts" / "export_hard_v4_scaffold_manifest.py",
@@ -255,7 +261,20 @@ def build_artifact_groups() -> list[dict[str, Any]]:
             "Do not merge hard_v2 and hard_v3 into a single anonymous leaderboard.",
         ),
         build_artifact_group(
-            "G5_paper_section",
+            "G5_boundary_synthesis",
+            "Boundary Synthesis",
+            "Three-boundary synthesis covering hard_v2, hard_v3, and hard_v4.",
+            ["boundary_synthesis_json", "boundary_synthesis_md", "boundary_synthesis_tex"],
+            ["hard_v2_evidence_json", "hard_v3_evidence_json", "hard_v4_evidence_json"],
+            ["python scripts/export_downstream_boundary_synthesis.py --assert-current-boundary-synthesis"],
+            (
+                "Use for the high-level paper boundary story: conditional positive, "
+                "generalization boundary, stricter boundary, and 0/133 forced-bad evidence."
+            ),
+            "Do not use boundary synthesis as a substitute for the underlying suite-specific evidence packages.",
+        ),
+        build_artifact_group(
+            "G6_paper_section",
             "Draftable Paper Section",
             "Generated evaluation-section prose tied to the frozen synthesis.",
             ["paper_section_json", "paper_section_md", "paper_section_tex"],
@@ -265,7 +284,7 @@ def build_artifact_groups() -> list[dict[str, Any]]:
             "Do not edit this prose into stronger claims without updating evidence and assertions.",
         ),
         build_artifact_group(
-            "G6_claim_defense",
+            "G7_claim_defense",
             "Claim Defense Matrix",
             "Reviewer-facing claim-by-claim evidence map and forbidden wording ledger.",
             ["claim_defense_json", "claim_defense_md", "claim_defense_tex"],
@@ -275,7 +294,7 @@ def build_artifact_groups() -> list[dict[str, Any]]:
             "Do not treat reviewer-response wording as new experimental evidence.",
         ),
         build_artifact_group(
-            "G7_reporting_handoff",
+            "G8_reporting_handoff",
             "Reporting and Handoff",
             "Human-readable state tracking and cross-session recovery anchors.",
             ["paper_eval_status", "experiment_handoff", "progress_log"],
@@ -285,7 +304,7 @@ def build_artifact_groups() -> list[dict[str, Any]]:
             "Do not cite progress logs as primary empirical evidence when paper-facing tables exist.",
         ),
         build_artifact_group(
-            "G8_hard_v4_scaffold",
+            "G9_hard_v4_scaffold",
             "Hard v4 Scaffold",
             "Frozen task scaffold and deterministic verifier boundary for hard_v4.",
             ["hard_v4_scaffold_json", "hard_v4_scaffold_md", "hard_v4_scaffold_tex"],
@@ -299,7 +318,7 @@ def build_artifact_groups() -> list[dict[str, Any]]:
             "Do not cite scaffold mechanics as model-performance evidence.",
         ),
         build_artifact_group(
-            "G9_hard_v4_evidence",
+            "G10_hard_v4_evidence",
             "Hard v4 Evidence",
             "Fresh downstream boundary evidence that narrows selected-utility claims.",
             ["hard_v4_evidence_json", "hard_v4_paper_tables_md", "hard_v4_paper_tables_tex"],
@@ -325,6 +344,7 @@ def build_regeneration_order() -> list[dict[str, str]]:
         ("summarize_hard_v3", "python scripts/summarize_hard_v3_results.py --assert-current-hard-v3"),
         ("export_hard_v3", "python scripts/export_hard_v3_evidence_package.py --assert-current-hard-v3"),
         ("export_cross_synthesis", "python scripts/export_downstream_cross_version_synthesis.py --assert-current-synthesis"),
+        ("export_boundary_synthesis", "python scripts/export_downstream_boundary_synthesis.py --assert-current-boundary-synthesis"),
         ("export_paper_section", "python scripts/export_downstream_paper_section.py --assert-current-paper-section"),
         ("export_claim_defense", "python scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-defense"),
         ("build_hard_v4", "python scripts/build_downstream_hard_v4_tasks.py"),
@@ -405,6 +425,17 @@ def build_table_index() -> list[dict[str, Any]]:
             "avoid": "Do not read the synthesis as a single global leaderboard.",
         },
         {
+            "table_id": "T_boundary_synthesis",
+            "paper_role": "Three-boundary synthesis table.",
+            "primary_artifacts": [
+                display_path(ARTIFACT_PATHS["boundary_synthesis_md"]),
+                display_path(ARTIFACT_PATHS["boundary_synthesis_tex"]),
+                display_path(ARTIFACT_PATHS["boundary_synthesis_json"]),
+            ],
+            "allowed_claim": "hard_v2/hard_v3/hard_v4 together show conditional positive evidence, generalization boundary, stricter boundary, and 0/133 forced-bad evidence.",
+            "avoid": "Do not use the boundary synthesis as a selected-wins leaderboard or as a substitute for evidence packages.",
+        },
+        {
             "table_id": "T_claim_defense_appendix",
             "paper_role": "Appendix or internal reviewer-response table.",
             "primary_artifacts": [
@@ -474,6 +505,7 @@ def build_index(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
     hard_v3 = data["hard_v3_evidence_package"]
     hard_v4 = data["hard_v4_evidence_package"]
     synthesis = data["downstream_cross_version_synthesis"]
+    boundary = data["downstream_boundary_synthesis"]
     paper_section = data["downstream_paper_eval_section"]
     claim_defense = data["downstream_claim_defense_matrix"]
 
@@ -522,6 +554,17 @@ def build_index(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
             "hard_v4_forced_bad_total_public_passed_hidden_failed": v4_derived[
                 "forced_bad_total_public_passed_hidden_failed"
             ],
+            "boundary_forced_bad_total_success": boundary["derived_claims"]["forced_bad_total_success"],
+            "boundary_forced_bad_total_tasks": boundary["derived_claims"]["forced_bad_total_tasks"],
+            "boundary_forced_bad_total_public_passed_hidden_failed": boundary["derived_claims"][
+                "forced_bad_total_public_passed_hidden_failed"
+            ],
+            "boundary_selected_superiority_consistent": boundary["derived_claims"][
+                "selected_superiority_consistent"
+            ],
+            "boundary_selected_token_savings_consistent": boundary["derived_claims"][
+                "selected_token_savings_consistent"
+            ],
             "forced_bad_total_successes": derived["forced_bad_total_successes"],
             "forced_bad_total_tasks": derived["forced_bad_total_tasks"],
             "forced_bad_total_public_passed_hidden_failed": derived[
@@ -538,7 +581,7 @@ def build_index(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
         "claim_to_artifact_map": build_claim_to_artifact_map(claim_defense),
         "do_not_cite_as_primary": build_do_not_cite_as_primary(),
         "next_experimental_boundary": {
-            "recommended": "hard_v4-aware cross-boundary synthesis, model-transfer replication, or a predeclared hard_v5 boundary.",
+            "recommended": "boundary-synthesis-driven paper revision, model-transfer replication, or a predeclared hard_v5 boundary.",
             "avoid": "Do not tune hard_v2/hard_v3/hard_v4 prompts or strategies from observed failures while still treating them as clean evidence.",
         },
     }
@@ -559,6 +602,11 @@ def assert_index(index: dict[str, Any]) -> None:
         "hard_v4_forced_bad_total_successes": 0,
         "hard_v4_forced_bad_total_tasks": 48,
         "hard_v4_forced_bad_total_public_passed_hidden_failed": 48,
+        "boundary_forced_bad_total_success": "0/133",
+        "boundary_forced_bad_total_tasks": 133,
+        "boundary_forced_bad_total_public_passed_hidden_failed": 133,
+        "boundary_selected_superiority_consistent": False,
+        "boundary_selected_token_savings_consistent": False,
         "forced_bad_total_successes": 0,
         "forced_bad_total_tasks": 85,
         "forced_bad_total_public_passed_hidden_failed": 85,
@@ -579,9 +627,9 @@ def assert_index(index: dict[str, Any]) -> None:
         for file_info in group["primary_files"] + group["support_files"]:
             if not file_info["exists"]:
                 raise AssertionError(f"missing artifact file: {file_info['path']}")
-    if len(index["artifact_groups"]) != 9:
+    if len(index["artifact_groups"]) != 10:
         raise AssertionError("artifact group count changed")
-    if len(index["table_index"]) != 6:
+    if len(index["table_index"]) != 7:
         raise AssertionError("table index count changed")
     if len(index["claim_to_artifact_map"]) != 10:
         raise AssertionError("claim map count changed")
@@ -594,10 +642,12 @@ def assert_index(index: dict[str, Any]) -> None:
         "22/24",
         "0/85",
         "0/48",
+        "0/133",
         "Do not tune hard_v2/hard_v3/hard_v4 prompts",
         "hard_v4_scaffold_manifest.json",
         "hard_v4_evidence_package.json",
-        "hard_v4-aware cross-boundary synthesis",
+        "downstream_boundary_synthesis.json",
+        "boundary-synthesis-driven paper revision",
         "downstream_claim_defense_matrix.json",
     ]
     for phrase in required:
@@ -844,6 +894,7 @@ def main() -> None:
     print(f"claim_map: {len(index['claim_to_artifact_map'])}")
     print(f"forced_bad_total_tasks: {index['key_current_facts']['forced_bad_total_tasks']}")
     print(f"hard_v4_forced_bad_total_tasks: {index['key_current_facts']['hard_v4_forced_bad_total_tasks']}")
+    print(f"boundary_forced_bad_total_tasks: {index['key_current_facts']['boundary_forced_bad_total_tasks']}")
     print(f"wrote_json: {display_path(args.json_out)}")
     print(f"wrote_md: {display_path(args.md_out)}")
     print(f"wrote_tex: {display_path(args.tex_out)}")

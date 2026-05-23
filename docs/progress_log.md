@@ -3652,3 +3652,129 @@ Do not claim SkillAdmit-selected saves tokens on hard_v4.
 Do not merge hard_v4 into hard_v2/hard_v3 synthesis without preserving the
 separate boundary label.
 ```
+
+### 58. Downstream Boundary Synthesis
+
+Created:
+
+```text
+scripts/export_downstream_boundary_synthesis.py
+benchmark/downstream/reports/downstream_boundary_synthesis.json
+benchmark/downstream/reports/downstream_boundary_synthesis.md
+benchmark/downstream/reports/downstream_boundary_synthesis.tex
+```
+
+What the file does:
+
+```text
+export_downstream_boundary_synthesis.py:
+  reads the paper-facing hard_v2, hard_v3, and hard_v4 evidence packages and
+  exports a three-boundary synthesis. It records comparable strategy rows,
+  selected-vs-no_experience deltas, precondition/context deltas, forced-bad
+  aggregate evidence, artifact-adherence caveats, source hashes, and explicit
+  supported/unsupported claims.
+```
+
+Why it is needed:
+
+```text
+The older downstream_cross_version_synthesis remains the hard_v2/hard_v3
+synthesis. hard_v4 should not overwrite it and should not be flattened into a
+single leaderboard. The new boundary synthesis makes the current three-suite
+paper story explicit:
+
+hard_v2:
+  conditional positive evidence
+
+hard_v3:
+  generalization boundary
+
+hard_v4:
+  stricter boundary and negative-transfer replication
+```
+
+Command:
+
+```bash
+PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
+/home/lijx/anaconda3/envs/skilladmit/bin/python scripts/export_downstream_boundary_synthesis.py \
+  --assert-current-boundary-synthesis
+```
+
+Current export:
+
+```text
+primary_rows: 43
+selected_comparisons: 6
+context_comparisons: 9
+forced_bad_total: 0/133
+```
+
+Selected versus no_experience:
+
+```text
+hard_v2 tree-aware:      25/25 vs 23/25, success_delta=+2, token_delta=+6049
+hard_v2 strict visible:  23/25 vs 24/25, success_delta=-1, token_delta=+7336
+hard_v3 tree-aware:      29/30 vs 29/30, success_delta=0,  token_delta=-917
+hard_v3 strict visible:  29/30 vs 28/30, success_delta=+1, token_delta=-2763
+hard_v4 tree-aware:      24/24 vs 24/24, success_delta=0,  token_delta=+1997
+hard_v4 strict visible:  22/24 vs 24/24, success_delta=-2, token_delta=+5395
+```
+
+Context/precondition comparisons:
+
+```text
+tree-aware precondition context vs selected:
+  hard_v2: success_delta=0, token_delta=+9907
+  hard_v3: success_delta=0, token_delta=+5268
+  hard_v4: success_delta=0, token_delta=+14904
+
+strict precondition-only vs selected:
+  hard_v2: success_delta=+1
+  hard_v3: success_delta=+1
+  hard_v4: success_delta=+1
+
+strict precondition-only vs no_experience:
+  hard_v2: success_delta=0
+  hard_v3: success_delta=+2
+  hard_v4: success_delta=-1
+```
+
+Forced-bad aggregate:
+
+```text
+hard_v2: 0/25
+hard_v3: 0/60
+hard_v4: 0/48
+total:   0/133, public-pass/hidden-fail=133
+```
+
+Paper artifacts index was updated again:
+
+```text
+artifact_groups: 10
+table_index: 7
+claim_map: 10
+forced_bad_total_tasks: 85
+hard_v4_forced_bad_total_tasks: 48
+boundary_forced_bad_total_tasks: 133
+```
+
+Interpretation:
+
+```text
+This is the cleanest current high-level downstream story. It deliberately
+weakens any overbroad selected-wins claim. The paper should say that
+SkillAdmit-selected is conditionally useful, not universally best; and that
+downstream hidden verification is essential because harmful admitted artifacts
+produce systematic negative transfer even when public tests pass.
+```
+
+Boundary:
+
+```text
+Do not tune hard_v2, hard_v3, or hard_v4 failures from this synthesis.
+Do not use the boundary synthesis as a substitute for suite-specific evidence
+packages.
+Do not claim token savings or universal selected superiority.
+```
