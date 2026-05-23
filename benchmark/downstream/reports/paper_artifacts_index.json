@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-22T15:03:52.770846+00:00",
+  "generated_at_utc": "2026-05-23T04:57:36.286252+00:00",
   "purpose": "One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the correct evidence, table, script, and claim boundary for downstream validation writing.",
   "source_inputs": [
     {
@@ -33,6 +33,14 @@
       "sha256": "894b8f7a1f7ac29659bb5adbcee4323aa11294a6741057d145f4ff0feb4101ec",
       "size_bytes": 27042,
       "generated_at_utc": "2026-05-22T13:03:52.487189+00:00"
+    },
+    {
+      "name": "hard_v4_evidence_package",
+      "path": "benchmark/downstream/reports/hard_v4_evidence_package.json",
+      "exists": true,
+      "sha256": "c7e729993e44503b99f074598d0197f636317582a7d6a86f5d4f7984b4d7a022",
+      "size_bytes": 22128,
+      "generated_at_utc": "2026-05-23T04:55:41.380270+00:00"
     },
     {
       "name": "downstream_cross_version_synthesis",
@@ -73,6 +81,13 @@
     "hard_v3_tree_selected": "29/30",
     "hard_v3_tree_no_experience": "29/30",
     "hard_v3_strict_precondition_only": "30/30",
+    "hard_v4_tree_selected": "24/24",
+    "hard_v4_tree_no_experience": "24/24",
+    "hard_v4_strict_selected": "22/24",
+    "hard_v4_strict_no_experience": "24/24",
+    "hard_v4_forced_bad_total_successes": 0,
+    "hard_v4_forced_bad_total_tasks": 48,
+    "hard_v4_forced_bad_total_public_passed_hidden_failed": 48,
     "forced_bad_total_successes": 0,
     "forced_bad_total_tasks": 85,
     "forced_bad_total_public_passed_hidden_failed": 85,
@@ -116,14 +131,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "5ed98534fd36532beb2d67ea9e2bda9ca66d1f199dea1fc9cba51fd0c7b7a277",
-          "size_bytes": 25641
+          "sha256": "f4697b153ab84d9bf6b9b502f51a688bf1e28656bf796374e9920ba02e3c4c24",
+          "size_bytes": 27951
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "c0e1b032d1d6a25d6d2fadac89ba59d0db32815cd2dda8a732210d6ae223e0c2",
-          "size_bytes": 40632
+          "sha256": "522cd0410e78c67e00dee44229c4b6cfd7beb635ea30bb31d860025ac37d38fa",
+          "size_bytes": 44042
         }
       ],
       "regeneration_commands": [
@@ -172,8 +187,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "5ed98534fd36532beb2d67ea9e2bda9ca66d1f199dea1fc9cba51fd0c7b7a277",
-          "size_bytes": 25641
+          "sha256": "f4697b153ab84d9bf6b9b502f51a688bf1e28656bf796374e9920ba02e3c4c24",
+          "size_bytes": 27951
         }
       ],
       "regeneration_commands": [
@@ -224,8 +239,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "5ed98534fd36532beb2d67ea9e2bda9ca66d1f199dea1fc9cba51fd0c7b7a277",
-          "size_bytes": 25641
+          "sha256": "f4697b153ab84d9bf6b9b502f51a688bf1e28656bf796374e9920ba02e3c4c24",
+          "size_bytes": 27951
         }
       ],
       "regeneration_commands": [
@@ -276,8 +291,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "5ed98534fd36532beb2d67ea9e2bda9ca66d1f199dea1fc9cba51fd0c7b7a277",
-          "size_bytes": 25641
+          "sha256": "f4697b153ab84d9bf6b9b502f51a688bf1e28656bf796374e9920ba02e3c4c24",
+          "size_bytes": 27951
         }
       ],
       "regeneration_commands": [
@@ -382,20 +397,20 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "5ed98534fd36532beb2d67ea9e2bda9ca66d1f199dea1fc9cba51fd0c7b7a277",
-          "size_bytes": 25641
+          "sha256": "f4697b153ab84d9bf6b9b502f51a688bf1e28656bf796374e9920ba02e3c4c24",
+          "size_bytes": 27951
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "c0e1b032d1d6a25d6d2fadac89ba59d0db32815cd2dda8a732210d6ae223e0c2",
-          "size_bytes": 40632
+          "sha256": "522cd0410e78c67e00dee44229c4b6cfd7beb635ea30bb31d860025ac37d38fa",
+          "size_bytes": 44042
         },
         {
           "path": "docs/progress_log.md",
           "exists": true,
-          "sha256": "ce2136b0aabd5f097bc349d7d1cdbed6713812ef1588e79a46054642697088b7",
-          "size_bytes": 85945
+          "sha256": "114a310685b349d04bad808040e667098acec83ab6b02f06c4e4c47521058f5a",
+          "size_bytes": 90779
         }
       ],
       "support_files": [],
@@ -406,7 +421,7 @@
     {
       "group_id": "G8_hard_v4_scaffold",
       "title": "Hard v4 Scaffold",
-      "role": "Freeze-ready future downstream boundary scaffold, not current LLM evidence.",
+      "role": "Frozen task scaffold and deterministic verifier boundary for hard_v4.",
       "primary_files": [
         {
           "path": "benchmark/downstream/reports/hard_v4_scaffold_manifest.json",
@@ -431,20 +446,20 @@
         {
           "path": "docs/llm_downstream_hard_v4.md",
           "exists": true,
-          "sha256": "ed41b445ec26bd98da54f93e3dec11909c74069601ac3c273088f6b3ae2bc7c8",
-          "size_bytes": 6999
+          "sha256": "c682a7c91829b412c1150796089a1b32b382bbab3bd9d5c8d3df3277f96f05da",
+          "size_bytes": 12262
         },
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "5ed98534fd36532beb2d67ea9e2bda9ca66d1f199dea1fc9cba51fd0c7b7a277",
-          "size_bytes": 25641
+          "sha256": "f4697b153ab84d9bf6b9b502f51a688bf1e28656bf796374e9920ba02e3c4c24",
+          "size_bytes": 27951
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "c0e1b032d1d6a25d6d2fadac89ba59d0db32815cd2dda8a732210d6ae223e0c2",
-          "size_bytes": 40632
+          "sha256": "522cd0410e78c67e00dee44229c4b6cfd7beb635ea30bb31d860025ac37d38fa",
+          "size_bytes": 44042
         }
       ],
       "regeneration_commands": [
@@ -452,8 +467,60 @@
         "python scripts/check_downstream_hard_v4_tasks.py",
         "python scripts/export_hard_v4_scaffold_manifest.py --run-checker --assert-current-hard-v4-scaffold"
       ],
-      "use_in_paper": "Use only to document the future hard_v4 boundary and its no-LLM-evidence status.",
-      "do_not_use_for": "Do not cite as evidence that SkillAdmit helps on hard_v4."
+      "use_in_paper": "Use to document the frozen hard_v4 task boundary and hidden-verifier design.",
+      "do_not_use_for": "Do not cite scaffold mechanics as model-performance evidence."
+    },
+    {
+      "group_id": "G9_hard_v4_evidence",
+      "title": "Hard v4 Evidence",
+      "role": "Fresh downstream boundary evidence that narrows selected-utility claims.",
+      "primary_files": [
+        {
+          "path": "benchmark/downstream/reports/hard_v4_evidence_package.json",
+          "exists": true,
+          "sha256": "c7e729993e44503b99f074598d0197f636317582a7d6a86f5d4f7984b4d7a022",
+          "size_bytes": 22128
+        },
+        {
+          "path": "benchmark/downstream/reports/hard_v4_paper_tables.md",
+          "exists": true,
+          "sha256": "5d04261323974b6b9f99a2553088715aa8a15ebe44ef8ea451d200327798d89f",
+          "size_bytes": 6411
+        },
+        {
+          "path": "benchmark/downstream/reports/hard_v4_paper_tables.tex",
+          "exists": true,
+          "sha256": "36499f481e3a49cf83d59b7effa4660eeda1813af6575798bf7f1472917510ca",
+          "size_bytes": 2414
+        }
+      ],
+      "support_files": [
+        {
+          "path": "benchmark/downstream/reports/hard_v4_strategy_matrix.md",
+          "exists": true,
+          "sha256": "ee9eba7a9677ce9204f3b1e6d7f7d7cacdcba2ac9e622fb354f215bea4a83b01",
+          "size_bytes": 27181
+        },
+        {
+          "path": "benchmark/downstream/reports/hard_v4_strategy_matrix.json",
+          "exists": true,
+          "sha256": "00401c79ed1b226d7f081d36e76994fffc73c6535c76712fa4179fb86ac9bef5",
+          "size_bytes": 115415
+        },
+        {
+          "path": "docs/llm_downstream_hard_v4.md",
+          "exists": true,
+          "sha256": "c682a7c91829b412c1150796089a1b32b382bbab3bd9d5c8d3df3277f96f05da",
+          "size_bytes": 12262
+        }
+      ],
+      "regeneration_commands": [
+        "python scripts/check_downstream_hard_v4_tasks.py",
+        "python scripts/summarize_hard_v4_results.py --assert-current-hard-v4",
+        "python scripts/export_hard_v4_evidence_package.py --assert-current-hard-v4"
+      ],
+      "use_in_paper": "Use for hard_v4 boundary claims: tree-aware saturation, strict selected underperformance, and 0/48 forced-bad transfer.",
+      "do_not_use_for": "Do not use hard_v4 to claim SkillAdmit-selected superiority or selected token savings."
     }
   ],
   "regeneration_order": [
@@ -537,6 +604,18 @@
     },
     {
       "step": 14,
+      "name": "summarize_hard_v4",
+      "command": "python scripts/summarize_hard_v4_results.py --assert-current-hard-v4",
+      "script_exists": true
+    },
+    {
+      "step": 15,
+      "name": "export_hard_v4",
+      "command": "python scripts/export_hard_v4_evidence_package.py --assert-current-hard-v4",
+      "script_exists": true
+    },
+    {
+      "step": 16,
       "name": "export_artifacts_index",
       "command": "python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index",
       "script_exists": true
@@ -574,6 +653,17 @@
       ],
       "allowed_claim": "hard_v3 bounds selected-superiority and strengthens negative-transfer evidence.",
       "avoid": "Do not claim hard_v3 proves selected superiority or token savings."
+    },
+    {
+      "table_id": "T_hard_v4",
+      "paper_role": "Hard v4 boundary table.",
+      "primary_artifacts": [
+        "benchmark/downstream/reports/hard_v4_paper_tables.md",
+        "benchmark/downstream/reports/hard_v4_paper_tables.tex",
+        "benchmark/downstream/reports/hard_v4_evidence_package.json"
+      ],
+      "allowed_claim": "hard_v4 shows tree-aware saturation, strict selected underperformance, and 0/48 forced-bad transfer.",
+      "avoid": "Do not claim hard_v4 proves selected utility, selected token savings, or bad-advice safety."
     },
     {
       "table_id": "T_cross_version",
@@ -722,7 +812,7 @@
     },
     {
       "artifact_pattern": "benchmark/downstream_hard_v4/tasks/*",
-      "reason": "hard_v4 task files define a future boundary; do not tune prompts or strategies from inspected hard_v4 failures."
+      "reason": "hard_v4 task files define a frozen evaluation boundary; do not tune prompts or strategies from inspected hard_v4 failures."
     },
     {
       "artifact_pattern": "docs/progress_log.md",
@@ -730,7 +820,7 @@
     }
   ],
   "next_experimental_boundary": {
-    "recommended": "hard_v4 LLM matrix or model-transfer replication only after explicitly declaring a fresh evaluation boundary.",
+    "recommended": "hard_v4-aware cross-boundary synthesis, model-transfer replication, or a predeclared hard_v5 boundary.",
     "avoid": "Do not tune hard_v2/hard_v3/hard_v4 prompts or strategies from observed failures while still treating them as clean evidence."
   }
 }

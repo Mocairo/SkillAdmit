@@ -3519,3 +3519,136 @@ No hard_v4 SkillAdmit success claim exists yet.
 Do not tune hard_v4 prompts or strategies from observed failures while keeping
 hard_v4 as clean evidence.
 ```
+
+### 57. Hard v4 LLM Downstream Matrix
+
+Created:
+
+```text
+scripts/summarize_hard_v4_results.py
+scripts/export_hard_v4_evidence_package.py
+benchmark/downstream/reports/hard_v4_strategy_matrix.json
+benchmark/downstream/reports/hard_v4_strategy_matrix.md
+benchmark/downstream/reports/hard_v4_evidence_package.json
+benchmark/downstream/reports/hard_v4_paper_tables.md
+benchmark/downstream/reports/hard_v4_paper_tables.tex
+```
+
+What the files do:
+
+```text
+summarize_hard_v4_results.py:
+  reads the completed hard_v4 tree-aware and strict visible-file LLM runs,
+  builds strategy/template/failure matrices, records source hashes, and asserts
+  the current hard_v4 evidence boundary.
+
+export_hard_v4_evidence_package.py:
+  builds compact paper-facing hard_v4 tables, artifact-adherence summaries,
+  failure taxonomy, derived comparisons, source hashes, and explicit claim
+  boundaries.
+
+hard_v4_strategy_matrix.*:
+  auditable full matrix for the hard_v4 runs.
+
+hard_v4_evidence_package.json and hard_v4_paper_tables.*:
+  paper-facing hard_v4 evidence. Use these instead of citing individual
+  summary.json files.
+```
+
+LLM runs:
+
+```text
+benchmark/downstream/llm_runs/llm_downstream_hard_v4_tree_canary_6x4/
+benchmark/downstream/llm_runs/llm_downstream_hard_v4_strict_canary_6x4/
+benchmark/downstream/llm_runs/llm_downstream_hard_v4_tree_24x8/
+benchmark/downstream/llm_runs/llm_downstream_hard_v4_strict_24x8/
+```
+
+Tree-aware full matrix:
+
+```text
+bad_dependency_rule:                            24/24, tokens=51974, artifact_adherence=7/24
+distilled_skills_all:                           24/24, tokens=68776
+forced_bad_artifact:                             0/24, public_hidden=24
+no_experience:                                  24/24, tokens=46685
+promoted_rules:                                 24/24, tokens=58813
+raw_memory:                                     24/24, tokens=53406
+skilladmit_selected:                            24/24, tokens=48682
+skilladmit_selected_with_precondition_context:  24/24, tokens=63586
+```
+
+Strict visible-file full matrix:
+
+```text
+bad_dependency_rule:                            24/24, tokens=63789, artifact_adherence=4/24
+distilled_skills_all:                           24/24, tokens=69049
+forced_bad_artifact:                             0/24, public_hidden=24
+no_experience:                                  24/24, tokens=53055
+promoted_rules:                                 23/24, tokens=69221
+raw_memory:                                     23/24, tokens=65070
+skilladmit_selected:                            22/24, tokens=58450
+skilladmit_selected_with_precondition_only:     23/24, tokens=69961
+```
+
+Derived hard_v4 comparisons:
+
+```text
+tree selected vs no_experience:          success_delta=0, token_delta=+1997
+tree selected+precondition vs selected:  success_delta=0, token_delta=+14904
+strict selected vs no_experience:        success_delta=-2, token_delta=+5395
+strict precondition-only vs selected:    success_delta=+1, token_delta=+11511
+forced_bad_artifact aggregate:           0/48 success, 48 public-pass/hidden-fail
+```
+
+Command:
+
+```bash
+PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
+/home/lijx/anaconda3/envs/skilladmit/bin/python scripts/summarize_hard_v4_results.py \
+  --assert-current-hard-v4
+
+PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
+/home/lijx/anaconda3/envs/skilladmit/bin/python scripts/export_hard_v4_evidence_package.py \
+  --assert-current-hard-v4
+```
+
+Paper artifacts index was also updated:
+
+```text
+benchmark/downstream/reports/paper_artifacts_index.json
+benchmark/downstream/reports/paper_artifacts_index.md
+benchmark/downstream/reports/paper_artifacts_index.tex
+
+artifact_groups: 9
+table_index: 6
+claim_map: 10
+forced_bad_total_tasks: 85
+hard_v4_forced_bad_total_tasks: 48
+```
+
+Interpretation:
+
+```text
+Hard v4 is not a selected-win result. Tree-aware hard_v4 is saturated because
+every non-forced strategy reaches 24/24. Strict visible-file hard_v4 is worse
+for ordinary selected: no_experience reaches 24/24, while selected reaches
+22/24 and selected+precondition-only reaches 23/24.
+
+The hard_v4 result is valuable because it sharpens the boundary: SkillAdmit
+evidence must be reported as conditional, not universal. The strongest hard_v4
+signal is negative transfer from harmful artifacts: forced_bad_artifact is 0/48
+and all 48 failures are public-pass/hidden-fail cases.
+
+The ordinary bad_dependency_rule rows are not proof that harmful advice is
+safe. Artifact adherence is low: 7/24 tree-aware and 4/24 strict.
+```
+
+Boundary:
+
+```text
+Do not tune hard_v4 prompts, strategy text, or tasks from the observed failures.
+Do not claim SkillAdmit-selected improves hard_v4 success.
+Do not claim SkillAdmit-selected saves tokens on hard_v4.
+Do not merge hard_v4 into hard_v2/hard_v3 synthesis without preserving the
+separate boundary label.
+```

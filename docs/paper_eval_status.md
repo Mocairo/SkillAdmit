@@ -1,6 +1,6 @@
 # SkillAdmit Paper Evaluation Status
 
-Last updated: 2026-05-22
+Last updated: 2026-05-23
 
 ## 1. Current Honest Evaluation Result
 
@@ -891,10 +891,11 @@ scripts/export_paper_artifacts_index.py --assert-current-artifacts-index
 Current export:
 
 ```text
-artifact_groups: 8
-table_index: 5
+artifact_groups: 9
+table_index: 6
 claim_map: 10
 forced_bad_total_tasks: 85
+hard_v4_forced_bad_total_tasks: 48
 ```
 
 Purpose:
@@ -906,9 +907,10 @@ tables, and handoff logs. It also records files that should not be cited as
 primary evidence, such as individual llm_runs summary.json files.
 ```
 
-## 15. Hard v4 Scaffold Status
+## 15. Hard v4 Downstream Status
 
-Hard v4 is a candidate future downstream boundary, not current paper evidence.
+Hard v4 is now a completed fresh downstream boundary. It should be used as
+boundary evidence, not as a SkillAdmit-selected success claim.
 
 Protocol and scripts:
 
@@ -917,6 +919,8 @@ docs/llm_downstream_hard_v4.md
 scripts/build_downstream_hard_v4_tasks.py
 scripts/check_downstream_hard_v4_tasks.py
 scripts/export_hard_v4_scaffold_manifest.py
+scripts/summarize_hard_v4_results.py
+scripts/export_hard_v4_evidence_package.py
 ```
 
 Current deterministic scaffold validation:
@@ -941,19 +945,69 @@ benchmark/downstream/reports/hard_v4_scaffold_manifest.md
 benchmark/downstream/reports/hard_v4_scaffold_manifest.tex
 ```
 
+LLM runs:
+
+```text
+benchmark/downstream/llm_runs/llm_downstream_hard_v4_tree_24x8/
+benchmark/downstream/llm_runs/llm_downstream_hard_v4_strict_24x8/
+```
+
+Paper-facing evidence:
+
+```text
+benchmark/downstream/reports/hard_v4_strategy_matrix.json
+benchmark/downstream/reports/hard_v4_strategy_matrix.md
+benchmark/downstream/reports/hard_v4_evidence_package.json
+benchmark/downstream/reports/hard_v4_paper_tables.md
+benchmark/downstream/reports/hard_v4_paper_tables.tex
+```
+
+Current matrix:
+
+```text
+tree-aware:
+  no_experience:                                  24/24, tokens=46685
+  skilladmit_selected:                            24/24, tokens=48682
+  skilladmit_selected_with_precondition_context:  24/24, tokens=63586
+  raw_memory:                                     24/24, tokens=53406
+  distilled_skills_all:                           24/24, tokens=68776
+  bad_dependency_rule:                            24/24, tokens=51974, artifact_adherence=7/24
+  promoted_rules:                                 24/24, tokens=58813
+  forced_bad_artifact:                             0/24, public_hidden=24
+
+strict visible-file:
+  no_experience:                                  24/24, tokens=53055
+  skilladmit_selected:                            22/24, tokens=58450
+  skilladmit_selected_with_precondition_only:     23/24, tokens=69961
+  raw_memory:                                     23/24, tokens=65070
+  distilled_skills_all:                           24/24, tokens=69049
+  bad_dependency_rule:                            24/24, tokens=63789, artifact_adherence=4/24
+  promoted_rules:                                 23/24, tokens=69221
+  forced_bad_artifact:                             0/24, public_hidden=24
+```
+
 Interpretation:
 
 ```text
-This only proves that the hard_v4 scaffold is mechanically valid, generated,
-and hashable. It does not create a new downstream model result and should not
-be cited as evidence that SkillAdmit helps on hard_v4.
+Hard v4 does not support a SkillAdmit-selected downstream-success claim.
+Tree-aware hard_v4 is saturated: all non-forced strategies reach 24/24.
+Strict visible-file hard_v4 is worse for selected: no_experience reaches 24/24,
+while ordinary selected reaches 22/24 and selected+precondition-only reaches
+23/24.
+
+The main hard_v4 evidence is the negative-transfer control. Forced bad artifacts
+are 0/48 across the two hard_v4 settings, with 48 public-pass/hidden-fail
+cases.
+
+The ordinary bad_dependency_rule condition should not be interpreted as safe.
+Its artifact adherence is only 7/24 tree-aware and 4/24 strict.
 ```
 
 Next experimental step:
 
 ```text
-If continuing experimentally, commit or otherwise explicitly freeze the
-generated hard_v4 task directory and manifest first, then run a no-tuning LLM
-strategy matrix or model-transfer replication. Do not inspect hard_v4 failures
-and tune prompts while preserving hard_v4 as clean evidence.
+Do not tune hard_v4 prompts or strategies from these failures. The next clean
+experimental step is either a cross-boundary synthesis update that preserves
+hard_v4 as a separate boundary, or a new predeclared boundary/model-transfer
+replication. Do not claim selected utility or token savings from hard_v4.
 ```

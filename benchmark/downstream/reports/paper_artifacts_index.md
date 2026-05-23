@@ -1,6 +1,6 @@
 # Paper Artifacts Index
 
-Generated at UTC: `2026-05-22T15:03:52.770846+00:00`
+Generated at UTC: `2026-05-23T04:57:36.286252+00:00`
 
 One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the correct evidence, table, script, and claim boundary for downstream validation writing.
 
@@ -13,6 +13,13 @@ One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the corre
 | hard_v3_tree_selected | 29/30 |
 | hard_v3_tree_no_experience | 29/30 |
 | hard_v3_strict_precondition_only | 30/30 |
+| hard_v4_tree_selected | 24/24 |
+| hard_v4_tree_no_experience | 24/24 |
+| hard_v4_strict_selected | 22/24 |
+| hard_v4_strict_no_experience | 24/24 |
+| hard_v4_forced_bad_total_successes | 0 |
+| hard_v4_forced_bad_total_tasks | 48 |
+| hard_v4_forced_bad_total_public_passed_hidden_failed | 48 |
 | forced_bad_total_successes | 0 |
 | forced_bad_total_tasks | 85 |
 | forced_bad_total_public_passed_hidden_failed | 85 |
@@ -32,7 +39,8 @@ One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the corre
 | G5_paper_section | Draftable Paper Section | Generated evaluation-section prose tied to the frozen synthesis. | Use as the starting point for writing the downstream validation subsection. | Do not edit this prose into stronger claims without updating evidence and assertions. |
 | G6_claim_defense | Claim Defense Matrix | Reviewer-facing claim-by-claim evidence map and forbidden wording ledger. | Use during paper revision and reviewer response drafting. | Do not treat reviewer-response wording as new experimental evidence. |
 | G7_reporting_handoff | Reporting and Handoff | Human-readable state tracking and cross-session recovery anchors. | Use to recover the current project state and avoid repeating frozen experiments. | Do not cite progress logs as primary empirical evidence when paper-facing tables exist. |
-| G8_hard_v4_scaffold | Hard v4 Scaffold | Freeze-ready future downstream boundary scaffold, not current LLM evidence. | Use only to document the future hard_v4 boundary and its no-LLM-evidence status. | Do not cite as evidence that SkillAdmit helps on hard_v4. |
+| G8_hard_v4_scaffold | Hard v4 Scaffold | Frozen task scaffold and deterministic verifier boundary for hard_v4. | Use to document the frozen hard_v4 task boundary and hidden-verifier design. | Do not cite scaffold mechanics as model-performance evidence. |
+| G9_hard_v4_evidence | Hard v4 Evidence | Fresh downstream boundary evidence that narrows selected-utility claims. | Use for hard_v4 boundary claims: tree-aware saturation, strict selected underperformance, and 0/48 forced-bad transfer. | Do not use hard_v4 to claim SkillAdmit-selected superiority or selected token savings. |
 
 ## Primary Files By Group
 
@@ -44,8 +52,8 @@ One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the corre
 | primary | `benchmark/reports/v7_admission_baselines.json` | True | `ed051957b16aa28f` | 44474 |
 | primary | `benchmark/reports/llm_cost_summary.md` | True | `6180b9f1ff9021ff` | 1661 |
 | primary | `benchmark/reports/llm_cost_summary.json` | True | `ef312b1019006778` | 3568 |
-| support | `docs/paper_eval_status.md` | True | `5ed98534fd36532b` | 25641 |
-| support | `docs/experiment_handoff.md` | True | `c0e1b032d1d6a25d` | 40632 |
+| support | `docs/paper_eval_status.md` | True | `f4697b153ab84d9b` | 27951 |
+| support | `docs/experiment_handoff.md` | True | `522cd0410e78c67e` | 44042 |
 
 Regeneration commands:
 - `python scripts/run_admission_regression.py`
@@ -59,7 +67,7 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/hard_v2_paper_tables.tex` | True | `8af23c87a828d9ea` | 1670 |
 | support | `benchmark/downstream/reports/hard_v2_strategy_matrix.md` | True | `1e2d6d716b8f0428` | 37490 |
 | support | `benchmark/downstream/reports/hard_v2_strategy_matrix.json` | True | `daf5030589d26ad4` | 154134 |
-| support | `docs/paper_eval_status.md` | True | `5ed98534fd36532b` | 25641 |
+| support | `docs/paper_eval_status.md` | True | `f4697b153ab84d9b` | 27951 |
 
 Regeneration commands:
 - `python scripts/check_downstream_hard_v2_tasks.py`
@@ -75,7 +83,7 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/hard_v3_paper_tables.tex` | True | `bd6187913ca355f8` | 2067 |
 | support | `benchmark/downstream/reports/hard_v3_strategy_matrix.md` | True | `bceafdf069b46393` | 30895 |
 | support | `benchmark/downstream/reports/hard_v3_strategy_matrix.json` | True | `b4c670caf50341c9` | 137329 |
-| support | `docs/paper_eval_status.md` | True | `5ed98534fd36532b` | 25641 |
+| support | `docs/paper_eval_status.md` | True | `f4697b153ab84d9b` | 27951 |
 
 Regeneration commands:
 - `python scripts/check_downstream_hard_v3_tasks.py`
@@ -91,7 +99,7 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/downstream_cross_version_synthesis.tex` | True | `9104d43051644fa1` | 4055 |
 | support | `benchmark/downstream/reports/hard_v2_evidence_package.json` | True | `7deb038d4adfc285` | 18140 |
 | support | `benchmark/downstream/reports/hard_v3_evidence_package.json` | True | `894b8f7a1f7ac296` | 27042 |
-| support | `docs/paper_eval_status.md` | True | `5ed98534fd36532b` | 25641 |
+| support | `docs/paper_eval_status.md` | True | `f4697b153ab84d9b` | 27951 |
 
 Regeneration commands:
 - `python scripts/export_downstream_cross_version_synthesis.py --assert-current-synthesis`
@@ -126,9 +134,9 @@ Regeneration commands:
 
 | role | path | exists | sha256 | bytes |
 | --- | --- | --- | --- | --- |
-| primary | `docs/paper_eval_status.md` | True | `5ed98534fd36532b` | 25641 |
-| primary | `docs/experiment_handoff.md` | True | `c0e1b032d1d6a25d` | 40632 |
-| primary | `docs/progress_log.md` | True | `ce2136b0aabd5f09` | 85945 |
+| primary | `docs/paper_eval_status.md` | True | `f4697b153ab84d9b` | 27951 |
+| primary | `docs/experiment_handoff.md` | True | `522cd0410e78c67e` | 44042 |
+| primary | `docs/progress_log.md` | True | `114a310685b349d0` | 90779 |
 
 ### G8_hard_v4_scaffold - Hard v4 Scaffold
 
@@ -137,14 +145,30 @@ Regeneration commands:
 | primary | `benchmark/downstream/reports/hard_v4_scaffold_manifest.json` | True | `1e7d9adb0b9e9dc9` | 20700 |
 | primary | `benchmark/downstream/reports/hard_v4_scaffold_manifest.md` | True | `02e98f97171e796e` | 5034 |
 | primary | `benchmark/downstream/reports/hard_v4_scaffold_manifest.tex` | True | `8871fc0df34cab6f` | 496 |
-| support | `docs/llm_downstream_hard_v4.md` | True | `ed41b445ec26bd98` | 6999 |
-| support | `docs/paper_eval_status.md` | True | `5ed98534fd36532b` | 25641 |
-| support | `docs/experiment_handoff.md` | True | `c0e1b032d1d6a25d` | 40632 |
+| support | `docs/llm_downstream_hard_v4.md` | True | `c682a7c91829b412` | 12262 |
+| support | `docs/paper_eval_status.md` | True | `f4697b153ab84d9b` | 27951 |
+| support | `docs/experiment_handoff.md` | True | `522cd0410e78c67e` | 44042 |
 
 Regeneration commands:
 - `python scripts/build_downstream_hard_v4_tasks.py`
 - `python scripts/check_downstream_hard_v4_tasks.py`
 - `python scripts/export_hard_v4_scaffold_manifest.py --run-checker --assert-current-hard-v4-scaffold`
+
+### G9_hard_v4_evidence - Hard v4 Evidence
+
+| role | path | exists | sha256 | bytes |
+| --- | --- | --- | --- | --- |
+| primary | `benchmark/downstream/reports/hard_v4_evidence_package.json` | True | `c7e729993e44503b` | 22128 |
+| primary | `benchmark/downstream/reports/hard_v4_paper_tables.md` | True | `5d04261323974b6b` | 6411 |
+| primary | `benchmark/downstream/reports/hard_v4_paper_tables.tex` | True | `36499f481e3a49cf` | 2414 |
+| support | `benchmark/downstream/reports/hard_v4_strategy_matrix.md` | True | `ee9eba7a9677ce92` | 27181 |
+| support | `benchmark/downstream/reports/hard_v4_strategy_matrix.json` | True | `00401c79ed1b226d` | 115415 |
+| support | `docs/llm_downstream_hard_v4.md` | True | `c682a7c91829b412` | 12262 |
+
+Regeneration commands:
+- `python scripts/check_downstream_hard_v4_tasks.py`
+- `python scripts/summarize_hard_v4_results.py --assert-current-hard-v4`
+- `python scripts/export_hard_v4_evidence_package.py --assert-current-hard-v4`
 
 ## Regeneration Order
 
@@ -163,7 +187,9 @@ Regeneration commands:
 | 11 | build_hard_v4 | `python scripts/build_downstream_hard_v4_tasks.py` | True |
 | 12 | check_hard_v4 | `python scripts/check_downstream_hard_v4_tasks.py` | True |
 | 13 | export_hard_v4_scaffold | `python scripts/export_hard_v4_scaffold_manifest.py --run-checker --assert-current-hard-v4-scaffold` | True |
-| 14 | export_artifacts_index | `python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index` | True |
+| 14 | summarize_hard_v4 | `python scripts/summarize_hard_v4_results.py --assert-current-hard-v4` | True |
+| 15 | export_hard_v4 | `python scripts/export_hard_v4_evidence_package.py --assert-current-hard-v4` | True |
+| 16 | export_artifacts_index | `python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index` | True |
 
 ## Table Index
 
@@ -172,6 +198,7 @@ Regeneration commands:
 | T_admission_context | Optional setup table, not the main downstream claim. | `benchmark/reports/v7_admission_baselines.md`<br>`benchmark/reports/v7_admission_baselines.json` | v7 admission is frozen and useful context, but keyword baseline caveat limits semantic claims. | Do not claim v7 admission accuracy alone proves downstream utility. |
 | T_hard_v2 | Hard v2 primary result table. | `benchmark/downstream/reports/hard_v2_paper_tables.md`<br>`benchmark/downstream/reports/hard_v2_paper_tables.tex`<br>`benchmark/downstream/reports/hard_v2_evidence_package.json` | hard_v2 supports tree-aware selected utility and exposes strict visible-file boundary. | Do not collapse hard_v2 settings into selected universally wins. |
 | T_hard_v3 | Hard v3 boundary and artifact-adherence table. | `benchmark/downstream/reports/hard_v3_paper_tables.md`<br>`benchmark/downstream/reports/hard_v3_paper_tables.tex`<br>`benchmark/downstream/reports/hard_v3_evidence_package.json` | hard_v3 bounds selected-superiority and strengthens negative-transfer evidence. | Do not claim hard_v3 proves selected superiority or token savings. |
+| T_hard_v4 | Hard v4 boundary table. | `benchmark/downstream/reports/hard_v4_paper_tables.md`<br>`benchmark/downstream/reports/hard_v4_paper_tables.tex`<br>`benchmark/downstream/reports/hard_v4_evidence_package.json` | hard_v4 shows tree-aware saturation, strict selected underperformance, and 0/48 forced-bad transfer. | Do not claim hard_v4 proves selected utility, selected token savings, or bad-advice safety. |
 | T_cross_version | Main downstream synthesis table. | `benchmark/downstream/reports/downstream_cross_version_synthesis.md`<br>`benchmark/downstream/reports/downstream_cross_version_synthesis.tex`<br>`benchmark/downstream/reports/downstream_cross_version_synthesis.json` | hard_v2 is positive tree-aware evidence; hard_v3 is generalization boundary; forced bad is 0/85. | Do not read the synthesis as a single global leaderboard. |
 | T_claim_defense_appendix | Appendix or internal reviewer-response table. | `benchmark/downstream/reports/downstream_claim_defense_matrix.md`<br>`benchmark/downstream/reports/downstream_claim_defense_matrix.tex`<br>`benchmark/downstream/reports/downstream_claim_defense_matrix.json` | Use to police wording and prepare reviewer responses. | Do not cite defense wording as if it were an additional experiment. |
 
@@ -197,12 +224,12 @@ Regeneration commands:
 | benchmark/downstream/llm_runs/*/summary.json | Per-run summaries are useful for debugging but should not be the paper's primary evidence once matrix/evidence packages exist. |
 | benchmark/downstream/llm_runs/*/trajectories.jsonl | Trajectories are provenance/debugging records; cite aggregated evidence packages instead. |
 | benchmark/downstream_hard_v2/tasks/* and benchmark/downstream_hard_v3/tasks/* | Task files define the benchmark and verifiers; do not use inspected failures for prompt tuning while preserving clean evidence. |
-| benchmark/downstream_hard_v4/tasks/* | hard_v4 task files define a future boundary; do not tune prompts or strategies from inspected hard_v4 failures. |
+| benchmark/downstream_hard_v4/tasks/* | hard_v4 task files define a frozen evaluation boundary; do not tune prompts or strategies from inspected hard_v4 failures. |
 | docs/progress_log.md | Progress log is a handoff ledger, not a primary empirical table. |
 
 ## Next Experimental Boundary
 
-Recommended: hard_v4 LLM matrix or model-transfer replication only after explicitly declaring a fresh evaluation boundary.
+Recommended: hard_v4-aware cross-boundary synthesis, model-transfer replication, or a predeclared hard_v5 boundary.
 
 Avoid: Do not tune hard_v2/hard_v3/hard_v4 prompts or strategies from observed failures while still treating them as clean evidence.
 
@@ -214,6 +241,7 @@ Avoid: Do not tune hard_v2/hard_v3/hard_v4 prompts or strategies from observed f
 | llm_cost_summary | `benchmark/reports/llm_cost_summary.json` | True | `ef312b1019006778` |  |
 | hard_v2_evidence_package | `benchmark/downstream/reports/hard_v2_evidence_package.json` | True | `7deb038d4adfc285` | `2026-05-22T05:36:13.500710+00:00` |
 | hard_v3_evidence_package | `benchmark/downstream/reports/hard_v3_evidence_package.json` | True | `894b8f7a1f7ac296` | `2026-05-22T13:03:52.487189+00:00` |
+| hard_v4_evidence_package | `benchmark/downstream/reports/hard_v4_evidence_package.json` | True | `c7e729993e44503b` | `2026-05-23T04:55:41.380270+00:00` |
 | downstream_cross_version_synthesis | `benchmark/downstream/reports/downstream_cross_version_synthesis.json` | True | `e5d5bf0e8545fb09` | `2026-05-22T13:23:18.827390+00:00` |
 | downstream_paper_eval_section | `benchmark/downstream/reports/downstream_paper_eval_section.json` | True | `c2349ccafc9043d5` | `2026-05-22T13:56:02.404103+00:00` |
 | downstream_claim_defense_matrix | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | True | `12fda3af24f4bd40` | `2026-05-22T13:56:02.456157+00:00` |

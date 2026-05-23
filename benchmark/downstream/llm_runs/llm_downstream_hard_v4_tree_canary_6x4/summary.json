@@ -1,0 +1,57 @@
+{
+  "total_rows": 24,
+  "strategies": {
+    "forced_bad_artifact": {
+      "tasks": 6,
+      "successes": 0,
+      "success_rate": 0.0,
+      "negative_transfer": 6,
+      "public_passed_hidden_failed": 6,
+      "artifact_adherence": 6,
+      "parse_errors": 0,
+      "total_tokens": 0,
+      "avg_tokens": 0.0,
+      "total_latency_seconds": 0.0,
+      "avg_latency_seconds": 0.0
+    },
+    "no_experience": {
+      "tasks": 6,
+      "successes": 6,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 6,
+      "parse_errors": 0,
+      "total_tokens": 10171,
+      "avg_tokens": 1695.1666666666667,
+      "total_latency_seconds": 88.57800476100238,
+      "avg_latency_seconds": 14.763000793500396
+    },
+    "skilladmit_selected": {
+      "tasks": 6,
+      "successes": 6,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 6,
+      "parse_errors": 0,
+      "total_tokens": 12449,
+      "avg_tokens": 2074.8333333333335,
+      "total_latency_seconds": 105.51963851401524,
+      "avg_latency_seconds": 17.58660641900254
+    },
+    "skilladmit_selected_with_precondition_context": {
+      "tasks": 6,
+      "successes": 6,
+      "success_rate": 1.0,
+      "negative_transfer": 0,
+      "public_passed_hidden_failed": 0,
+      "artifact_adherence": 6,
+      "parse_errors": 0,
+      "total_tokens": 15809,
+      "avg_tokens": 2634.8333333333335,
+      "total_latency_seconds": 139.7783200799895,
+      "avg_latency_seconds": 23.29638667999825
+    }
+  }
+}
