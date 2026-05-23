@@ -1,6 +1,6 @@
 # Paper Claim Consistency Audit
 
-Generated at UTC: `2026-05-23T10:23:48.685527+00:00`
+Generated at UTC: `2026-05-23T11:07:32.816865+00:00`
 
 Consistency audit for the paper-facing hard_v2/hard_v3/hard_v4 downstream claim layer. This is a reporting-hygiene artifact, not new empirical evidence.
 
@@ -8,8 +8,8 @@ Consistency audit for the paper-facing hard_v2/hard_v3/hard_v4 downstream claim 
 
 | metric | value |
 | --- | --- |
-| total_checks | 12 |
-| passed_checks | 12 |
+| total_checks | 13 |
+| passed_checks | 13 |
 | failed_checks | 0 |
 | status | pass |
 
@@ -25,6 +25,9 @@ Consistency audit for the paper-facing hard_v2/hard_v3/hard_v4 downstream claim 
 | hard_v4_strict_no_experience | 24/24 |
 | selected_superiority_consistent | False |
 | selected_token_savings_consistent | False |
+| model_transfer_forced_bad_combined_success | 0/216 |
+| model_transfer_forced_bad_public_passed_hidden_failed | 216 |
+| model_transfer_hard_v4_strict_reversed | True |
 
 ## Checks
 
@@ -42,6 +45,7 @@ Consistency audit for the paper-facing hard_v2/hard_v3/hard_v4 downstream claim 
 | A10_guardrail_wording_present | pass | Generated paper artifacts preserve the no-universal-selected, no-token-savings, and no-retuning guardrails. | {'guardrail_text': 'Do not claim SkillAdmit-selected universally dominates no_experience.\nDo not claim SkillAdmit-selected is the universal best downstream context.\nDo not cla... |
 | A11_hard_v4_boundary_is_explicit | pass | hard_v4 is stated as a stricter boundary, not a selected-utility win. | {'paper_summary': 'Overall, downstream validation gives a sharper claim boundary than admission accuracy alone. hard_v2 supports SkillAdmit-selected utility in a tree-aware codi... |
 | A12_text_artifact_presence | pass | All Markdown/docs inputs used for paper-facing consistency checks exist. | {'boundary_synthesis_md': 'benchmark/downstream/reports/downstream_boundary_synthesis.md', 'paper_section_md': 'benchmark/downstream/reports/downstream_paper_eval_section.md', '... |
+| A13_model_transfer_addendum_guardrails | pass | Model-transfer addendum preserves replication facts and does not overclaim selected superiority. | {'forced_bad_combined_success': '0/216', 'forced_bad_public_hidden': 216, 'hard_v4_strict_reversed': True, 'selected_superiority_model_general': False} |
 
 ## Claim Boundary
 
@@ -67,12 +71,14 @@ If continuing experiments, use a predeclared model-transfer replication or a new
 | boundary_synthesis | `benchmark/downstream/reports/downstream_boundary_synthesis.json` | True | `b5e58a54217563fb` | 45450 |
 | paper_section | `benchmark/downstream/reports/downstream_paper_eval_section.json` | True | `f026bad7830e2a84` | 7062 |
 | claim_defense | `benchmark/downstream/reports/downstream_claim_defense_matrix.json` | True | `09f38bb09aa273ea` | 41180 |
-| artifacts_index | `benchmark/downstream/reports/paper_artifacts_index.json` | True | `a5285fe331537512` | 46760 |
+| artifacts_index | `benchmark/downstream/reports/paper_artifacts_index.json` | True | `d6b0786a5a634951` | 50329 |
+| model_transfer_addendum | `benchmark/downstream/reports/model_transfer_paper_addendum.json` | True | `49fcf3b0475ce999` | 8044 |
 | boundary_synthesis_md | `benchmark/downstream/reports/downstream_boundary_synthesis.md` | True | `a9360eea565f3f41` | 12399 |
 | paper_section_md | `benchmark/downstream/reports/downstream_paper_eval_section.md` | True | `19df606b4bd5459b` | 6712 |
 | claim_defense_md | `benchmark/downstream/reports/downstream_claim_defense_matrix.md` | True | `67b226ce7fb63072` | 24680 |
-| artifacts_index_md | `benchmark/downstream/reports/paper_artifacts_index.md` | True | `38a7c6eb0681dbc4` | 30057 |
-| experiment_handoff | `docs/experiment_handoff.md` | True | `27e3e3fdb744a799` | 53579 |
-| paper_eval_status | `docs/paper_eval_status.md` | True | `b97ee46c3ebabe83` | 35398 |
-| progress_log | `docs/progress_log.md` | True | `06459c65389c6fc6` | 105337 |
-| readme | `README.md` | True | `34d6c86c8f49cad0` | 2875 |
+| artifacts_index_md | `benchmark/downstream/reports/paper_artifacts_index.md` | True | `81f74fd65a8cf38f` | 32367 |
+| model_transfer_addendum_md | `benchmark/downstream/reports/model_transfer_paper_addendum.md` | True | `111baa7af63fafe7` | 5668 |
+| experiment_handoff | `docs/experiment_handoff.md` | True | `ff86591d230021f3` | 54796 |
+| paper_eval_status | `docs/paper_eval_status.md` | True | `a92d56eeec38232d` | 36534 |
+| progress_log | `docs/progress_log.md` | True | `1be372fe7c7c0d50` | 106579 |
+| readme | `README.md` | True | `5b811a7bc8aeca5e` | 3024 |

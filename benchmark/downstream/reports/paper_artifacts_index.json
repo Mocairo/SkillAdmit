@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T10:23:38.998112+00:00",
+  "generated_at_utc": "2026-05-23T11:07:16.619132+00:00",
   "purpose": "One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the correct evidence, table, script, and claim boundary for downstream validation writing.",
   "source_inputs": [
     {
@@ -97,6 +97,14 @@
       "sha256": "fc575fd01e28800816b5285c9d580efb64fd1d8943e32263c2fe5b17c47d8f2b",
       "size_bytes": 68222,
       "generated_at_utc": "2026-05-23T10:22:44.566296+00:00"
+    },
+    {
+      "name": "model_transfer_paper_addendum",
+      "path": "benchmark/downstream/reports/model_transfer_paper_addendum.json",
+      "exists": true,
+      "sha256": "49fcf3b0475ce999c30472580c88b4b18c6cc9c0f3105e9ecf1b2fbd06db005b",
+      "size_bytes": 8044,
+      "generated_at_utc": "2026-05-23T11:07:09.681302+00:00"
     }
   ],
   "key_current_facts": {
@@ -131,6 +139,9 @@
     "cross_model_forced_bad_public_passed_hidden_failed": 216,
     "cross_model_selected_superiority_model_general": false,
     "cross_model_hard_v4_strict_selected_delta_reversed": true,
+    "model_transfer_addendum_result_paragraphs": 5,
+    "model_transfer_addendum_forced_bad_combined_success": "0/216",
+    "model_transfer_addendum_hard_v4_strict_reversed": true,
     "claim_count": 10,
     "paper_section_result_paragraphs": 6
   },
@@ -169,14 +180,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "b97ee46c3ebabe8390cd5c396c12a85387980eb1e451a143e0da290436887646",
-          "size_bytes": 35398
+          "sha256": "a92d56eeec38232d5e245a4d1d3a6d8cc69320756d67275990a43a0cb1143ce6",
+          "size_bytes": 36534
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "27e3e3fdb744a799c8902cbd3ed54c22902a432bb102b338eaa63ed5ba284141",
-          "size_bytes": 53579
+          "sha256": "ff86591d230021f30ee93bac02f8f4ac46d2a052a5f2451a36181de6602b969d",
+          "size_bytes": 54796
         }
       ],
       "regeneration_commands": [
@@ -225,8 +236,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "b97ee46c3ebabe8390cd5c396c12a85387980eb1e451a143e0da290436887646",
-          "size_bytes": 35398
+          "sha256": "a92d56eeec38232d5e245a4d1d3a6d8cc69320756d67275990a43a0cb1143ce6",
+          "size_bytes": 36534
         }
       ],
       "regeneration_commands": [
@@ -277,8 +288,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "b97ee46c3ebabe8390cd5c396c12a85387980eb1e451a143e0da290436887646",
-          "size_bytes": 35398
+          "sha256": "a92d56eeec38232d5e245a4d1d3a6d8cc69320756d67275990a43a0cb1143ce6",
+          "size_bytes": 36534
         }
       ],
       "regeneration_commands": [
@@ -329,8 +340,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "b97ee46c3ebabe8390cd5c396c12a85387980eb1e451a143e0da290436887646",
-          "size_bytes": 35398
+          "sha256": "a92d56eeec38232d5e245a4d1d3a6d8cc69320756d67275990a43a0cb1143ce6",
+          "size_bytes": 36534
         }
       ],
       "regeneration_commands": [
@@ -485,20 +496,20 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "b97ee46c3ebabe8390cd5c396c12a85387980eb1e451a143e0da290436887646",
-          "size_bytes": 35398
+          "sha256": "a92d56eeec38232d5e245a4d1d3a6d8cc69320756d67275990a43a0cb1143ce6",
+          "size_bytes": 36534
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "27e3e3fdb744a799c8902cbd3ed54c22902a432bb102b338eaa63ed5ba284141",
-          "size_bytes": 53579
+          "sha256": "ff86591d230021f30ee93bac02f8f4ac46d2a052a5f2451a36181de6602b969d",
+          "size_bytes": 54796
         },
         {
           "path": "docs/progress_log.md",
           "exists": true,
-          "sha256": "06459c65389c6fc6f21a2e6f61e3b18032dc3e84d6abb23eb3994379f52849a2",
-          "size_bytes": 105337
+          "sha256": "1be372fe7c7c0d50a217f709644c6729c34765c7f5442e85beb97ae96cdae8e5",
+          "size_bytes": 106579
         }
       ],
       "support_files": [],
@@ -540,14 +551,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "b97ee46c3ebabe8390cd5c396c12a85387980eb1e451a143e0da290436887646",
-          "size_bytes": 35398
+          "sha256": "a92d56eeec38232d5e245a4d1d3a6d8cc69320756d67275990a43a0cb1143ce6",
+          "size_bytes": 36534
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "27e3e3fdb744a799c8902cbd3ed54c22902a432bb102b338eaa63ed5ba284141",
-          "size_bytes": 53579
+          "sha256": "ff86591d230021f30ee93bac02f8f4ac46d2a052a5f2451a36181de6602b969d",
+          "size_bytes": 54796
         }
       ],
       "regeneration_commands": [
@@ -715,6 +726,56 @@
       ],
       "use_in_paper": "Use to separate replicated findings from model-sensitive findings: forced-bad replicates across models, while hard_v4 strict selected reverses sign between baseline and transfer.",
       "do_not_use_for": "Do not merge model-transfer synthesis into the hard_v2/hard_v3/hard_v4 boundary aggregate."
+    },
+    {
+      "group_id": "G13_model_transfer_addendum",
+      "title": "Model-Transfer Paper Addendum",
+      "role": "Draftable paper appendix or replication subsection for the second-model run.",
+      "primary_files": [
+        {
+          "path": "benchmark/downstream/reports/model_transfer_paper_addendum.json",
+          "exists": true,
+          "sha256": "49fcf3b0475ce999c30472580c88b4b18c6cc9c0f3105e9ecf1b2fbd06db005b",
+          "size_bytes": 8044
+        },
+        {
+          "path": "benchmark/downstream/reports/model_transfer_paper_addendum.md",
+          "exists": true,
+          "sha256": "111baa7af63fafe7d8d58154160dce67afb3e1f7909e7c98cc9d8be324b3fb0a",
+          "size_bytes": 5668
+        },
+        {
+          "path": "benchmark/downstream/reports/model_transfer_paper_addendum.tex",
+          "exists": true,
+          "sha256": "2d3ea6d8f8ccdd3be9682713493a4b993eef629fb252e6d4998f839c0c0953d3",
+          "size_bytes": 1032
+        }
+      ],
+      "support_files": [
+        {
+          "path": "benchmark/downstream/reports/model_transfer_cross_model_synthesis.json",
+          "exists": true,
+          "sha256": "fc575fd01e28800816b5285c9d580efb64fd1d8943e32263c2fe5b17c47d8f2b",
+          "size_bytes": 68222
+        },
+        {
+          "path": "benchmark/downstream/reports/model_transfer_evidence_package.json",
+          "exists": true,
+          "sha256": "32505f40e1635dcf4f410fa88217becf3d4c0f381782c9d6b49f26fb64b6d2d1",
+          "size_bytes": 58893
+        },
+        {
+          "path": "docs/paper_eval_status.md",
+          "exists": true,
+          "sha256": "a92d56eeec38232d5e245a4d1d3a6d8cc69320756d67275990a43a0cb1143ce6",
+          "size_bytes": 36534
+        }
+      ],
+      "regeneration_commands": [
+        "python scripts/export_model_transfer_paper_addendum.py --assert-current-addendum"
+      ],
+      "use_in_paper": "Use as optional paper text for model-transfer replication: 0/216 forced-bad combined evidence, hard_v3 selected pattern replication, and hard_v4 strict selected sign reversal.",
+      "do_not_use_for": "Do not use the addendum to strengthen the main paper claim into model-general selected superiority."
     }
   ],
   "regeneration_order": [
@@ -834,12 +895,18 @@
     },
     {
       "step": 20,
+      "name": "export_model_transfer_addendum",
+      "command": "python scripts/export_model_transfer_paper_addendum.py --assert-current-addendum",
+      "script_exists": true
+    },
+    {
+      "step": 21,
       "name": "export_artifacts_index",
       "command": "python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index",
       "script_exists": true
     },
     {
-      "step": 21,
+      "step": 22,
       "name": "audit_paper_claim_consistency",
       "command": "python scripts/audit_paper_claim_consistency.py --assert-current-audit",
       "script_exists": true
@@ -922,6 +989,17 @@
       ],
       "allowed_claim": "mimo-v2.5 transfer replicates forced-bad negative transfer and reveals model-sensitive selected deltas.",
       "avoid": "Do not claim model-general selected superiority or selected token savings from one transfer model."
+    },
+    {
+      "table_id": "T_model_transfer_addendum",
+      "paper_role": "Optional paper addendum text for model-transfer replication.",
+      "primary_artifacts": [
+        "benchmark/downstream/reports/model_transfer_paper_addendum.md",
+        "benchmark/downstream/reports/model_transfer_paper_addendum.tex",
+        "benchmark/downstream/reports/model_transfer_paper_addendum.json"
+      ],
+      "allowed_claim": "Use as draft text for replicated forced-bad negative transfer and model-sensitive selected behavior.",
+      "avoid": "Do not paste the addendum as a stronger main result than the underlying cross-model synthesis supports."
     },
     {
       "table_id": "T_claim_defense_appendix",

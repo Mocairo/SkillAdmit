@@ -1,0 +1,171 @@
+{
+  "generated_at_utc": "2026-05-23T11:07:09.681302+00:00",
+  "source_synthesis": {
+    "path": "benchmark/downstream/reports/model_transfer_cross_model_synthesis.json",
+    "sha256": "fc575fd01e28800816b5285c9d580efb64fd1d8943e32263c2fe5b17c47d8f2b",
+    "generated_at_utc": "2026-05-23T10:22:44.566296+00:00"
+  },
+  "models": {
+    "baseline": "mimo-v2.5-pro",
+    "transfer": "mimo-v2.5"
+  },
+  "protocol_summary": [
+    "The model-transfer experiment reruns the frozen hard_v3 and hard_v4 downstream matrices with a second model, mimo-v2.5, and compares it with the baseline label mimo-v2.5-pro. The task files, strategies, prompts, visible-file settings, repository-tree settings, and hidden verifiers are not changed from observed outcomes.",
+    "This addendum is intentionally separate from the main three-boundary downstream section. hard_v2/hard_v3/hard_v4 remain the primary clean task-boundary story; the transfer run is a model-sensitivity and replication check over a subset of those frozen boundaries."
+  ],
+  "result_paragraphs": [
+    "The most stable result is negative transfer from forced harmful artifacts. The baseline hard_v3/hard_v4 slice gives 0/108, and the transfer model gives 0/108. Combined across the two models, forced bad artifacts solve 0/216 tasks and produce 216 public-pass/hidden-fail cases.",
+    "The hard_v3 selected-vs-no_experience pattern replicates. In tree-aware hard_v3, selected ties no_experience for both models: 29/30 vs 29/30 for the baseline model and 29/30 vs 29/30 for the transfer model. In strict hard_v3, selected is +1 task over no_experience for both models.",
+    "The hard_v4 strict selected comparison is model-sensitive. The baseline model has selected below no_experience by 2 tasks, while the transfer model has selected above no_experience by 3 tasks. This sign reversal is the key reason the transfer experiment should not be used to claim model-general SkillAdmit-selected superiority.",
+    "Precondition-only context is also not model-general improvement over selected context. In the baseline strict settings it is +1 over selected for both hard_v3 and hard_v4, but under the transfer model it ties selected in hard_v3 and trails selected by one task in hard_v4.",
+    "Token efficiency remains outside the supported claim set. Selected token deltas are mixed across models and settings, and the transfer protocol was not designed as a cost-controlled token-efficiency study."
+  ],
+  "table_captions": [
+    {
+      "label": "tab:model-transfer-selected",
+      "caption": "Selected-vs-no_experience sensitivity across baseline and transfer models. hard_v3 patterns replicate, while hard_v4 strict visible-file reverses sign."
+    },
+    {
+      "label": "tab:model-transfer-negative-transfer",
+      "caption": "Forced harmful-artifact replication across models. The combined result is 0/216 with 216 public-pass/hidden-fail cases."
+    }
+  ],
+  "allowed_wording": [
+    "A second-model replication over frozen hard_v3/hard_v4 preserves the forced harmful-artifact negative-transfer result.",
+    "Selected context shows model-sensitive downstream utility rather than model-general superiority.",
+    "The hard_v4 strict selected comparison reverses sign between the baseline and transfer models."
+  ],
+  "forbidden_wording": [
+    "SkillAdmit-selected is model-generally superior.",
+    "SkillAdmit-selected saves tokens across models.",
+    "The transfer model creates a new clean task boundary.",
+    "Precondition-only generally replaces repository-tree context.",
+    "The transfer run justifies retuning hard_v3 or hard_v4."
+  ],
+  "one_paragraph_summary": "A second-model replication with mimo-v2.5 strengthens the negative-transfer claim but not a universal selected-utility claim. Forced harmful artifacts fail on both the baseline and transfer hard_v3/hard_v4 slices, yielding 0/216 combined success with 216 public-pass/hidden-fail cases. hard_v3 selected-vs-no_experience patterns replicate, but hard_v4 strict visible-file reverses sign: baseline selected is -2 tasks against no_experience, while transfer selected is +3 tasks. Therefore the correct paper claim is model sensitivity plus replicated harmful-artifact negative transfer, not model-general selected superiority.",
+  "selected_sensitivity_table": [
+    {
+      "suite": "hard_v3",
+      "setting": "tree-aware",
+      "baseline_delta": 0,
+      "transfer_delta": 0,
+      "pattern": "same_sign"
+    },
+    {
+      "suite": "hard_v3",
+      "setting": "strict visible",
+      "baseline_delta": 1,
+      "transfer_delta": 1,
+      "pattern": "same_sign"
+    },
+    {
+      "suite": "hard_v4",
+      "setting": "tree-aware",
+      "baseline_delta": 0,
+      "transfer_delta": 1,
+      "pattern": "weakened_or_strengthened_from_tie"
+    },
+    {
+      "suite": "hard_v4",
+      "setting": "strict visible",
+      "baseline_delta": -2,
+      "transfer_delta": 3,
+      "pattern": "reversed_sign"
+    }
+  ],
+  "forced_bad_by_model": [
+    {
+      "model_role": "baseline",
+      "model_label": "mimo-v2.5-pro",
+      "success": "0/108",
+      "successes": 0,
+      "tasks": 108,
+      "public_passed_hidden_failed": 108,
+      "negative_transfer": 108
+    },
+    {
+      "model_role": "transfer",
+      "model_label": "mimo-v2.5",
+      "success": "0/108",
+      "successes": 0,
+      "tasks": 108,
+      "public_passed_hidden_failed": 108,
+      "negative_transfer": 108
+    }
+  ],
+  "strict_precondition_vs_selected": [
+    {
+      "model_role": "baseline",
+      "model_label": "mimo-v2.5-pro",
+      "suite": "hard_v3",
+      "setting": "strict visible",
+      "comparison": "strict precondition-only vs selected",
+      "left_strategy": "skilladmit_selected_with_precondition_only",
+      "left_success": "30/30",
+      "left_tokens": 82615,
+      "right_strategy": "skilladmit_selected",
+      "right_success": "29/30",
+      "right_tokens": 71390,
+      "success_delta": 1,
+      "token_delta": 11225
+    },
+    {
+      "model_role": "baseline",
+      "model_label": "mimo-v2.5-pro",
+      "suite": "hard_v4",
+      "setting": "strict visible",
+      "comparison": "strict precondition-only vs selected",
+      "left_strategy": "skilladmit_selected_with_precondition_only",
+      "left_success": "23/24",
+      "left_tokens": 69961,
+      "right_strategy": "skilladmit_selected",
+      "right_success": "22/24",
+      "right_tokens": 58450,
+      "success_delta": 1,
+      "token_delta": 11511
+    },
+    {
+      "model_role": "transfer",
+      "model_label": "mimo-v2.5",
+      "suite": "hard_v3",
+      "setting": "strict visible",
+      "comparison": "strict precondition-only vs selected",
+      "left_strategy": "skilladmit_selected_with_precondition_only",
+      "left_success": "29/30",
+      "left_tokens": 92936,
+      "right_strategy": "skilladmit_selected",
+      "right_success": "29/30",
+      "right_tokens": 76964,
+      "success_delta": 0,
+      "token_delta": 15972
+    },
+    {
+      "model_role": "transfer",
+      "model_label": "mimo-v2.5",
+      "suite": "hard_v4",
+      "setting": "strict visible",
+      "comparison": "strict precondition-only vs selected",
+      "left_strategy": "skilladmit_selected_with_precondition_only",
+      "left_success": "20/24",
+      "left_tokens": 74966,
+      "right_strategy": "skilladmit_selected",
+      "right_success": "21/24",
+      "right_tokens": 64041,
+      "success_delta": -1,
+      "token_delta": 10925
+    }
+  ],
+  "derived_cross_model": {
+    "forced_bad_combined_success": "0/216",
+    "forced_bad_combined_public_passed_hidden_failed": 216,
+    "forced_bad_replication_across_models": true,
+    "hard_v3_tree_selected_tie_replicated": true,
+    "hard_v3_strict_selected_plus_one_replicated": true,
+    "hard_v4_strict_selected_delta_baseline": -2,
+    "hard_v4_strict_selected_delta_transfer": 3,
+    "hard_v4_strict_selected_delta_reversed": true,
+    "selected_superiority_model_general": false,
+    "selected_token_savings_model_general": false,
+    "precondition_only_better_than_selected_model_general": false
+  }
+}

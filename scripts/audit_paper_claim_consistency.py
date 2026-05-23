@@ -18,10 +18,12 @@ Inputs:
   benchmark/downstream/reports/downstream_paper_eval_section.json
   benchmark/downstream/reports/downstream_claim_defense_matrix.json
   benchmark/downstream/reports/paper_artifacts_index.json
+  benchmark/downstream/reports/model_transfer_paper_addendum.json
   benchmark/downstream/reports/downstream_boundary_synthesis.md
   benchmark/downstream/reports/downstream_paper_eval_section.md
   benchmark/downstream/reports/downstream_claim_defense_matrix.md
   benchmark/downstream/reports/paper_artifacts_index.md
+  benchmark/downstream/reports/model_transfer_paper_addendum.md
   docs/experiment_handoff.md
   docs/paper_eval_status.md
   docs/progress_log.md
@@ -60,6 +62,7 @@ JSON_INPUTS = {
     "paper_section": REPORT_DIR / "downstream_paper_eval_section.json",
     "claim_defense": REPORT_DIR / "downstream_claim_defense_matrix.json",
     "artifacts_index": REPORT_DIR / "paper_artifacts_index.json",
+    "model_transfer_addendum": REPORT_DIR / "model_transfer_paper_addendum.json",
 }
 
 TEXT_INPUTS = {
@@ -67,6 +70,7 @@ TEXT_INPUTS = {
     "paper_section_md": REPORT_DIR / "downstream_paper_eval_section.md",
     "claim_defense_md": REPORT_DIR / "downstream_claim_defense_matrix.md",
     "artifacts_index_md": REPORT_DIR / "paper_artifacts_index.md",
+    "model_transfer_addendum_md": REPORT_DIR / "model_transfer_paper_addendum.md",
     "experiment_handoff": ROOT / "docs" / "experiment_handoff.md",
     "paper_eval_status": ROOT / "docs" / "paper_eval_status.md",
     "progress_log": ROOT / "docs" / "progress_log.md",
@@ -179,6 +183,7 @@ def build_audit(data: dict[str, dict[str, Any]], texts: dict[str, str]) -> dict[
     paper = data["paper_section"]
     claim_defense = data["claim_defense"]
     index = data["artifacts_index"]
+    transfer_addendum = data["model_transfer_addendum"]
 
     derived = boundary["derived_claims"]
     paper_derived = paper["derived_synthesis"]
@@ -390,6 +395,35 @@ def build_audit(data: dict[str, dict[str, Any]], texts: dict[str, str]) -> dict[
         {name: display_path(path) for name, path in TEXT_INPUTS.items()},
     )
 
+    addendum_derived = transfer_addendum["derived_cross_model"]
+    addendum_text = texts["model_transfer_addendum_md"]
+    addendum_ok = (
+        addendum_derived["forced_bad_combined_success"] == "0/216"
+        and addendum_derived["forced_bad_combined_public_passed_hidden_failed"] == 216
+        and addendum_derived["hard_v4_strict_selected_delta_reversed"] is True
+        and addendum_derived["selected_superiority_model_general"] is False
+        and "Do not use this addendum to claim model-general selected superiority" in addendum_text
+        and "Token efficiency remains outside the supported claim set" in addendum_text
+    )
+    add_check(
+        checks,
+        "A13_model_transfer_addendum_guardrails",
+        addendum_ok,
+        "Model-transfer addendum preserves replication facts and does not overclaim selected superiority.",
+        {
+            "forced_bad_combined_success": addendum_derived["forced_bad_combined_success"],
+            "forced_bad_public_hidden": addendum_derived[
+                "forced_bad_combined_public_passed_hidden_failed"
+            ],
+            "hard_v4_strict_reversed": addendum_derived[
+                "hard_v4_strict_selected_delta_reversed"
+            ],
+            "selected_superiority_model_general": addendum_derived[
+                "selected_superiority_model_general"
+            ],
+        },
+    )
+
     failures = [row for row in checks if row["status"] != "pass"]
     return {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -422,6 +456,15 @@ def build_audit(data: dict[str, dict[str, Any]], texts: dict[str, str]) -> dict[
             "hard_v4_strict_no_experience": "24/24",
             "selected_superiority_consistent": derived["selected_superiority_consistent"],
             "selected_token_savings_consistent": derived["selected_token_savings_consistent"],
+            "model_transfer_forced_bad_combined_success": addendum_derived[
+                "forced_bad_combined_success"
+            ],
+            "model_transfer_forced_bad_public_passed_hidden_failed": addendum_derived[
+                "forced_bad_combined_public_passed_hidden_failed"
+            ],
+            "model_transfer_hard_v4_strict_reversed": addendum_derived[
+                "hard_v4_strict_selected_delta_reversed"
+            ],
         },
         "checks": checks,
         "claim_boundary": {
@@ -445,8 +488,8 @@ def build_audit(data: dict[str, dict[str, Any]], texts: dict[str, str]) -> dict[
 
 
 def assert_audit(audit: dict[str, Any]) -> None:
-    if audit["summary"]["total_checks"] != 12:
-        raise AssertionError(f"expected 12 checks, got {audit['summary']['total_checks']}")
+    if audit["summary"]["total_checks"] != 13:
+        raise AssertionError(f"expected 13 checks, got {audit['summary']['total_checks']}")
     if audit["summary"]["failed_checks"] != 0:
         failures = [row for row in audit["checks"] if row["status"] != "pass"]
         raise AssertionError(f"failed consistency checks: {failures}")
@@ -455,6 +498,7 @@ def assert_audit(audit: dict[str, Any]) -> None:
         "0/133",
         "133 public-pass/hidden-fail",
         "hard_v4",
+        "0/216",
         "universal SkillAdmit-selected superiority",
         "cross-boundary selected token savings",
         "not new empirical evidence",

@@ -2053,6 +2053,58 @@ Do not claim model-general selected superiority from one transfer model.
 Do not tune hard_v3 or hard_v4 from observed transfer failures.
 ```
 
+## 25. Model-Transfer Paper Addendum
+
+The model-transfer reporting layer now includes a draftable paper addendum. This
+is optional paper text for a replication/sensitivity subsection, not a stronger
+main downstream result.
+
+Script:
+
+```text
+scripts/export_model_transfer_paper_addendum.py --assert-current-addendum
+```
+
+Outputs:
+
+```text
+benchmark/downstream/reports/model_transfer_paper_addendum.json
+benchmark/downstream/reports/model_transfer_paper_addendum.md
+benchmark/downstream/reports/model_transfer_paper_addendum.tex
+```
+
+Current addendum facts:
+
+```text
+result_paragraphs: 5
+selected_sensitivity_rows: 4
+forced_bad_combined_success: 0/216
+hard_v4_strict_selected_delta_reversed: true
+```
+
+Reporting integration:
+
+```text
+paper_artifacts_index:
+  artifact_groups: 13
+  table_index: 9
+  claim_map: 10
+
+paper_claim_consistency_audit:
+  total_checks: 13
+  status: pass
+```
+
+Use:
+
+```text
+Use model_transfer_paper_addendum.md as optional paper text if the paper needs
+a second-model replication paragraph or appendix table.
+Keep the main paper section anchored to downstream_boundary_synthesis.json.
+Do not use the addendum to claim model-general SkillAdmit-selected superiority
+or selected token savings.
+```
+
 ## 23. Rule for Future Work
 
 Every new code file should be documented when created:

@@ -1302,3 +1302,57 @@ Do not claim:
   precondition-only replacing repository/tree context
   hard_v3/hard_v4 cleanliness after tuning from transfer failures
 ```
+
+## 21. Model-Transfer Addendum Status
+
+The model-transfer evidence now has a draftable paper addendum. This is meant
+for an optional replication/sensitivity subsection or appendix, not as the main
+evaluation section.
+
+Script:
+
+```text
+scripts/export_model_transfer_paper_addendum.py --assert-current-addendum
+```
+
+Artifacts:
+
+```text
+benchmark/downstream/reports/model_transfer_paper_addendum.json
+benchmark/downstream/reports/model_transfer_paper_addendum.md
+benchmark/downstream/reports/model_transfer_paper_addendum.tex
+```
+
+Current facts:
+
+```text
+result_paragraphs: 5
+selected_sensitivity_rows: 4
+forced_bad_combined_success: 0/216
+hard_v4_strict_selected_delta_reversed: true
+```
+
+Reporting integration:
+
+```text
+paper_artifacts_index:
+  artifact_groups: 13
+  table_index: 9
+  claim_map: 10
+
+paper_claim_consistency_audit:
+  total_checks: 13
+  status: pass
+```
+
+Use boundary:
+
+```text
+Allowed:
+  report second-model sensitivity and replicated forced-bad negative transfer.
+
+Forbidden:
+  model-general selected superiority
+  selected token savings across models
+  replacing the main hard_v2/hard_v3/hard_v4 boundary synthesis
+```

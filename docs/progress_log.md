@@ -4156,3 +4156,58 @@ Still unsupported:
   precondition-only replacing repository context
   hard_v3/hard_v4 tuning from observed transfer failures
 ```
+
+### 63. Model-Transfer Paper Addendum
+
+Created a draftable model-transfer addendum layer. This is optional paper text
+for reporting the second-model run; it does not replace the main hard_v2/hard_v3
+/hard_v4 downstream section.
+
+Created:
+
+```text
+scripts/export_model_transfer_paper_addendum.py
+benchmark/downstream/reports/model_transfer_paper_addendum.json
+benchmark/downstream/reports/model_transfer_paper_addendum.md
+benchmark/downstream/reports/model_transfer_paper_addendum.tex
+```
+
+Updated:
+
+```text
+scripts/export_paper_artifacts_index.py
+scripts/audit_paper_claim_consistency.py
+README.md
+docs/experiment_handoff.md
+docs/paper_eval_status.md
+```
+
+Addendum export facts:
+
+```text
+result_paragraphs: 5
+selected_sensitivity_rows: 4
+forced_bad_combined_success: 0/216
+hard_v4_strict_selected_delta_reversed: true
+```
+
+Reporting status:
+
+```text
+paper_artifacts_index:
+  artifact_groups: 13
+  table_index: 9
+  claim_map: 10
+
+paper_claim_consistency_audit:
+  total_checks: 13
+  status: pass
+```
+
+Boundary:
+
+```text
+Use the addendum to report model sensitivity and forced-bad replication.
+Do not use it to claim model-general SkillAdmit-selected superiority.
+Do not merge the addendum into the original 0/133 three-boundary aggregate.
+```

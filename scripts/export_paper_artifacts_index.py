@@ -5,10 +5,10 @@ What this file does:
   Builds a compact index of the paper-facing artifacts produced by the
   SkillAdmit experiment: admission context, hard_v2 evidence, hard_v3 evidence,
   hard_v4 boundary evidence, cross-version synthesis, three-boundary synthesis,
-  paper-section draft, claim-defense matrix, model-transfer evidence, the
-  paper-claim consistency audit command, and the model-transfer replication
-  protocol command. The index records each artifact's role, path, regeneration
-  command, and claim boundary.
+  paper-section draft, claim-defense matrix, model-transfer evidence,
+  model-transfer paper addendum, the paper-claim consistency audit command, and
+  the model-transfer replication protocol command. The index records each
+  artifact's role, path, regeneration command, and claim boundary.
 
 Why it is needed:
   The repository now contains many summaries, tables, evidence packages, and
@@ -31,6 +31,7 @@ Inputs:
   benchmark/downstream/reports/hard_v4_scaffold_manifest.json
   benchmark/downstream/reports/model_transfer_evidence_package.json
   benchmark/downstream/reports/model_transfer_cross_model_synthesis.json
+  benchmark/downstream/reports/model_transfer_paper_addendum.json
 
 Outputs:
   benchmark/downstream/reports/paper_artifacts_index.json
@@ -73,6 +74,7 @@ INPUTS = {
     "hard_v4_scaffold_manifest": REPORT_DIR / "hard_v4_scaffold_manifest.json",
     "model_transfer_evidence_package": REPORT_DIR / "model_transfer_evidence_package.json",
     "model_transfer_cross_model_synthesis": REPORT_DIR / "model_transfer_cross_model_synthesis.json",
+    "model_transfer_paper_addendum": REPORT_DIR / "model_transfer_paper_addendum.json",
 }
 
 
@@ -120,6 +122,9 @@ ARTIFACT_PATHS = {
     "model_transfer_cross_model_json": REPORT_DIR / "model_transfer_cross_model_synthesis.json",
     "model_transfer_cross_model_md": REPORT_DIR / "model_transfer_cross_model_synthesis.md",
     "model_transfer_cross_model_tex": REPORT_DIR / "model_transfer_cross_model_synthesis.tex",
+    "model_transfer_addendum_json": REPORT_DIR / "model_transfer_paper_addendum.json",
+    "model_transfer_addendum_md": REPORT_DIR / "model_transfer_paper_addendum.md",
+    "model_transfer_addendum_tex": REPORT_DIR / "model_transfer_paper_addendum.tex",
     "hard_v4_protocol": ROOT / "docs" / "llm_downstream_hard_v4.md",
     "paper_eval_status": ROOT / "docs" / "paper_eval_status.md",
     "experiment_handoff": ROOT / "docs" / "experiment_handoff.md",
@@ -149,6 +154,7 @@ SCRIPT_PATHS = {
     "export_model_transfer_protocol": ROOT / "scripts" / "export_model_transfer_replication_protocol.py",
     "export_model_transfer_evidence": ROOT / "scripts" / "export_model_transfer_evidence_package.py",
     "export_model_transfer_cross_model": ROOT / "scripts" / "export_model_transfer_cross_model_synthesis.py",
+    "export_model_transfer_addendum": ROOT / "scripts" / "export_model_transfer_paper_addendum.py",
 }
 
 
@@ -398,6 +404,30 @@ def build_artifact_groups() -> list[dict[str, Any]]:
             ),
             "Do not merge model-transfer synthesis into the hard_v2/hard_v3/hard_v4 boundary aggregate.",
         ),
+        build_artifact_group(
+            "G13_model_transfer_addendum",
+            "Model-Transfer Paper Addendum",
+            "Draftable paper appendix or replication subsection for the second-model run.",
+            [
+                "model_transfer_addendum_json",
+                "model_transfer_addendum_md",
+                "model_transfer_addendum_tex",
+            ],
+            [
+                "model_transfer_cross_model_json",
+                "model_transfer_evidence_json",
+                "paper_eval_status",
+            ],
+            [
+                "python scripts/export_model_transfer_paper_addendum.py --assert-current-addendum",
+            ],
+            (
+                "Use as optional paper text for model-transfer replication: "
+                "0/216 forced-bad combined evidence, hard_v3 selected pattern "
+                "replication, and hard_v4 strict selected sign reversal."
+            ),
+            "Do not use the addendum to strengthen the main paper claim into model-general selected superiority.",
+        ),
     ]
 
 
@@ -433,6 +463,10 @@ def build_regeneration_order() -> list[dict[str, str]]:
         (
             "export_model_transfer_cross_model",
             "python scripts/export_model_transfer_cross_model_synthesis.py --assert-current-cross-model",
+        ),
+        (
+            "export_model_transfer_addendum",
+            "python scripts/export_model_transfer_paper_addendum.py --assert-current-addendum",
         ),
         ("export_artifacts_index", "python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index"),
         ("audit_paper_claim_consistency", "python scripts/audit_paper_claim_consistency.py --assert-current-audit"),
@@ -528,6 +562,17 @@ def build_table_index() -> list[dict[str, Any]]:
             "avoid": "Do not claim model-general selected superiority or selected token savings from one transfer model.",
         },
         {
+            "table_id": "T_model_transfer_addendum",
+            "paper_role": "Optional paper addendum text for model-transfer replication.",
+            "primary_artifacts": [
+                display_path(ARTIFACT_PATHS["model_transfer_addendum_md"]),
+                display_path(ARTIFACT_PATHS["model_transfer_addendum_tex"]),
+                display_path(ARTIFACT_PATHS["model_transfer_addendum_json"]),
+            ],
+            "allowed_claim": "Use as draft text for replicated forced-bad negative transfer and model-sensitive selected behavior.",
+            "avoid": "Do not paste the addendum as a stronger main result than the underlying cross-model synthesis supports.",
+        },
+        {
             "table_id": "T_claim_defense_appendix",
             "paper_role": "Appendix or internal reviewer-response table.",
             "primary_artifacts": [
@@ -612,6 +657,7 @@ def build_index(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
     claim_defense = data["downstream_claim_defense_matrix"]
     transfer_evidence = data["model_transfer_evidence_package"]
     transfer_cross_model = data["model_transfer_cross_model_synthesis"]
+    transfer_addendum = data["model_transfer_paper_addendum"]
 
     v2_tree_no = find_row(hard_v2, "llm_downstream_hard_v2_tree_25x2", "no_experience")
     v2_tree_selected = find_row(hard_v2, "llm_downstream_hard_v2_tree_25x2", "skilladmit_selected")
@@ -701,6 +747,13 @@ def build_index(data: dict[str, dict[str, Any]]) -> dict[str, Any]:
             "cross_model_hard_v4_strict_selected_delta_reversed": transfer_cross_model[
                 "derived_claims"
             ]["hard_v4_strict_selected_delta_reversed"],
+            "model_transfer_addendum_result_paragraphs": len(transfer_addendum["result_paragraphs"]),
+            "model_transfer_addendum_forced_bad_combined_success": transfer_addendum[
+                "derived_cross_model"
+            ]["forced_bad_combined_success"],
+            "model_transfer_addendum_hard_v4_strict_reversed": transfer_addendum[
+                "derived_cross_model"
+            ]["hard_v4_strict_selected_delta_reversed"],
             "claim_count": claim_defense["claim_count"],
             "paper_section_result_paragraphs": len(paper_section["results"]),
         },
@@ -750,6 +803,9 @@ def assert_index(index: dict[str, Any]) -> None:
         "cross_model_forced_bad_public_passed_hidden_failed": 216,
         "cross_model_selected_superiority_model_general": False,
         "cross_model_hard_v4_strict_selected_delta_reversed": True,
+        "model_transfer_addendum_result_paragraphs": 5,
+        "model_transfer_addendum_forced_bad_combined_success": "0/216",
+        "model_transfer_addendum_hard_v4_strict_reversed": True,
         "claim_count": 10,
         "paper_section_result_paragraphs": 6,
     }
@@ -765,9 +821,9 @@ def assert_index(index: dict[str, Any]) -> None:
         for file_info in group["primary_files"] + group["support_files"]:
             if not file_info["exists"]:
                 raise AssertionError(f"missing artifact file: {file_info['path']}")
-    if len(index["artifact_groups"]) != 12:
+    if len(index["artifact_groups"]) != 13:
         raise AssertionError("artifact group count changed")
-    if len(index["table_index"]) != 8:
+    if len(index["table_index"]) != 9:
         raise AssertionError("table index count changed")
     if len(index["claim_to_artifact_map"]) != 10:
         raise AssertionError("claim map count changed")
@@ -789,10 +845,12 @@ def assert_index(index: dict[str, Any]) -> None:
         "downstream_boundary_synthesis.json",
         "model_transfer_evidence_package.json",
         "model_transfer_cross_model_synthesis.json",
+        "model_transfer_paper_addendum.json",
         "audit_paper_claim_consistency.py",
         "export_model_transfer_replication_protocol.py",
         "export_model_transfer_evidence_package.py",
         "export_model_transfer_cross_model_synthesis.py",
+        "export_model_transfer_paper_addendum.py",
         "boundary-synthesis-driven paper revision",
         "downstream_claim_defense_matrix.json",
     ]
