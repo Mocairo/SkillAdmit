@@ -1130,3 +1130,50 @@ forced_bad_artifact:
 
 The section must not be edited into a selected-wins or token-savings claim.
 ```
+
+## 18. Paper Claim Consistency Audit
+
+The paper-facing reporting layer now has a consistency audit.
+
+Script:
+
+```text
+scripts/audit_paper_claim_consistency.py --assert-current-audit
+```
+
+Outputs:
+
+```text
+benchmark/downstream/reports/paper_claim_consistency_audit.json
+benchmark/downstream/reports/paper_claim_consistency_audit.md
+benchmark/downstream/reports/paper_claim_consistency_audit.tex
+```
+
+Current result:
+
+```text
+total_checks: 12
+passed_checks: 12
+failed_checks: 0
+status: pass
+```
+
+Key audited facts:
+
+```text
+forced_bad_total_success: 0/133
+forced_bad_total_public_passed_hidden_failed: 133
+hard_v4_strict_selected: 22/24
+hard_v4_strict_no_experience: 24/24
+selected_superiority_consistent: False
+selected_token_savings_consistent: False
+```
+
+Interpretation:
+
+```text
+This is a reporting-hygiene artifact. It checks that the generated paper
+section, claim-defense matrix, artifact index, and boundary synthesis remain
+consistent with the current three-boundary evidence. It is not additional model
+evidence and should not be cited as a downstream performance result.
+```

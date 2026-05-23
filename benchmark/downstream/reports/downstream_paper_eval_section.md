@@ -1,6 +1,6 @@
 # Downstream Validation Paper Section
 
-Generated at UTC: `2026-05-23T06:09:05.254849+00:00`
+Generated at UTC: `2026-05-23T06:29:33.369770+00:00`
 
 This is a draftable paper section generated from the frozen three-boundary downstream synthesis. It should be edited for style, not for stronger claims.
 

@@ -5,8 +5,9 @@ What this file does:
   Builds a compact index of the paper-facing artifacts produced by the
   SkillAdmit experiment: admission context, hard_v2 evidence, hard_v3 evidence,
   hard_v4 boundary evidence, cross-version synthesis, three-boundary synthesis,
-  paper-section draft, and claim-defense matrix. The index records each
-  artifact's role, path, regeneration command, and claim boundary.
+  paper-section draft, claim-defense matrix, and the paper-claim consistency
+  audit command. The index records each artifact's role, path, regeneration
+  command, and claim boundary.
 
 Why it is needed:
   The repository now contains many summaries, tables, evidence packages, and
@@ -130,6 +131,7 @@ SCRIPT_PATHS = {
     "export_claim_defense": ROOT / "scripts" / "export_downstream_claim_defense_matrix.py",
     "export_hard_v4_scaffold": ROOT / "scripts" / "export_hard_v4_scaffold_manifest.py",
     "export_artifacts_index": ROOT / "scripts" / "export_paper_artifacts_index.py",
+    "audit_paper_claim_consistency": ROOT / "scripts" / "audit_paper_claim_consistency.py",
 }
 
 
@@ -356,6 +358,7 @@ def build_regeneration_order() -> list[dict[str, str]]:
         ("export_paper_section", "python scripts/export_downstream_paper_section.py --assert-current-paper-section"),
         ("export_claim_defense", "python scripts/export_downstream_claim_defense_matrix.py --assert-current-claim-defense"),
         ("export_artifacts_index", "python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index"),
+        ("audit_paper_claim_consistency", "python scripts/audit_paper_claim_consistency.py --assert-current-audit"),
     ]
     return [
         {
@@ -498,6 +501,10 @@ def build_do_not_cite_as_primary() -> list[dict[str, str]]:
         {
             "artifact_pattern": "docs/progress_log.md",
             "reason": "Progress log is a handoff ledger, not a primary empirical table.",
+        },
+        {
+            "artifact_pattern": "benchmark/downstream/reports/paper_claim_consistency_audit.*",
+            "reason": "Consistency audit reports are reporting-hygiene checks, not additional downstream evidence.",
         },
     ]
 
@@ -649,6 +656,7 @@ def assert_index(index: dict[str, Any]) -> None:
         "hard_v4_scaffold_manifest.json",
         "hard_v4_evidence_package.json",
         "downstream_boundary_synthesis.json",
+        "audit_paper_claim_consistency.py",
         "boundary-synthesis-driven paper revision",
         "downstream_claim_defense_matrix.json",
     ]

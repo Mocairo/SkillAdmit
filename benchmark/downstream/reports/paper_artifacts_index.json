@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T06:12:44.298305+00:00",
+  "generated_at_utc": "2026-05-23T06:29:33.501635+00:00",
   "purpose": "One-stop index for paper-facing SkillAdmit artifacts. Use it to choose the correct evidence, table, script, and claim boundary for downstream validation writing.",
   "source_inputs": [
     {
@@ -62,17 +62,17 @@
       "name": "downstream_paper_eval_section",
       "path": "benchmark/downstream/reports/downstream_paper_eval_section.json",
       "exists": true,
-      "sha256": "d670f1ff13a95fa6ffcfcc863e02ef0f24e80ba3413fe4db8c290f212fa80301",
+      "sha256": "bf3706acb179a66652ce189c1e871492c1608abdbf70b26ec044a816fc843ee4",
       "size_bytes": 7062,
-      "generated_at_utc": "2026-05-23T06:09:05.254849+00:00"
+      "generated_at_utc": "2026-05-23T06:29:33.369770+00:00"
     },
     {
       "name": "downstream_claim_defense_matrix",
       "path": "benchmark/downstream/reports/downstream_claim_defense_matrix.json",
       "exists": true,
-      "sha256": "22c3e5685b9335fe5ad946b5c4cd1c39b687d23c64dc6d0d8443001168c7092b",
+      "sha256": "d371708428eba98d08e7c717bd571126a8d0d40a268177fef277aca8bae64ba4",
       "size_bytes": 41180,
-      "generated_at_utc": "2026-05-23T06:12:44.291834+00:00"
+      "generated_at_utc": "2026-05-23T06:29:33.434910+00:00"
     },
     {
       "name": "hard_v4_scaffold_manifest",
@@ -144,14 +144,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "ce4292f66b5da5d5e79a157e32b5045c38e925e70cbfb55918d69d648890b0d5",
-          "size_bytes": 30984
+          "sha256": "9c07f6ebb533965972c1be5ae8be8abb3a8976c0c4ba2d921e4929b65fd30a2f",
+          "size_bytes": 32069
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "3cd133ba0f35c8bbddef86b0026ac905f4b279636702d5db32ff360967a111b8",
-          "size_bytes": 48054
+          "sha256": "068439eaea99ef10cc8404319382c996940ee361b42c0f051d99ac0d8dddfa77",
+          "size_bytes": 49370
         }
       ],
       "regeneration_commands": [
@@ -200,8 +200,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "ce4292f66b5da5d5e79a157e32b5045c38e925e70cbfb55918d69d648890b0d5",
-          "size_bytes": 30984
+          "sha256": "9c07f6ebb533965972c1be5ae8be8abb3a8976c0c4ba2d921e4929b65fd30a2f",
+          "size_bytes": 32069
         }
       ],
       "regeneration_commands": [
@@ -252,8 +252,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "ce4292f66b5da5d5e79a157e32b5045c38e925e70cbfb55918d69d648890b0d5",
-          "size_bytes": 30984
+          "sha256": "9c07f6ebb533965972c1be5ae8be8abb3a8976c0c4ba2d921e4929b65fd30a2f",
+          "size_bytes": 32069
         }
       ],
       "regeneration_commands": [
@@ -304,8 +304,8 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "ce4292f66b5da5d5e79a157e32b5045c38e925e70cbfb55918d69d648890b0d5",
-          "size_bytes": 30984
+          "sha256": "9c07f6ebb533965972c1be5ae8be8abb3a8976c0c4ba2d921e4929b65fd30a2f",
+          "size_bytes": 32069
         }
       ],
       "regeneration_commands": [
@@ -372,13 +372,13 @@
         {
           "path": "benchmark/downstream/reports/downstream_paper_eval_section.json",
           "exists": true,
-          "sha256": "d670f1ff13a95fa6ffcfcc863e02ef0f24e80ba3413fe4db8c290f212fa80301",
+          "sha256": "bf3706acb179a66652ce189c1e871492c1608abdbf70b26ec044a816fc843ee4",
           "size_bytes": 7062
         },
         {
           "path": "benchmark/downstream/reports/downstream_paper_eval_section.md",
           "exists": true,
-          "sha256": "5eee30c20fb728d22179d11e57d7e1e0d4e19c3462eb3bd78d3bfb4579dffec9",
+          "sha256": "e51e2dd719d1bb9edca8fef64cf166a6e6e9969af858c77d4d76662b75aed8a3",
           "size_bytes": 6712
         },
         {
@@ -398,7 +398,7 @@
         {
           "path": "benchmark/downstream/reports/downstream_claim_defense_matrix.md",
           "exists": true,
-          "sha256": "d1dc1123446e988adfa061c3234de6714d0bbcd8a4d4cc8ab176a8048f45a822",
+          "sha256": "8c952c1ce8996cc1215874af8f129ba8d4872aa995a18dfb6e237e4bd78940bd",
           "size_bytes": 24680
         }
       ],
@@ -416,13 +416,13 @@
         {
           "path": "benchmark/downstream/reports/downstream_claim_defense_matrix.json",
           "exists": true,
-          "sha256": "22c3e5685b9335fe5ad946b5c4cd1c39b687d23c64dc6d0d8443001168c7092b",
+          "sha256": "d371708428eba98d08e7c717bd571126a8d0d40a268177fef277aca8bae64ba4",
           "size_bytes": 41180
         },
         {
           "path": "benchmark/downstream/reports/downstream_claim_defense_matrix.md",
           "exists": true,
-          "sha256": "d1dc1123446e988adfa061c3234de6714d0bbcd8a4d4cc8ab176a8048f45a822",
+          "sha256": "8c952c1ce8996cc1215874af8f129ba8d4872aa995a18dfb6e237e4bd78940bd",
           "size_bytes": 24680
         },
         {
@@ -442,7 +442,7 @@
         {
           "path": "benchmark/downstream/reports/downstream_paper_eval_section.json",
           "exists": true,
-          "sha256": "d670f1ff13a95fa6ffcfcc863e02ef0f24e80ba3413fe4db8c290f212fa80301",
+          "sha256": "bf3706acb179a66652ce189c1e871492c1608abdbf70b26ec044a816fc843ee4",
           "size_bytes": 7062
         }
       ],
@@ -460,20 +460,20 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "ce4292f66b5da5d5e79a157e32b5045c38e925e70cbfb55918d69d648890b0d5",
-          "size_bytes": 30984
+          "sha256": "9c07f6ebb533965972c1be5ae8be8abb3a8976c0c4ba2d921e4929b65fd30a2f",
+          "size_bytes": 32069
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "3cd133ba0f35c8bbddef86b0026ac905f4b279636702d5db32ff360967a111b8",
-          "size_bytes": 48054
+          "sha256": "068439eaea99ef10cc8404319382c996940ee361b42c0f051d99ac0d8dddfa77",
+          "size_bytes": 49370
         },
         {
           "path": "docs/progress_log.md",
           "exists": true,
-          "sha256": "ad5a5112011a5c3324c9b12faca67eca184970098a637e521bdee34ca34e836c",
-          "size_bytes": 96971
+          "sha256": "31ef675c46cc4069a4a6d39f2cb3c77963e30f6f4332b217efa832ca88a97b40",
+          "size_bytes": 99665
         }
       ],
       "support_files": [],
@@ -515,14 +515,14 @@
         {
           "path": "docs/paper_eval_status.md",
           "exists": true,
-          "sha256": "ce4292f66b5da5d5e79a157e32b5045c38e925e70cbfb55918d69d648890b0d5",
-          "size_bytes": 30984
+          "sha256": "9c07f6ebb533965972c1be5ae8be8abb3a8976c0c4ba2d921e4929b65fd30a2f",
+          "size_bytes": 32069
         },
         {
           "path": "docs/experiment_handoff.md",
           "exists": true,
-          "sha256": "3cd133ba0f35c8bbddef86b0026ac905f4b279636702d5db32ff360967a111b8",
-          "size_bytes": 48054
+          "sha256": "068439eaea99ef10cc8404319382c996940ee361b42c0f051d99ac0d8dddfa77",
+          "size_bytes": 49370
         }
       ],
       "regeneration_commands": [
@@ -687,6 +687,12 @@
       "step": 17,
       "name": "export_artifacts_index",
       "command": "python scripts/export_paper_artifacts_index.py --assert-current-artifacts-index",
+      "script_exists": true
+    },
+    {
+      "step": 18,
+      "name": "audit_paper_claim_consistency",
+      "command": "python scripts/audit_paper_claim_consistency.py --assert-current-audit",
       "script_exists": true
     }
   ],
@@ -905,6 +911,10 @@
     {
       "artifact_pattern": "docs/progress_log.md",
       "reason": "Progress log is a handoff ledger, not a primary empirical table."
+    },
+    {
+      "artifact_pattern": "benchmark/downstream/reports/paper_claim_consistency_audit.*",
+      "reason": "Consistency audit reports are reporting-hygiene checks, not additional downstream evidence."
     }
   ],
   "next_experimental_boundary": {

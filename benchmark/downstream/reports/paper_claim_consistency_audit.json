@@ -1,0 +1,250 @@
+{
+  "generated_at_utc": "2026-05-23T06:29:33.562545+00:00",
+  "purpose": "Consistency audit for the paper-facing hard_v2/hard_v3/hard_v4 downstream claim layer. This is a reporting-hygiene artifact, not new empirical evidence.",
+  "source_files": [
+    {
+      "name": "boundary_synthesis",
+      "path": "benchmark/downstream/reports/downstream_boundary_synthesis.json",
+      "exists": true,
+      "sha256": "b5e58a54217563fbe2a24e3b4d63090b66d5d0ded6d9872ccb5e57e6bd1237aa",
+      "size_bytes": 45450
+    },
+    {
+      "name": "paper_section",
+      "path": "benchmark/downstream/reports/downstream_paper_eval_section.json",
+      "exists": true,
+      "sha256": "bf3706acb179a66652ce189c1e871492c1608abdbf70b26ec044a816fc843ee4",
+      "size_bytes": 7062
+    },
+    {
+      "name": "claim_defense",
+      "path": "benchmark/downstream/reports/downstream_claim_defense_matrix.json",
+      "exists": true,
+      "sha256": "d371708428eba98d08e7c717bd571126a8d0d40a268177fef277aca8bae64ba4",
+      "size_bytes": 41180
+    },
+    {
+      "name": "artifacts_index",
+      "path": "benchmark/downstream/reports/paper_artifacts_index.json",
+      "exists": true,
+      "sha256": "d207e0a4dc79301c1edaff1e768f5945103b1e17eb2da74b37dde65791a18c96",
+      "size_bytes": 39272
+    },
+    {
+      "name": "boundary_synthesis_md",
+      "path": "benchmark/downstream/reports/downstream_boundary_synthesis.md",
+      "exists": true,
+      "sha256": "a9360eea565f3f4188f5f0b0e176e6f8a2cea8ee4279249144a11ed449e8313b",
+      "size_bytes": 12399
+    },
+    {
+      "name": "paper_section_md",
+      "path": "benchmark/downstream/reports/downstream_paper_eval_section.md",
+      "exists": true,
+      "sha256": "e51e2dd719d1bb9edca8fef64cf166a6e6e9969af858c77d4d76662b75aed8a3",
+      "size_bytes": 6712
+    },
+    {
+      "name": "claim_defense_md",
+      "path": "benchmark/downstream/reports/downstream_claim_defense_matrix.md",
+      "exists": true,
+      "sha256": "8c952c1ce8996cc1215874af8f129ba8d4872aa995a18dfb6e237e4bd78940bd",
+      "size_bytes": 24680
+    },
+    {
+      "name": "artifacts_index_md",
+      "path": "benchmark/downstream/reports/paper_artifacts_index.md",
+      "exists": true,
+      "sha256": "9db3dfd7e92e3e2f8a4fb1e3e957e79a07c33626319834e357057b189e6031a5",
+      "size_bytes": 25217
+    },
+    {
+      "name": "experiment_handoff",
+      "path": "docs/experiment_handoff.md",
+      "exists": true,
+      "sha256": "068439eaea99ef10cc8404319382c996940ee361b42c0f051d99ac0d8dddfa77",
+      "size_bytes": 49370
+    },
+    {
+      "name": "paper_eval_status",
+      "path": "docs/paper_eval_status.md",
+      "exists": true,
+      "sha256": "9c07f6ebb533965972c1be5ae8be8abb3a8976c0c4ba2d921e4929b65fd30a2f",
+      "size_bytes": 32069
+    },
+    {
+      "name": "progress_log",
+      "path": "docs/progress_log.md",
+      "exists": true,
+      "sha256": "31ef675c46cc4069a4a6d39f2cb3c77963e30f6f4332b217efa832ca88a97b40",
+      "size_bytes": 99665
+    },
+    {
+      "name": "readme",
+      "path": "README.md",
+      "exists": true,
+      "sha256": "b6a865ebc6af0adaf497ce791658f38a8ffe5641aa79fd7b8bc9019f5e1dc464",
+      "size_bytes": 2476
+    }
+  ],
+  "summary": {
+    "total_checks": 12,
+    "passed_checks": 12,
+    "failed_checks": 0,
+    "status": "pass"
+  },
+  "key_facts": {
+    "forced_bad_total_success": "0/133",
+    "forced_bad_total_tasks": 133,
+    "forced_bad_total_public_passed_hidden_failed": 133,
+    "forced_bad_phrase": "0/133 success with 133 public-pass/hidden-fail cases",
+    "hard_v4_strict_selected": "22/24",
+    "hard_v4_strict_no_experience": "24/24",
+    "selected_superiority_consistent": false,
+    "selected_token_savings_consistent": false
+  },
+  "checks": [
+    {
+      "check_id": "A1_boundary_forced_bad_aggregate",
+      "status": "pass",
+      "summary": "Boundary synthesis keeps the three-suite forced_bad aggregate at 0/133.",
+      "details": {
+        "forced_bad_total_success": "0/133",
+        "forced_bad_total_tasks": 133,
+        "forced_bad_total_public_passed_hidden_failed": 133,
+        "forced_bad_negative_transfer_consistent": true
+      }
+    },
+    {
+      "check_id": "A2_paper_section_source_boundary",
+      "status": "pass",
+      "summary": "Paper section is generated from downstream_boundary_synthesis.json, not the older cross-version synthesis.",
+      "details": {
+        "paper_source_path": "benchmark/downstream/reports/downstream_boundary_synthesis.json",
+        "expected_source_path": "benchmark/downstream/reports/downstream_boundary_synthesis.json",
+        "paper_source_sha256": "b5e58a54217563fbe2a24e3b4d63090b66d5d0ded6d9872ccb5e57e6bd1237aa",
+        "actual_boundary_sha256": "b5e58a54217563fbe2a24e3b4d63090b66d5d0ded6d9872ccb5e57e6bd1237aa"
+      }
+    },
+    {
+      "check_id": "A3_paper_derived_values_match_boundary",
+      "status": "pass",
+      "summary": "Paper section derived values, result count, and claim-limit count match the three-boundary source.",
+      "details": {
+        "mismatches": {},
+        "result_paragraphs": 6,
+        "claim_limits": 7
+      }
+    },
+    {
+      "check_id": "A4_claim_defense_claim_set",
+      "status": "pass",
+      "summary": "Claim-defense matrix keeps the expected ten paper-facing claim cards.",
+      "details": {
+        "claim_count": 10,
+        "missing_claim_ids": []
+      }
+    },
+    {
+      "check_id": "A5_claim_defense_source_packages",
+      "status": "pass",
+      "summary": "Claim-defense matrix cites hard_v2, hard_v3, hard_v4, boundary synthesis, and paper section.",
+      "details": {
+        "source_packages": [
+          "hard_v2_evidence_package",
+          "hard_v3_evidence_package",
+          "hard_v4_evidence_package",
+          "downstream_boundary_synthesis",
+          "downstream_paper_eval_section"
+        ]
+      }
+    },
+    {
+      "check_id": "A6_c6_c9_evidence_sources",
+      "status": "pass",
+      "summary": "C6 uses hard_v4 plus boundary synthesis, and C9 treats selected token savings as unsupported.",
+      "details": {
+        "c6_sources": [
+          "downstream_boundary_synthesis",
+          "hard_v2_evidence_package",
+          "hard_v3_evidence_package",
+          "hard_v4_evidence_package"
+        ],
+        "c9_status": "not_supported_claim",
+        "c9_sources": [
+          "downstream_boundary_synthesis"
+        ]
+      }
+    },
+    {
+      "check_id": "A7_artifact_index_key_facts",
+      "status": "pass",
+      "summary": "Artifact index key facts match the current three-boundary reporting layer.",
+      "details": {
+        "mismatches": {}
+      }
+    },
+    {
+      "check_id": "A8_required_three_boundary_phrases",
+      "status": "pass",
+      "summary": "Current report text contains the core three-boundary facts and guardrail wording.",
+      "details": {
+        "missing_phrases": []
+      }
+    },
+    {
+      "check_id": "A9_no_old_0_85_in_current_three_boundary_reports",
+      "status": "pass",
+      "summary": "Current boundary, paper-section, and claim-defense reports do not reuse the old 0/85 aggregate.",
+      "details": {
+        "old_0_85_occurrences": 0
+      }
+    },
+    {
+      "check_id": "A10_guardrail_wording_present",
+      "status": "pass",
+      "summary": "Generated paper artifacts preserve the no-universal-selected, no-token-savings, and no-retuning guardrails.",
+      "details": {
+        "guardrail_text": "Do not claim SkillAdmit-selected universally dominates no_experience.\nDo not claim SkillAdmit-selected is the universal best downstream context.\nDo not claim cross-version selected token savings.\nDo not claim precondition-only generally replaces repository-tree context.\nDo not claim raw memory is a safe admission policy from hard_v3 success alone.\nDo not claim bad dependency advice is safe when the model often ignored it.\nDo not tune hard_v2, hard_v3, or hard_v4 failures while still calling them clean evidence.\nDo not claim universal SkillAdmit-selected superiority.\nDo not claim cross-version SkillAdmit-selected token savings.\nDo not claim precondition-only generally replaces repository-tree context.\nDo not claim raw memory is a safe admission policy from hard_v3 success alone.\nDo not claim bad dependency advice is safe when the model often ignored it.\nDo not tune hard_v2, hard_v3, or hard_v4 failures while treating them as clean evidence.\nSkillAdmit has conditional downstream utility evidence and strong negative-transfer evidence: hard_v2 supports tree-aware selected utility, hard_v3 bounds universal selected-superiority claims, hard_v4 adds a stricter boundary, and forced bad artifacts fail 0/133 with 133 public-pass/hidden-fail cases."
+      }
+    },
+    {
+      "check_id": "A11_hard_v4_boundary_is_explicit",
+      "status": "pass",
+      "summary": "hard_v4 is stated as a stricter boundary, not a selected-utility win.",
+      "details": {
+        "paper_summary": "Overall, downstream validation gives a sharper claim boundary than admission accuracy alone. hard_v2 supports SkillAdmit-selected utility in a tree-aware coding-agent setting (25/25 versus 23/25), but hard_v3 and hard_v4 do not support universal selected superiority: hard_v3 tree-aware selected ties no_experience at 29/30, and hard_v4 strict selected trails no_experience at 22/24 versus 24/24. The strongest three-boundary result is safety-related: forced harmful artifacts achieve 0/133 success with 133 public-pass/hidden-fail cases, demonstrating systematic negative transfer when harmful experience is executed.",
+        "c4_evidence_summary": "In hard_v3 tree-aware, selected and no_experience are both 29/30. In strict visible-file hard_v3, selected is 29/30 while precondition-only and raw memory are 30/30. In hard_v4 strict visible-file, selected is 22/24 while no_experience is 24/24."
+      }
+    },
+    {
+      "check_id": "A12_text_artifact_presence",
+      "status": "pass",
+      "summary": "All Markdown/docs inputs used for paper-facing consistency checks exist.",
+      "details": {
+        "boundary_synthesis_md": "benchmark/downstream/reports/downstream_boundary_synthesis.md",
+        "paper_section_md": "benchmark/downstream/reports/downstream_paper_eval_section.md",
+        "claim_defense_md": "benchmark/downstream/reports/downstream_claim_defense_matrix.md",
+        "artifacts_index_md": "benchmark/downstream/reports/paper_artifacts_index.md",
+        "experiment_handoff": "docs/experiment_handoff.md",
+        "paper_eval_status": "docs/paper_eval_status.md",
+        "progress_log": "docs/progress_log.md",
+        "readme": "README.md"
+      }
+    }
+  ],
+  "claim_boundary": {
+    "supported": [
+      "conditional downstream utility under specific settings",
+      "hidden-verifier downstream validation is necessary",
+      "forced harmful artifacts produce systematic negative transfer"
+    ],
+    "not_supported": [
+      "universal SkillAdmit-selected superiority",
+      "cross-boundary selected token savings",
+      "precondition-only generally replacing repository-tree context",
+      "hard_v4 selected utility"
+    ]
+  },
+  "next_recommended_step": "If continuing experiments, use a predeclared model-transfer replication or a new hard_v5 boundary. Do not tune hard_v2, hard_v3, or hard_v4 from observed failures."
+}

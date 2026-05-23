@@ -3874,3 +3874,89 @@ Do not replace suite-specific tables with the synthesis when exact numbers are
 needed.
 Do not tune hard_v2, hard_v3, or hard_v4 from this reporting pass.
 ```
+
+### 60. Paper Claim Consistency Audit
+
+Created:
+
+```text
+scripts/audit_paper_claim_consistency.py
+benchmark/downstream/reports/paper_claim_consistency_audit.json
+benchmark/downstream/reports/paper_claim_consistency_audit.md
+benchmark/downstream/reports/paper_claim_consistency_audit.tex
+```
+
+What the file does:
+
+```text
+audit_paper_claim_consistency.py reads the current boundary synthesis,
+paper-section export, claim-defense matrix, artifact index, selected report
+Markdown files, README, and status docs. It checks whether the paper-facing
+layer still tells the same hard_v2/hard_v3/hard_v4 downstream story.
+```
+
+Why it is needed:
+
+```text
+The current evidence is conditional. A paper draft can easily drift back to an
+old 0/85 aggregate, a selected-wins claim, or a selected-token-savings claim.
+The audit makes those failures executable checks instead of relying on manual
+reading.
+```
+
+Command:
+
+```bash
+PATH=/home/lijx/anaconda3/envs/skilladmit/bin:$PATH \
+/home/lijx/anaconda3/envs/skilladmit/bin/python scripts/audit_paper_claim_consistency.py \
+  --assert-current-audit
+```
+
+Current export:
+
+```text
+total_checks: 12
+passed_checks: 12
+failed_checks: 0
+forced_bad_total_success: 0/133
+forced_bad_total_public_passed_hidden_failed: 133
+hard_v4_strict_selected: 22/24
+hard_v4_strict_no_experience: 24/24
+selected_superiority_consistent: False
+selected_token_savings_consistent: False
+```
+
+Main checks:
+
+```text
+A1: boundary forced_bad aggregate is 0/133.
+A2: paper section source is downstream_boundary_synthesis.json.
+A3: paper derived values match boundary synthesis.
+A4: claim-defense matrix still has the expected 10 claim cards.
+A5: claim-defense source packages include hard_v2, hard_v3, hard_v4, boundary
+    synthesis, and paper section.
+A6: C6 uses hard_v4 + boundary synthesis, and C9 treats token savings as not
+    supported.
+A7: artifact-index facts match the three-boundary reporting layer.
+A8: current report text contains the required three-boundary phrases.
+A9: current boundary/paper/claim reports do not reuse the old 0/85 aggregate.
+A10: no-universal-selected, no-token-savings, and no-retuning guardrails remain.
+A11: hard_v4 is stated as a stricter boundary, not a selected win.
+A12: all Markdown/docs inputs exist.
+```
+
+Artifact-index integration:
+
+```text
+The audit command is now included in the artifact-index regeneration order.
+The audit report itself is marked as reporting hygiene, not primary empirical
+evidence, to avoid confusing QA checks with downstream results.
+```
+
+Boundary:
+
+```text
+This audit is not new evidence.
+Do not cite it as a model-performance result.
+Use it before paper drafting or reviewer-response editing to catch claim drift.
+```
