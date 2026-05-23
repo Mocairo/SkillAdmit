@@ -2235,8 +2235,8 @@ benchmark/downstream/reports/reproduction_guide_audit.tex
 Current result:
 
 ```text
-total_checks: 10
-passed_checks: 10
+total_checks: 12
+passed_checks: 12
 failed_checks: 0
 status: pass
 ```
@@ -2261,6 +2261,49 @@ Important guardrail:
 The guide does not authorize tuning hard_v2, hard_v3, or hard_v4 after reading
 failures. If a new experiment is needed, predeclare hard_v5 or another fresh
 boundary instead.
+```
+
+## 29. README Public Reader Path
+
+The README has been strengthened as the public entry point. This is a navigation
+and hygiene change, not new evidence.
+
+README now points readers first to:
+
+```text
+docs/reproduction_guide.md
+benchmark/downstream/reports/paper_artifacts_index.md
+benchmark/downstream/reports/downstream_boundary_synthesis.md
+benchmark/downstream/reports/model_transfer_cross_model_synthesis.md
+```
+
+It states these aggregate roles directly:
+
+```text
+0/133:
+  main hard_v2/hard_v3/hard_v4 downstream boundary
+
+0/216:
+  model-transfer hard_v3/hard_v4 addendum
+
+0/85:
+  historical hard_v2/hard_v3 synthesis only
+```
+
+The reproduction-guide audit now checks README as well:
+
+```text
+RG11_readme_names_reader_entry_points
+RG12_readme_preserves_public_claim_boundary
+```
+
+Current result:
+
+```text
+total_checks: 12
+passed_checks: 12
+failed_checks: 0
+status: pass
 ```
 
 ## 23. Rule for Future Work

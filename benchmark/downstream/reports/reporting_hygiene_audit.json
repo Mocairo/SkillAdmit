@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T12:24:14.995343+00:00",
+  "generated_at_utc": "2026-05-23T12:48:42.989361+00:00",
   "purpose": "Public reporting hygiene audit for SkillAdmit downstream artifacts. It checks aggregate separation, legacy wording, overclaim guardrails, and handoff consistency.",
   "source_files": [
     {
@@ -34,7 +34,7 @@
       "name": "artifact_index",
       "path": "benchmark/downstream/reports/paper_artifacts_index.json",
       "exists": true,
-      "sha256": "f643f46e72cd101c925d2eed1fd6460de7d09c9ab6c1ed735392363f0d3bf04f",
+      "sha256": "c9b8dd2fdd4962a4e58597c7a79775f4fe4f35233ed044060f021e321162883f",
       "size_bytes": 52639
     },
     {
@@ -69,36 +69,36 @@
       "name": "artifact_index_md",
       "path": "benchmark/downstream/reports/paper_artifacts_index.md",
       "exists": true,
-      "sha256": "703a4868dd47d6de4a4876779581a9886bbaad59ed3b93247446536b3db2c516",
+      "sha256": "d9512fa4f9795c6c5324edd525f47e92d930d1b831af618aa9fb193dcdbf4881",
       "size_bytes": 33846
     },
     {
       "name": "readme",
       "path": "README.md",
       "exists": true,
-      "sha256": "cc814db6682fc415bd92b58a8d59881e5c5e6949380df925c2ead0bbb383a676",
-      "size_bytes": 3715
+      "sha256": "ca1b0af706beef0bf2bf787b4cfd96471da5bfdd2efeb813267698071bb89c51",
+      "size_bytes": 4927
     },
     {
       "name": "experiment_handoff",
       "path": "docs/experiment_handoff.md",
       "exists": true,
-      "sha256": "8d3bf6fb426c42103a33b410a593130703f359b06203c1b936c747310b477629",
-      "size_bytes": 58296
+      "sha256": "c6b02f45c9c889430d32fef97b62286c992a4f3bbbc2eefb0bc97ab997ac4ada",
+      "size_bytes": 59174
     },
     {
       "name": "paper_eval_status",
       "path": "docs/paper_eval_status.md",
       "exists": true,
-      "sha256": "23d5bdaa39066f4578ec06476dbbc42faf28834fe35763d248c0df7130d6aa5e",
-      "size_bytes": 39827
+      "sha256": "d6282d646e4f7ed22e78fa096bf1cdfa642b66d5596f2fa43124654f9c8cba19",
+      "size_bytes": 40768
     },
     {
       "name": "progress_log",
       "path": "docs/progress_log.md",
       "exists": true,
-      "sha256": "a53a3248ee14d6bbca4fbdba2c811fcc2e71fc1e1d27ba8286da13fc26ba8fc6",
-      "size_bytes": 110664
+      "sha256": "b2bfd1091256498f121fa440ab3d5b87f73a0c4dca35c5d8a4d98926ace77ec8",
+      "size_bytes": 112170
     }
   ],
   "summary": {

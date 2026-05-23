@@ -5,7 +5,9 @@ What this file does:
   Checks that docs/reproduction_guide.md remains aligned with the generated
   downstream evidence artifacts. It verifies command availability, aggregate
   separation, claim guardrails, no-retuning language, and README/artifact-index
-  discoverability.
+  discoverability. It also checks that README.md gives a public reader enough
+  context to enter the repo without confusing the main boundary, historical
+  synthesis, and model-transfer addendum.
 
 Why it is needed:
   A public repository can be technically reproducible but still misleading if
@@ -292,6 +294,29 @@ def build_audit(
         "Guide is explicitly marked as a reproduction entry, not an evidence source.",
         {},
     )
+    add_check(
+        checks,
+        "RG11_readme_names_reader_entry_points",
+        "docs/reproduction_guide.md" in readme_text
+        and "benchmark/downstream/reports/paper_artifacts_index.md" in readme_text
+        and "benchmark/downstream/reports/downstream_boundary_synthesis.md" in readme_text
+        and "benchmark/downstream/reports/model_transfer_cross_model_synthesis.md" in readme_text,
+        "README names the public reproduction guide, artifact index, main boundary, and transfer addendum.",
+        {},
+    )
+    add_check(
+        checks,
+        "RG12_readme_preserves_public_claim_boundary",
+        "0/133 forced_bad_artifact success" in readme_text
+        and "0/216 forced_bad_artifact success" in readme_text
+        and "0/85 forced_bad_artifact success" in readme_text
+        and "Do not read these aggregates as one leaderboard" in readme_text
+        and "Do not claim universal SkillAdmit-selected superiority" in readme_text
+        and "Do not claim selected token savings" in readme_text
+        and "Do not tune hard_v2, hard_v3, or hard_v4" in readme_text,
+        "README exposes the aggregate roles and unsupported-claim guardrails.",
+        {},
+    )
 
     failures = [row for row in checks if row["status"] != "pass"]
     return {
@@ -344,8 +369,8 @@ def build_audit(
 
 
 def assert_reproduction_guide(audit: dict[str, Any]) -> None:
-    if audit["summary"]["total_checks"] != 10:
-        raise AssertionError(f"expected 10 checks, got {audit['summary']['total_checks']}")
+    if audit["summary"]["total_checks"] != 12:
+        raise AssertionError(f"expected 12 checks, got {audit['summary']['total_checks']}")
     if audit["summary"]["failed_checks"] != 0:
         failures = [row for row in audit["checks"] if row["status"] != "pass"]
         raise AssertionError(f"failed reproduction-guide checks: {failures}")

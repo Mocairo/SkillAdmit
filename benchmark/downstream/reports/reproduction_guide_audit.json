@@ -1,9 +1,9 @@
 {
-  "generated_at_utc": "2026-05-23T12:29:35.402088+00:00",
+  "generated_at_utc": "2026-05-23T12:46:24.881263+00:00",
   "purpose": "Public reproduction-guide audit for SkillAdmit. It checks that the public entry guide matches the generated downstream evidence boundary and avoids unsupported claims.",
   "summary": {
-    "total_checks": 10,
-    "passed_checks": 10,
+    "total_checks": 12,
+    "passed_checks": 12,
     "failed_checks": 0,
     "status": "pass"
   },
@@ -250,6 +250,18 @@
       "status": "pass",
       "summary": "Guide is explicitly marked as a reproduction entry, not an evidence source.",
       "details": {}
+    },
+    {
+      "check_id": "RG11_readme_names_reader_entry_points",
+      "status": "pass",
+      "summary": "README names the public reproduction guide, artifact index, main boundary, and transfer addendum.",
+      "details": {}
+    },
+    {
+      "check_id": "RG12_readme_preserves_public_claim_boundary",
+      "status": "pass",
+      "summary": "README exposes the aggregate roles and unsupported-claim guardrails.",
+      "details": {}
     }
   ],
   "source_files": [
@@ -264,14 +276,14 @@
       "name": "readme",
       "path": "README.md",
       "exists": true,
-      "sha256": "cc814db6682fc415bd92b58a8d59881e5c5e6949380df925c2ead0bbb383a676",
-      "size_bytes": 3715
+      "sha256": "ca1b0af706beef0bf2bf787b4cfd96471da5bfdd2efeb813267698071bb89c51",
+      "size_bytes": 4927
     },
     {
       "name": "artifact_index",
       "path": "benchmark/downstream/reports/paper_artifacts_index.json",
       "exists": true,
-      "sha256": "f643f46e72cd101c925d2eed1fd6460de7d09c9ab6c1ed735392363f0d3bf04f",
+      "sha256": "c9b8dd2fdd4962a4e58597c7a79775f4fe4f35233ed044060f021e321162883f",
       "size_bytes": 52639
     },
     {

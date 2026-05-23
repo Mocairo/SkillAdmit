@@ -4344,8 +4344,8 @@ The guide separates:
 Current audit:
 
 ```text
-total_checks: 10
-passed_checks: 10
+total_checks: 12
+passed_checks: 12
 failed_checks: 0
 status: pass
 ```
@@ -4361,6 +4361,8 @@ the guide keeps the historical 0/85 layer separate
 unsupported selected-superiority and token-savings claims are forbidden
 hard_v2/hard_v3/hard_v4 no-retuning rule is present
 .env and no-new-API boundaries are stated
+README names the public reproduction guide, artifact index, main boundary, and transfer addendum
+README exposes aggregate roles and unsupported-claim guardrails
 ```
 
 Updated release command tail:
@@ -4371,4 +4373,65 @@ python scripts/audit_paper_claim_consistency.py --assert-current-audit
 python scripts/audit_reporting_hygiene.py --assert-current-hygiene
 python scripts/audit_public_release_readiness.py --assert-current-release
 python scripts/audit_reproduction_guide.py --assert-current-reproduction-guide
+```
+
+### 67. README Public Reader Path
+
+Strengthened the public README so a new reader does not need to infer the
+project boundary from generated reports alone. This is a release/readability
+change, not new empirical evidence.
+
+Updated:
+
+```text
+README.md
+scripts/audit_reproduction_guide.py
+benchmark/downstream/reports/reproduction_guide_audit.json
+benchmark/downstream/reports/reproduction_guide_audit.md
+benchmark/downstream/reports/reproduction_guide_audit.tex
+```
+
+README now starts with these reader entry points:
+
+```text
+docs/reproduction_guide.md
+benchmark/downstream/reports/paper_artifacts_index.md
+benchmark/downstream/reports/downstream_boundary_synthesis.md
+benchmark/downstream/reports/model_transfer_cross_model_synthesis.md
+```
+
+README also states the public aggregate roles:
+
+```text
+0/133:
+  main hard_v2/hard_v3/hard_v4 downstream boundary
+
+0/216:
+  model-transfer hard_v3/hard_v4 addendum
+
+0/85:
+  historical hard_v2/hard_v3 synthesis
+```
+
+The reproduction-guide audit now includes README-specific checks:
+
+```text
+RG11_readme_names_reader_entry_points
+RG12_readme_preserves_public_claim_boundary
+```
+
+Current result:
+
+```text
+total_checks: 12
+passed_checks: 12
+failed_checks: 0
+status: pass
+```
+
+Important boundary:
+
+```text
+This does not change downstream evidence. It only makes the public entry path
+harder to misread.
 ```

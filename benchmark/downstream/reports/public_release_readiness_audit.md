@@ -1,6 +1,6 @@
 # Public Release Readiness Audit
 
-Generated at UTC: `2026-05-23T12:24:50.049290+00:00`
+Generated at UTC: `2026-05-23T12:48:44.516995+00:00`
 
 Public-release readiness audit for repository hygiene. This is not new empirical evidence; it checks whether the repo is safe and recoverable to publish.
 
@@ -17,7 +17,7 @@ Public-release readiness audit for repository hygiene. This is not new empirical
 
 | check | status | summary | details |
 | --- | --- | --- | --- |
-| R1_no_dirty_sensitive_or_local_paths | pass | Git status does not expose dirty sensitive, cache, local agent-run, or LLM workspace paths. | {'dirty_risk_lines': [], 'status_line_count': 21} |
+| R1_no_dirty_sensitive_or_local_paths | pass | Git status does not expose dirty sensitive, cache, local agent-run, or LLM workspace paths. | {'dirty_risk_lines': [], 'status_line_count': 16} |
 | R2_expected_local_artifacts_ignored | pass | .env, local agent runs, workspaces, and cache paths are ignored by Git. | {'ignore_rows': [{'path': '.env', 'ignored': True, 'rule': '.gitignore:1:.env\t.env'}, {'path': '__pycache__/', 'ignored': True, 'rule': '.gitignore:2:__pycache__/\t__pycache__/... |
 | R3_no_forbidden_tracked_paths | pass | No tracked .env, pycache, pytest cache, local agent run, or LLM workspace paths. | {'forbidden_tracked_paths': []} |
 | R4_no_obvious_tracked_secrets | pass | No obvious credential patterns were found in tracked text files. | {'secret_hits': [], 'hit_count': 0} |
@@ -88,6 +88,6 @@ Public-release readiness audit for repository hygiene. This is not new empirical
 | name | path | sha256 |
 | --- | --- | --- |
 | gitignore | `.gitignore` | `19ca3946fd901b14` |
-| readme | `README.md` | `cc814db6682fc415` |
-| artifact_index | `benchmark/downstream/reports/paper_artifacts_index.json` | `f643f46e72cd101c` |
+| readme | `README.md` | `ca1b0af706beef0b` |
+| artifact_index | `benchmark/downstream/reports/paper_artifacts_index.json` | `c9b8dd2fdd4962a4` |
 

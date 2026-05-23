@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-23T12:24:50.049290+00:00",
+  "generated_at_utc": "2026-05-23T12:48:44.516995+00:00",
   "purpose": "Public-release readiness audit for repository hygiene. This is not new empirical evidence; it checks whether the repo is safe and recoverable to publish.",
   "source_files": [
     {
@@ -10,12 +10,12 @@
     {
       "name": "readme",
       "path": "README.md",
-      "sha256": "cc814db6682fc415bd92b58a8d59881e5c5e6949380df925c2ead0bbb383a676"
+      "sha256": "ca1b0af706beef0bf2bf787b4cfd96471da5bfdd2efeb813267698071bb89c51"
     },
     {
       "name": "artifact_index",
       "path": "benchmark/downstream/reports/paper_artifacts_index.json",
-      "sha256": "f643f46e72cd101c925d2eed1fd6460de7d09c9ab6c1ed735392363f0d3bf04f"
+      "sha256": "c9b8dd2fdd4962a4e58597c7a79775f4fe4f35233ed044060f021e321162883f"
     }
   ],
   "summary": {
@@ -31,7 +31,7 @@
       "summary": "Git status does not expose dirty sensitive, cache, local agent-run, or LLM workspace paths.",
       "details": {
         "dirty_risk_lines": [],
-        "status_line_count": 21
+        "status_line_count": 16
       }
     },
     {
@@ -108,7 +108,7 @@
       "details": {}
     }
   ],
-  "tracked_file_count": 1654,
+  "tracked_file_count": 1659,
   "top_tracked_files": [
     {
       "path": "benchmark/downstream/llm_runs/llm_downstream_hard_v3_transfer_mimo_v2_5_tree_30x8/trajectories.jsonl",

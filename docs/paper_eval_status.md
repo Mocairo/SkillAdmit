@@ -1477,8 +1477,8 @@ benchmark/downstream/reports/reproduction_guide_audit.tex
 Current result:
 
 ```text
-total_checks: 10
-passed_checks: 10
+total_checks: 12
+passed_checks: 12
 failed_checks: 0
 status: pass
 ```
@@ -1504,4 +1504,51 @@ Do not cite it as new empirical evidence.
 Do not use it to claim universal SkillAdmit-selected superiority.
 Do not use it to claim selected token savings.
 Do not tune hard_v2/hard_v3/hard_v4 from failures after reading it.
+```
+
+## 25. README Public Reader Path
+
+The README now gives a public reader the minimum safe path through the repo:
+
+```text
+docs/reproduction_guide.md
+benchmark/downstream/reports/paper_artifacts_index.md
+benchmark/downstream/reports/downstream_boundary_synthesis.md
+benchmark/downstream/reports/model_transfer_cross_model_synthesis.md
+```
+
+It also states the aggregate roles directly:
+
+```text
+0/133:
+  main hard_v2/hard_v3/hard_v4 downstream boundary
+
+0/216:
+  model-transfer hard_v3/hard_v4 addendum layer
+
+0/85:
+  historical hard_v2/hard_v3 synthesis only
+```
+
+The reproduction-guide audit now verifies the README reader path:
+
+```text
+RG11_readme_names_reader_entry_points
+RG12_readme_preserves_public_claim_boundary
+```
+
+Current result:
+
+```text
+total_checks: 12
+passed_checks: 12
+failed_checks: 0
+status: pass
+```
+
+Paper-facing boundary:
+
+```text
+This README update is not evidence. It is public navigation and overclaim
+prevention.
 ```

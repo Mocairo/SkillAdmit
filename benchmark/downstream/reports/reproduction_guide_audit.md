@@ -1,6 +1,6 @@
 # Reproduction Guide Audit
 
-Generated at UTC: `2026-05-23T12:29:35.402088+00:00`
+Generated at UTC: `2026-05-23T12:46:24.881263+00:00`
 
 Public reproduction-guide audit for SkillAdmit. It checks that the public entry guide matches the generated downstream evidence boundary and avoids unsupported claims.
 
@@ -8,8 +8,8 @@ Public reproduction-guide audit for SkillAdmit. It checks that the public entry 
 
 | metric | value |
 | --- | --- |
-| total_checks | 10 |
-| passed_checks | 10 |
+| total_checks | 12 |
+| passed_checks | 12 |
 | failed_checks | 0 |
 | status | pass |
 
@@ -35,6 +35,8 @@ Public reproduction-guide audit for SkillAdmit. It checks that the public entry 
 | RG8_no_retuning_rule_present | pass | Guide states the frozen-boundary no-retuning rule. | {} |
 | RG9_secret_and_no_api_boundary_present | pass | Guide states the local-secret boundary and avoids accidental API reruns. | {} |
 | RG10_guide_declares_not_new_evidence | pass | Guide is explicitly marked as a reproduction entry, not an evidence source. | {} |
+| RG11_readme_names_reader_entry_points | pass | README names the public reproduction guide, artifact index, main boundary, and transfer addendum. | {} |
+| RG12_readme_preserves_public_claim_boundary | pass | README exposes the aggregate roles and unsupported-claim guardrails. | {} |
 
 ## Checked Commands
 
@@ -75,8 +77,8 @@ Use this audit with the claim, reporting, and release audits before public READM
 | name | path | exists | sha256 | bytes |
 | --- | --- | --- | --- | --- |
 | reproduction_guide | `docs/reproduction_guide.md` | True | `0e31c4584526dd0b` | 6732 |
-| readme | `README.md` | True | `cc814db6682fc415` | 3715 |
-| artifact_index | `benchmark/downstream/reports/paper_artifacts_index.json` | True | `f643f46e72cd101c` | 52639 |
+| readme | `README.md` | True | `ca1b0af706beef0b` | 4927 |
+| artifact_index | `benchmark/downstream/reports/paper_artifacts_index.json` | True | `c9b8dd2fdd4962a4` | 52639 |
 | boundary_synthesis | `benchmark/downstream/reports/downstream_boundary_synthesis.json` | True | `b5e58a54217563fb` | 45450 |
 | cross_model_synthesis | `benchmark/downstream/reports/model_transfer_cross_model_synthesis.json` | True | `4e6df53551a1e8f2` | 68222 |
 

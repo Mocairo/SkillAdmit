@@ -5,6 +5,26 @@ coding agents. The project focuses on deciding whether an observed agent
 experience should be discarded, stored as memory, distilled into a reusable
 skill, promoted to a rule, or deferred.
 
+Start here:
+
+- `docs/reproduction_guide.md` for the public reproduction path;
+- `benchmark/downstream/reports/paper_artifacts_index.md` for the evidence index;
+- `benchmark/downstream/reports/downstream_boundary_synthesis.md` for the main downstream boundary;
+- `benchmark/downstream/reports/model_transfer_cross_model_synthesis.md` for the optional second-model addendum.
+
+Current evidence boundary:
+
+| layer | aggregate | role |
+| --- | --- | --- |
+| main downstream boundary | 0/133 forced_bad_artifact success | hard_v2/hard_v3/hard_v4 evidence |
+| model-transfer addendum | 0/216 forced_bad_artifact success | hard_v3/hard_v4 second-model sensitivity |
+| historical synthesis | 0/85 forced_bad_artifact success | older hard_v2/hard_v3 report retained for provenance |
+
+Do not read these aggregates as one leaderboard. The current main claim is
+conditional: SkillAdmit-selected helps on some downstream boundaries, but it is
+not a universal selected-superiority or token-savings result. The most stable
+signal is negative transfer from forced harmful artifacts.
+
 The current repo contains:
 
 - admission benchmark generation and regression scripts;
@@ -24,10 +44,14 @@ The current repo contains:
 - public reproduction guide and audit for release-facing rerun instructions;
 - experiment handoff and paper-facing status notes.
 
-Start with `docs/reproduction_guide.md` before running the full report
-regeneration sequence. It separates the current hard_v2/hard_v3/hard_v4
-boundary, the model-transfer addendum, and the historical hard_v2/hard_v3
-synthesis.
+Unsupported public claims:
+
+- Do not claim universal SkillAdmit-selected superiority.
+- Do not claim selected token savings.
+- Do not claim hard_v4 proves SkillAdmit-selected utility.
+- Do not use the model-transfer addendum as a model-general selected-win result.
+- Do not tune hard_v2, hard_v3, or hard_v4 from inspected failures while
+  treating them as clean evidence.
 
 Key entry points:
 
